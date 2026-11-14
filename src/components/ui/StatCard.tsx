@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { fmtDec } from '../../lib/format';
 
 /** Tarjeta con un indicador numérico grande. */
 export default function StatCard({
@@ -28,8 +29,8 @@ export function Variacion({ valor, texto }: { valor: number; texto?: string }) {
   const sube = valor >= 0;
   return (
     <span className={sube ? 'text-green-300' : 'text-red-300'}>
-      <span aria-hidden="true">{sube ? '▲' : '▼'}</span> {sube ? '+' : ''}
-      {(valor * 100).toFixed(1).replace('.', ',')} %{texto && <span className="text-tenue"> {texto}</span>}
+      <span aria-hidden="true">{sube ? '▲' : '▼'}</span> {sube ? '+' : '−'}
+      {fmtDec(Math.abs(valor) * 100)} %{texto && <span className="text-tenue"> {texto}</span>}
     </span>
   );
 }

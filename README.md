@@ -24,6 +24,15 @@ Un tablero web que:
 4. Muestra **tendencias de ventas y TRM**, **pronostica** las ventas y dice **qué tan acertada ha sido la IA**.
 5. Escribe solo el **reporte del mes**, listo para imprimir o guardar en PDF.
 
+## Idioma y tema
+
+En el menú (abajo a la izquierda en computador; dentro del botón ☰ en celular) hay dos controles:
+
+- **ES / EN**: cambia toda la interfaz entre español e inglés, incluidos los textos que genera la IA (recomendaciones, motivos de alerta, mensaje al cliente y reporte del mes) y el formato de fechas y números (14 nov 2026 · 1.234,5 ↔ Nov 14, 2026 · 1,234.5).
+- **Claro / Oscuro**: cambia entre el tema oscuro de la marca y un tema claro, por ejemplo para proyectar en salas iluminadas o imprimir.
+
+La elección se guarda en el navegador: al volver a abrir la web sigue como la dejaste.
+
 ## Cómo correrlo
 
 Necesitas [Node.js](https://nodejs.org) 18 o superior.
@@ -121,7 +130,10 @@ src/
     descargar.ts             Descarga de tablas como CSV
     reporte.ts               Reporte automático del mes
     datos.ts                 Carga los datos y ejecuta los cálculos una vez
-    format.ts                Formato de moneda, fechas y porcentajes (es-CO)
+    format.ts                Formato de moneda, fechas y porcentajes según el idioma
+    idioma.tsx               Idioma de la interfaz (español / inglés)
+    tema.tsx                 Tema claro / oscuro
+    catalogo.ts              Traducción de categorías, sectores y productos
   components/
     ui/                      Piezas reutilizables: Card, StatCard, StatusChip, RiskBar,
                              Button, Table, PageHeader, EmptyState

@@ -2,11 +2,9 @@
  * Reporte automático del mes: reemplaza la consolidación manual en Excel.
  * Compara cómo estaban los clientes al cierre del mes contra el cierre del mes anterior.
  */
-import { analizarClientes, etiquetaMes, generarAlertas, sumarMeses, ventasPorMes, DIA, type AnalisisCliente } from './analytics';
+import { analizarClientes, generarAlertas, sumarMeses, ventasPorMes, DIA, type AnalisisCliente } from './analytics';
 import { clientes, productos, trm, ventas, HOY } from './datos';
 
-const NOMBRE_MES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
-export const nombreMes = (clave: string) => `${NOMBRE_MES[Number(clave.slice(5, 7)) - 1]} de ${clave.slice(0, 4)}`;
 
 /** Último día del mes (a medianoche UTC). */
 const finDeMes = (clave: string) => new Date(new Date(`${sumarMeses(clave, 1)}-01T00:00:00Z`).getTime() - DIA);
@@ -19,7 +17,6 @@ const trmAl = (d: Date) => {
 
 export interface ReporteMes {
   clave: string;
-  nombre: string;
   usd: number;
   cop: number;
   variacion: number; // vs. mes anterior en USD
@@ -66,7 +63,6 @@ export function generarReporte(clave: string): ReporteMes {
 
   return {
     clave,
-    nombre: nombreMes(clave),
     usd: actual.usd,
     cop: actual.cop,
     variacion: anterior.usd ? (actual.usd - anterior.usd) / anterior.usd : 0,
@@ -95,4 +91,3 @@ export function generarReporte(clave: string): ReporteMes {
   };
 }
 
-export { etiquetaMes };

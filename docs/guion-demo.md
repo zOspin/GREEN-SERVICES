@@ -1,6 +1,6 @@
 # Guion de la demo (3 minutos)
 
-**Antes de empezar:** `npm run dev`, abre http://localhost:5173/reto en pantalla completa y ten el navegador en modo oscuro. Si presentas desde el celular, también funciona.
+**Antes de empezar:** `npm run dev`, abre http://localhost:5173/reto en pantalla completa. Si el proyector se ve lavado, usa el botón **Claro** del menú. Si el jurado no habla español, pulsa **EN**: toda la demo cambia a inglés. Si presentas desde el celular, también funciona.
 
 | Tiempo | Pantalla | Qué hacer | Qué decir |
 |---|---|---|---|

@@ -49,3 +49,14 @@ Cuando algo no estaba especificado, tomamos la opción más simple. Aquí quedan
 31. **«Descargar lista»** en Alertas exporta lo que se ve en pantalla (con los filtros aplicados) en CSV con BOM, para que Excel muestre bien las tildes.
 32. **Sin animación en la línea de tiempo de la ficha**: si no, se reiniciaba cada vez que se pulsaba un botón y los puntos parecían desaparecer.
 
+## Idioma (español / inglés) y tema (claro / oscuro)
+
+33. **Traducción con `tr('español', 'english')`** dentro de cada pantalla, en lugar de un archivo enorme de claves: cada texto queda junto a su traducción y es fácil de revisar. Los textos que genera la IA se calculan una vez en los dos idiomas (`{ es, en }`).
+34. **Se traducen** categorías, sectores, tipos y nombres de productos (`src/lib/catalogo.ts`). **No se traducen** los nombres de clientes («Cliente 23»), porque funcionan como identificadores del sistema, ni las ciudades.
+35. **Formatos según el idioma**: en inglés se usa en-US (1,234.5 y Nov 14, 2026) y el peso se muestra como «COP 4,500,000» para no confundirlo con el dólar; en español, es-CO.
+36. **Al cambiar de idioma se vuelven a pintar las pantallas**: se conservan la URL y los clientes marcados como contactados, pero se reinician los filtros y los archivos cargados en «Cargar datos».
+37. **Tema oscuro por defecto** (es la identidad de la marca). El tema claro usa tonos más oscuros de dorado, azul, verde y rojo para mantener buen contraste sobre blanco.
+38. **Colores como variables CSS** (`src/index.css`): Tailwind lee las variables, así que todas las pantallas cambian de tema sin tocar cada componente. Las gráficas reciben sus colores con `useTema()`.
+39. **El botón principal mantiene el dorado de la marca** en ambos temas, con texto oscuro.
+40. **La preferencia se guarda en el navegador** (`localStorage`), y un pequeño script en `index.html` la aplica antes de pintar para evitar un parpadeo. Si el navegador no permite guardar, la app funciona igual y solo olvida la elección al cerrar.
+

@@ -9,6 +9,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
     <title>Órbita Pulse</title>
+    <script>
+      // Aplica el tema y el idioma guardados antes de pintar, para evitar un parpadeo.
+      try {
+        if (localStorage.getItem('orbita-tema') === 'light') document.documentElement.dataset.theme = 'light';
+        if (localStorage.getItem('orbita-idioma') === 'en') document.documentElement.lang = 'en';
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

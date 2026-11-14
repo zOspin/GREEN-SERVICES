@@ -20,14 +20,14 @@ const SINONIMOS: Record<CampoComun, string[]> = {
   trm: ['trm', 'trm del dia', 'tasa', 'tasa de cambio'],
 };
 
-export const NOMBRE_CAMPO: Record<CampoComun, string> = {
-  fecha: 'Fecha',
-  cliente: 'Cliente',
-  producto: 'Producto',
-  cantidad: 'Cantidad',
-  valor_usd: 'Valor USD',
-  valor_cop: 'Valor COP',
-  trm: 'TRM',
+export const NOMBRE_CAMPO: Record<CampoComun, { es: string; en: string }> = {
+  fecha: { es: 'Fecha', en: 'Date' },
+  cliente: { es: 'Cliente', en: 'Client' },
+  producto: { es: 'Producto', en: 'Product' },
+  cantidad: { es: 'Cantidad', en: 'Quantity' },
+  valor_usd: { es: 'Valor USD', en: 'USD amount' },
+  valor_cop: { es: 'Valor COP', en: 'COP amount' },
+  trm: { es: 'TRM', en: 'Exchange rate' },
 };
 
 const normalizar = (s: string) =>
@@ -100,7 +100,7 @@ export interface VentaUnificada {
 export interface Problema {
   origen: string;
   fila: number;
-  motivo: string;
+  motivo: { es: string; en: string };
 }
 
 export interface ResultadoArchivo {
@@ -172,9 +172,10 @@ export function unirArchivos(entradas: { nombre: string; filas: Record<string, u
       const id_cliente = clientePorClave.get(normalizar(String(f[colDe('cliente')!] ?? '')));
       const id_producto = productoPorClave.get(normalizar(String(f[colDe('producto')!] ?? '')));
       const cantidad = colDe('cantidad') ? (leerNumero(f[colDe('cantidad')!]) ?? 1) : 1;
-      if (!fecha) return problemas.push({ origen: nombre, fila, motivo: `Fecha no reconocida: «${f[colDe('fecha')!]}»` });
-      if (!id_cliente) return problemas.push({ origen: nombre, fila, motivo: `Cliente sin código conocido: «${f[colDe('cliente')!]}»` });
-      if (!id_producto) return problemas.push({ origen: nombre, fila, motivo: `Producto no reconocido: «${f[colDe('producto')!]}»` });
+      const v = (campo: CampoComun) => String(f[colDe(campo)!] ?? '');
+      if (!fecha) return problemas.push({ origen: nombre, fila, motivo: { es: `Fecha no reconocida: «${v('fecha')}»`, en: `Unrecognized date: "${v('fecha')}"` } });
+      if (!id_cliente) return problemas.push({ origen: nombre, fila, motivo: { es: `Cliente sin código conocido: «${v('cliente')}»`, en: `Client without a known code: "${v('cliente')}"` } });
+      if (!id_producto) return problemas.push({ origen: nombre, fila, motivo: { es: `Producto no reconocido: «${v('producto')}»`, en: `Unrecognized product: "${v('producto')}"` } });
 
       // Valor en USD: directo, o convertido desde pesos con la TRM de la fila (o la del día).
       let valor_usd = colDe('valor_usd') ? leerNumero(f[colDe('valor_usd')!]) : null;
@@ -183,7 +184,7 @@ export function unirArchivos(entradas: { nombre: string; filas: Record<string, u
         const tasa = (colDe('trm') ? leerNumero(f[colDe('trm')!]) : null) ?? trmPorFecha.get(fecha) ?? null;
         if (cop !== null && tasa) valor_usd = Math.round((cop / tasa) * 100) / 100;
       }
-      if (valor_usd === null) return problemas.push({ origen: nombre, fila, motivo: 'Sin valor de venta' });
+      if (valor_usd === null) return problemas.push({ origen: nombre, fila, motivo: { es: 'Sin valor de venta', en: 'Missing sale amount' } });
 
       const venta: VentaUnificada = { fecha, id_cliente, id_producto, cantidad, valor_usd, origen: nombre };
       resumen.validas++;

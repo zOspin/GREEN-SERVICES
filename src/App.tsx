@@ -10,13 +10,24 @@ import Ventas from './pages/Ventas';
 import Reporte from './pages/Reporte';
 import Reto from './pages/Reto';
 import { ButtonLink, EmptyState } from './components/ui';
+import { useIdioma } from './lib/idioma';
 // Carga diferida: la lectura de Excel (SheetJS) solo se descarga al entrar a /datos.
 const CargarDatos = lazy(() => import('./pages/CargarDatos'));
 
 function NoEncontrada() {
+  const { tr } = useIdioma();
   return (
-    <EmptyState titulo="Página no encontrada" descripcion="La dirección no existe en Órbita Pulse." accion={<ButtonLink to="/" variante="primario">Ir al inicio</ButtonLink>} />
+    <EmptyState
+      titulo={tr('Página no encontrada', 'Page not found')}
+      descripcion={tr('La dirección no existe en Órbita Pulse.', "This address doesn't exist in Órbita Pulse.")}
+      accion={<ButtonLink to="/" variante="primario">{tr('Ir al inicio', 'Go home')}</ButtonLink>}
+    />
   );
+}
+
+function Cargando() {
+  const { tr } = useIdioma();
+  return <p className="text-tenue">{tr('Cargando…', 'Loading…')}</p>;
 }
 
 export default function App() {
@@ -31,7 +42,7 @@ export default function App() {
         <Route path="predicciones" element={<Predicciones />} />
         <Route path="reporte" element={<Reporte />} />
         <Route path="reto" element={<Reto />} />
-        <Route path="datos" element={<Suspense fallback={<p className="text-tenue">Cargando…</p>}><CargarDatos /></Suspense>} />
+        <Route path="datos" element={<Suspense fallback={<Cargando />}><CargarDatos /></Suspense>} />
         <Route path="*" element={<NoEncontrada />} />
       </Route>
     </Routes>

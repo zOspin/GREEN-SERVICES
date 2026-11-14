@@ -7,6 +7,14 @@
  * Aquí hacemos eso con cada cliente, usando su propio ritmo de compra.
  */
 import type { Cliente, Producto, Venta, Trm } from './types';
+import { categoria as cat, producto as prod, sector as sec } from './catalogo';
+
+/** Texto en los dos idiomas de la interfaz. */
+export interface Bi {
+  es: string;
+  en: string;
+}
+const dec = (n: number, i: 'es' | 'en') => (i === 'es' ? n.toFixed(1).replace('.', ',') : n.toFixed(1));
 
 export const DIA = 86_400_000;
 
@@ -38,7 +46,7 @@ export interface AnalisisCliente {
   ultimaCategoria: string | null;
   categoriaPrincipal: string | null;
   productoRecomendado: RecomendacionProducto | null;
-  recomendacion: string;
+  recomendacion: Bi;
 }
 
 /** Análisis de un cliente antes de calcular su recomendación. */
@@ -81,7 +89,7 @@ export function estadoDesde(ratio: number, recencia: number): Estado {
 export interface RecomendacionProducto {
   producto: Producto;
   tipo: 'renovacion' | 'venta-cruzada' | 'popular';
-  motivo: string; // explicación en lenguaje simple de por qué se recomienda
+  motivo: Bi; // explicación en lenguaje simple de por qué se recomienda
 }
 
 /**
@@ -127,7 +135,10 @@ export function recomendarProducto(
     return {
       producto: p,
       tipo: 'renovacion',
-      motivo: `Es un servicio recurrente que suele renovar cada ${cada} días y lleva ${dias} sin renovarlo: ya le toca.`,
+      motivo: {
+        es: `Es un servicio recurrente que suele renovar cada ${cada} días y lleva ${dias} sin renovarlo: ya le toca.`,
+        en: `It's a recurring service they usually renew every ${cada} days, and it's been ${dias} days since the last renewal: it's due.`,
+      },
     };
   }
 
@@ -139,8 +150,11 @@ export function recomendarProducto(
   const productosDe = (o: Parcial) => new Set(o.ventas.map((v) => v.id_producto));
 
   for (const [grupo, otros] of [
-    [`clientes de ${a.cliente.sector}`, todos.filter((o) => o.cliente.id !== a.cliente.id && o.cliente.sector === a.cliente.sector)],
-    ['clientes', todos.filter((o) => o.cliente.id !== a.cliente.id)],
+    [
+      { es: `clientes de ${a.cliente.sector}`, en: `${sec(a.cliente.sector, 'en')} clients` },
+      todos.filter((o) => o.cliente.id !== a.cliente.id && o.cliente.sector === a.cliente.sector),
+    ],
+    [{ es: 'clientes', en: 'clients' }, todos.filter((o) => o.cliente.id !== a.cliente.id)],
   ] as const) {
     const conX = otros.filter((o) => productosDe(o).has(x));
     if (conX.length < 2) continue;
@@ -152,7 +166,10 @@ export function recomendarProducto(
       return {
         producto: y,
         tipo: 'venta-cruzada',
-        motivo: `${top[1]} de ${conX.length} ${grupo} que compraron ${productoPorId.get(x)?.nombre} también compraron ${y.nombre}, y este cliente aún no lo tiene.`,
+        motivo: {
+          es: `${top[1]} de ${conX.length} ${grupo.es} que compraron ${productoPorId.get(x)?.nombre} también compraron ${y.nombre}, y este cliente aún no lo tiene.`,
+          en: `${top[1]} of ${conX.length} ${grupo.en} who bought ${prod(productoPorId.get(x)?.nombre ?? '', 'en')} also bought ${prod(y.nombre, 'en')}, and this client doesn't have it yet.`,
+        },
       };
     }
   }
@@ -166,46 +183,75 @@ export function recomendarProducto(
   const masVendido = [...conteoSector.entries()].sort((m, n) => n[1] - m[1])[0];
   if (!masVendido) return null;
   const p = productoPorId.get(masVendido[0])!;
-  return { producto: p, tipo: 'popular', motivo: `Es uno de los productos más vendidos en el sector ${a.cliente.sector} y este cliente aún no lo tiene.` };
+  return {
+    producto: p,
+    tipo: 'popular',
+    motivo: {
+      es: `Es uno de los productos más vendidos en el sector ${a.cliente.sector} y este cliente aún no lo tiene.`,
+      en: `It's one of the best sellers in the ${sec(a.cliente.sector, 'en')} sector, and this client doesn't have it yet.`,
+    },
+  };
 }
 
-const fmtFecha = (d: Date) =>
-  d.toLocaleDateString('es-CO', { day: 'numeric', month: 'long', timeZone: 'UTC' });
+const diaMes = (d: Date, i: 'es' | 'en') =>
+  d.toLocaleDateString(i === 'es' ? 'es-CO' : 'en-US', { day: 'numeric', month: 'long', timeZone: 'UTC' });
 
-/** Texto de recomendación, armado con plantillas a partir del estado y del producto sugerido. */
-function recomendar(a: Parcial, rec: RecomendacionProducto | null, subidaTrm: number): string {
-  if (!a.ultimaCompra) return 'Aún no tiene compras registradas. Agenda una visita de presentación.';
-  const cat = a.ultimaCategoria ?? 'sus productos';
+/** Texto de recomendación, armado con plantillas en español e inglés. */
+function recomendar(a: Parcial, rec: RecomendacionProducto | null, subidaTrm: number): Bi {
+  return { es: recomendarEn(a, rec, subidaTrm, 'es'), en: recomendarEn(a, rec, subidaTrm, 'en') };
+}
+
+function recomendarEn(a: Parcial, rec: RecomendacionProducto | null, subidaTrm: number, i: 'es' | 'en'): string {
+  const es = i === 'es';
+  if (!a.ultimaCompra) return es ? 'Aún no tiene compras registradas. Agenda una visita de presentación.' : 'No purchases yet. Schedule an introductory visit.';
+  const ultima = a.ultimaCategoria ? cat(a.ultimaCategoria, i) : es ? 'sus productos' : 'their products';
+  const nombre = rec ? prod(rec.producto.nombre, i) : '';
   const oferta = !rec
-    ? 'una propuesta a su medida'
+    ? es ? 'una propuesta a su medida' : 'a tailored proposal'
     : rec.tipo === 'renovacion'
-      ? `la renovación de ${rec.producto.nombre}`
-      : rec.producto.nombre;
+      ? es ? `la renovación de ${nombre}` : `a renewal of ${nombre}`
+      : nombre;
   const ciclo = Math.round(a.ciclo);
   const partes: string[] = [];
 
   if (a.estado === 'activo') {
     partes.push(
-      `Va al día: compra cada ${ciclo} días y lleva ${a.recencia} sin comprar.`,
-      a.proximaCompra ? `Su próxima compra estimada es el ${fmtFecha(a.proximaCompra)}. Prepárale una propuesta de ${oferta} unos días antes.` : '',
+      es ? `Va al día: compra cada ${ciclo} días y lleva ${a.recencia} sin comprar.` : `On track: buys every ${ciclo} days and last bought ${a.recencia} days ago.`,
+      a.proximaCompra
+        ? es
+          ? `Su próxima compra estimada es el ${diaMes(a.proximaCompra, i)}. Prepárale una propuesta de ${oferta} unos días antes.`
+          : `Next estimated purchase: ${diaMes(a.proximaCompra, i)}. Prepare a proposal for ${oferta} a few days before.`
+        : '',
     );
   } else if (a.estado === 'riesgo') {
     partes.push(
-      `Compra cada ${ciclo} días y lleva ${a.recencia} sin comprar. Su última compra fue ${cat}.`,
-      `Llámalo esta semana y ofrécele ${oferta}.`,
+      es
+        ? `Compra cada ${ciclo} días y lleva ${a.recencia} sin comprar. Su última compra fue ${ultima}.`
+        : `Buys every ${ciclo} days and hasn't bought in ${a.recencia}. Last purchase: ${ultima}.`,
+      es ? `Llámalo esta semana y ofrécele ${oferta}.` : `Call them this week and offer ${oferta}.`,
     );
   } else {
     partes.push(
-      `Lleva ${a.recencia} días sin comprar, cuando su ritmo normal era de ${ciclo} días. Su última compra fue ${cat}.`,
-      `Haz una llamada de reactivación: pregunta qué cambió y ofrécele ${oferta}.`,
+      es
+        ? `Lleva ${a.recencia} días sin comprar, cuando su ritmo normal era de ${ciclo} días. Su última compra fue ${ultima}.`
+        : `No purchases in ${a.recencia} days, when they used to buy every ${ciclo}. Last purchase: ${ultima}.`,
+      es
+        ? `Haz una llamada de reactivación: pregunta qué cambió y ofrécele ${oferta}.`
+        : `Make a win-back call: ask what changed and offer ${oferta}.`,
     );
   }
   if (a.cliente.es_base_instalada && a.estado !== 'activo') {
-    partes.push('Es base instalada: revisa vencimientos de garantías y licencias como motivo de contacto.');
+    partes.push(
+      es
+        ? 'Es base instalada: revisa vencimientos de garantías y licencias como motivo de contacto.'
+        : 'Installed base: check warranty and license expirations as a reason to reach out.',
+    );
   }
   if (subidaTrm > UMBRAL_SUBIDA_TRM && a.estado !== 'activo') {
     partes.push(
-      `El dólar subió ${(subidaTrm * 100).toFixed(1).replace('.', ',')} % en 30 días: considera precio fijo en pesos o pago diferido.`,
+      es
+        ? `El dólar subió ${dec(subidaTrm * 100, i)} % en 30 días: considera precio fijo en pesos o pago diferido.`
+        : `The dollar rose ${dec(subidaTrm * 100, i)}% in 30 days: consider a fixed price in pesos or deferred payment.`,
     );
   }
   return partes.filter(Boolean).join(' ');
@@ -353,7 +399,7 @@ export interface Alerta {
   analisis: AnalisisCliente;
   tipo: TipoAlerta;
   prioridad: number; // 0–100, mayor = más urgente
-  motivo: string;
+  motivo: Bi;
 }
 
 /**
@@ -375,7 +421,10 @@ export function generarAlertas(analisis: AnalisisCliente[], hoy: Date): Alerta[]
         analisis: a,
         tipo: 'riesgo',
         prioridad: Math.round(a.puntaje * peso),
-        motivo: `Compra cada ${ciclo} días y lleva ${a.recencia} sin comprar (${a.ratio.toFixed(1).replace('.', ',')} veces su ciclo).`,
+        motivo: {
+          es: `Compra cada ${ciclo} días y lleva ${a.recencia} sin comprar (${dec(a.ratio, 'es')} veces su ciclo).`,
+          en: `Buys every ${ciclo} days and hasn't bought in ${a.recencia} (${dec(a.ratio, 'en')}× their cycle).`,
+        },
       });
     } else if (a.estado === 'frio' && a.recencia <= 365) {
       // Fríos recuperables: dejaron de comprar hace menos de un año.
@@ -384,7 +433,10 @@ export function generarAlertas(analisis: AnalisisCliente[], hoy: Date): Alerta[]
         analisis: a,
         tipo: 'frio',
         prioridad: Math.round(a.puntaje * peso * 0.75),
-        motivo: `Lleva ${a.recencia} días sin comprar; su ritmo normal era de ${ciclo} días. Aún es recuperable.`,
+        motivo: {
+          es: `Lleva ${a.recencia} días sin comprar; su ritmo normal era de ${ciclo} días. Aún es recuperable.`,
+          en: `No purchases in ${a.recencia} days; they used to buy every ${ciclo}. Still recoverable.`,
+        },
       });
     } else if (a.estado === 'activo' && a.proximaCompra && !a.cicloEstimado) {
       // Proactivo: clientes al día cuya próxima compra cae en los próximos 7 días.
@@ -395,7 +447,10 @@ export function generarAlertas(analisis: AnalisisCliente[], hoy: Date): Alerta[]
           analisis: a,
           tipo: 'recompra',
           prioridad: Math.round(30 * peso),
-          motivo: `Su próxima compra estimada es en ${faltan === 0 ? 'hoy' : `${faltan} días`}. Buen momento para enviarle una propuesta.`,
+          motivo: {
+            es: `Su próxima compra estimada es ${faltan === 0 ? 'hoy' : `en ${faltan} días`}. Buen momento para enviarle una propuesta.`,
+            en: `Next estimated purchase ${faltan === 0 ? 'is today' : `in ${faltan} days`}. A good time to send a proposal.`,
+          },
         });
       }
     }
