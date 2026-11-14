@@ -1,0 +1,482 @@
+[
+  {
+    "id": "CLI-001",
+    "nombre": "Cliente 01",
+    "sector": "financiero",
+    "ciudad": "Miami",
+    "fecha_primera_compra": "2025-05-16",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-002",
+    "nombre": "Cliente 02",
+    "sector": "manufactura",
+    "ciudad": "San Juan",
+    "fecha_primera_compra": "2025-05-31",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-003",
+    "nombre": "Cliente 03",
+    "sector": "educación",
+    "ciudad": "Quito",
+    "fecha_primera_compra": "2025-07-15",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-004",
+    "nombre": "Cliente 04",
+    "sector": "retail",
+    "ciudad": "Medellín",
+    "fecha_primera_compra": "2025-06-02",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-005",
+    "nombre": "Cliente 05",
+    "sector": "retail",
+    "ciudad": "Medellín",
+    "fecha_primera_compra": "2025-06-22",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-006",
+    "nombre": "Cliente 06",
+    "sector": "manufactura",
+    "ciudad": "Bogotá",
+    "fecha_primera_compra": "2025-06-29",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-007",
+    "nombre": "Cliente 07",
+    "sector": "educación",
+    "ciudad": "Bogotá",
+    "fecha_primera_compra": "2025-05-15",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-008",
+    "nombre": "Cliente 08",
+    "sector": "manufactura",
+    "ciudad": "Quito",
+    "fecha_primera_compra": "2025-06-08",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-009",
+    "nombre": "Cliente 09",
+    "sector": "salud",
+    "ciudad": "Medellín",
+    "fecha_primera_compra": "2025-06-11",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-010",
+    "nombre": "Cliente 10",
+    "sector": "salud",
+    "ciudad": "Bogotá",
+    "fecha_primera_compra": "2025-06-14",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-011",
+    "nombre": "Cliente 11",
+    "sector": "gobierno",
+    "ciudad": "Medellín",
+    "fecha_primera_compra": "2025-07-08",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-012",
+    "nombre": "Cliente 12",
+    "sector": "financiero",
+    "ciudad": "Bogotá",
+    "fecha_primera_compra": "2025-06-09",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-013",
+    "nombre": "Cliente 13",
+    "sector": "salud",
+    "ciudad": "Bogotá",
+    "fecha_primera_compra": "2025-06-23",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-014",
+    "nombre": "Cliente 14",
+    "sector": "retail",
+    "ciudad": "Bogotá",
+    "fecha_primera_compra": "2025-07-13",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-015",
+    "nombre": "Cliente 15",
+    "sector": "gobierno",
+    "ciudad": "Cali",
+    "fecha_primera_compra": "2025-05-31",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-016",
+    "nombre": "Cliente 16",
+    "sector": "educación",
+    "ciudad": "Medellín",
+    "fecha_primera_compra": "2025-06-23",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-017",
+    "nombre": "Cliente 17",
+    "sector": "financiero",
+    "ciudad": "Medellín",
+    "fecha_primera_compra": "2025-06-03",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-018",
+    "nombre": "Cliente 18",
+    "sector": "retail",
+    "ciudad": "Miami",
+    "fecha_primera_compra": "2025-06-12",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-019",
+    "nombre": "Cliente 19",
+    "sector": "retail",
+    "ciudad": "Medellín",
+    "fecha_primera_compra": "2025-11-04",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-020",
+    "nombre": "Cliente 20",
+    "sector": "gobierno",
+    "ciudad": "Quito",
+    "fecha_primera_compra": "2025-06-04",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-021",
+    "nombre": "Cliente 21",
+    "sector": "salud",
+    "ciudad": "Miami",
+    "fecha_primera_compra": "2025-07-19",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-022",
+    "nombre": "Cliente 22",
+    "sector": "manufactura",
+    "ciudad": "Miami",
+    "fecha_primera_compra": "2025-06-20",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-023",
+    "nombre": "Cliente 23",
+    "sector": "educación",
+    "ciudad": "Medellín",
+    "fecha_primera_compra": "2025-06-04",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-024",
+    "nombre": "Cliente 24",
+    "sector": "financiero",
+    "ciudad": "Bogotá",
+    "fecha_primera_compra": "2025-06-29",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-025",
+    "nombre": "Cliente 25",
+    "sector": "financiero",
+    "ciudad": "Cali",
+    "fecha_primera_compra": "2025-07-25",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-026",
+    "nombre": "Cliente 26",
+    "sector": "manufactura",
+    "ciudad": "San Juan",
+    "fecha_primera_compra": "2025-07-11",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-027",
+    "nombre": "Cliente 27",
+    "sector": "manufactura",
+    "ciudad": "Cali",
+    "fecha_primera_compra": "2025-05-29",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-028",
+    "nombre": "Cliente 28",
+    "sector": "salud",
+    "ciudad": "San Juan",
+    "fecha_primera_compra": "2025-06-20",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-029",
+    "nombre": "Cliente 29",
+    "sector": "educación",
+    "ciudad": "Medellín",
+    "fecha_primera_compra": "2025-06-08",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-030",
+    "nombre": "Cliente 30",
+    "sector": "retail",
+    "ciudad": "Medellín",
+    "fecha_primera_compra": "2025-05-20",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-031",
+    "nombre": "Cliente 31",
+    "sector": "educación",
+    "ciudad": "Medellín",
+    "fecha_primera_compra": "2025-06-14",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-032",
+    "nombre": "Cliente 32",
+    "sector": "manufactura",
+    "ciudad": "Bogotá",
+    "fecha_primera_compra": "2025-06-06",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-033",
+    "nombre": "Cliente 33",
+    "sector": "financiero",
+    "ciudad": "Medellín",
+    "fecha_primera_compra": "2025-06-14",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-034",
+    "nombre": "Cliente 34",
+    "sector": "educación",
+    "ciudad": "Bogotá",
+    "fecha_primera_compra": "2025-09-15",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-035",
+    "nombre": "Cliente 35",
+    "sector": "financiero",
+    "ciudad": "Bogotá",
+    "fecha_primera_compra": "2025-05-16",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-036",
+    "nombre": "Cliente 36",
+    "sector": "financiero",
+    "ciudad": "Quito",
+    "fecha_primera_compra": "2025-07-06",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-037",
+    "nombre": "Cliente 37",
+    "sector": "educación",
+    "ciudad": "Medellín",
+    "fecha_primera_compra": "2025-06-08",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-038",
+    "nombre": "Cliente 38",
+    "sector": "financiero",
+    "ciudad": "Miami",
+    "fecha_primera_compra": "2025-05-30",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-039",
+    "nombre": "Cliente 39",
+    "sector": "educación",
+    "ciudad": "Quito",
+    "fecha_primera_compra": "2025-05-21",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-040",
+    "nombre": "Cliente 40",
+    "sector": "retail",
+    "ciudad": "Bogotá",
+    "fecha_primera_compra": "2025-09-07",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-041",
+    "nombre": "Cliente 41",
+    "sector": "salud",
+    "ciudad": "Bogotá",
+    "fecha_primera_compra": "2025-06-24",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-042",
+    "nombre": "Cliente 42",
+    "sector": "gobierno",
+    "ciudad": "Miami",
+    "fecha_primera_compra": "2025-06-12",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-043",
+    "nombre": "Cliente 43",
+    "sector": "retail",
+    "ciudad": "Bogotá",
+    "fecha_primera_compra": "2025-06-12",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-044",
+    "nombre": "Cliente 44",
+    "sector": "salud",
+    "ciudad": "Bogotá",
+    "fecha_primera_compra": "2025-06-04",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-045",
+    "nombre": "Cliente 45",
+    "sector": "educación",
+    "ciudad": "Bogotá",
+    "fecha_primera_compra": "2025-08-26",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-046",
+    "nombre": "Cliente 46",
+    "sector": "salud",
+    "ciudad": "San Juan",
+    "fecha_primera_compra": "2025-05-19",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-047",
+    "nombre": "Cliente 47",
+    "sector": "manufactura",
+    "ciudad": "Miami",
+    "fecha_primera_compra": "2025-11-15",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-048",
+    "nombre": "Cliente 48",
+    "sector": "educación",
+    "ciudad": "Medellín",
+    "fecha_primera_compra": "2025-06-28",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-049",
+    "nombre": "Cliente 49",
+    "sector": "educación",
+    "ciudad": "Quito",
+    "fecha_primera_compra": "2025-06-29",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-050",
+    "nombre": "Cliente 50",
+    "sector": "salud",
+    "ciudad": "Medellín",
+    "fecha_primera_compra": "2025-05-27",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-051",
+    "nombre": "Cliente 51",
+    "sector": "gobierno",
+    "ciudad": "Medellín",
+    "fecha_primera_compra": "2026-04-04",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-052",
+    "nombre": "Cliente 52",
+    "sector": "financiero",
+    "ciudad": "Quito",
+    "fecha_primera_compra": "2025-05-24",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-053",
+    "nombre": "Cliente 53",
+    "sector": "manufactura",
+    "ciudad": "Cali",
+    "fecha_primera_compra": "2025-07-30",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-054",
+    "nombre": "Cliente 54",
+    "sector": "gobierno",
+    "ciudad": "Cali",
+    "fecha_primera_compra": "2025-06-04",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-055",
+    "nombre": "Cliente 55",
+    "sector": "salud",
+    "ciudad": "Medellín",
+    "fecha_primera_compra": "2025-05-25",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-056",
+    "nombre": "Cliente 56",
+    "sector": "manufactura",
+    "ciudad": "Bogotá",
+    "fecha_primera_compra": "2025-10-13",
+    "es_base_instalada": true
+  },
+  {
+    "id": "CLI-057",
+    "nombre": "Cliente 57",
+    "sector": "salud",
+    "ciudad": "Bogotá",
+    "fecha_primera_compra": "2025-06-26",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-058",
+    "nombre": "Cliente 58",
+    "sector": "financiero",
+    "ciudad": "Medellín",
+    "fecha_primera_compra": "2025-07-28",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-059",
+    "nombre": "Cliente 59",
+    "sector": "manufactura",
+    "ciudad": "Medellín",
+    "fecha_primera_compra": "2025-08-10",
+    "es_base_instalada": false
+  },
+  {
+    "id": "CLI-060",
+    "nombre": "Cliente 60",
+    "sector": "retail",
+    "ciudad": "Quito",
+    "fecha_primera_compra": "2025-05-28",
+    "es_base_instalada": false
+  }
+]

@@ -1,0 +1,20 @@
+# Guion de la demo (3 minutos)
+
+**Antes de empezar:** `npm run dev`, abre http://localhost:5173/reto en pantalla completa y ten el navegador en modo oscuro. Si presentas desde el celular, también funciona.
+
+| Tiempo | Pantalla | Qué hacer | Qué decir |
+|---|---|---|---|
+| 0:00 – 0:25 | **El reto** (`/reto`) | Muestra la pregunta principal y el bloque «Antes / Ahora». | «Green Services tiene sus datos de ventas, TRM y clientes regados en varias plataformas. Cada mes alguien los une a mano en Excel, y cuando se dan cuenta de que un cliente dejó de comprar ya es tarde. Nuestra pregunta: ¿cómo ayudamos a Comercial a anticipar quién está por dejar de comprar y cuándo debería volver?» |
+| 0:25 – 0:55 | **Cargar datos** (`/datos`) | Clic en **«Cargar los 3 archivos de ejemplo»**. Señala las columnas reconocidas y las tarjetas de limpieza. | «Estos son tres archivos de plataformas distintas: uno con punto y coma, otro en inglés, otro digitado a mano en pesos. Órbita Pulse reconoce las columnas, convierte los pesos a dólares, quita 35 duplicados y nos avisa del cliente sin código. 111 filas regadas se convierten en 74 ventas limpias en segundos.» |
+| 0:55 – 1:20 | **Inicio** (`/`) | Recorre las tarjetas y el bloque «Contactar esta semana». | «Con los datos unidos, todo queda en una sola vista: ventas del mes en dólares y pesos, la TRM, y lo más importante: 9 clientes en riesgo y 21 fríos. Aquí está la lista de a quién llamar esta semana.» |
+| 1:20 – 1:55 | **Alertas** → **Ficha del cliente** (`/alertas`, luego clic en **Cliente 30**) | Muestra el motivo y el producto a ofrecer. Entra a la ficha: próxima compra estimada, productos que tiene y la caja «Recomendación de IA». | «Cliente 30 compra cada 37 días y lleva 66 sin comprar. La IA estimó que debía comprar el 16 de octubre y no lo hizo. Además nos dice qué ofrecerle y por qué: 5 de 14 clientes que compraron estaciones de trabajo también compraron antivirus, y él aún no lo tiene.» Clic en **«Marcar como contactado»** en Alertas. |
+| 1:55 – 2:15 | **Ventas y TRM** (`/ventas`) | Señala la gráfica de barras con la línea de TRM. | «Para Gerencia Financiera: ventas por mes y por categoría frente al dólar. Si el dólar sube más de 5 %, la IA sube un poco el riesgo, porque los clientes tienden a aplazar compras en dólares.» |
+| 2:15 – 2:30 | **Reporte del mes** (`/reporte`) | Muestra el texto automático; clic en «Imprimir o guardar PDF» (y cancela). | «Y el informe que antes tomaba días se escribe solo: cuánto se vendió, quién pasó a riesgo, cómo se movió la TRM y a quién priorizar. Listo para imprimir.» |
+| 2:30 – 3:00 | **Predicciones** (`/predicciones`) | Lee el ejemplo de la panadería y termina en el círculo del **% de acierto**. | «¿Cómo funciona? Como la dueña de la panadería: si un vecino compra pan cada 3 días y lleva 10 sin aparecer, ella nota que algo pasó. ¿Y funciona? Viajamos 60 días al pasado, dejamos que la IA eligiera, y de 9 clientes que marcó en riesgo, 8 de verdad dejaron de comprar: **89 % de acierto**. Órbita Pulse: inteligencia que gira a tu alrededor.» |
+
+## Si preguntan…
+
+- **«¿Los datos son reales?»** No: son inventados porque los reales son confidenciales. El generador cuenta una historia realista (clientes frecuentes, frenados, fríos y ocasionales) y con datos reales la lógica funciona igual.
+- **«¿Por qué bajan las ventas en 2026?»** Es parte de la historia de los datos: son los clientes que se enfriaron. Justo lo que la herramienta ayuda a evitar.
+- **«¿Es IA de verdad?»** Es IA explicable: reglas y estadística (RFM, ciclos, correlación, backtest). Se puede auditar línea por línea y es el primer paso antes de un modelo de aprendizaje automático, que necesitaría los datos reales.
+- **«¿Qué sigue?»** Conectar las plataformas reales de forma automática, guardar el historial de contactos y entrenar un modelo con los datos reales usando este backtest como punto de comparación.

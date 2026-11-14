@@ -1,0 +1,8 @@
+{
+  "fecha_corte": "2026-11-14",
+  "fecha_inicio": "2025-05-15",
+  "semilla": 2026,
+  "meses_historia": 18,
+  "generado_por": "scripts/generate-data.ts",
+  "nota": "Datos 100 % sintéticos. No corresponden a clientes reales."
+}

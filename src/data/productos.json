@@ -1,0 +1,142 @@
+[
+  {
+    "id": "PRD-001",
+    "nombre": "Switch administrable 48 puertos",
+    "categoria": "Redes",
+    "precio_usd": 3200,
+    "tipo": "producto"
+  },
+  {
+    "id": "PRD-002",
+    "nombre": "Access point Wi-Fi 6",
+    "categoria": "Redes",
+    "precio_usd": 450,
+    "tipo": "producto"
+  },
+  {
+    "id": "PRD-003",
+    "nombre": "Router empresarial SD-WAN",
+    "categoria": "Redes",
+    "precio_usd": 5800,
+    "tipo": "producto"
+  },
+  {
+    "id": "PRD-004",
+    "nombre": "Cableado estructurado (punto)",
+    "categoria": "Redes",
+    "precio_usd": 120,
+    "tipo": "producto"
+  },
+  {
+    "id": "PRD-005",
+    "nombre": "Suscripción nube privada (mes)",
+    "categoria": "Nube",
+    "precio_usd": 2400,
+    "tipo": "servicio recurrente"
+  },
+  {
+    "id": "PRD-006",
+    "nombre": "Migración a la nube",
+    "categoria": "Nube",
+    "precio_usd": 9500,
+    "tipo": "producto"
+  },
+  {
+    "id": "PRD-007",
+    "nombre": "Respaldo en la nube (TB/año)",
+    "categoria": "Nube",
+    "precio_usd": 900,
+    "tipo": "servicio recurrente"
+  },
+  {
+    "id": "PRD-008",
+    "nombre": "Firewall de nueva generación",
+    "categoria": "Ciberseguridad",
+    "precio_usd": 7400,
+    "tipo": "producto"
+  },
+  {
+    "id": "PRD-009",
+    "nombre": "Antivirus empresarial (licencia)",
+    "categoria": "Ciberseguridad",
+    "precio_usd": 60,
+    "tipo": "servicio recurrente"
+  },
+  {
+    "id": "PRD-010",
+    "nombre": "Auditoría de seguridad",
+    "categoria": "Ciberseguridad",
+    "precio_usd": 6500,
+    "tipo": "producto"
+  },
+  {
+    "id": "PRD-011",
+    "nombre": "Servidor rack 2U",
+    "categoria": "Hardware",
+    "precio_usd": 8900,
+    "tipo": "producto"
+  },
+  {
+    "id": "PRD-012",
+    "nombre": "Portátil corporativo",
+    "categoria": "Hardware",
+    "precio_usd": 1300,
+    "tipo": "producto"
+  },
+  {
+    "id": "PRD-013",
+    "nombre": "Estación de trabajo",
+    "categoria": "Hardware",
+    "precio_usd": 2100,
+    "tipo": "producto"
+  },
+  {
+    "id": "PRD-014",
+    "nombre": "Licencia ofimática (usuario/año)",
+    "categoria": "Software",
+    "precio_usd": 150,
+    "tipo": "servicio recurrente"
+  },
+  {
+    "id": "PRD-015",
+    "nombre": "Licencia de virtualización",
+    "categoria": "Software",
+    "precio_usd": 3800,
+    "tipo": "servicio recurrente"
+  },
+  {
+    "id": "PRD-016",
+    "nombre": "Soporte y mesa de ayuda (mes)",
+    "categoria": "Software",
+    "precio_usd": 1800,
+    "tipo": "servicio recurrente"
+  },
+  {
+    "id": "PRD-017",
+    "nombre": "Arreglo de almacenamiento NAS",
+    "categoria": "Almacenamiento",
+    "precio_usd": 6200,
+    "tipo": "producto"
+  },
+  {
+    "id": "PRD-018",
+    "nombre": "Discos SSD empresariales",
+    "categoria": "Almacenamiento",
+    "precio_usd": 480,
+    "tipo": "producto"
+  },
+  {
+    "id": "PRD-019",
+    "nombre": "Almacenamiento SAN",
+    "categoria": "Almacenamiento",
+    "precio_usd": 14500,
+    "tipo": "producto"
+  },
+  {
+    "id": "PRD-020",
+    "nombre": "Unidad de cintas de respaldo",
+    "categoria": "Almacenamiento",
+    "precio_usd": 3900,
+    "tipo": "producto"
+  }
+]

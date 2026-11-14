@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { color-scheme: dark; }
+  body {
+    @apply bg-fondo text-slate-100 font-sans antialiased;
+  }
+  h1, h2, h3 { @apply font-titulo; }
+  :focus-visible { @apply outline-none ring-2 ring-acento ring-offset-2 ring-offset-fondo; }
+}
+
+@layer components {
+  .campo {
+    @apply w-full rounded-lg bg-fondo border border-borde px-3 py-2 text-sm text-slate-100 placeholder:text-tenue
+      focus:border-acento focus:outline-none;
+  }
+  .etiqueta-seccion { @apply text-xs font-semibold uppercase tracking-wider text-tenue; }
+}
+
+/* Logo: el punto brillante (la IA) recorre la órbita elíptica alrededor del cliente.
+   Los fotogramas son 36 puntos de la elipse, calculados una vez. */
+@keyframes orbita-pulse {
+  0.00% { transform: translate(56.47px, 20.59px); }
+  2.78% { transform: translate(56.91px, 22.49px); }
+  5.56% { transform: translate(56.58px, 24.69px); }
+  8.33% { transform: translate(55.52px, 27.10px); }
+  11.11% { transform: translate(53.73px, 29.67px); }
+  13.89% { transform: translate(51.29px, 32.30px); }
+  16.67% { transform: translate(48.26px, 34.93px); }
+  19.44% { transform: translate(44.74px, 37.47px); }
+  22.22% { transform: translate(40.83px, 39.84px); }
+  25.00% { transform: translate(36.65px, 41.97px); }
+  27.78% { transform: translate(32.33px, 43.80px); }
+  30.56% { transform: translate(28.00px, 45.27px); }
+  33.33% { transform: translate(23.79px, 46.34px); }
+  36.11% { transform: translate(19.83px, 46.97px); }
+  38.89% { transform: translate(16.24px, 47.15px); }
+  41.67% { transform: translate(13.13px, 46.87px); }
+  44.44% { transform: translate(10.60px, 46.13px); }
+  47.22% { transform: translate(8.71px, 44.97px); }
+  50.00% { transform: translate(7.53px, 43.41px); }
+  52.78% { transform: translate(7.09px, 41.51px); }
+  55.56% { transform: translate(7.42px, 39.31px); }
+  58.33% { transform: translate(8.48px, 36.90px); }
+  61.11% { transform: translate(10.27px, 34.33px); }
+  63.89% { transform: translate(12.71px, 31.70px); }
+  66.67% { transform: translate(15.74px, 29.07px); }
+  69.44% { transform: translate(19.26px, 26.53px); }
+  72.22% { transform: translate(23.17px, 24.16px); }
+  75.00% { transform: translate(27.35px, 22.03px); }
+  77.78% { transform: translate(31.67px, 20.20px); }
+  80.56% { transform: translate(36.00px, 18.73px); }
+  83.33% { transform: translate(40.21px, 17.66px); }
+  86.11% { transform: translate(44.17px, 17.03px); }
+  88.89% { transform: translate(47.76px, 16.85px); }
+  91.67% { transform: translate(50.87px, 17.13px); }
+  94.44% { transform: translate(53.40px, 17.87px); }
+  97.22% { transform: translate(55.29px, 19.03px); }
+  100.00% { transform: translate(56.47px, 20.59px); }
+}
+.logo-punto {
+  animation: orbita-pulse 9s linear infinite;
+  transform: translate(56.47px, 20.59px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-punto { animation: none; }
+}
+
+/* Impresión (Reporte del mes → PDF): fondo blanco, texto oscuro, sin menú ni botones. */
+@media print {
+  @page { margin: 14mm; }
+  html, body { background: #fff !important; }
+  body * {
+    color: #111827 !important;
+    background: transparent !important;
+    border-color: #d1d5db !important;
+    box-shadow: none !important;
+  }
+  section, article > div { break-inside: avoid; }
+}

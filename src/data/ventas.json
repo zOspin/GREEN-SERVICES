@@ -1,0 +1,8678 @@
+[
+  {
+    "id": "VEN-00001",
+    "fecha": "2025-05-15",
+    "id_cliente": "CLI-007",
+    "id_producto": "PRD-009",
+    "cantidad": 7,
+    "valor_usd": 405.89,
+    "valor_cop": 1643201
+  },
+  {
+    "id": "VEN-00002",
+    "fecha": "2025-05-16",
+    "id_cliente": "CLI-001",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 14079.83,
+    "valor_cop": 56904055
+  },
+  {
+    "id": "VEN-00003",
+    "fecha": "2025-05-16",
+    "id_cliente": "CLI-035",
+    "id_producto": "PRD-013",
+    "cantidad": 7,
+    "valor_usd": 13595.14,
+    "valor_cop": 54945166
+  },
+  {
+    "id": "VEN-00004",
+    "fecha": "2025-05-19",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-018",
+    "cantidad": 25,
+    "valor_usd": 12492.11,
+    "valor_cop": 50458880
+  },
+  {
+    "id": "VEN-00005",
+    "fecha": "2025-05-20",
+    "id_cliente": "CLI-030",
+    "id_producto": "PRD-013",
+    "cantidad": 8,
+    "valor_usd": 15994.97,
+    "valor_cop": 64451252
+  },
+  {
+    "id": "VEN-00006",
+    "fecha": "2025-05-20",
+    "id_cliente": "CLI-030",
+    "id_producto": "PRD-012",
+    "cantidad": 8,
+    "valor_usd": 10651.64,
+    "valor_cop": 42920464
+  },
+  {
+    "id": "VEN-00007",
+    "fecha": "2025-05-21",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3737.18,
+    "valor_cop": 15084978
+  },
+  {
+    "id": "VEN-00008",
+    "fecha": "2025-05-21",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-014",
+    "cantidad": 32,
+    "valor_usd": 4843.64,
+    "valor_cop": 19551159
+  },
+  {
+    "id": "VEN-00009",
+    "fecha": "2025-05-24",
+    "id_cliente": "CLI-052",
+    "id_producto": "PRD-007",
+    "cantidad": 3,
+    "valor_usd": 2571.58,
+    "valor_cop": 10347858
+  },
+  {
+    "id": "VEN-00010",
+    "fecha": "2025-05-24",
+    "id_cliente": "CLI-052",
+    "id_producto": "PRD-005",
+    "cantidad": 4,
+    "valor_usd": 9463.74,
+    "valor_cop": 38081427
+  },
+  {
+    "id": "VEN-00011",
+    "fecha": "2025-05-25",
+    "id_cliente": "CLI-055",
+    "id_producto": "PRD-004",
+    "cantidad": 33,
+    "valor_usd": 3860.22,
+    "valor_cop": 15475004
+  },
+  {
+    "id": "VEN-00012",
+    "fecha": "2025-05-27",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 13449.44,
+    "valor_cop": 53941535
+  },
+  {
+    "id": "VEN-00013",
+    "fecha": "2025-05-27",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-014",
+    "cantidad": 28,
+    "valor_usd": 4058.26,
+    "valor_cop": 16276423
+  },
+  {
+    "id": "VEN-00014",
+    "fecha": "2025-05-28",
+    "id_cliente": "CLI-060",
+    "id_producto": "PRD-009",
+    "cantidad": 21,
+    "valor_usd": 1285.52,
+    "valor_cop": 5138995
+  },
+  {
+    "id": "VEN-00015",
+    "fecha": "2025-05-29",
+    "id_cliente": "CLI-027",
+    "id_producto": "PRD-007",
+    "cantidad": 4,
+    "valor_usd": 3325.21,
+    "valor_cop": 13257978
+  },
+  {
+    "id": "VEN-00016",
+    "fecha": "2025-05-30",
+    "id_cliente": "CLI-038",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 11836.06,
+    "valor_cop": 47134505
+  },
+  {
+    "id": "VEN-00017",
+    "fecha": "2025-05-31",
+    "id_cliente": "CLI-002",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 14780.23,
+    "valor_cop": 58829454
+  },
+  {
+    "id": "VEN-00018",
+    "fecha": "2025-05-31",
+    "id_cliente": "CLI-015",
+    "id_producto": "PRD-004",
+    "cantidad": 14,
+    "valor_usd": 1737.81,
+    "valor_cop": 6916970
+  },
+  {
+    "id": "VEN-00019",
+    "fecha": "2025-06-02",
+    "id_cliente": "CLI-004",
+    "id_producto": "PRD-004",
+    "cantidad": 39,
+    "valor_usd": 4625.75,
+    "valor_cop": 18504064
+  },
+  {
+    "id": "VEN-00020",
+    "fecha": "2025-06-03",
+    "id_cliente": "CLI-017",
+    "id_producto": "PRD-018",
+    "cantidad": 9,
+    "valor_usd": 4501.83,
+    "valor_cop": 17932094
+  },
+  {
+    "id": "VEN-00021",
+    "fecha": "2025-06-04",
+    "id_cliente": "CLI-020",
+    "id_producto": "PRD-019",
+    "cantidad": 1,
+    "valor_usd": 13697.06,
+    "valor_cop": 54431569
+  },
+  {
+    "id": "VEN-00022",
+    "fecha": "2025-06-04",
+    "id_cliente": "CLI-020",
+    "id_producto": "PRD-020",
+    "cantidad": 2,
+    "valor_usd": 7579.31,
+    "valor_cop": 30119875
+  },
+  {
+    "id": "VEN-00023",
+    "fecha": "2025-06-04",
+    "id_cliente": "CLI-023",
+    "id_producto": "PRD-019",
+    "cantidad": 2,
+    "valor_usd": 28459.6,
+    "valor_cop": 113097312
+  },
+  {
+    "id": "VEN-00024",
+    "fecha": "2025-06-04",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-005",
+    "cantidad": 3,
+    "valor_usd": 7464.4,
+    "valor_cop": 29663227
+  },
+  {
+    "id": "VEN-00025",
+    "fecha": "2025-06-04",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7357.88,
+    "valor_cop": 29239921
+  },
+  {
+    "id": "VEN-00026",
+    "fecha": "2025-06-04",
+    "id_cliente": "CLI-054",
+    "id_producto": "PRD-012",
+    "cantidad": 1,
+    "valor_usd": 1231.28,
+    "valor_cop": 4893057
+  },
+  {
+    "id": "VEN-00027",
+    "fecha": "2025-06-06",
+    "id_cliente": "CLI-032",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3809.91,
+    "valor_cop": 15159937
+  },
+  {
+    "id": "VEN-00028",
+    "fecha": "2025-06-08",
+    "id_cliente": "CLI-008",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 14938.84,
+    "valor_cop": 59961665
+  },
+  {
+    "id": "VEN-00029",
+    "fecha": "2025-06-08",
+    "id_cliente": "CLI-008",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 8622.58,
+    "valor_cop": 34609398
+  },
+  {
+    "id": "VEN-00030",
+    "fecha": "2025-06-08",
+    "id_cliente": "CLI-029",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 8774.28,
+    "valor_cop": 35218293
+  },
+  {
+    "id": "VEN-00031",
+    "fecha": "2025-06-08",
+    "id_cliente": "CLI-029",
+    "id_producto": "PRD-017",
+    "cantidad": 2,
+    "valor_usd": 11701.06,
+    "valor_cop": 46965832
+  },
+  {
+    "id": "VEN-00032",
+    "fecha": "2025-06-08",
+    "id_cliente": "CLI-037",
+    "id_producto": "PRD-002",
+    "cantidad": 37,
+    "valor_usd": 15390.49,
+    "valor_cop": 61774503
+  },
+  {
+    "id": "VEN-00033",
+    "fecha": "2025-06-08",
+    "id_cliente": "CLI-037",
+    "id_producto": "PRD-004",
+    "cantidad": 32,
+    "valor_usd": 3923.17,
+    "valor_cop": 15746859
+  },
+  {
+    "id": "VEN-00034",
+    "fecha": "2025-06-09",
+    "id_cliente": "CLI-012",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3244.99,
+    "valor_cop": 13058099
+  },
+  {
+    "id": "VEN-00035",
+    "fecha": "2025-06-11",
+    "id_cliente": "CLI-009",
+    "id_producto": "PRD-004",
+    "cantidad": 36,
+    "valor_usd": 4030.98,
+    "valor_cop": 16160844
+  },
+  {
+    "id": "VEN-00036",
+    "fecha": "2025-06-11",
+    "id_cliente": "CLI-009",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 5340.12,
+    "valor_cop": 21409395
+  },
+  {
+    "id": "VEN-00037",
+    "fecha": "2025-06-11",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-007",
+    "cantidad": 4,
+    "valor_usd": 3409.85,
+    "valor_cop": 13670634
+  },
+  {
+    "id": "VEN-00038",
+    "fecha": "2025-06-12",
+    "id_cliente": "CLI-018",
+    "id_producto": "PRD-005",
+    "cantidad": 7,
+    "valor_usd": 17506.76,
+    "valor_cop": 70147487
+  },
+  {
+    "id": "VEN-00039",
+    "fecha": "2025-06-12",
+    "id_cliente": "CLI-018",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 8836.13,
+    "valor_cop": 35405313
+  },
+  {
+    "id": "VEN-00040",
+    "fecha": "2025-06-12",
+    "id_cliente": "CLI-042",
+    "id_producto": "PRD-005",
+    "cantidad": 8,
+    "valor_usd": 19770.77,
+    "valor_cop": 79219103
+  },
+  {
+    "id": "VEN-00041",
+    "fecha": "2025-06-12",
+    "id_cliente": "CLI-043",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 19912.92,
+    "valor_cop": 79788681
+  },
+  {
+    "id": "VEN-00042",
+    "fecha": "2025-06-14",
+    "id_cliente": "CLI-010",
+    "id_producto": "PRD-009",
+    "cantidad": 25,
+    "valor_usd": 1415.09,
+    "valor_cop": 5670195
+  },
+  {
+    "id": "VEN-00043",
+    "fecha": "2025-06-14",
+    "id_cliente": "CLI-031",
+    "id_producto": "PRD-012",
+    "cantidad": 6,
+    "valor_usd": 7854.46,
+    "valor_cop": 31472428
+  },
+  {
+    "id": "VEN-00044",
+    "fecha": "2025-06-14",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-019",
+    "cantidad": 1,
+    "valor_usd": 14918.57,
+    "valor_cop": 59777964
+  },
+  {
+    "id": "VEN-00045",
+    "fecha": "2025-06-14",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-018",
+    "cantidad": 6,
+    "valor_usd": 2960.78,
+    "valor_cop": 11863697
+  },
+  {
+    "id": "VEN-00046",
+    "fecha": "2025-06-15",
+    "id_cliente": "CLI-035",
+    "id_producto": "PRD-012",
+    "cantidad": 2,
+    "valor_usd": 2572.09,
+    "valor_cop": 10340162
+  },
+  {
+    "id": "VEN-00047",
+    "fecha": "2025-06-15",
+    "id_cliente": "CLI-035",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 17075.73,
+    "valor_cop": 68646825
+  },
+  {
+    "id": "VEN-00048",
+    "fecha": "2025-06-17",
+    "id_cliente": "CLI-001",
+    "id_producto": "PRD-016",
+    "cantidad": 6,
+    "valor_usd": 11306.85,
+    "valor_cop": 45559595
+  },
+  {
+    "id": "VEN-00049",
+    "fecha": "2025-06-17",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-005",
+    "cantidad": 7,
+    "valor_usd": 16828.07,
+    "valor_cop": 67806689
+  },
+  {
+    "id": "VEN-00050",
+    "fecha": "2025-06-19",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 15288.17,
+    "valor_cop": 61135251
+  },
+  {
+    "id": "VEN-00051",
+    "fecha": "2025-06-20",
+    "id_cliente": "CLI-022",
+    "id_producto": "PRD-012",
+    "cantidad": 7,
+    "valor_usd": 8387.4,
+    "valor_cop": 33498940
+  },
+  {
+    "id": "VEN-00052",
+    "fecha": "2025-06-20",
+    "id_cliente": "CLI-022",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 19189.67,
+    "valor_cop": 76642774
+  },
+  {
+    "id": "VEN-00053",
+    "fecha": "2025-06-20",
+    "id_cliente": "CLI-028",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 12432.52,
+    "valor_cop": 49654988
+  },
+  {
+    "id": "VEN-00054",
+    "fecha": "2025-06-22",
+    "id_cliente": "CLI-005",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3669.44,
+    "valor_cop": 14731077
+  },
+  {
+    "id": "VEN-00055",
+    "fecha": "2025-06-23",
+    "id_cliente": "CLI-013",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 18211.88,
+    "valor_cop": 73056228
+  },
+  {
+    "id": "VEN-00056",
+    "fecha": "2025-06-23",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-004",
+    "cantidad": 39,
+    "valor_usd": 4756.34,
+    "valor_cop": 19079868
+  },
+  {
+    "id": "VEN-00057",
+    "fecha": "2025-06-23",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7960.19,
+    "valor_cop": 31931984
+  },
+  {
+    "id": "VEN-00058",
+    "fecha": "2025-06-24",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-014",
+    "cantidad": 20,
+    "valor_usd": 3088.03,
+    "valor_cop": 12441827
+  },
+  {
+    "id": "VEN-00059",
+    "fecha": "2025-06-26",
+    "id_cliente": "CLI-030",
+    "id_producto": "PRD-013",
+    "cantidad": 1,
+    "valor_usd": 2165.78,
+    "valor_cop": 8751397
+  },
+  {
+    "id": "VEN-00060",
+    "fecha": "2025-06-26",
+    "id_cliente": "CLI-057",
+    "id_producto": "PRD-013",
+    "cantidad": 2,
+    "valor_usd": 4197.58,
+    "valor_cop": 16961413
+  },
+  {
+    "id": "VEN-00061",
+    "fecha": "2025-06-26",
+    "id_cliente": "CLI-057",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 17249.56,
+    "valor_cop": 69701332
+  },
+  {
+    "id": "VEN-00062",
+    "fecha": "2025-06-28",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3695.87,
+    "valor_cop": 14855513
+  },
+  {
+    "id": "VEN-00063",
+    "fecha": "2025-06-28",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7729.83,
+    "valor_cop": 31069974
+  },
+  {
+    "id": "VEN-00064",
+    "fecha": "2025-06-29",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 11287.55,
+    "valor_cop": 45577321
+  },
+  {
+    "id": "VEN-00065",
+    "fecha": "2025-06-29",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-012",
+    "cantidad": 4,
+    "valor_usd": 5421.24,
+    "valor_cop": 21890100
+  },
+  {
+    "id": "VEN-00066",
+    "fecha": "2025-06-29",
+    "id_cliente": "CLI-024",
+    "id_producto": "PRD-002",
+    "cantidad": 40,
+    "valor_usd": 18882.04,
+    "valor_cop": 76242656
+  },
+  {
+    "id": "VEN-00067",
+    "fecha": "2025-06-29",
+    "id_cliente": "CLI-024",
+    "id_producto": "PRD-004",
+    "cantidad": 32,
+    "valor_usd": 3981.45,
+    "valor_cop": 16076458
+  },
+  {
+    "id": "VEN-00068",
+    "fecha": "2025-06-29",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-005",
+    "cantidad": 5,
+    "valor_usd": 11228.14,
+    "valor_cop": 45337433
+  },
+  {
+    "id": "VEN-00069",
+    "fecha": "2025-06-29",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-005",
+    "cantidad": 3,
+    "valor_usd": 6740.11,
+    "valor_cop": 27215486
+  },
+  {
+    "id": "VEN-00070",
+    "fecha": "2025-06-29",
+    "id_cliente": "CLI-049",
+    "id_producto": "PRD-007",
+    "cantidad": 8,
+    "valor_usd": 6649.82,
+    "valor_cop": 26850909
+  },
+  {
+    "id": "VEN-00071",
+    "fecha": "2025-06-30",
+    "id_cliente": "CLI-017",
+    "id_producto": "PRD-002",
+    "cantidad": 34,
+    "valor_usd": 14188.4,
+    "valor_cop": 57131721
+  },
+  {
+    "id": "VEN-00072",
+    "fecha": "2025-06-30",
+    "id_cliente": "CLI-052",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 18142.49,
+    "valor_cop": 73053457
+  },
+  {
+    "id": "VEN-00073",
+    "fecha": "2025-06-30",
+    "id_cliente": "CLI-060",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 18304.69,
+    "valor_cop": 73706580
+  },
+  {
+    "id": "VEN-00074",
+    "fecha": "2025-07-01",
+    "id_cliente": "CLI-055",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 12170.56,
+    "valor_cop": 49216771
+  },
+  {
+    "id": "VEN-00075",
+    "fecha": "2025-07-01",
+    "id_cliente": "CLI-055",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 6055.46,
+    "valor_cop": 24487796
+  },
+  {
+    "id": "VEN-00076",
+    "fecha": "2025-07-04",
+    "id_cliente": "CLI-002",
+    "id_producto": "PRD-010",
+    "cantidad": 1,
+    "valor_usd": 6104.86,
+    "valor_cop": 24709360
+  },
+  {
+    "id": "VEN-00077",
+    "fecha": "2025-07-06",
+    "id_cliente": "CLI-023",
+    "id_producto": "PRD-012",
+    "cantidad": 6,
+    "valor_usd": 7772.04,
+    "valor_cop": 31502876
+  },
+  {
+    "id": "VEN-00078",
+    "fecha": "2025-07-06",
+    "id_cliente": "CLI-036",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 17867.58,
+    "valor_cop": 72423734
+  },
+  {
+    "id": "VEN-00079",
+    "fecha": "2025-07-07",
+    "id_cliente": "CLI-015",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 5584.58,
+    "valor_cop": 22656083
+  },
+  {
+    "id": "VEN-00080",
+    "fecha": "2025-07-08",
+    "id_cliente": "CLI-007",
+    "id_producto": "PRD-017",
+    "cantidad": 1,
+    "valor_usd": 5862.82,
+    "valor_cop": 23862088
+  },
+  {
+    "id": "VEN-00081",
+    "fecha": "2025-07-08",
+    "id_cliente": "CLI-011",
+    "id_producto": "PRD-005",
+    "cantidad": 1,
+    "valor_usd": 2312.01,
+    "valor_cop": 9410043
+  },
+  {
+    "id": "VEN-00082",
+    "fecha": "2025-07-09",
+    "id_cliente": "CLI-032",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7905.71,
+    "valor_cop": 32249842
+  },
+  {
+    "id": "VEN-00083",
+    "fecha": "2025-07-09",
+    "id_cliente": "CLI-032",
+    "id_producto": "PRD-016",
+    "cantidad": 3,
+    "valor_usd": 5049.05,
+    "valor_cop": 20596640
+  },
+  {
+    "id": "VEN-00084",
+    "fecha": "2025-07-09",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-018",
+    "cantidad": 39,
+    "valor_usd": 17410.94,
+    "valor_cop": 71024622
+  },
+  {
+    "id": "VEN-00085",
+    "fecha": "2025-07-09",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-020",
+    "cantidad": 2,
+    "valor_usd": 8013.61,
+    "valor_cop": 32689999
+  },
+  {
+    "id": "VEN-00086",
+    "fecha": "2025-07-09",
+    "id_cliente": "CLI-038",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3271.88,
+    "valor_cop": 13347013
+  },
+  {
+    "id": "VEN-00087",
+    "fecha": "2025-07-09",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-012",
+    "cantidad": 4,
+    "valor_usd": 4808.03,
+    "valor_cop": 19613445
+  },
+  {
+    "id": "VEN-00088",
+    "fecha": "2025-07-09",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-007",
+    "cantidad": 7,
+    "valor_usd": 6163.87,
+    "valor_cop": 25144337
+  },
+  {
+    "id": "VEN-00089",
+    "fecha": "2025-07-10",
+    "id_cliente": "CLI-020",
+    "id_producto": "PRD-019",
+    "cantidad": 1,
+    "valor_usd": 13817.97,
+    "valor_cop": 56408961
+  },
+  {
+    "id": "VEN-00090",
+    "fecha": "2025-07-10",
+    "id_cliente": "CLI-037",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3075.93,
+    "valor_cop": 12556838
+  },
+  {
+    "id": "VEN-00091",
+    "fecha": "2025-07-10",
+    "id_cliente": "CLI-037",
+    "id_producto": "PRD-012",
+    "cantidad": 1,
+    "valor_usd": 1210.3,
+    "valor_cop": 4940796
+  },
+  {
+    "id": "VEN-00092",
+    "fecha": "2025-07-11",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7396.56,
+    "valor_cop": 30179962
+  },
+  {
+    "id": "VEN-00093",
+    "fecha": "2025-07-11",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-016",
+    "cantidad": 2,
+    "valor_usd": 3398.98,
+    "valor_cop": 13868756
+  },
+  {
+    "id": "VEN-00094",
+    "fecha": "2025-07-12",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-014",
+    "cantidad": 35,
+    "valor_usd": 4843.46,
+    "valor_cop": 19760009
+  },
+  {
+    "id": "VEN-00095",
+    "fecha": "2025-07-13",
+    "id_cliente": "CLI-014",
+    "id_producto": "PRD-020",
+    "cantidad": 2,
+    "valor_usd": 8046.56,
+    "valor_cop": 32906809
+  },
+  {
+    "id": "VEN-00096",
+    "fecha": "2025-07-13",
+    "id_cliente": "CLI-014",
+    "id_producto": "PRD-007",
+    "cantidad": 5,
+    "valor_usd": 4297.93,
+    "valor_cop": 17576600
+  },
+  {
+    "id": "VEN-00097",
+    "fecha": "2025-07-14",
+    "id_cliente": "CLI-004",
+    "id_producto": "PRD-007",
+    "cantidad": 5,
+    "valor_usd": 4218.43,
+    "valor_cop": 17288814
+  },
+  {
+    "id": "VEN-00098",
+    "fecha": "2025-07-14",
+    "id_cliente": "CLI-004",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 10843.08,
+    "valor_cop": 44439279
+  },
+  {
+    "id": "VEN-00099",
+    "fecha": "2025-07-14",
+    "id_cliente": "CLI-027",
+    "id_producto": "PRD-007",
+    "cantidad": 3,
+    "valor_usd": 2807.23,
+    "valor_cop": 11505151
+  },
+  {
+    "id": "VEN-00100",
+    "fecha": "2025-07-15",
+    "id_cliente": "CLI-001",
+    "id_producto": "PRD-016",
+    "cantidad": 5,
+    "valor_usd": 8687.62,
+    "valor_cop": 35620806
+  },
+  {
+    "id": "VEN-00101",
+    "fecha": "2025-07-15",
+    "id_cliente": "CLI-003",
+    "id_producto": "PRD-012",
+    "cantidad": 5,
+    "valor_usd": 6626.91,
+    "valor_cop": 27171524
+  },
+  {
+    "id": "VEN-00102",
+    "fecha": "2025-07-15",
+    "id_cliente": "CLI-009",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3280.82,
+    "valor_cop": 13451953
+  },
+  {
+    "id": "VEN-00103",
+    "fecha": "2025-07-15",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7351.39,
+    "valor_cop": 30142022
+  },
+  {
+    "id": "VEN-00104",
+    "fecha": "2025-07-15",
+    "id_cliente": "CLI-043",
+    "id_producto": "PRD-005",
+    "cantidad": 2,
+    "valor_usd": 4966.33,
+    "valor_cop": 20362847
+  },
+  {
+    "id": "VEN-00105",
+    "fecha": "2025-07-15",
+    "id_cliente": "CLI-043",
+    "id_producto": "PRD-007",
+    "cantidad": 4,
+    "valor_usd": 3732.9,
+    "valor_cop": 15305562
+  },
+  {
+    "id": "VEN-00106",
+    "fecha": "2025-07-15",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3953.71,
+    "valor_cop": 16210923
+  },
+  {
+    "id": "VEN-00107",
+    "fecha": "2025-07-16",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 8984.17,
+    "valor_cop": 36883701
+  },
+  {
+    "id": "VEN-00108",
+    "fecha": "2025-07-16",
+    "id_cliente": "CLI-054",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 18322.36,
+    "valor_cop": 75220800
+  },
+  {
+    "id": "VEN-00109",
+    "fecha": "2025-07-17",
+    "id_cliente": "CLI-042",
+    "id_producto": "PRD-005",
+    "cantidad": 5,
+    "valor_usd": 11345.86,
+    "valor_cop": 46757991
+  },
+  {
+    "id": "VEN-00110",
+    "fecha": "2025-07-18",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-014",
+    "cantidad": 28,
+    "valor_usd": 4312.07,
+    "valor_cop": 17744901
+  },
+  {
+    "id": "VEN-00111",
+    "fecha": "2025-07-18",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3962.87,
+    "valor_cop": 16307884
+  },
+  {
+    "id": "VEN-00112",
+    "fecha": "2025-07-19",
+    "id_cliente": "CLI-021",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 14942.1,
+    "valor_cop": 61207922
+  },
+  {
+    "id": "VEN-00113",
+    "fecha": "2025-07-19",
+    "id_cliente": "CLI-021",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7316.63,
+    "valor_cop": 29971404
+  },
+  {
+    "id": "VEN-00114",
+    "fecha": "2025-07-20",
+    "id_cliente": "CLI-008",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 8778.85,
+    "valor_cop": 35851507
+  },
+  {
+    "id": "VEN-00115",
+    "fecha": "2025-07-20",
+    "id_cliente": "CLI-008",
+    "id_producto": "PRD-016",
+    "cantidad": 8,
+    "valor_usd": 14338.13,
+    "valor_cop": 58554772
+  },
+  {
+    "id": "VEN-00116",
+    "fecha": "2025-07-20",
+    "id_cliente": "CLI-012",
+    "id_producto": "PRD-002",
+    "cantidad": 27,
+    "valor_usd": 11509.61,
+    "valor_cop": 47003521
+  },
+  {
+    "id": "VEN-00117",
+    "fecha": "2025-07-20",
+    "id_cliente": "CLI-012",
+    "id_producto": "PRD-004",
+    "cantidad": 14,
+    "valor_usd": 1640.36,
+    "valor_cop": 6698984
+  },
+  {
+    "id": "VEN-00118",
+    "fecha": "2025-07-20",
+    "id_cliente": "CLI-035",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 9064.95,
+    "valor_cop": 37019896
+  },
+  {
+    "id": "VEN-00119",
+    "fecha": "2025-07-20",
+    "id_cliente": "CLI-035",
+    "id_producto": "PRD-013",
+    "cantidad": 8,
+    "valor_usd": 15558.72,
+    "valor_cop": 63539479
+  },
+  {
+    "id": "VEN-00120",
+    "fecha": "2025-07-22",
+    "id_cliente": "CLI-028",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 12481.72,
+    "valor_cop": 50974720
+  },
+  {
+    "id": "VEN-00121",
+    "fecha": "2025-07-22",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 9599.82,
+    "valor_cop": 39205185
+  },
+  {
+    "id": "VEN-00122",
+    "fecha": "2025-07-22",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-007",
+    "cantidad": 5,
+    "valor_usd": 4451.77,
+    "valor_cop": 18180806
+  },
+  {
+    "id": "VEN-00123",
+    "fecha": "2025-07-23",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-002",
+    "cantidad": 19,
+    "valor_usd": 8905.2,
+    "valor_cop": 36499209
+  },
+  {
+    "id": "VEN-00124",
+    "fecha": "2025-07-25",
+    "id_cliente": "CLI-025",
+    "id_producto": "PRD-013",
+    "cantidad": 5,
+    "valor_usd": 10952.49,
+    "valor_cop": 44613106
+  },
+  {
+    "id": "VEN-00125",
+    "fecha": "2025-07-25",
+    "id_cliente": "CLI-025",
+    "id_producto": "PRD-004",
+    "cantidad": 40,
+    "valor_usd": 4959.06,
+    "valor_cop": 20199888
+  },
+  {
+    "id": "VEN-00126",
+    "fecha": "2025-07-27",
+    "id_cliente": "CLI-005",
+    "id_producto": "PRD-002",
+    "cantidad": 29,
+    "valor_usd": 13050.72,
+    "valor_cop": 53182598
+  },
+  {
+    "id": "VEN-00127",
+    "fecha": "2025-07-28",
+    "id_cliente": "CLI-030",
+    "id_producto": "PRD-012",
+    "cantidad": 5,
+    "valor_usd": 6489.29,
+    "valor_cop": 26391618
+  },
+  {
+    "id": "VEN-00128",
+    "fecha": "2025-07-28",
+    "id_cliente": "CLI-030",
+    "id_producto": "PRD-013",
+    "cantidad": 7,
+    "valor_usd": 13808.75,
+    "valor_cop": 56159496
+  },
+  {
+    "id": "VEN-00129",
+    "fecha": "2025-07-28",
+    "id_cliente": "CLI-031",
+    "id_producto": "PRD-012",
+    "cantidad": 3,
+    "valor_usd": 3729.46,
+    "valor_cop": 15167527
+  },
+  {
+    "id": "VEN-00130",
+    "fecha": "2025-07-28",
+    "id_cliente": "CLI-058",
+    "id_producto": "PRD-007",
+    "cantidad": 8,
+    "valor_usd": 6634.94,
+    "valor_cop": 26983969
+  },
+  {
+    "id": "VEN-00131",
+    "fecha": "2025-07-30",
+    "id_cliente": "CLI-018",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 19114.31,
+    "valor_cop": 78300815
+  },
+  {
+    "id": "VEN-00132",
+    "fecha": "2025-07-30",
+    "id_cliente": "CLI-018",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 17760.52,
+    "valor_cop": 72755082
+  },
+  {
+    "id": "VEN-00133",
+    "fecha": "2025-07-30",
+    "id_cliente": "CLI-053",
+    "id_producto": "PRD-007",
+    "cantidad": 8,
+    "valor_usd": 7548.97,
+    "valor_cop": 30923978
+  },
+  {
+    "id": "VEN-00134",
+    "fecha": "2025-07-31",
+    "id_cliente": "CLI-017",
+    "id_producto": "PRD-020",
+    "cantidad": 1,
+    "valor_usd": 3607.7,
+    "valor_cop": 14712525
+  },
+  {
+    "id": "VEN-00135",
+    "fecha": "2025-08-02",
+    "id_cliente": "CLI-013",
+    "id_producto": "PRD-012",
+    "cantidad": 7,
+    "valor_usd": 8944.66,
+    "valor_cop": 36653428
+  },
+  {
+    "id": "VEN-00136",
+    "fecha": "2025-08-02",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3252.04,
+    "valor_cop": 13326210
+  },
+  {
+    "id": "VEN-00137",
+    "fecha": "2025-08-03",
+    "id_cliente": "CLI-002",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 13191.71,
+    "valor_cop": 54227162
+  },
+  {
+    "id": "VEN-00138",
+    "fecha": "2025-08-03",
+    "id_cliente": "CLI-011",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3561.26,
+    "valor_cop": 14639271
+  },
+  {
+    "id": "VEN-00139",
+    "fecha": "2025-08-03",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 10860.59,
+    "valor_cop": 44644627
+  },
+  {
+    "id": "VEN-00140",
+    "fecha": "2025-08-03",
+    "id_cliente": "CLI-023",
+    "id_producto": "PRD-018",
+    "cantidad": 16,
+    "valor_usd": 7066.37,
+    "valor_cop": 29047727
+  },
+  {
+    "id": "VEN-00141",
+    "fecha": "2025-08-03",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-013",
+    "cantidad": 6,
+    "valor_usd": 12300.25,
+    "valor_cop": 50562638
+  },
+  {
+    "id": "VEN-00142",
+    "fecha": "2025-08-03",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-019",
+    "cantidad": 2,
+    "valor_usd": 29615.44,
+    "valor_cop": 121740189
+  },
+  {
+    "id": "VEN-00143",
+    "fecha": "2025-08-03",
+    "id_cliente": "CLI-049",
+    "id_producto": "PRD-007",
+    "cantidad": 4,
+    "valor_usd": 3633.92,
+    "valor_cop": 14937955
+  },
+  {
+    "id": "VEN-00144",
+    "fecha": "2025-08-05",
+    "id_cliente": "CLI-052",
+    "id_producto": "PRD-016",
+    "cantidad": 8,
+    "valor_usd": 14952.68,
+    "valor_cop": 61342622
+  },
+  {
+    "id": "VEN-00145",
+    "fecha": "2025-08-06",
+    "id_cliente": "CLI-032",
+    "id_producto": "PRD-005",
+    "cantidad": 8,
+    "valor_usd": 19635.04,
+    "valor_cop": 80567871
+  },
+  {
+    "id": "VEN-00146",
+    "fecha": "2025-08-06",
+    "id_cliente": "CLI-032",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 9338.95,
+    "valor_cop": 38320233
+  },
+  {
+    "id": "VEN-00147",
+    "fecha": "2025-08-06",
+    "id_cliente": "CLI-036",
+    "id_producto": "PRD-001",
+    "cantidad": 2,
+    "valor_usd": 6069.31,
+    "valor_cop": 24904018
+  },
+  {
+    "id": "VEN-00148",
+    "fecha": "2025-08-06",
+    "id_cliente": "CLI-060",
+    "id_producto": "PRD-002",
+    "cantidad": 10,
+    "valor_usd": 4461.38,
+    "valor_cop": 18306247
+  },
+  {
+    "id": "VEN-00149",
+    "fecha": "2025-08-06",
+    "id_cliente": "CLI-060",
+    "id_producto": "PRD-009",
+    "cantidad": 32,
+    "valor_usd": 1870.08,
+    "valor_cop": 7673443
+  },
+  {
+    "id": "VEN-00150",
+    "fecha": "2025-08-07",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7286.67,
+    "valor_cop": 29765391
+  },
+  {
+    "id": "VEN-00151",
+    "fecha": "2025-08-07",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-012",
+    "cantidad": 8,
+    "valor_usd": 10138.58,
+    "valor_cop": 41415187
+  },
+  {
+    "id": "VEN-00152",
+    "fecha": "2025-08-08",
+    "id_cliente": "CLI-037",
+    "id_producto": "PRD-012",
+    "cantidad": 2,
+    "valor_usd": 2724.82,
+    "valor_cop": 11169064
+  },
+  {
+    "id": "VEN-00153",
+    "fecha": "2025-08-08",
+    "id_cliente": "CLI-037",
+    "id_producto": "PRD-004",
+    "cantidad": 40,
+    "valor_usd": 5003.87,
+    "valor_cop": 20510913
+  },
+  {
+    "id": "VEN-00154",
+    "fecha": "2025-08-08",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-010",
+    "cantidad": 1,
+    "valor_usd": 6753.81,
+    "valor_cop": 27683935
+  },
+  {
+    "id": "VEN-00155",
+    "fecha": "2025-08-09",
+    "id_cliente": "CLI-015",
+    "id_producto": "PRD-007",
+    "cantidad": 4,
+    "valor_usd": 3370.64,
+    "valor_cop": 13857341
+  },
+  {
+    "id": "VEN-00156",
+    "fecha": "2025-08-09",
+    "id_cliente": "CLI-015",
+    "id_producto": "PRD-005",
+    "cantidad": 3,
+    "valor_usd": 6741.71,
+    "valor_cop": 27716451
+  },
+  {
+    "id": "VEN-00157",
+    "fecha": "2025-08-09",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-013",
+    "cantidad": 5,
+    "valor_usd": 10764.34,
+    "valor_cop": 44254247
+  },
+  {
+    "id": "VEN-00158",
+    "fecha": "2025-08-09",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-012",
+    "cantidad": 5,
+    "valor_usd": 6744.55,
+    "valor_cop": 27728127
+  },
+  {
+    "id": "VEN-00159",
+    "fecha": "2025-08-10",
+    "id_cliente": "CLI-055",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 17758.57,
+    "valor_cop": 73283403
+  },
+  {
+    "id": "VEN-00160",
+    "fecha": "2025-08-10",
+    "id_cliente": "CLI-055",
+    "id_producto": "PRD-018",
+    "cantidad": 28,
+    "valor_usd": 13742.65,
+    "valor_cop": 56711107
+  },
+  {
+    "id": "VEN-00161",
+    "fecha": "2025-08-10",
+    "id_cliente": "CLI-059",
+    "id_producto": "PRD-002",
+    "cantidad": 30,
+    "valor_usd": 13181.55,
+    "valor_cop": 54395643
+  },
+  {
+    "id": "VEN-00162",
+    "fecha": "2025-08-11",
+    "id_cliente": "CLI-038",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 5591.3,
+    "valor_cop": 23123548
+  },
+  {
+    "id": "VEN-00163",
+    "fecha": "2025-08-11",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-014",
+    "cantidad": 35,
+    "valor_usd": 5270.99,
+    "valor_cop": 21798864
+  },
+  {
+    "id": "VEN-00164",
+    "fecha": "2025-08-12",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-004",
+    "cantidad": 36,
+    "valor_usd": 4106.28,
+    "valor_cop": 16904898
+  },
+  {
+    "id": "VEN-00165",
+    "fecha": "2025-08-12",
+    "id_cliente": "CLI-024",
+    "id_producto": "PRD-002",
+    "cantidad": 39,
+    "valor_usd": 17030.3,
+    "valor_cop": 70111020
+  },
+  {
+    "id": "VEN-00166",
+    "fecha": "2025-08-14",
+    "id_cliente": "CLI-043",
+    "id_producto": "PRD-001",
+    "cantidad": 2,
+    "valor_usd": 5995.29,
+    "valor_cop": 24855753
+  },
+  {
+    "id": "VEN-00167",
+    "fecha": "2025-08-15",
+    "id_cliente": "CLI-001",
+    "id_producto": "PRD-019",
+    "cantidad": 2,
+    "valor_usd": 28316.66,
+    "valor_cop": 117318188
+  },
+  {
+    "id": "VEN-00168",
+    "fecha": "2025-08-15",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 6832.98,
+    "valor_cop": 28309583
+  },
+  {
+    "id": "VEN-00169",
+    "fecha": "2025-08-15",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-009",
+    "cantidad": 36,
+    "valor_usd": 2096.03,
+    "valor_cop": 8684020
+  },
+  {
+    "id": "VEN-00170",
+    "fecha": "2025-08-17",
+    "id_cliente": "CLI-009",
+    "id_producto": "PRD-004",
+    "cantidad": 7,
+    "valor_usd": 816.88,
+    "valor_cop": 3365603
+  },
+  {
+    "id": "VEN-00171",
+    "fecha": "2025-08-18",
+    "id_cliente": "CLI-004",
+    "id_producto": "PRD-004",
+    "cantidad": 29,
+    "valor_usd": 3299.73,
+    "valor_cop": 13559910
+  },
+  {
+    "id": "VEN-00172",
+    "fecha": "2025-08-18",
+    "id_cliente": "CLI-004",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3254.32,
+    "valor_cop": 13373303
+  },
+  {
+    "id": "VEN-00173",
+    "fecha": "2025-08-18",
+    "id_cliente": "CLI-054",
+    "id_producto": "PRD-012",
+    "cantidad": 2,
+    "valor_usd": 2647.85,
+    "valor_cop": 10881075
+  },
+  {
+    "id": "VEN-00174",
+    "fecha": "2025-08-19",
+    "id_cliente": "CLI-029",
+    "id_producto": "PRD-018",
+    "cantidad": 35,
+    "valor_usd": 17566.81,
+    "valor_cop": 72375609
+  },
+  {
+    "id": "VEN-00175",
+    "fecha": "2025-08-19",
+    "id_cliente": "CLI-035",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 14501.39,
+    "valor_cop": 59746017
+  },
+  {
+    "id": "VEN-00176",
+    "fecha": "2025-08-19",
+    "id_cliente": "CLI-035",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7602.92,
+    "valor_cop": 31324182
+  },
+  {
+    "id": "VEN-00177",
+    "fecha": "2025-08-20",
+    "id_cliente": "CLI-020",
+    "id_producto": "PRD-020",
+    "cantidad": 2,
+    "valor_usd": 7889.49,
+    "valor_cop": 32611838
+  },
+  {
+    "id": "VEN-00178",
+    "fecha": "2025-08-20",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-014",
+    "cantidad": 29,
+    "valor_usd": 4316.81,
+    "valor_cop": 17843879
+  },
+  {
+    "id": "VEN-00179",
+    "fecha": "2025-08-20",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-014",
+    "cantidad": 29,
+    "valor_usd": 4073.82,
+    "valor_cop": 16839461
+  },
+  {
+    "id": "VEN-00180",
+    "fecha": "2025-08-20",
+    "id_cliente": "CLI-028",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 15361.4,
+    "valor_cop": 63497576
+  },
+  {
+    "id": "VEN-00181",
+    "fecha": "2025-08-22",
+    "id_cliente": "CLI-014",
+    "id_producto": "PRD-018",
+    "cantidad": 37,
+    "valor_usd": 17114.97,
+    "valor_cop": 70534386
+  },
+  {
+    "id": "VEN-00182",
+    "fecha": "2025-08-23",
+    "id_cliente": "CLI-053",
+    "id_producto": "PRD-010",
+    "cantidad": 1,
+    "valor_usd": 6168.15,
+    "valor_cop": 25322045
+  },
+  {
+    "id": "VEN-00183",
+    "fecha": "2025-08-24",
+    "id_cliente": "CLI-012",
+    "id_producto": "PRD-012",
+    "cantidad": 8,
+    "valor_usd": 10383.55,
+    "valor_cop": 42614816
+  },
+  {
+    "id": "VEN-00184",
+    "fecha": "2025-08-24",
+    "id_cliente": "CLI-012",
+    "id_producto": "PRD-004",
+    "cantidad": 11,
+    "valor_usd": 1320.35,
+    "valor_cop": 5418809
+  },
+  {
+    "id": "VEN-00185",
+    "fecha": "2025-08-24",
+    "id_cliente": "CLI-042",
+    "id_producto": "PRD-013",
+    "cantidad": 3,
+    "valor_usd": 6370.87,
+    "valor_cop": 26146496
+  },
+  {
+    "id": "VEN-00186",
+    "fecha": "2025-08-25",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 6036.66,
+    "valor_cop": 24875506
+  },
+  {
+    "id": "VEN-00187",
+    "fecha": "2025-08-26",
+    "id_cliente": "CLI-027",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 9769.26,
+    "valor_cop": 40363065
+  },
+  {
+    "id": "VEN-00188",
+    "fecha": "2025-08-26",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-020",
+    "cantidad": 2,
+    "valor_usd": 7580.94,
+    "valor_cop": 31321715
+  },
+  {
+    "id": "VEN-00189",
+    "fecha": "2025-08-26",
+    "id_cliente": "CLI-045",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 11415.88,
+    "valor_cop": 47166306
+  },
+  {
+    "id": "VEN-00190",
+    "fecha": "2025-08-29",
+    "id_cliente": "CLI-008",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 14080.83,
+    "valor_cop": 57993588
+  },
+  {
+    "id": "VEN-00191",
+    "fecha": "2025-08-29",
+    "id_cliente": "CLI-008",
+    "id_producto": "PRD-009",
+    "cantidad": 17,
+    "valor_usd": 977.21,
+    "valor_cop": 4024757
+  },
+  {
+    "id": "VEN-00192",
+    "fecha": "2025-08-29",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-014",
+    "cantidad": 7,
+    "valor_usd": 1000.87,
+    "valor_cop": 4122203
+  },
+  {
+    "id": "VEN-00193",
+    "fecha": "2025-08-29",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-013",
+    "cantidad": 5,
+    "valor_usd": 9660.09,
+    "valor_cop": 39786240
+  },
+  {
+    "id": "VEN-00194",
+    "fecha": "2025-08-30",
+    "id_cliente": "CLI-049",
+    "id_producto": "PRD-005",
+    "cantidad": 6,
+    "valor_usd": 13448.71,
+    "valor_cop": 55543979
+  },
+  {
+    "id": "VEN-00195",
+    "fecha": "2025-08-30",
+    "id_cliente": "CLI-049",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 9621.75,
+    "valor_cop": 39738405
+  },
+  {
+    "id": "VEN-00196",
+    "fecha": "2025-08-31",
+    "id_cliente": "CLI-030",
+    "id_producto": "PRD-012",
+    "cantidad": 7,
+    "valor_usd": 8743.69,
+    "valor_cop": 36001794
+  },
+  {
+    "id": "VEN-00197",
+    "fecha": "2025-08-31",
+    "id_cliente": "CLI-030",
+    "id_producto": "PRD-013",
+    "cantidad": 7,
+    "valor_usd": 13575.77,
+    "valor_cop": 55897690
+  },
+  {
+    "id": "VEN-00198",
+    "fecha": "2025-09-01",
+    "id_cliente": "CLI-005",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 9036.78,
+    "valor_cop": 37229636
+  },
+  {
+    "id": "VEN-00199",
+    "fecha": "2025-09-01",
+    "id_cliente": "CLI-011",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 8958,
+    "valor_cop": 36905079
+  },
+  {
+    "id": "VEN-00200",
+    "fecha": "2025-09-01",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-016",
+    "cantidad": 5,
+    "valor_usd": 8888.81,
+    "valor_cop": 36620031
+  },
+  {
+    "id": "VEN-00201",
+    "fecha": "2025-09-01",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-009",
+    "cantidad": 40,
+    "valor_usd": 2229.39,
+    "valor_cop": 9184619
+  },
+  {
+    "id": "VEN-00202",
+    "fecha": "2025-09-03",
+    "id_cliente": "CLI-023",
+    "id_producto": "PRD-017",
+    "cantidad": 1,
+    "valor_usd": 5755.81,
+    "valor_cop": 23692123
+  },
+  {
+    "id": "VEN-00203",
+    "fecha": "2025-09-03",
+    "id_cliente": "CLI-036",
+    "id_producto": "PRD-005",
+    "cantidad": 7,
+    "valor_usd": 16523.71,
+    "valor_cop": 68015060
+  },
+  {
+    "id": "VEN-00204",
+    "fecha": "2025-09-03",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 8953.75,
+    "valor_cop": 36855515
+  },
+  {
+    "id": "VEN-00205",
+    "fecha": "2025-09-04",
+    "id_cliente": "CLI-017",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 5973.24,
+    "valor_cop": 24590336
+  },
+  {
+    "id": "VEN-00206",
+    "fecha": "2025-09-04",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-014",
+    "cantidad": 32,
+    "valor_usd": 4823.25,
+    "valor_cop": 19856114
+  },
+  {
+    "id": "VEN-00207",
+    "fecha": "2025-09-04",
+    "id_cliente": "CLI-059",
+    "id_producto": "PRD-004",
+    "cantidad": 6,
+    "valor_usd": 740.51,
+    "valor_cop": 3048495
+  },
+  {
+    "id": "VEN-00208",
+    "fecha": "2025-09-05",
+    "id_cliente": "CLI-002",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 13221.21,
+    "valor_cop": 54235122
+  },
+  {
+    "id": "VEN-00209",
+    "fecha": "2025-09-06",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-001",
+    "cantidad": 2,
+    "valor_usd": 6057.81,
+    "valor_cop": 24871369
+  },
+  {
+    "id": "VEN-00210",
+    "fecha": "2025-09-06",
+    "id_cliente": "CLI-032",
+    "id_producto": "PRD-005",
+    "cantidad": 1,
+    "valor_usd": 2364.59,
+    "valor_cop": 9708226
+  },
+  {
+    "id": "VEN-00211",
+    "fecha": "2025-09-07",
+    "id_cliente": "CLI-040",
+    "id_producto": "PRD-010",
+    "cantidad": 1,
+    "valor_usd": 6433.05,
+    "valor_cop": 26429157
+  },
+  {
+    "id": "VEN-00212",
+    "fecha": "2025-09-08",
+    "id_cliente": "CLI-025",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 6085.19,
+    "valor_cop": 24927981
+  },
+  {
+    "id": "VEN-00213",
+    "fecha": "2025-09-08",
+    "id_cliente": "CLI-031",
+    "id_producto": "PRD-018",
+    "cantidad": 21,
+    "valor_usd": 9769.05,
+    "valor_cop": 40018913
+  },
+  {
+    "id": "VEN-00214",
+    "fecha": "2025-09-08",
+    "id_cliente": "CLI-040",
+    "id_producto": "PRD-012",
+    "cantidad": 1,
+    "valor_usd": 1349.17,
+    "valor_cop": 5526875
+  },
+  {
+    "id": "VEN-00215",
+    "fecha": "2025-09-08",
+    "id_cliente": "CLI-040",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 18340.17,
+    "valor_cop": 75130506
+  },
+  {
+    "id": "VEN-00216",
+    "fecha": "2025-09-09",
+    "id_cliente": "CLI-037",
+    "id_producto": "PRD-001",
+    "cantidad": 2,
+    "valor_usd": 6517.27,
+    "valor_cop": 26628131
+  },
+  {
+    "id": "VEN-00217",
+    "fecha": "2025-09-10",
+    "id_cliente": "CLI-018",
+    "id_producto": "PRD-007",
+    "cantidad": 2,
+    "valor_usd": 1791.64,
+    "valor_cop": 7307383
+  },
+  {
+    "id": "VEN-00218",
+    "fecha": "2025-09-10",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 13804.18,
+    "valor_cop": 56301729
+  },
+  {
+    "id": "VEN-00219",
+    "fecha": "2025-09-11",
+    "id_cliente": "CLI-007",
+    "id_producto": "PRD-007",
+    "cantidad": 8,
+    "valor_usd": 7068.32,
+    "valor_cop": 28739012
+  },
+  {
+    "id": "VEN-00220",
+    "fecha": "2025-09-11",
+    "id_cliente": "CLI-013",
+    "id_producto": "PRD-012",
+    "cantidad": 2,
+    "valor_usd": 2394.88,
+    "valor_cop": 9737319
+  },
+  {
+    "id": "VEN-00221",
+    "fecha": "2025-09-11",
+    "id_cliente": "CLI-015",
+    "id_producto": "PRD-014",
+    "cantidad": 13,
+    "valor_usd": 1833.38,
+    "valor_cop": 7454321
+  },
+  {
+    "id": "VEN-00222",
+    "fecha": "2025-09-11",
+    "id_cliente": "CLI-015",
+    "id_producto": "PRD-002",
+    "cantidad": 5,
+    "valor_usd": 2295.41,
+    "valor_cop": 9332885
+  },
+  {
+    "id": "VEN-00223",
+    "fecha": "2025-09-11",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-014",
+    "cantidad": 40,
+    "valor_usd": 6285.39,
+    "valor_cop": 25555704
+  },
+  {
+    "id": "VEN-00224",
+    "fecha": "2025-09-11",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-016",
+    "cantidad": 5,
+    "valor_usd": 8644.21,
+    "valor_cop": 35146407
+  },
+  {
+    "id": "VEN-00225",
+    "fecha": "2025-09-11",
+    "id_cliente": "CLI-055",
+    "id_producto": "PRD-002",
+    "cantidad": 6,
+    "valor_usd": 2652.35,
+    "valor_cop": 10784163
+  },
+  {
+    "id": "VEN-00226",
+    "fecha": "2025-09-13",
+    "id_cliente": "CLI-001",
+    "id_producto": "PRD-014",
+    "cantidad": 9,
+    "valor_usd": 1319.09,
+    "valor_cop": 5374725
+  },
+  {
+    "id": "VEN-00227",
+    "fecha": "2025-09-13",
+    "id_cliente": "CLI-052",
+    "id_producto": "PRD-016",
+    "cantidad": 2,
+    "valor_usd": 3582.74,
+    "valor_cop": 14598125
+  },
+  {
+    "id": "VEN-00228",
+    "fecha": "2025-09-13",
+    "id_cliente": "CLI-060",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7693.06,
+    "valor_cop": 31345911
+  },
+  {
+    "id": "VEN-00229",
+    "fecha": "2025-09-13",
+    "id_cliente": "CLI-060",
+    "id_producto": "PRD-005",
+    "cantidad": 8,
+    "valor_usd": 17939.73,
+    "valor_cop": 73096686
+  },
+  {
+    "id": "VEN-00230",
+    "fecha": "2025-09-15",
+    "id_cliente": "CLI-034",
+    "id_producto": "PRD-013",
+    "cantidad": 8,
+    "valor_usd": 16187,
+    "valor_cop": 65628411
+  },
+  {
+    "id": "VEN-00231",
+    "fecha": "2025-09-16",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-004",
+    "cantidad": 29,
+    "valor_usd": 3422.78,
+    "valor_cop": 13860240
+  },
+  {
+    "id": "VEN-00232",
+    "fecha": "2025-09-16",
+    "id_cliente": "CLI-038",
+    "id_producto": "PRD-002",
+    "cantidad": 21,
+    "valor_usd": 9234.95,
+    "valor_cop": 37396099
+  },
+  {
+    "id": "VEN-00233",
+    "fecha": "2025-09-17",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-017",
+    "cantidad": 2,
+    "valor_usd": 12890.01,
+    "valor_cop": 52388868
+  },
+  {
+    "id": "VEN-00234",
+    "fecha": "2025-09-17",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-019",
+    "cantidad": 2,
+    "valor_usd": 27466.78,
+    "valor_cop": 111633234
+  },
+  {
+    "id": "VEN-00235",
+    "fecha": "2025-09-18",
+    "id_cliente": "CLI-035",
+    "id_producto": "PRD-012",
+    "cantidad": 5,
+    "valor_usd": 6461.76,
+    "valor_cop": 26339103
+  },
+  {
+    "id": "VEN-00236",
+    "fecha": "2025-09-19",
+    "id_cliente": "CLI-028",
+    "id_producto": "PRD-010",
+    "cantidad": 1,
+    "valor_usd": 6684.08,
+    "valor_cop": 27275458
+  },
+  {
+    "id": "VEN-00237",
+    "fecha": "2025-09-19",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3849.87,
+    "valor_cop": 15710011
+  },
+  {
+    "id": "VEN-00238",
+    "fecha": "2025-09-20",
+    "id_cliente": "CLI-024",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 11501.99,
+    "valor_cop": 47031752
+  },
+  {
+    "id": "VEN-00239",
+    "fecha": "2025-09-21",
+    "id_cliente": "CLI-043",
+    "id_producto": "PRD-002",
+    "cantidad": 21,
+    "valor_usd": 9624.98,
+    "valor_cop": 39301970
+  },
+  {
+    "id": "VEN-00240",
+    "fecha": "2025-09-22",
+    "id_cliente": "CLI-009",
+    "id_producto": "PRD-004",
+    "cantidad": 19,
+    "valor_usd": 2213.66,
+    "valor_cop": 9017632
+  },
+  {
+    "id": "VEN-00241",
+    "fecha": "2025-09-23",
+    "id_cliente": "CLI-045",
+    "id_producto": "PRD-012",
+    "cantidad": 4,
+    "valor_usd": 5419.08,
+    "valor_cop": 22067957
+  },
+  {
+    "id": "VEN-00242",
+    "fecha": "2025-09-23",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 9846.05,
+    "valor_cop": 40095774
+  },
+  {
+    "id": "VEN-00243",
+    "fecha": "2025-09-24",
+    "id_cliente": "CLI-054",
+    "id_producto": "PRD-013",
+    "cantidad": 3,
+    "valor_usd": 5863.67,
+    "valor_cop": 23818521
+  },
+  {
+    "id": "VEN-00244",
+    "fecha": "2025-09-24",
+    "id_cliente": "CLI-054",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 8230.96,
+    "valor_cop": 33434571
+  },
+  {
+    "id": "VEN-00245",
+    "fecha": "2025-09-25",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-013",
+    "cantidad": 3,
+    "valor_usd": 6390.55,
+    "valor_cop": 25854823
+  },
+  {
+    "id": "VEN-00246",
+    "fecha": "2025-09-25",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 18466.88,
+    "valor_cop": 74713118
+  },
+  {
+    "id": "VEN-00247",
+    "fecha": "2025-09-25",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7481.9,
+    "valor_cop": 30270196
+  },
+  {
+    "id": "VEN-00248",
+    "fecha": "2025-09-25",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-016",
+    "cantidad": 1,
+    "valor_usd": 1703.38,
+    "valor_cop": 6891518
+  },
+  {
+    "id": "VEN-00249",
+    "fecha": "2025-09-26",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-001",
+    "cantidad": 2,
+    "valor_usd": 6595.29,
+    "valor_cop": 26589571
+  },
+  {
+    "id": "VEN-00250",
+    "fecha": "2025-09-26",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 5911.99,
+    "valor_cop": 23834779
+  },
+  {
+    "id": "VEN-00251",
+    "fecha": "2025-09-26",
+    "id_cliente": "CLI-049",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 19067.48,
+    "valor_cop": 76872452
+  },
+  {
+    "id": "VEN-00252",
+    "fecha": "2025-09-26",
+    "id_cliente": "CLI-049",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 9584.75,
+    "valor_cop": 38641878
+  },
+  {
+    "id": "VEN-00253",
+    "fecha": "2025-09-27",
+    "id_cliente": "CLI-058",
+    "id_producto": "PRD-005",
+    "cantidad": 4,
+    "valor_usd": 10037.01,
+    "valor_cop": 40634634
+  },
+  {
+    "id": "VEN-00254",
+    "fecha": "2025-09-29",
+    "id_cliente": "CLI-004",
+    "id_producto": "PRD-004",
+    "cantidad": 33,
+    "valor_usd": 4122.83,
+    "valor_cop": 16685588
+  },
+  {
+    "id": "VEN-00255",
+    "fecha": "2025-09-29",
+    "id_cliente": "CLI-020",
+    "id_producto": "PRD-017",
+    "cantidad": 2,
+    "valor_usd": 12452.58,
+    "valor_cop": 50397086
+  },
+  {
+    "id": "VEN-00256",
+    "fecha": "2025-09-29",
+    "id_cliente": "CLI-020",
+    "id_producto": "PRD-019",
+    "cantidad": 1,
+    "valor_usd": 15166.13,
+    "valor_cop": 61379148
+  },
+  {
+    "id": "VEN-00257",
+    "fecha": "2025-09-30",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7260.22,
+    "valor_cop": 29510035
+  },
+  {
+    "id": "VEN-00258",
+    "fecha": "2025-09-30",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-013",
+    "cantidad": 8,
+    "valor_usd": 17627.05,
+    "valor_cop": 71647260
+  },
+  {
+    "id": "VEN-00259",
+    "fecha": "2025-10-02",
+    "id_cliente": "CLI-023",
+    "id_producto": "PRD-017",
+    "cantidad": 1,
+    "valor_usd": 6314.94,
+    "valor_cop": 25501306
+  },
+  {
+    "id": "VEN-00260",
+    "fecha": "2025-10-02",
+    "id_cliente": "CLI-023",
+    "id_producto": "PRD-018",
+    "cantidad": 19,
+    "valor_usd": 9042.62,
+    "valor_cop": 36516360
+  },
+  {
+    "id": "VEN-00261",
+    "fecha": "2025-10-02",
+    "id_cliente": "CLI-030",
+    "id_producto": "PRD-013",
+    "cantidad": 2,
+    "valor_usd": 3971.79,
+    "valor_cop": 16039081
+  },
+  {
+    "id": "VEN-00262",
+    "fecha": "2025-10-02",
+    "id_cliente": "CLI-036",
+    "id_producto": "PRD-005",
+    "cantidad": 3,
+    "valor_usd": 6927.51,
+    "valor_cop": 27975017
+  },
+  {
+    "id": "VEN-00263",
+    "fecha": "2025-10-02",
+    "id_cliente": "CLI-036",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 13028.29,
+    "valor_cop": 52611492
+  },
+  {
+    "id": "VEN-00264",
+    "fecha": "2025-10-03",
+    "id_cliente": "CLI-005",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 6011.36,
+    "valor_cop": 24207927
+  },
+  {
+    "id": "VEN-00265",
+    "fecha": "2025-10-03",
+    "id_cliente": "CLI-014",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 19760.56,
+    "valor_cop": 79576368
+  },
+  {
+    "id": "VEN-00266",
+    "fecha": "2025-10-03",
+    "id_cliente": "CLI-014",
+    "id_producto": "PRD-017",
+    "cantidad": 2,
+    "valor_usd": 12422.79,
+    "valor_cop": 50026948
+  },
+  {
+    "id": "VEN-00267",
+    "fecha": "2025-10-04",
+    "id_cliente": "CLI-042",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 8988.4,
+    "valor_cop": 36140828
+  },
+  {
+    "id": "VEN-00268",
+    "fecha": "2025-10-04",
+    "id_cliente": "CLI-042",
+    "id_producto": "PRD-005",
+    "cantidad": 6,
+    "valor_usd": 14988.48,
+    "valor_cop": 60266130
+  },
+  {
+    "id": "VEN-00269",
+    "fecha": "2025-10-05",
+    "id_cliente": "CLI-011",
+    "id_producto": "PRD-016",
+    "cantidad": 4,
+    "valor_usd": 6632.73,
+    "valor_cop": 26769698
+  },
+  {
+    "id": "VEN-00270",
+    "fecha": "2025-10-05",
+    "id_cliente": "CLI-011",
+    "id_producto": "PRD-007",
+    "cantidad": 6,
+    "valor_usd": 5172.55,
+    "valor_cop": 20876412
+  },
+  {
+    "id": "VEN-00271",
+    "fecha": "2025-10-05",
+    "id_cliente": "CLI-017",
+    "id_producto": "PRD-019",
+    "cantidad": 1,
+    "valor_usd": 14086.4,
+    "valor_cop": 56852710
+  },
+  {
+    "id": "VEN-00272",
+    "fecha": "2025-10-06",
+    "id_cliente": "CLI-012",
+    "id_producto": "PRD-004",
+    "cantidad": 17,
+    "valor_usd": 2112.24,
+    "valor_cop": 8494268
+  },
+  {
+    "id": "VEN-00273",
+    "fecha": "2025-10-06",
+    "id_cliente": "CLI-029",
+    "id_producto": "PRD-018",
+    "cantidad": 22,
+    "valor_usd": 10719.29,
+    "valor_cop": 43107089
+  },
+  {
+    "id": "VEN-00274",
+    "fecha": "2025-10-06",
+    "id_cliente": "CLI-029",
+    "id_producto": "PRD-020",
+    "cantidad": 2,
+    "valor_usd": 7348.07,
+    "valor_cop": 29549896
+  },
+  {
+    "id": "VEN-00275",
+    "fecha": "2025-10-07",
+    "id_cliente": "CLI-002",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 12922.77,
+    "valor_cop": 51873420
+  },
+  {
+    "id": "VEN-00276",
+    "fecha": "2025-10-07",
+    "id_cliente": "CLI-002",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 15396.18,
+    "valor_cop": 61801960
+  },
+  {
+    "id": "VEN-00277",
+    "fecha": "2025-10-07",
+    "id_cliente": "CLI-008",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 13877.41,
+    "valor_cop": 55705450
+  },
+  {
+    "id": "VEN-00278",
+    "fecha": "2025-10-09",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-002",
+    "cantidad": 40,
+    "valor_usd": 16945.9,
+    "valor_cop": 67826982
+  },
+  {
+    "id": "VEN-00279",
+    "fecha": "2025-10-09",
+    "id_cliente": "CLI-027",
+    "id_producto": "PRD-005",
+    "cantidad": 7,
+    "valor_usd": 17023.92,
+    "valor_cop": 68139261
+  },
+  {
+    "id": "VEN-00280",
+    "fecha": "2025-10-09",
+    "id_cliente": "CLI-027",
+    "id_producto": "PRD-005",
+    "cantidad": 2,
+    "valor_usd": 4569.67,
+    "valor_cop": 18290378
+  },
+  {
+    "id": "VEN-00281",
+    "fecha": "2025-10-09",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-005",
+    "cantidad": 4,
+    "valor_usd": 9782.32,
+    "valor_cop": 39154323
+  },
+  {
+    "id": "VEN-00282",
+    "fecha": "2025-10-09",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 18739.91,
+    "valor_cop": 75007614
+  },
+  {
+    "id": "VEN-00283",
+    "fecha": "2025-10-11",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-007",
+    "cantidad": 4,
+    "valor_usd": 3767.01,
+    "valor_cop": 15161952
+  },
+  {
+    "id": "VEN-00284",
+    "fecha": "2025-10-11",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-016",
+    "cantidad": 4,
+    "valor_usd": 7510.98,
+    "valor_cop": 30231169
+  },
+  {
+    "id": "VEN-00285",
+    "fecha": "2025-10-12",
+    "id_cliente": "CLI-032",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7746.75,
+    "valor_cop": 31145731
+  },
+  {
+    "id": "VEN-00286",
+    "fecha": "2025-10-12",
+    "id_cliente": "CLI-032",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 18612.18,
+    "valor_cop": 74830084
+  },
+  {
+    "id": "VEN-00287",
+    "fecha": "2025-10-12",
+    "id_cliente": "CLI-037",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3605.29,
+    "valor_cop": 14495032
+  },
+  {
+    "id": "VEN-00288",
+    "fecha": "2025-10-12",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-016",
+    "cantidad": 1,
+    "valor_usd": 1877.72,
+    "valor_cop": 7549354
+  },
+  {
+    "id": "VEN-00289",
+    "fecha": "2025-10-13",
+    "id_cliente": "CLI-056",
+    "id_producto": "PRD-010",
+    "cantidad": 1,
+    "valor_usd": 6066.24,
+    "valor_cop": 24395869
+  },
+  {
+    "id": "VEN-00290",
+    "fecha": "2025-10-14",
+    "id_cliente": "CLI-015",
+    "id_producto": "PRD-014",
+    "cantidad": 26,
+    "valor_usd": 3742.51,
+    "valor_cop": 15063827
+  },
+  {
+    "id": "VEN-00291",
+    "fecha": "2025-10-14",
+    "id_cliente": "CLI-025",
+    "id_producto": "PRD-009",
+    "cantidad": 13,
+    "valor_usd": 816.04,
+    "valor_cop": 3284610
+  },
+  {
+    "id": "VEN-00292",
+    "fecha": "2025-10-15",
+    "id_cliente": "CLI-013",
+    "id_producto": "PRD-013",
+    "cantidad": 8,
+    "valor_usd": 15623.16,
+    "valor_cop": 62986644
+  },
+  {
+    "id": "VEN-00293",
+    "fecha": "2025-10-15",
+    "id_cliente": "CLI-013",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 17289.82,
+    "valor_cop": 69705984
+  },
+  {
+    "id": "VEN-00294",
+    "fecha": "2025-10-16",
+    "id_cliente": "CLI-001",
+    "id_producto": "PRD-014",
+    "cantidad": 34,
+    "valor_usd": 5320.12,
+    "valor_cop": 21522545
+  },
+  {
+    "id": "VEN-00295",
+    "fecha": "2025-10-16",
+    "id_cliente": "CLI-001",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 18335.39,
+    "valor_cop": 74175820
+  },
+  {
+    "id": "VEN-00296",
+    "fecha": "2025-10-16",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-004",
+    "cantidad": 11,
+    "valor_usd": 1254.29,
+    "valor_cop": 5074230
+  },
+  {
+    "id": "VEN-00297",
+    "fecha": "2025-10-16",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-004",
+    "cantidad": 25,
+    "valor_usd": 3019.5,
+    "valor_cop": 12215387
+  },
+  {
+    "id": "VEN-00298",
+    "fecha": "2025-10-16",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3961.08,
+    "valor_cop": 16024549
+  },
+  {
+    "id": "VEN-00299",
+    "fecha": "2025-10-16",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-014",
+    "cantidad": 40,
+    "valor_usd": 5588.58,
+    "valor_cop": 22608600
+  },
+  {
+    "id": "VEN-00300",
+    "fecha": "2025-10-16",
+    "id_cliente": "CLI-052",
+    "id_producto": "PRD-005",
+    "cantidad": 6,
+    "valor_usd": 14764.67,
+    "valor_cop": 59730472
+  },
+  {
+    "id": "VEN-00301",
+    "fecha": "2025-10-16",
+    "id_cliente": "CLI-052",
+    "id_producto": "PRD-014",
+    "cantidad": 17,
+    "valor_usd": 2373.33,
+    "valor_cop": 9601307
+  },
+  {
+    "id": "VEN-00302",
+    "fecha": "2025-10-19",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-009",
+    "cantidad": 30,
+    "valor_usd": 1778.17,
+    "valor_cop": 7198512
+  },
+  {
+    "id": "VEN-00303",
+    "fecha": "2025-10-19",
+    "id_cliente": "CLI-059",
+    "id_producto": "PRD-018",
+    "cantidad": 18,
+    "valor_usd": 8522.18,
+    "valor_cop": 34500086
+  },
+  {
+    "id": "VEN-00304",
+    "fecha": "2025-10-19",
+    "id_cliente": "CLI-060",
+    "id_producto": "PRD-010",
+    "cantidad": 1,
+    "valor_usd": 6696.56,
+    "valor_cop": 27109483
+  },
+  {
+    "id": "VEN-00305",
+    "fecha": "2025-10-19",
+    "id_cliente": "CLI-060",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 9263.43,
+    "valor_cop": 37500866
+  },
+  {
+    "id": "VEN-00306",
+    "fecha": "2025-10-20",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-016",
+    "cantidad": 3,
+    "valor_usd": 5648.1,
+    "valor_cop": 22915415
+  },
+  {
+    "id": "VEN-00307",
+    "fecha": "2025-10-20",
+    "id_cliente": "CLI-028",
+    "id_producto": "PRD-009",
+    "cantidad": 24,
+    "valor_usd": 1442.68,
+    "valor_cop": 5853227
+  },
+  {
+    "id": "VEN-00308",
+    "fecha": "2025-10-20",
+    "id_cliente": "CLI-028",
+    "id_producto": "PRD-009",
+    "cantidad": 27,
+    "valor_usd": 1597.48,
+    "valor_cop": 6481280
+  },
+  {
+    "id": "VEN-00309",
+    "fecha": "2025-10-21",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-014",
+    "cantidad": 13,
+    "valor_usd": 1941.63,
+    "valor_cop": 7851699
+  },
+  {
+    "id": "VEN-00310",
+    "fecha": "2025-10-21",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3947.85,
+    "valor_cop": 15964592
+  },
+  {
+    "id": "VEN-00311",
+    "fecha": "2025-10-22",
+    "id_cliente": "CLI-018",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 9540.09,
+    "valor_cop": 38523837
+  },
+  {
+    "id": "VEN-00312",
+    "fecha": "2025-10-23",
+    "id_cliente": "CLI-038",
+    "id_producto": "PRD-002",
+    "cantidad": 17,
+    "valor_usd": 7991.18,
+    "valor_cop": 32248966
+  },
+  {
+    "id": "VEN-00313",
+    "fecha": "2025-10-23",
+    "id_cliente": "CLI-038",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 10835.21,
+    "valor_cop": 43726248
+  },
+  {
+    "id": "VEN-00314",
+    "fecha": "2025-10-23",
+    "id_cliente": "CLI-043",
+    "id_producto": "PRD-007",
+    "cantidad": 4,
+    "valor_usd": 3567.94,
+    "valor_cop": 14398672
+  },
+  {
+    "id": "VEN-00315",
+    "fecha": "2025-10-24",
+    "id_cliente": "CLI-009",
+    "id_producto": "PRD-004",
+    "cantidad": 37,
+    "valor_usd": 4127.6,
+    "valor_cop": 16647230
+  },
+  {
+    "id": "VEN-00316",
+    "fecha": "2025-10-24",
+    "id_cliente": "CLI-010",
+    "id_producto": "PRD-009",
+    "cantidad": 10,
+    "valor_usd": 575.15,
+    "valor_cop": 2319666
+  },
+  {
+    "id": "VEN-00317",
+    "fecha": "2025-10-24",
+    "id_cliente": "CLI-055",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 5470.94,
+    "valor_cop": 22065122
+  },
+  {
+    "id": "VEN-00318",
+    "fecha": "2025-10-25",
+    "id_cliente": "CLI-049",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 17702.89,
+    "valor_cop": 71164556
+  },
+  {
+    "id": "VEN-00319",
+    "fecha": "2025-10-25",
+    "id_cliente": "CLI-049",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 18153.8,
+    "valor_cop": 72977187
+  },
+  {
+    "id": "VEN-00320",
+    "fecha": "2025-10-26",
+    "id_cliente": "CLI-024",
+    "id_producto": "PRD-004",
+    "cantidad": 5,
+    "valor_usd": 587.39,
+    "valor_cop": 2354617
+  },
+  {
+    "id": "VEN-00321",
+    "fecha": "2025-10-26",
+    "id_cliente": "CLI-024",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3320.12,
+    "valor_cop": 13309066
+  },
+  {
+    "id": "VEN-00322",
+    "fecha": "2025-10-26",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7642.8,
+    "valor_cop": 30637005
+  },
+  {
+    "id": "VEN-00323",
+    "fecha": "2025-10-27",
+    "id_cliente": "CLI-035",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7494.43,
+    "valor_cop": 30006723
+  },
+  {
+    "id": "VEN-00324",
+    "fecha": "2025-10-27",
+    "id_cliente": "CLI-035",
+    "id_producto": "PRD-013",
+    "cantidad": 5,
+    "valor_usd": 10525.67,
+    "valor_cop": 42143414
+  },
+  {
+    "id": "VEN-00325",
+    "fecha": "2025-10-28",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-002",
+    "cantidad": 19,
+    "valor_usd": 8407.13,
+    "valor_cop": 33538816
+  },
+  {
+    "id": "VEN-00326",
+    "fecha": "2025-10-28",
+    "id_cliente": "CLI-031",
+    "id_producto": "PRD-002",
+    "cantidad": 32,
+    "valor_usd": 13736.62,
+    "valor_cop": 54799910
+  },
+  {
+    "id": "VEN-00327",
+    "fecha": "2025-10-30",
+    "id_cliente": "CLI-034",
+    "id_producto": "PRD-012",
+    "cantidad": 7,
+    "valor_usd": 9151.01,
+    "valor_cop": 36498620
+  },
+  {
+    "id": "VEN-00328",
+    "fecha": "2025-10-30",
+    "id_cliente": "CLI-034",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 12116.76,
+    "valor_cop": 48327455
+  },
+  {
+    "id": "VEN-00329",
+    "fecha": "2025-10-31",
+    "id_cliente": "CLI-023",
+    "id_producto": "PRD-020",
+    "cantidad": 1,
+    "valor_usd": 3988.13,
+    "valor_cop": 15864263
+  },
+  {
+    "id": "VEN-00330",
+    "fecha": "2025-10-31",
+    "id_cliente": "CLI-023",
+    "id_producto": "PRD-014",
+    "cantidad": 14,
+    "valor_usd": 2162.76,
+    "valor_cop": 8603178
+  },
+  {
+    "id": "VEN-00331",
+    "fecha": "2025-10-31",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-012",
+    "cantidad": 8,
+    "valor_usd": 9578.32,
+    "valor_cop": 38101312
+  },
+  {
+    "id": "VEN-00332",
+    "fecha": "2025-11-02",
+    "id_cliente": "CLI-017",
+    "id_producto": "PRD-017",
+    "cantidad": 2,
+    "valor_usd": 11858.83,
+    "valor_cop": 46988124
+  },
+  {
+    "id": "VEN-00333",
+    "fecha": "2025-11-02",
+    "id_cliente": "CLI-017",
+    "id_producto": "PRD-018",
+    "cantidad": 12,
+    "valor_usd": 5483.3,
+    "valor_cop": 21726425
+  },
+  {
+    "id": "VEN-00334",
+    "fecha": "2025-11-02",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-017",
+    "cantidad": 1,
+    "valor_usd": 5730.41,
+    "valor_cop": 22705546
+  },
+  {
+    "id": "VEN-00335",
+    "fecha": "2025-11-02",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-018",
+    "cantidad": 28,
+    "valor_usd": 13255.43,
+    "valor_cop": 52521858
+  },
+  {
+    "id": "VEN-00336",
+    "fecha": "2025-11-02",
+    "id_cliente": "CLI-036",
+    "id_producto": "PRD-007",
+    "cantidad": 7,
+    "valor_usd": 6608.4,
+    "valor_cop": 26184397
+  },
+  {
+    "id": "VEN-00337",
+    "fecha": "2025-11-02",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-007",
+    "cantidad": 8,
+    "valor_usd": 6648.29,
+    "valor_cop": 26342453
+  },
+  {
+    "id": "VEN-00338",
+    "fecha": "2025-11-02",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7718.63,
+    "valor_cop": 30583450
+  },
+  {
+    "id": "VEN-00339",
+    "fecha": "2025-11-02",
+    "id_cliente": "CLI-054",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 9123.5,
+    "valor_cop": 36149953
+  },
+  {
+    "id": "VEN-00340",
+    "fecha": "2025-11-02",
+    "id_cliente": "CLI-054",
+    "id_producto": "PRD-013",
+    "cantidad": 6,
+    "valor_usd": 11979.39,
+    "valor_cop": 47465817
+  },
+  {
+    "id": "VEN-00341",
+    "fecha": "2025-11-03",
+    "id_cliente": "CLI-030",
+    "id_producto": "PRD-013",
+    "cantidad": 5,
+    "valor_usd": 11022.22,
+    "valor_cop": 43763504
+  },
+  {
+    "id": "VEN-00342",
+    "fecha": "2025-11-04",
+    "id_cliente": "CLI-014",
+    "id_producto": "PRD-004",
+    "cantidad": 34,
+    "valor_usd": 3992.2,
+    "valor_cop": 15884924
+  },
+  {
+    "id": "VEN-00343",
+    "fecha": "2025-11-04",
+    "id_cliente": "CLI-014",
+    "id_producto": "PRD-010",
+    "cantidad": 1,
+    "valor_usd": 6648.49,
+    "valor_cop": 26454275
+  },
+  {
+    "id": "VEN-00344",
+    "fecha": "2025-11-04",
+    "id_cliente": "CLI-019",
+    "id_producto": "PRD-002",
+    "cantidad": 36,
+    "valor_usd": 15204.05,
+    "valor_cop": 60496763
+  },
+  {
+    "id": "VEN-00345",
+    "fecha": "2025-11-04",
+    "id_cliente": "CLI-019",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 12048.98,
+    "valor_cop": 47942771
+  },
+  {
+    "id": "VEN-00346",
+    "fecha": "2025-11-05",
+    "id_cliente": "CLI-007",
+    "id_producto": "PRD-007",
+    "cantidad": 7,
+    "valor_usd": 5918.59,
+    "valor_cop": 23518938
+  },
+  {
+    "id": "VEN-00347",
+    "fecha": "2025-11-06",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-004",
+    "cantidad": 26,
+    "valor_usd": 3008.01,
+    "valor_cop": 11915149
+  },
+  {
+    "id": "VEN-00348",
+    "fecha": "2025-11-06",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-018",
+    "cantidad": 15,
+    "valor_usd": 7234.78,
+    "valor_cop": 28657976
+  },
+  {
+    "id": "VEN-00349",
+    "fecha": "2025-11-07",
+    "id_cliente": "CLI-011",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7689.27,
+    "valor_cop": 30393993
+  },
+  {
+    "id": "VEN-00350",
+    "fecha": "2025-11-08",
+    "id_cliente": "CLI-002",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7198.32,
+    "valor_cop": 28563798
+  },
+  {
+    "id": "VEN-00351",
+    "fecha": "2025-11-08",
+    "id_cliente": "CLI-012",
+    "id_producto": "PRD-004",
+    "cantidad": 14,
+    "valor_usd": 1689.9,
+    "valor_cop": 6705726
+  },
+  {
+    "id": "VEN-00352",
+    "fecha": "2025-11-08",
+    "id_cliente": "CLI-012",
+    "id_producto": "PRD-001",
+    "cantidad": 2,
+    "valor_usd": 6018.54,
+    "valor_cop": 23882289
+  },
+  {
+    "id": "VEN-00353",
+    "fecha": "2025-11-08",
+    "id_cliente": "CLI-037",
+    "id_producto": "PRD-017",
+    "cantidad": 2,
+    "valor_usd": 11806.69,
+    "valor_cop": 46850363
+  },
+  {
+    "id": "VEN-00354",
+    "fecha": "2025-11-09",
+    "id_cliente": "CLI-004",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 8788.58,
+    "valor_cop": 35026358
+  },
+  {
+    "id": "VEN-00355",
+    "fecha": "2025-11-09",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 11520.59,
+    "valor_cop": 45914620
+  },
+  {
+    "id": "VEN-00356",
+    "fecha": "2025-11-09",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3290.81,
+    "valor_cop": 13115326
+  },
+  {
+    "id": "VEN-00357",
+    "fecha": "2025-11-10",
+    "id_cliente": "CLI-001",
+    "id_producto": "PRD-016",
+    "cantidad": 3,
+    "valor_usd": 5636.22,
+    "valor_cop": 22548487
+  },
+  {
+    "id": "VEN-00358",
+    "fecha": "2025-11-10",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-002",
+    "cantidad": 7,
+    "valor_usd": 3298.78,
+    "valor_cop": 13197231
+  },
+  {
+    "id": "VEN-00359",
+    "fecha": "2025-11-12",
+    "id_cliente": "CLI-005",
+    "id_producto": "PRD-004",
+    "cantidad": 22,
+    "valor_usd": 2566.69,
+    "valor_cop": 10261832
+  },
+  {
+    "id": "VEN-00360",
+    "fecha": "2025-11-12",
+    "id_cliente": "CLI-005",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7044.89,
+    "valor_cop": 28166034
+  },
+  {
+    "id": "VEN-00361",
+    "fecha": "2025-11-12",
+    "id_cliente": "CLI-032",
+    "id_producto": "PRD-005",
+    "cantidad": 5,
+    "valor_usd": 11437.58,
+    "valor_cop": 45728360
+  },
+  {
+    "id": "VEN-00362",
+    "fecha": "2025-11-13",
+    "id_cliente": "CLI-020",
+    "id_producto": "PRD-018",
+    "cantidad": 18,
+    "valor_usd": 8296.93,
+    "valor_cop": 33117445
+  },
+  {
+    "id": "VEN-00363",
+    "fecha": "2025-11-13",
+    "id_cliente": "CLI-059",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 12321.07,
+    "valor_cop": 49179921
+  },
+  {
+    "id": "VEN-00364",
+    "fecha": "2025-11-15",
+    "id_cliente": "CLI-015",
+    "id_producto": "PRD-004",
+    "cantidad": 14,
+    "valor_usd": 1561.73,
+    "valor_cop": 6259101
+  },
+  {
+    "id": "VEN-00365",
+    "fecha": "2025-11-15",
+    "id_cliente": "CLI-047",
+    "id_producto": "PRD-010",
+    "cantidad": 1,
+    "valor_usd": 6468.63,
+    "valor_cop": 25924975
+  },
+  {
+    "id": "VEN-00366",
+    "fecha": "2025-11-17",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-019",
+    "cantidad": 2,
+    "valor_usd": 27425.05,
+    "valor_cop": 109831017
+  },
+  {
+    "id": "VEN-00367",
+    "fecha": "2025-11-17",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3125.53,
+    "valor_cop": 12517029
+  },
+  {
+    "id": "VEN-00368",
+    "fecha": "2025-11-17",
+    "id_cliente": "CLI-042",
+    "id_producto": "PRD-005",
+    "cantidad": 8,
+    "valor_usd": 18054.68,
+    "valor_cop": 72304841
+  },
+  {
+    "id": "VEN-00369",
+    "fecha": "2025-11-17",
+    "id_cliente": "CLI-042",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 9683.63,
+    "valor_cop": 38780711
+  },
+  {
+    "id": "VEN-00370",
+    "fecha": "2025-11-17",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-010",
+    "cantidad": 1,
+    "valor_usd": 6602.45,
+    "valor_cop": 26441294
+  },
+  {
+    "id": "VEN-00371",
+    "fecha": "2025-11-20",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-014",
+    "cantidad": 7,
+    "valor_usd": 975.71,
+    "valor_cop": 3922930
+  },
+  {
+    "id": "VEN-00372",
+    "fecha": "2025-11-20",
+    "id_cliente": "CLI-028",
+    "id_producto": "PRD-020",
+    "cantidad": 1,
+    "valor_usd": 4010.11,
+    "valor_cop": 16123008
+  },
+  {
+    "id": "VEN-00373",
+    "fecha": "2025-11-20",
+    "id_cliente": "CLI-028",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3169.97,
+    "valor_cop": 12745150
+  },
+  {
+    "id": "VEN-00374",
+    "fecha": "2025-11-20",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-005",
+    "cantidad": 6,
+    "valor_usd": 13597.09,
+    "valor_cop": 54668324
+  },
+  {
+    "id": "VEN-00375",
+    "fecha": "2025-11-20",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 9159.99,
+    "valor_cop": 36828564
+  },
+  {
+    "id": "VEN-00376",
+    "fecha": "2025-11-21",
+    "id_cliente": "CLI-008",
+    "id_producto": "PRD-009",
+    "cantidad": 36,
+    "valor_usd": 2060.68,
+    "valor_cop": 8287849
+  },
+  {
+    "id": "VEN-00377",
+    "fecha": "2025-11-21",
+    "id_cliente": "CLI-008",
+    "id_producto": "PRD-009",
+    "cantidad": 20,
+    "valor_usd": 1158.14,
+    "valor_cop": 4657923
+  },
+  {
+    "id": "VEN-00378",
+    "fecha": "2025-11-22",
+    "id_cliente": "CLI-056",
+    "id_producto": "PRD-017",
+    "cantidad": 2,
+    "valor_usd": 11871.44,
+    "valor_cop": 47874906
+  },
+  {
+    "id": "VEN-00379",
+    "fecha": "2025-11-23",
+    "id_cliente": "CLI-060",
+    "id_producto": "PRD-005",
+    "cantidad": 7,
+    "valor_usd": 15760.92,
+    "valor_cop": 63712416
+  },
+  {
+    "id": "VEN-00380",
+    "fecha": "2025-11-23",
+    "id_cliente": "CLI-060",
+    "id_producto": "PRD-007",
+    "cantidad": 6,
+    "valor_usd": 5359.32,
+    "valor_cop": 21664676
+  },
+  {
+    "id": "VEN-00381",
+    "fecha": "2025-11-24",
+    "id_cliente": "CLI-052",
+    "id_producto": "PRD-016",
+    "cantidad": 2,
+    "valor_usd": 3646.26,
+    "valor_cop": 14700080
+  },
+  {
+    "id": "VEN-00382",
+    "fecha": "2025-11-25",
+    "id_cliente": "CLI-009",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 11125.19,
+    "valor_cop": 45045561
+  },
+  {
+    "id": "VEN-00383",
+    "fecha": "2025-11-25",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 19084.33,
+    "valor_cop": 77271880
+  },
+  {
+    "id": "VEN-00384",
+    "fecha": "2025-11-25",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7300.1,
+    "valor_cop": 29557886
+  },
+  {
+    "id": "VEN-00385",
+    "fecha": "2025-11-25",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-016",
+    "cantidad": 4,
+    "valor_usd": 7454.88,
+    "valor_cop": 30184585
+  },
+  {
+    "id": "VEN-00386",
+    "fecha": "2025-11-26",
+    "id_cliente": "CLI-027",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 19050.9,
+    "valor_cop": 76896291
+  },
+  {
+    "id": "VEN-00387",
+    "fecha": "2025-11-27",
+    "id_cliente": "CLI-043",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 5490.75,
+    "valor_cop": 22084785
+  },
+  {
+    "id": "VEN-00388",
+    "fecha": "2025-11-27",
+    "id_cliente": "CLI-043",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 19882.59,
+    "valor_cop": 79971356
+  },
+  {
+    "id": "VEN-00389",
+    "fecha": "2025-11-28",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-004",
+    "cantidad": 21,
+    "valor_usd": 2608.43,
+    "valor_cop": 10478220
+  },
+  {
+    "id": "VEN-00390",
+    "fecha": "2025-11-28",
+    "id_cliente": "CLI-058",
+    "id_producto": "PRD-007",
+    "cantidad": 5,
+    "valor_usd": 4544.81,
+    "valor_cop": 18256774
+  },
+  {
+    "id": "VEN-00391",
+    "fecha": "2025-11-28",
+    "id_cliente": "CLI-058",
+    "id_producto": "PRD-005",
+    "cantidad": 3,
+    "valor_usd": 6628.45,
+    "valor_cop": 26626881
+  },
+  {
+    "id": "VEN-00392",
+    "fecha": "2025-11-29",
+    "id_cliente": "CLI-013",
+    "id_producto": "PRD-002",
+    "cantidad": 32,
+    "valor_usd": 14286.26,
+    "valor_cop": 57197328
+  },
+  {
+    "id": "VEN-00393",
+    "fecha": "2025-11-29",
+    "id_cliente": "CLI-023",
+    "id_producto": "PRD-016",
+    "cantidad": 5,
+    "valor_usd": 9064.67,
+    "valor_cop": 36291857
+  },
+  {
+    "id": "VEN-00394",
+    "fecha": "2025-11-29",
+    "id_cliente": "CLI-049",
+    "id_producto": "PRD-007",
+    "cantidad": 2,
+    "valor_usd": 1671.31,
+    "valor_cop": 6691357
+  },
+  {
+    "id": "VEN-00395",
+    "fecha": "2025-11-30",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-018",
+    "cantidad": 35,
+    "valor_usd": 16964.12,
+    "valor_cop": 67708383
+  },
+  {
+    "id": "VEN-00396",
+    "fecha": "2025-11-30",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-017",
+    "cantidad": 2,
+    "valor_usd": 12369.33,
+    "valor_cop": 49369336
+  },
+  {
+    "id": "VEN-00397",
+    "fecha": "2025-11-30",
+    "id_cliente": "CLI-035",
+    "id_producto": "PRD-012",
+    "cantidad": 5,
+    "valor_usd": 6524.26,
+    "valor_cop": 26040083
+  },
+  {
+    "id": "VEN-00398",
+    "fecha": "2025-11-30",
+    "id_cliente": "CLI-055",
+    "id_producto": "PRD-001",
+    "cantidad": 2,
+    "valor_usd": 6289.9,
+    "valor_cop": 25104689
+  },
+  {
+    "id": "VEN-00399",
+    "fecha": "2025-11-30",
+    "id_cliente": "CLI-055",
+    "id_producto": "PRD-001",
+    "cantidad": 2,
+    "valor_usd": 6051.99,
+    "valor_cop": 24155126
+  },
+  {
+    "id": "VEN-00400",
+    "fecha": "2025-12-02",
+    "id_cliente": "CLI-038",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 11073.43,
+    "valor_cop": 43956091
+  },
+  {
+    "id": "VEN-00401",
+    "fecha": "2025-12-04",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-016",
+    "cantidad": 5,
+    "valor_usd": 9182.09,
+    "valor_cop": 36378063
+  },
+  {
+    "id": "VEN-00402",
+    "fecha": "2025-12-05",
+    "id_cliente": "CLI-036",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7124.89,
+    "valor_cop": 28220407
+  },
+  {
+    "id": "VEN-00403",
+    "fecha": "2025-12-06",
+    "id_cliente": "CLI-011",
+    "id_producto": "PRD-007",
+    "cantidad": 3,
+    "valor_usd": 2553.3,
+    "valor_cop": 10077186
+  },
+  {
+    "id": "VEN-00404",
+    "fecha": "2025-12-07",
+    "id_cliente": "CLI-017",
+    "id_producto": "PRD-017",
+    "cantidad": 2,
+    "valor_usd": 12947.48,
+    "valor_cop": 51168700
+  },
+  {
+    "id": "VEN-00405",
+    "fecha": "2025-12-07",
+    "id_cliente": "CLI-017",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 5343.06,
+    "valor_cop": 21115880
+  },
+  {
+    "id": "VEN-00406",
+    "fecha": "2025-12-07",
+    "id_cliente": "CLI-029",
+    "id_producto": "PRD-018",
+    "cantidad": 25,
+    "valor_usd": 12294.36,
+    "valor_cop": 48587557
+  },
+  {
+    "id": "VEN-00407",
+    "fecha": "2025-12-07",
+    "id_cliente": "CLI-030",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 9164.42,
+    "valor_cop": 36217971
+  },
+  {
+    "id": "VEN-00408",
+    "fecha": "2025-12-09",
+    "id_cliente": "CLI-018",
+    "id_producto": "PRD-005",
+    "cantidad": 8,
+    "valor_usd": 19714.71,
+    "valor_cop": 77597887
+  },
+  {
+    "id": "VEN-00409",
+    "fecha": "2025-12-09",
+    "id_cliente": "CLI-018",
+    "id_producto": "PRD-007",
+    "cantidad": 4,
+    "valor_usd": 3477.56,
+    "valor_cop": 13687815
+  },
+  {
+    "id": "VEN-00410",
+    "fecha": "2025-12-10",
+    "id_cliente": "CLI-054",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 9121.82,
+    "valor_cop": 35787180
+  },
+  {
+    "id": "VEN-00411",
+    "fecha": "2025-12-11",
+    "id_cliente": "CLI-001",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3693.27,
+    "valor_cop": 14486852
+  },
+  {
+    "id": "VEN-00412",
+    "fecha": "2025-12-11",
+    "id_cliente": "CLI-001",
+    "id_producto": "PRD-016",
+    "cantidad": 3,
+    "valor_usd": 5622.3,
+    "valor_cop": 22053472
+  },
+  {
+    "id": "VEN-00413",
+    "fecha": "2025-12-12",
+    "id_cliente": "CLI-032",
+    "id_producto": "PRD-016",
+    "cantidad": 5,
+    "valor_usd": 8932.94,
+    "valor_cop": 35009800
+  },
+  {
+    "id": "VEN-00414",
+    "fecha": "2025-12-12",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-013",
+    "cantidad": 6,
+    "valor_usd": 12707.07,
+    "valor_cop": 49801295
+  },
+  {
+    "id": "VEN-00415",
+    "fecha": "2025-12-12",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 9181.26,
+    "valor_cop": 35983011
+  },
+  {
+    "id": "VEN-00416",
+    "fecha": "2025-12-12",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3733.81,
+    "valor_cop": 14633473
+  },
+  {
+    "id": "VEN-00417",
+    "fecha": "2025-12-13",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3031.9,
+    "valor_cop": 11889596
+  },
+  {
+    "id": "VEN-00418",
+    "fecha": "2025-12-13",
+    "id_cliente": "CLI-037",
+    "id_producto": "PRD-013",
+    "cantidad": 2,
+    "valor_usd": 3945.47,
+    "valor_cop": 15472161
+  },
+  {
+    "id": "VEN-00419",
+    "fecha": "2025-12-13",
+    "id_cliente": "CLI-037",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3296.82,
+    "valor_cop": 12928480
+  },
+  {
+    "id": "VEN-00420",
+    "fecha": "2025-12-13",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-016",
+    "cantidad": 4,
+    "valor_usd": 6754.37,
+    "valor_cop": 26487262
+  },
+  {
+    "id": "VEN-00421",
+    "fecha": "2025-12-13",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7030.64,
+    "valor_cop": 27570655
+  },
+  {
+    "id": "VEN-00422",
+    "fecha": "2025-12-14",
+    "id_cliente": "CLI-002",
+    "id_producto": "PRD-007",
+    "cantidad": 4,
+    "valor_usd": 3411.24,
+    "valor_cop": 13391744
+  },
+  {
+    "id": "VEN-00423",
+    "fecha": "2025-12-15",
+    "id_cliente": "CLI-004",
+    "id_producto": "PRD-002",
+    "cantidad": 14,
+    "valor_usd": 5846.64,
+    "valor_cop": 22978289
+  },
+  {
+    "id": "VEN-00424",
+    "fecha": "2025-12-15",
+    "id_cliente": "CLI-012",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 11559.06,
+    "valor_cop": 45429071
+  },
+  {
+    "id": "VEN-00425",
+    "fecha": "2025-12-15",
+    "id_cliente": "CLI-012",
+    "id_producto": "PRD-001",
+    "cantidad": 2,
+    "valor_usd": 6539.41,
+    "valor_cop": 25700993
+  },
+  {
+    "id": "VEN-00426",
+    "fecha": "2025-12-16",
+    "id_cliente": "CLI-014",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 8777.1,
+    "valor_cop": 34628380
+  },
+  {
+    "id": "VEN-00427",
+    "fecha": "2025-12-18",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-007",
+    "cantidad": 8,
+    "valor_usd": 7196.55,
+    "valor_cop": 28380315
+  },
+  {
+    "id": "VEN-00428",
+    "fecha": "2025-12-18",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3711.14,
+    "valor_cop": 14635252
+  },
+  {
+    "id": "VEN-00429",
+    "fecha": "2025-12-19",
+    "id_cliente": "CLI-015",
+    "id_producto": "PRD-002",
+    "cantidad": 16,
+    "valor_usd": 7172.32,
+    "valor_cop": 28205866
+  },
+  {
+    "id": "VEN-00430",
+    "fecha": "2025-12-19",
+    "id_cliente": "CLI-015",
+    "id_producto": "PRD-016",
+    "cantidad": 2,
+    "valor_usd": 3679.36,
+    "valor_cop": 14469451
+  },
+  {
+    "id": "VEN-00431",
+    "fecha": "2025-12-20",
+    "id_cliente": "CLI-005",
+    "id_producto": "PRD-002",
+    "cantidad": 13,
+    "valor_usd": 5506.78,
+    "valor_cop": 21717859
+  },
+  {
+    "id": "VEN-00432",
+    "fecha": "2025-12-20",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 10847.84,
+    "valor_cop": 42782145
+  },
+  {
+    "id": "VEN-00433",
+    "fecha": "2025-12-20",
+    "id_cliente": "CLI-020",
+    "id_producto": "PRD-018",
+    "cantidad": 21,
+    "valor_usd": 9495.9,
+    "valor_cop": 37450310
+  },
+  {
+    "id": "VEN-00434",
+    "fecha": "2025-12-20",
+    "id_cliente": "CLI-028",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7014.04,
+    "valor_cop": 27662252
+  },
+  {
+    "id": "VEN-00435",
+    "fecha": "2025-12-24",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 8473.02,
+    "valor_cop": 33646871
+  },
+  {
+    "id": "VEN-00436",
+    "fecha": "2025-12-24",
+    "id_cliente": "CLI-056",
+    "id_producto": "PRD-009",
+    "cantidad": 10,
+    "valor_usd": 617.93,
+    "valor_cop": 2453837
+  },
+  {
+    "id": "VEN-00437",
+    "fecha": "2025-12-24",
+    "id_cliente": "CLI-056",
+    "id_producto": "PRD-009",
+    "cantidad": 34,
+    "valor_usd": 2009.46,
+    "valor_cop": 7979686
+  },
+  {
+    "id": "VEN-00438",
+    "fecha": "2025-12-27",
+    "id_cliente": "CLI-049",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3899.15,
+    "valor_cop": 15514523
+  },
+  {
+    "id": "VEN-00439",
+    "fecha": "2025-12-28",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 15377.37,
+    "valor_cop": 61322953
+  },
+  {
+    "id": "VEN-00440",
+    "fecha": "2025-12-28",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-004",
+    "cantidad": 11,
+    "valor_usd": 1323.37,
+    "valor_cop": 5277428
+  },
+  {
+    "id": "VEN-00441",
+    "fecha": "2025-12-29",
+    "id_cliente": "CLI-042",
+    "id_producto": "PRD-007",
+    "cantidad": 1,
+    "valor_usd": 925.99,
+    "valor_cop": 3700386
+  },
+  {
+    "id": "VEN-00442",
+    "fecha": "2025-12-29",
+    "id_cliente": "CLI-052",
+    "id_producto": "PRD-007",
+    "cantidad": 5,
+    "valor_usd": 4638.42,
+    "valor_cop": 18535776
+  },
+  {
+    "id": "VEN-00443",
+    "fecha": "2025-12-29",
+    "id_cliente": "CLI-052",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3654.51,
+    "valor_cop": 14603934
+  },
+  {
+    "id": "VEN-00444",
+    "fecha": "2025-12-30",
+    "id_cliente": "CLI-008",
+    "id_producto": "PRD-009",
+    "cantidad": 14,
+    "valor_usd": 874.61,
+    "valor_cop": 3496131
+  },
+  {
+    "id": "VEN-00445",
+    "fecha": "2025-12-30",
+    "id_cliente": "CLI-008",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 14816.07,
+    "valor_cop": 59225166
+  },
+  {
+    "id": "VEN-00446",
+    "fecha": "2025-12-30",
+    "id_cliente": "CLI-009",
+    "id_producto": "PRD-002",
+    "cantidad": 10,
+    "valor_usd": 4314.29,
+    "valor_cop": 17245770
+  },
+  {
+    "id": "VEN-00447",
+    "fecha": "2025-12-30",
+    "id_cliente": "CLI-034",
+    "id_producto": "PRD-004",
+    "cantidad": 38,
+    "valor_usd": 4369.8,
+    "valor_cop": 17467664
+  },
+  {
+    "id": "VEN-00448",
+    "fecha": "2025-12-30",
+    "id_cliente": "CLI-059",
+    "id_producto": "PRD-004",
+    "cantidad": 12,
+    "valor_usd": 1413.89,
+    "valor_cop": 5651827
+  },
+  {
+    "id": "VEN-00449",
+    "fecha": "2025-12-30",
+    "id_cliente": "CLI-059",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3336.19,
+    "valor_cop": 13335952
+  },
+  {
+    "id": "VEN-00450",
+    "fecha": "2026-01-02",
+    "id_cliente": "CLI-023",
+    "id_producto": "PRD-020",
+    "cantidad": 2,
+    "valor_usd": 7735.92,
+    "valor_cop": 30981199
+  },
+  {
+    "id": "VEN-00451",
+    "fecha": "2026-01-02",
+    "id_cliente": "CLI-035",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 12954.55,
+    "valor_cop": 51881030
+  },
+  {
+    "id": "VEN-00452",
+    "fecha": "2026-01-02",
+    "id_cliente": "CLI-043",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 18130.75,
+    "valor_cop": 72610934
+  },
+  {
+    "id": "VEN-00453",
+    "fecha": "2026-01-03",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-018",
+    "cantidad": 17,
+    "valor_usd": 7848.9,
+    "valor_cop": 31443007
+  },
+  {
+    "id": "VEN-00454",
+    "fecha": "2026-01-03",
+    "id_cliente": "CLI-036",
+    "id_producto": "PRD-009",
+    "cantidad": 38,
+    "valor_usd": 2123.85,
+    "valor_cop": 8508228
+  },
+  {
+    "id": "VEN-00455",
+    "fecha": "2026-01-03",
+    "id_cliente": "CLI-055",
+    "id_producto": "PRD-018",
+    "cantidad": 27,
+    "valor_usd": 13017.5,
+    "valor_cop": 52148626
+  },
+  {
+    "id": "VEN-00456",
+    "fecha": "2026-01-03",
+    "id_cliente": "CLI-055",
+    "id_producto": "PRD-016",
+    "cantidad": 5,
+    "valor_usd": 9359.62,
+    "valor_cop": 37495012
+  },
+  {
+    "id": "VEN-00457",
+    "fecha": "2026-01-04",
+    "id_cliente": "CLI-038",
+    "id_producto": "PRD-002",
+    "cantidad": 6,
+    "valor_usd": 2641.9,
+    "valor_cop": 10587969
+  },
+  {
+    "id": "VEN-00458",
+    "fecha": "2026-01-04",
+    "id_cliente": "CLI-038",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3330.35,
+    "valor_cop": 13347077
+  },
+  {
+    "id": "VEN-00459",
+    "fecha": "2026-01-04",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-016",
+    "cantidad": 1,
+    "valor_usd": 1738.74,
+    "valor_cop": 6968366
+  },
+  {
+    "id": "VEN-00460",
+    "fecha": "2026-01-04",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-016",
+    "cantidad": 1,
+    "valor_usd": 1841,
+    "valor_cop": 7378194
+  },
+  {
+    "id": "VEN-00461",
+    "fecha": "2026-01-04",
+    "id_cliente": "CLI-060",
+    "id_producto": "PRD-007",
+    "cantidad": 3,
+    "valor_usd": 2700.57,
+    "valor_cop": 10823101
+  },
+  {
+    "id": "VEN-00462",
+    "fecha": "2026-01-05",
+    "id_cliente": "CLI-001",
+    "id_producto": "PRD-016",
+    "cantidad": 2,
+    "valor_usd": 3675.07,
+    "valor_cop": 14743462
+  },
+  {
+    "id": "VEN-00463",
+    "fecha": "2026-01-06",
+    "id_cliente": "CLI-019",
+    "id_producto": "PRD-005",
+    "cantidad": 1,
+    "valor_usd": 2495.28,
+    "valor_cop": 10031425
+  },
+  {
+    "id": "VEN-00464",
+    "fecha": "2026-01-06",
+    "id_cliente": "CLI-019",
+    "id_producto": "PRD-009",
+    "cantidad": 29,
+    "valor_usd": 1816.56,
+    "valor_cop": 7302862
+  },
+  {
+    "id": "VEN-00465",
+    "fecha": "2026-01-06",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-013",
+    "cantidad": 4,
+    "valor_usd": 7879.5,
+    "valor_cop": 31676851
+  },
+  {
+    "id": "VEN-00466",
+    "fecha": "2026-01-06",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3960.97,
+    "valor_cop": 15923733
+  },
+  {
+    "id": "VEN-00467",
+    "fecha": "2026-01-07",
+    "id_cliente": "CLI-011",
+    "id_producto": "PRD-016",
+    "cantidad": 6,
+    "valor_usd": 11018.37,
+    "valor_cop": 44480609
+  },
+  {
+    "id": "VEN-00468",
+    "fecha": "2026-01-09",
+    "id_cliente": "CLI-013",
+    "id_producto": "PRD-013",
+    "cantidad": 8,
+    "valor_usd": 16713.2,
+    "valor_cop": 67345839
+  },
+  {
+    "id": "VEN-00469",
+    "fecha": "2026-01-09",
+    "id_cliente": "CLI-017",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 12395.04,
+    "valor_cop": 49945814
+  },
+  {
+    "id": "VEN-00470",
+    "fecha": "2026-01-09",
+    "id_cliente": "CLI-027",
+    "id_producto": "PRD-005",
+    "cantidad": 1,
+    "valor_usd": 2428.03,
+    "valor_cop": 9783747
+  },
+  {
+    "id": "VEN-00471",
+    "fecha": "2026-01-09",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-007",
+    "cantidad": 8,
+    "valor_usd": 6644.07,
+    "valor_cop": 26772280
+  },
+  {
+    "id": "VEN-00472",
+    "fecha": "2026-01-09",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-014",
+    "cantidad": 22,
+    "valor_usd": 3341.71,
+    "valor_cop": 13465420
+  },
+  {
+    "id": "VEN-00473",
+    "fecha": "2026-01-10",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 2964.62,
+    "valor_cop": 11973122
+  },
+  {
+    "id": "VEN-00474",
+    "fecha": "2026-01-10",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-004",
+    "cantidad": 29,
+    "valor_usd": 3319.18,
+    "valor_cop": 13405073
+  },
+  {
+    "id": "VEN-00475",
+    "fecha": "2026-01-10",
+    "id_cliente": "CLI-030",
+    "id_producto": "PRD-012",
+    "cantidad": 7,
+    "valor_usd": 8604.12,
+    "valor_cop": 34749201
+  },
+  {
+    "id": "VEN-00476",
+    "fecha": "2026-01-12",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 18691.05,
+    "valor_cop": 75421564
+  },
+  {
+    "id": "VEN-00477",
+    "fecha": "2026-01-13",
+    "id_cliente": "CLI-047",
+    "id_producto": "PRD-007",
+    "cantidad": 5,
+    "valor_usd": 4634.97,
+    "valor_cop": 18787619
+  },
+  {
+    "id": "VEN-00478",
+    "fecha": "2026-01-14",
+    "id_cliente": "CLI-032",
+    "id_producto": "PRD-005",
+    "cantidad": 2,
+    "valor_usd": 4736.48,
+    "valor_cop": 19206947
+  },
+  {
+    "id": "VEN-00479",
+    "fecha": "2026-01-14",
+    "id_cliente": "CLI-054",
+    "id_producto": "PRD-013",
+    "cantidad": 1,
+    "valor_usd": 2084.38,
+    "valor_cop": 8452390
+  },
+  {
+    "id": "VEN-00480",
+    "fecha": "2026-01-15",
+    "id_cliente": "CLI-002",
+    "id_producto": "PRD-013",
+    "cantidad": 4,
+    "valor_usd": 8276,
+    "valor_cop": 33460861
+  },
+  {
+    "id": "VEN-00481",
+    "fecha": "2026-01-17",
+    "id_cliente": "CLI-014",
+    "id_producto": "PRD-020",
+    "cantidad": 1,
+    "valor_usd": 3647.03,
+    "valor_cop": 14779115
+  },
+  {
+    "id": "VEN-00482",
+    "fecha": "2026-01-17",
+    "id_cliente": "CLI-021",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3123.5,
+    "valor_cop": 12657578
+  },
+  {
+    "id": "VEN-00483",
+    "fecha": "2026-01-17",
+    "id_cliente": "CLI-021",
+    "id_producto": "PRD-002",
+    "cantidad": 33,
+    "valor_usd": 13879.47,
+    "valor_cop": 56244748
+  },
+  {
+    "id": "VEN-00484",
+    "fecha": "2026-01-17",
+    "id_cliente": "CLI-028",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7725.88,
+    "valor_cop": 31308124
+  },
+  {
+    "id": "VEN-00485",
+    "fecha": "2026-01-17",
+    "id_cliente": "CLI-028",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7010.26,
+    "valor_cop": 28408167
+  },
+  {
+    "id": "VEN-00486",
+    "fecha": "2026-01-17",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 9069.19,
+    "valor_cop": 36751713
+  },
+  {
+    "id": "VEN-00487",
+    "fecha": "2026-01-17",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 8737.96,
+    "valor_cop": 35409447
+  },
+  {
+    "id": "VEN-00488",
+    "fecha": "2026-01-17",
+    "id_cliente": "CLI-037",
+    "id_producto": "PRD-013",
+    "cantidad": 6,
+    "valor_usd": 11824.14,
+    "valor_cop": 47915790
+  },
+  {
+    "id": "VEN-00489",
+    "fecha": "2026-01-18",
+    "id_cliente": "CLI-018",
+    "id_producto": "PRD-018",
+    "cantidad": 26,
+    "valor_usd": 11974.51,
+    "valor_cop": 48559512
+  },
+  {
+    "id": "VEN-00490",
+    "fecha": "2026-01-20",
+    "id_cliente": "CLI-004",
+    "id_producto": "PRD-002",
+    "cantidad": 31,
+    "valor_usd": 14057.68,
+    "valor_cop": 57367002
+  },
+  {
+    "id": "VEN-00491",
+    "fecha": "2026-01-20",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-004",
+    "cantidad": 21,
+    "valor_usd": 2562.57,
+    "valor_cop": 10457413
+  },
+  {
+    "id": "VEN-00492",
+    "fecha": "2026-01-23",
+    "id_cliente": "CLI-005",
+    "id_producto": "PRD-002",
+    "cantidad": 32,
+    "valor_usd": 14564.46,
+    "valor_cop": 59722879
+  },
+  {
+    "id": "VEN-00493",
+    "fecha": "2026-01-23",
+    "id_cliente": "CLI-015",
+    "id_producto": "PRD-016",
+    "cantidad": 3,
+    "valor_usd": 5227.18,
+    "valor_cop": 21434522
+  },
+  {
+    "id": "VEN-00494",
+    "fecha": "2026-01-25",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-016",
+    "cantidad": 4,
+    "valor_usd": 7140.48,
+    "valor_cop": 29277825
+  },
+  {
+    "id": "VEN-00495",
+    "fecha": "2026-01-26",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3587.45,
+    "valor_cop": 14658572
+  },
+  {
+    "id": "VEN-00496",
+    "fecha": "2026-01-26",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 10879.28,
+    "valor_cop": 44453500
+  },
+  {
+    "id": "VEN-00497",
+    "fecha": "2026-01-26",
+    "id_cliente": "CLI-049",
+    "id_producto": "PRD-005",
+    "cantidad": 5,
+    "valor_usd": 12532.51,
+    "valor_cop": 51208713
+  },
+  {
+    "id": "VEN-00498",
+    "fecha": "2026-01-28",
+    "id_cliente": "CLI-012",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 5785.75,
+    "valor_cop": 23637508
+  },
+  {
+    "id": "VEN-00499",
+    "fecha": "2026-01-30",
+    "id_cliente": "CLI-020",
+    "id_producto": "PRD-017",
+    "cantidad": 2,
+    "valor_usd": 12585.18,
+    "valor_cop": 51519700
+  },
+  {
+    "id": "VEN-00500",
+    "fecha": "2026-01-31",
+    "id_cliente": "CLI-001",
+    "id_producto": "PRD-014",
+    "cantidad": 12,
+    "valor_usd": 1784.74,
+    "valor_cop": 7293804
+  },
+  {
+    "id": "VEN-00501",
+    "fecha": "2026-01-31",
+    "id_cliente": "CLI-001",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3693.3,
+    "valor_cop": 15093631
+  },
+  {
+    "id": "VEN-00502",
+    "fecha": "2026-01-31",
+    "id_cliente": "CLI-052",
+    "id_producto": "PRD-007",
+    "cantidad": 4,
+    "valor_usd": 3374.4,
+    "valor_cop": 13790363
+  },
+  {
+    "id": "VEN-00503",
+    "fecha": "2026-02-01",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-012",
+    "cantidad": 5,
+    "valor_usd": 6194.53,
+    "valor_cop": 25240046
+  },
+  {
+    "id": "VEN-00504",
+    "fecha": "2026-02-02",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7066.86,
+    "valor_cop": 28837029
+  },
+  {
+    "id": "VEN-00505",
+    "fecha": "2026-02-02",
+    "id_cliente": "CLI-043",
+    "id_producto": "PRD-005",
+    "cantidad": 7,
+    "valor_usd": 17417.11,
+    "valor_cop": 71072259
+  },
+  {
+    "id": "VEN-00506",
+    "fecha": "2026-02-03",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-002",
+    "cantidad": 33,
+    "valor_usd": 14674.61,
+    "valor_cop": 60064206
+  },
+  {
+    "id": "VEN-00507",
+    "fecha": "2026-02-03",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-009",
+    "cantidad": 33,
+    "valor_usd": 1931.03,
+    "valor_cop": 7903841
+  },
+  {
+    "id": "VEN-00508",
+    "fecha": "2026-02-03",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-009",
+    "cantidad": 21,
+    "valor_usd": 1229.18,
+    "valor_cop": 5031120
+  },
+  {
+    "id": "VEN-00509",
+    "fecha": "2026-02-05",
+    "id_cliente": "CLI-023",
+    "id_producto": "PRD-020",
+    "cantidad": 2,
+    "valor_usd": 7910.08,
+    "valor_cop": 32362748
+  },
+  {
+    "id": "VEN-00510",
+    "fecha": "2026-02-05",
+    "id_cliente": "CLI-042",
+    "id_producto": "PRD-013",
+    "cantidad": 8,
+    "valor_usd": 17028.02,
+    "valor_cop": 69667249
+  },
+  {
+    "id": "VEN-00511",
+    "fecha": "2026-02-05",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-005",
+    "cantidad": 1,
+    "valor_usd": 2447.08,
+    "valor_cop": 10011812
+  },
+  {
+    "id": "VEN-00512",
+    "fecha": "2026-02-06",
+    "id_cliente": "CLI-009",
+    "id_producto": "PRD-004",
+    "cantidad": 18,
+    "valor_usd": 2054.05,
+    "valor_cop": 8403303
+  },
+  {
+    "id": "VEN-00513",
+    "fecha": "2026-02-06",
+    "id_cliente": "CLI-011",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7106.32,
+    "valor_cop": 29072595
+  },
+  {
+    "id": "VEN-00514",
+    "fecha": "2026-02-07",
+    "id_cliente": "CLI-008",
+    "id_producto": "PRD-009",
+    "cantidad": 20,
+    "valor_usd": 1141.38,
+    "valor_cop": 4649400
+  },
+  {
+    "id": "VEN-00515",
+    "fecha": "2026-02-07",
+    "id_cliente": "CLI-035",
+    "id_producto": "PRD-018",
+    "cantidad": 29,
+    "valor_usd": 13558.4,
+    "valor_cop": 55230007
+  },
+  {
+    "id": "VEN-00516",
+    "fecha": "2026-02-07",
+    "id_cliente": "CLI-036",
+    "id_producto": "PRD-018",
+    "cantidad": 17,
+    "valor_usd": 8246.22,
+    "valor_cop": 33590895
+  },
+  {
+    "id": "VEN-00517",
+    "fecha": "2026-02-07",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-005",
+    "cantidad": 1,
+    "valor_usd": 2486.29,
+    "valor_cop": 10127877
+  },
+  {
+    "id": "VEN-00518",
+    "fecha": "2026-02-08",
+    "id_cliente": "CLI-017",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 11223.77,
+    "valor_cop": 45714864
+  },
+  {
+    "id": "VEN-00519",
+    "fecha": "2026-02-08",
+    "id_cliente": "CLI-058",
+    "id_producto": "PRD-007",
+    "cantidad": 5,
+    "valor_usd": 4366.55,
+    "valor_cop": 17785133
+  },
+  {
+    "id": "VEN-00520",
+    "fecha": "2026-02-09",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 8570.05,
+    "valor_cop": 34788490
+  },
+  {
+    "id": "VEN-00521",
+    "fecha": "2026-02-09",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 18159.03,
+    "valor_cop": 73713132
+  },
+  {
+    "id": "VEN-00522",
+    "fecha": "2026-02-09",
+    "id_cliente": "CLI-055",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 5736.64,
+    "valor_cop": 23286800
+  },
+  {
+    "id": "VEN-00523",
+    "fecha": "2026-02-09",
+    "id_cliente": "CLI-055",
+    "id_producto": "PRD-002",
+    "cantidad": 29,
+    "valor_usd": 13467.12,
+    "valor_cop": 54667215
+  },
+  {
+    "id": "VEN-00524",
+    "fecha": "2026-02-09",
+    "id_cliente": "CLI-059",
+    "id_producto": "PRD-002",
+    "cantidad": 28,
+    "valor_usd": 13175.59,
+    "valor_cop": 53483804
+  },
+  {
+    "id": "VEN-00525",
+    "fecha": "2026-02-10",
+    "id_cliente": "CLI-060",
+    "id_producto": "PRD-005",
+    "cantidad": 7,
+    "valor_usd": 16998.03,
+    "valor_cop": 69187931
+  },
+  {
+    "id": "VEN-00526",
+    "fecha": "2026-02-11",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-004",
+    "cantidad": 5,
+    "valor_usd": 606.19,
+    "valor_cop": 2468018
+  },
+  {
+    "id": "VEN-00527",
+    "fecha": "2026-02-11",
+    "id_cliente": "CLI-030",
+    "id_producto": "PRD-012",
+    "cantidad": 1,
+    "valor_usd": 1278.5,
+    "valor_cop": 5205234
+  },
+  {
+    "id": "VEN-00528",
+    "fecha": "2026-02-12",
+    "id_cliente": "CLI-057",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 16455.73,
+    "valor_cop": 67068125
+  },
+  {
+    "id": "VEN-00529",
+    "fecha": "2026-02-12",
+    "id_cliente": "CLI-057",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 8346.94,
+    "valor_cop": 34019373
+  },
+  {
+    "id": "VEN-00530",
+    "fecha": "2026-02-13",
+    "id_cliente": "CLI-032",
+    "id_producto": "PRD-005",
+    "cantidad": 2,
+    "valor_usd": 4848.06,
+    "valor_cop": 19757978
+  },
+  {
+    "id": "VEN-00531",
+    "fecha": "2026-02-13",
+    "id_cliente": "CLI-038",
+    "id_producto": "PRD-004",
+    "cantidad": 10,
+    "valor_usd": 1144.28,
+    "valor_cop": 4663444
+  },
+  {
+    "id": "VEN-00532",
+    "fecha": "2026-02-14",
+    "id_cliente": "CLI-002",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 13750.95,
+    "valor_cop": 56257887
+  },
+  {
+    "id": "VEN-00533",
+    "fecha": "2026-02-15",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-016",
+    "cantidad": 6,
+    "valor_usd": 10248.4,
+    "valor_cop": 41865841
+  },
+  {
+    "id": "VEN-00534",
+    "fecha": "2026-02-17",
+    "id_cliente": "CLI-022",
+    "id_producto": "PRD-017",
+    "cantidad": 1,
+    "valor_usd": 5999.93,
+    "valor_cop": 24585073
+  },
+  {
+    "id": "VEN-00535",
+    "fecha": "2026-02-17",
+    "id_cliente": "CLI-028",
+    "id_producto": "PRD-009",
+    "cantidad": 21,
+    "valor_usd": 1233.58,
+    "valor_cop": 5054668
+  },
+  {
+    "id": "VEN-00536",
+    "fecha": "2026-02-18",
+    "id_cliente": "CLI-013",
+    "id_producto": "PRD-016",
+    "cantidad": 8,
+    "valor_usd": 13678.82,
+    "valor_cop": 56251275
+  },
+  {
+    "id": "VEN-00537",
+    "fecha": "2026-02-18",
+    "id_cliente": "CLI-013",
+    "id_producto": "PRD-005",
+    "cantidad": 6,
+    "valor_usd": 13441.37,
+    "valor_cop": 55274811
+  },
+  {
+    "id": "VEN-00538",
+    "fecha": "2026-02-18",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-002",
+    "cantidad": 10,
+    "valor_usd": 4443.64,
+    "valor_cop": 18273536
+  },
+  {
+    "id": "VEN-00539",
+    "fecha": "2026-02-18",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-016",
+    "cantidad": 8,
+    "valor_usd": 14482.44,
+    "valor_cop": 59555993
+  },
+  {
+    "id": "VEN-00540",
+    "fecha": "2026-02-21",
+    "id_cliente": "CLI-027",
+    "id_producto": "PRD-005",
+    "cantidad": 1,
+    "valor_usd": 2452.37,
+    "valor_cop": 10141801
+  },
+  {
+    "id": "VEN-00541",
+    "fecha": "2026-02-21",
+    "id_cliente": "CLI-027",
+    "id_producto": "PRD-007",
+    "cantidad": 6,
+    "valor_usd": 4980.04,
+    "valor_cop": 20595005
+  },
+  {
+    "id": "VEN-00542",
+    "fecha": "2026-02-22",
+    "id_cliente": "CLI-037",
+    "id_producto": "PRD-013",
+    "cantidad": 3,
+    "valor_usd": 6037.35,
+    "valor_cop": 25060919
+  },
+  {
+    "id": "VEN-00543",
+    "fecha": "2026-02-23",
+    "id_cliente": "CLI-015",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 5930.13,
+    "valor_cop": 24698517
+  },
+  {
+    "id": "VEN-00544",
+    "fecha": "2026-02-24",
+    "id_cliente": "CLI-005",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 5740.09,
+    "valor_cop": 23797150
+  },
+  {
+    "id": "VEN-00545",
+    "fecha": "2026-02-24",
+    "id_cliente": "CLI-054",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 17607.93,
+    "valor_cop": 72998604
+  },
+  {
+    "id": "VEN-00546",
+    "fecha": "2026-02-24",
+    "id_cliente": "CLI-054",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 9006.55,
+    "valor_cop": 37339175
+  },
+  {
+    "id": "VEN-00547",
+    "fecha": "2026-02-25",
+    "id_cliente": "CLI-014",
+    "id_producto": "PRD-005",
+    "cantidad": 6,
+    "valor_usd": 14779.67,
+    "valor_cop": 61060876
+  },
+  {
+    "id": "VEN-00548",
+    "fecha": "2026-02-25",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 9083.76,
+    "valor_cop": 37528737
+  },
+  {
+    "id": "VEN-00549",
+    "fecha": "2026-02-25",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 13662.44,
+    "valor_cop": 56445141
+  },
+  {
+    "id": "VEN-00550",
+    "fecha": "2026-02-26",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3046.71,
+    "valor_cop": 12588792
+  },
+  {
+    "id": "VEN-00551",
+    "fecha": "2026-02-26",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-016",
+    "cantidad": 6,
+    "valor_usd": 10675.39,
+    "valor_cop": 44109964
+  },
+  {
+    "id": "VEN-00552",
+    "fecha": "2026-02-28",
+    "id_cliente": "CLI-004",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 5780.33,
+    "valor_cop": 23727272
+  },
+  {
+    "id": "VEN-00553",
+    "fecha": "2026-02-28",
+    "id_cliente": "CLI-049",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 18257.52,
+    "valor_cop": 74944016
+  },
+  {
+    "id": "VEN-00554",
+    "fecha": "2026-03-02",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-020",
+    "cantidad": 2,
+    "valor_usd": 7287.4,
+    "valor_cop": 29781418
+  },
+  {
+    "id": "VEN-00555",
+    "fecha": "2026-03-02",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 13043.39,
+    "valor_cop": 53304422
+  },
+  {
+    "id": "VEN-00556",
+    "fecha": "2026-03-02",
+    "id_cliente": "CLI-047",
+    "id_producto": "PRD-007",
+    "cantidad": 4,
+    "valor_usd": 3772.24,
+    "valor_cop": 15416013
+  },
+  {
+    "id": "VEN-00557",
+    "fecha": "2026-03-03",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 17225.62,
+    "valor_cop": 70415406
+  },
+  {
+    "id": "VEN-00558",
+    "fecha": "2026-03-03",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-019",
+    "cantidad": 1,
+    "valor_usd": 14420.78,
+    "valor_cop": 58949697
+  },
+  {
+    "id": "VEN-00559",
+    "fecha": "2026-03-04",
+    "id_cliente": "CLI-012",
+    "id_producto": "PRD-001",
+    "cantidad": 2,
+    "valor_usd": 6402.32,
+    "valor_cop": 26076905
+  },
+  {
+    "id": "VEN-00560",
+    "fecha": "2026-03-04",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-007",
+    "cantidad": 7,
+    "valor_usd": 6380.08,
+    "valor_cop": 25986321
+  },
+  {
+    "id": "VEN-00561",
+    "fecha": "2026-03-05",
+    "id_cliente": "CLI-001",
+    "id_producto": "PRD-014",
+    "cantidad": 19,
+    "valor_usd": 2839.43,
+    "valor_cop": 11597907
+  },
+  {
+    "id": "VEN-00562",
+    "fecha": "2026-03-05",
+    "id_cliente": "CLI-018",
+    "id_producto": "PRD-007",
+    "cantidad": 4,
+    "valor_usd": 3337.21,
+    "valor_cop": 13631135
+  },
+  {
+    "id": "VEN-00563",
+    "fecha": "2026-03-06",
+    "id_cliente": "CLI-023",
+    "id_producto": "PRD-019",
+    "cantidad": 1,
+    "valor_usd": 14759.16,
+    "valor_cop": 60311684
+  },
+  {
+    "id": "VEN-00564",
+    "fecha": "2026-03-06",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-004",
+    "cantidad": 7,
+    "valor_usd": 857.45,
+    "valor_cop": 3503875
+  },
+  {
+    "id": "VEN-00565",
+    "fecha": "2026-03-06",
+    "id_cliente": "CLI-043",
+    "id_producto": "PRD-002",
+    "cantidad": 29,
+    "valor_usd": 12474.21,
+    "valor_cop": 50974487
+  },
+  {
+    "id": "VEN-00566",
+    "fecha": "2026-03-06",
+    "id_cliente": "CLI-053",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 12477.84,
+    "valor_cop": 50989321
+  },
+  {
+    "id": "VEN-00567",
+    "fecha": "2026-03-06",
+    "id_cliente": "CLI-053",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7341.94,
+    "valor_cop": 30002030
+  },
+  {
+    "id": "VEN-00568",
+    "fecha": "2026-03-07",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-016",
+    "cantidad": 1,
+    "valor_usd": 1814.88,
+    "valor_cop": 7407378
+  },
+  {
+    "id": "VEN-00569",
+    "fecha": "2026-03-09",
+    "id_cliente": "CLI-019",
+    "id_producto": "PRD-009",
+    "cantidad": 10,
+    "valor_usd": 580.25,
+    "valor_cop": 2362766
+  },
+  {
+    "id": "VEN-00570",
+    "fecha": "2026-03-09",
+    "id_cliente": "CLI-019",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7167.29,
+    "valor_cop": 29185062
+  },
+  {
+    "id": "VEN-00571",
+    "fecha": "2026-03-10",
+    "id_cliente": "CLI-011",
+    "id_producto": "PRD-005",
+    "cantidad": 7,
+    "valor_usd": 15659.34,
+    "valor_cop": 63563297
+  },
+  {
+    "id": "VEN-00572",
+    "fecha": "2026-03-10",
+    "id_cliente": "CLI-017",
+    "id_producto": "PRD-018",
+    "cantidad": 10,
+    "valor_usd": 4786.9,
+    "valor_cop": 19430649
+  },
+  {
+    "id": "VEN-00573",
+    "fecha": "2026-03-10",
+    "id_cliente": "CLI-017",
+    "id_producto": "PRD-004",
+    "cantidad": 11,
+    "valor_usd": 1295.93,
+    "valor_cop": 5260348
+  },
+  {
+    "id": "VEN-00574",
+    "fecha": "2026-03-12",
+    "id_cliente": "CLI-052",
+    "id_producto": "PRD-007",
+    "cantidad": 1,
+    "valor_usd": 830.29,
+    "valor_cop": 3372763
+  },
+  {
+    "id": "VEN-00575",
+    "fecha": "2026-03-12",
+    "id_cliente": "CLI-052",
+    "id_producto": "PRD-016",
+    "cantidad": 7,
+    "valor_usd": 11629.59,
+    "valor_cop": 47241139
+  },
+  {
+    "id": "VEN-00576",
+    "fecha": "2026-03-13",
+    "id_cliente": "CLI-036",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3544.89,
+    "valor_cop": 14448404
+  },
+  {
+    "id": "VEN-00577",
+    "fecha": "2026-03-13",
+    "id_cliente": "CLI-036",
+    "id_producto": "PRD-009",
+    "cantidad": 38,
+    "valor_usd": 2321.07,
+    "valor_cop": 9460310
+  },
+  {
+    "id": "VEN-00578",
+    "fecha": "2026-03-14",
+    "id_cliente": "CLI-008",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7064.02,
+    "valor_cop": 28869166
+  },
+  {
+    "id": "VEN-00579",
+    "fecha": "2026-03-14",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7323.06,
+    "valor_cop": 29927808
+  },
+  {
+    "id": "VEN-00580",
+    "fecha": "2026-03-14",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-014",
+    "cantidad": 34,
+    "valor_usd": 5080.94,
+    "valor_cop": 20764735
+  },
+  {
+    "id": "VEN-00581",
+    "fecha": "2026-03-15",
+    "id_cliente": "CLI-028",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7182.24,
+    "valor_cop": 29317042
+  },
+  {
+    "id": "VEN-00582",
+    "fecha": "2026-03-15",
+    "id_cliente": "CLI-035",
+    "id_producto": "PRD-009",
+    "cantidad": 15,
+    "valor_usd": 941.3,
+    "valor_cop": 3842274
+  },
+  {
+    "id": "VEN-00583",
+    "fecha": "2026-03-15",
+    "id_cliente": "CLI-035",
+    "id_producto": "PRD-013",
+    "cantidad": 8,
+    "valor_usd": 17310.22,
+    "valor_cop": 70658241
+  },
+  {
+    "id": "VEN-00584",
+    "fecha": "2026-03-16",
+    "id_cliente": "CLI-009",
+    "id_producto": "PRD-002",
+    "cantidad": 38,
+    "valor_usd": 16836.36,
+    "valor_cop": 68654299
+  },
+  {
+    "id": "VEN-00585",
+    "fecha": "2026-03-16",
+    "id_cliente": "CLI-020",
+    "id_producto": "PRD-017",
+    "cantidad": 2,
+    "valor_usd": 11466.72,
+    "valor_cop": 46758303
+  },
+  {
+    "id": "VEN-00586",
+    "fecha": "2026-03-16",
+    "id_cliente": "CLI-045",
+    "id_producto": "PRD-002",
+    "cantidad": 40,
+    "valor_usd": 18206.92,
+    "valor_cop": 74243086
+  },
+  {
+    "id": "VEN-00587",
+    "fecha": "2026-03-16",
+    "id_cliente": "CLI-055",
+    "id_producto": "PRD-004",
+    "cantidad": 32,
+    "valor_usd": 4016.69,
+    "valor_cop": 16379017
+  },
+  {
+    "id": "VEN-00588",
+    "fecha": "2026-03-17",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-016",
+    "cantidad": 8,
+    "valor_usd": 14230.78,
+    "valor_cop": 58238756
+  },
+  {
+    "id": "VEN-00589",
+    "fecha": "2026-03-17",
+    "id_cliente": "CLI-060",
+    "id_producto": "PRD-004",
+    "cantidad": 34,
+    "valor_usd": 4280.37,
+    "valor_cop": 17517200
+  },
+  {
+    "id": "VEN-00590",
+    "fecha": "2026-03-19",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-016",
+    "cantidad": 1,
+    "valor_usd": 1690.03,
+    "valor_cop": 6892787
+  },
+  {
+    "id": "VEN-00591",
+    "fecha": "2026-03-19",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-014",
+    "cantidad": 7,
+    "valor_usd": 1006.56,
+    "valor_cop": 4105255
+  },
+  {
+    "id": "VEN-00592",
+    "fecha": "2026-03-20",
+    "id_cliente": "CLI-002",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 12959.27,
+    "valor_cop": 52791919
+  },
+  {
+    "id": "VEN-00593",
+    "fecha": "2026-03-20",
+    "id_cliente": "CLI-038",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3023.57,
+    "valor_cop": 12317057
+  },
+  {
+    "id": "VEN-00594",
+    "fecha": "2026-03-21",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-017",
+    "cantidad": 2,
+    "valor_usd": 11565.36,
+    "valor_cop": 47103976
+  },
+  {
+    "id": "VEN-00595",
+    "fecha": "2026-03-22",
+    "id_cliente": "CLI-030",
+    "id_producto": "PRD-018",
+    "cantidad": 18,
+    "valor_usd": 8414.85,
+    "valor_cop": 34175062
+  },
+  {
+    "id": "VEN-00596",
+    "fecha": "2026-03-22",
+    "id_cliente": "CLI-030",
+    "id_producto": "PRD-017",
+    "cantidad": 1,
+    "valor_usd": 6065.96,
+    "valor_cop": 24635562
+  },
+  {
+    "id": "VEN-00597",
+    "fecha": "2026-03-22",
+    "id_cliente": "CLI-032",
+    "id_producto": "PRD-005",
+    "cantidad": 6,
+    "valor_usd": 13317.93,
+    "valor_cop": 54087843
+  },
+  {
+    "id": "VEN-00598",
+    "fecha": "2026-03-22",
+    "id_cliente": "CLI-042",
+    "id_producto": "PRD-012",
+    "cantidad": 2,
+    "valor_usd": 2514.05,
+    "valor_cop": 10210261
+  },
+  {
+    "id": "VEN-00599",
+    "fecha": "2026-03-24",
+    "id_cliente": "CLI-015",
+    "id_producto": "PRD-002",
+    "cantidad": 16,
+    "valor_usd": 6874.86,
+    "valor_cop": 27913032
+  },
+  {
+    "id": "VEN-00600",
+    "fecha": "2026-03-25",
+    "id_cliente": "CLI-013",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 16965.56,
+    "valor_cop": 68613814
+  },
+  {
+    "id": "VEN-00601",
+    "fecha": "2026-03-25",
+    "id_cliente": "CLI-037",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 12158.96,
+    "valor_cop": 49174482
+  },
+  {
+    "id": "VEN-00602",
+    "fecha": "2026-03-26",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-014",
+    "cantidad": 19,
+    "valor_usd": 2771.08,
+    "valor_cop": 11166289
+  },
+  {
+    "id": "VEN-00603",
+    "fecha": "2026-03-26",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-016",
+    "cantidad": 6,
+    "valor_usd": 10427.62,
+    "valor_cop": 42018929
+  },
+  {
+    "id": "VEN-00604",
+    "fecha": "2026-03-26",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-019",
+    "cantidad": 1,
+    "valor_usd": 14021.79,
+    "valor_cop": 56501925
+  },
+  {
+    "id": "VEN-00605",
+    "fecha": "2026-03-31",
+    "id_cliente": "CLI-001",
+    "id_producto": "PRD-016",
+    "cantidad": 2,
+    "valor_usd": 3646.58,
+    "valor_cop": 14709501
+  },
+  {
+    "id": "VEN-00606",
+    "fecha": "2026-03-31",
+    "id_cliente": "CLI-005",
+    "id_producto": "PRD-013",
+    "cantidad": 2,
+    "valor_usd": 3917.08,
+    "valor_cop": 15800639
+  },
+  {
+    "id": "VEN-00607",
+    "fecha": "2026-03-31",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 8295.94,
+    "valor_cop": 33463997
+  },
+  {
+    "id": "VEN-00608",
+    "fecha": "2026-03-31",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-009",
+    "cantidad": 35,
+    "valor_usd": 1996.26,
+    "valor_cop": 8052474
+  },
+  {
+    "id": "VEN-00609",
+    "fecha": "2026-04-01",
+    "id_cliente": "CLI-049",
+    "id_producto": "PRD-007",
+    "cantidad": 3,
+    "valor_usd": 2551.5,
+    "valor_cop": 10306861
+  },
+  {
+    "id": "VEN-00610",
+    "fecha": "2026-04-01",
+    "id_cliente": "CLI-054",
+    "id_producto": "PRD-013",
+    "cantidad": 1,
+    "valor_usd": 2134.22,
+    "valor_cop": 8621246
+  },
+  {
+    "id": "VEN-00611",
+    "fecha": "2026-04-01",
+    "id_cliente": "CLI-054",
+    "id_producto": "PRD-012",
+    "cantidad": 7,
+    "valor_usd": 8733.29,
+    "valor_cop": 35278387
+  },
+  {
+    "id": "VEN-00612",
+    "fecha": "2026-04-02",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-007",
+    "cantidad": 3,
+    "valor_usd": 2552.81,
+    "valor_cop": 10338472
+  },
+  {
+    "id": "VEN-00613",
+    "fecha": "2026-04-02",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 17106.87,
+    "valor_cop": 69280086
+  },
+  {
+    "id": "VEN-00614",
+    "fecha": "2026-04-03",
+    "id_cliente": "CLI-014",
+    "id_producto": "PRD-007",
+    "cantidad": 2,
+    "valor_usd": 1864.7,
+    "valor_cop": 7521249
+  },
+  {
+    "id": "VEN-00615",
+    "fecha": "2026-04-03",
+    "id_cliente": "CLI-027",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 19898.04,
+    "valor_cop": 80258545
+  },
+  {
+    "id": "VEN-00616",
+    "fecha": "2026-04-03",
+    "id_cliente": "CLI-027",
+    "id_producto": "PRD-005",
+    "cantidad": 6,
+    "valor_usd": 13291.32,
+    "valor_cop": 53610406
+  },
+  {
+    "id": "VEN-00617",
+    "fecha": "2026-04-04",
+    "id_cliente": "CLI-051",
+    "id_producto": "PRD-014",
+    "cantidad": 9,
+    "valor_usd": 1380.82,
+    "valor_cop": 5576179
+  },
+  {
+    "id": "VEN-00618",
+    "fecha": "2026-04-04",
+    "id_cliente": "CLI-051",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 9732.39,
+    "valor_cop": 39302408
+  },
+  {
+    "id": "VEN-00619",
+    "fecha": "2026-04-06",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 8266.54,
+    "valor_cop": 33337303
+  },
+  {
+    "id": "VEN-00620",
+    "fecha": "2026-04-06",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-004",
+    "cantidad": 10,
+    "valor_usd": 1200.72,
+    "valor_cop": 4842264
+  },
+  {
+    "id": "VEN-00621",
+    "fecha": "2026-04-06",
+    "id_cliente": "CLI-043",
+    "id_producto": "PRD-004",
+    "cantidad": 29,
+    "valor_usd": 3488.66,
+    "valor_cop": 14069068
+  },
+  {
+    "id": "VEN-00622",
+    "fecha": "2026-04-06",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-014",
+    "cantidad": 25,
+    "valor_usd": 3860.38,
+    "valor_cop": 15568140
+  },
+  {
+    "id": "VEN-00623",
+    "fecha": "2026-04-06",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-016",
+    "cantidad": 7,
+    "valor_usd": 11727.62,
+    "valor_cop": 47295146
+  },
+  {
+    "id": "VEN-00624",
+    "fecha": "2026-04-06",
+    "id_cliente": "CLI-058",
+    "id_producto": "PRD-007",
+    "cantidad": 7,
+    "valor_usd": 6139.21,
+    "valor_cop": 24758206
+  },
+  {
+    "id": "VEN-00625",
+    "fecha": "2026-04-09",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-002",
+    "cantidad": 23,
+    "valor_usd": 9908.74,
+    "valor_cop": 39958778
+  },
+  {
+    "id": "VEN-00626",
+    "fecha": "2026-04-09",
+    "id_cliente": "CLI-017",
+    "id_producto": "PRD-019",
+    "cantidad": 2,
+    "valor_usd": 29251.03,
+    "valor_cop": 117960044
+  },
+  {
+    "id": "VEN-00627",
+    "fecha": "2026-04-09",
+    "id_cliente": "CLI-017",
+    "id_producto": "PRD-002",
+    "cantidad": 9,
+    "valor_usd": 4140,
+    "valor_cop": 16695295
+  },
+  {
+    "id": "VEN-00628",
+    "fecha": "2026-04-10",
+    "id_cliente": "CLI-023",
+    "id_producto": "PRD-020",
+    "cantidad": 2,
+    "valor_usd": 8014.93,
+    "valor_cop": 32382882
+  },
+  {
+    "id": "VEN-00629",
+    "fecha": "2026-04-10",
+    "id_cliente": "CLI-023",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 5773.41,
+    "valor_cop": 23326424
+  },
+  {
+    "id": "VEN-00630",
+    "fecha": "2026-04-10",
+    "id_cliente": "CLI-036",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7629.58,
+    "valor_cop": 30825945
+  },
+  {
+    "id": "VEN-00631",
+    "fecha": "2026-04-11",
+    "id_cliente": "CLI-004",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 11037.81,
+    "valor_cop": 44593525
+  },
+  {
+    "id": "VEN-00632",
+    "fecha": "2026-04-13",
+    "id_cliente": "CLI-011",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 15503.64,
+    "valor_cop": 62578737
+  },
+  {
+    "id": "VEN-00633",
+    "fecha": "2026-04-13",
+    "id_cliente": "CLI-018",
+    "id_producto": "PRD-005",
+    "cantidad": 8,
+    "valor_usd": 18861.1,
+    "valor_cop": 76130755
+  },
+  {
+    "id": "VEN-00634",
+    "fecha": "2026-04-15",
+    "id_cliente": "CLI-012",
+    "id_producto": "PRD-004",
+    "cantidad": 34,
+    "valor_usd": 4070.01,
+    "valor_cop": 16522531
+  },
+  {
+    "id": "VEN-00635",
+    "fecha": "2026-04-15",
+    "id_cliente": "CLI-012",
+    "id_producto": "PRD-004",
+    "cantidad": 18,
+    "valor_usd": 2070.15,
+    "valor_cop": 8403940
+  },
+  {
+    "id": "VEN-00636",
+    "fecha": "2026-04-15",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-014",
+    "cantidad": 34,
+    "valor_usd": 5012.95,
+    "valor_cop": 20350472
+  },
+  {
+    "id": "VEN-00637",
+    "fecha": "2026-04-15",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-016",
+    "cantidad": 2,
+    "valor_usd": 3713.7,
+    "valor_cop": 15076062
+  },
+  {
+    "id": "VEN-00638",
+    "fecha": "2026-04-15",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-014",
+    "cantidad": 26,
+    "valor_usd": 3950.06,
+    "valor_cop": 16035585
+  },
+  {
+    "id": "VEN-00639",
+    "fecha": "2026-04-15",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-014",
+    "cantidad": 24,
+    "valor_usd": 3488.97,
+    "valor_cop": 14163753
+  },
+  {
+    "id": "VEN-00640",
+    "fecha": "2026-04-16",
+    "id_cliente": "CLI-035",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 16878.92,
+    "valor_cop": 68658720
+  },
+  {
+    "id": "VEN-00641",
+    "fecha": "2026-04-17",
+    "id_cliente": "CLI-028",
+    "id_producto": "PRD-010",
+    "cantidad": 1,
+    "valor_usd": 6476.12,
+    "valor_cop": 26419267
+  },
+  {
+    "id": "VEN-00642",
+    "fecha": "2026-04-17",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 9632.38,
+    "valor_cop": 39295198
+  },
+  {
+    "id": "VEN-00643",
+    "fecha": "2026-04-18",
+    "id_cliente": "CLI-008",
+    "id_producto": "PRD-010",
+    "cantidad": 1,
+    "valor_usd": 6480.93,
+    "valor_cop": 26492746
+  },
+  {
+    "id": "VEN-00644",
+    "fecha": "2026-04-19",
+    "id_cliente": "CLI-009",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 12031,
+    "valor_cop": 49023919
+  },
+  {
+    "id": "VEN-00645",
+    "fecha": "2026-04-20",
+    "id_cliente": "CLI-053",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 14196.31,
+    "valor_cop": 57688835
+  },
+  {
+    "id": "VEN-00646",
+    "fecha": "2026-04-21",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-012",
+    "cantidad": 5,
+    "valor_usd": 6421.36,
+    "valor_cop": 26028469
+  },
+  {
+    "id": "VEN-00647",
+    "fecha": "2026-04-22",
+    "id_cliente": "CLI-052",
+    "id_producto": "PRD-005",
+    "cantidad": 5,
+    "valor_usd": 11621.87,
+    "valor_cop": 46962582
+  },
+  {
+    "id": "VEN-00648",
+    "fecha": "2026-04-22",
+    "id_cliente": "CLI-052",
+    "id_producto": "PRD-014",
+    "cantidad": 20,
+    "valor_usd": 3075.02,
+    "valor_cop": 12425787
+  },
+  {
+    "id": "VEN-00649",
+    "fecha": "2026-04-24",
+    "id_cliente": "CLI-032",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7968.33,
+    "valor_cop": 32373651
+  },
+  {
+    "id": "VEN-00650",
+    "fecha": "2026-04-24",
+    "id_cliente": "CLI-032",
+    "id_producto": "PRD-014",
+    "cantidad": 23,
+    "valor_usd": 3280.83,
+    "valor_cop": 13329323
+  },
+  {
+    "id": "VEN-00651",
+    "fecha": "2026-04-24",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-004",
+    "cantidad": 12,
+    "valor_usd": 1345.94,
+    "valor_cop": 5468272
+  },
+  {
+    "id": "VEN-00652",
+    "fecha": "2026-04-24",
+    "id_cliente": "CLI-055",
+    "id_producto": "PRD-004",
+    "cantidad": 32,
+    "valor_usd": 3628.58,
+    "valor_cop": 14742159
+  },
+  {
+    "id": "VEN-00653",
+    "fecha": "2026-04-25",
+    "id_cliente": "CLI-001",
+    "id_producto": "PRD-016",
+    "cantidad": 1,
+    "valor_usd": 1743.26,
+    "valor_cop": 7067891
+  },
+  {
+    "id": "VEN-00654",
+    "fecha": "2026-04-25",
+    "id_cliente": "CLI-001",
+    "id_producto": "PRD-016",
+    "cantidad": 3,
+    "valor_usd": 5341.09,
+    "valor_cop": 21654969
+  },
+  {
+    "id": "VEN-00655",
+    "fecha": "2026-04-25",
+    "id_cliente": "CLI-002",
+    "id_producto": "PRD-009",
+    "cantidad": 36,
+    "valor_usd": 1995.38,
+    "valor_cop": 8090089
+  },
+  {
+    "id": "VEN-00656",
+    "fecha": "2026-04-25",
+    "id_cliente": "CLI-003",
+    "id_producto": "PRD-012",
+    "cantidad": 8,
+    "valor_usd": 9820.38,
+    "valor_cop": 39815847
+  },
+  {
+    "id": "VEN-00657",
+    "fecha": "2026-04-25",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-014",
+    "cantidad": 18,
+    "valor_usd": 2697.1,
+    "valor_cop": 10935149
+  },
+  {
+    "id": "VEN-00658",
+    "fecha": "2026-04-26",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 5704.82,
+    "valor_cop": 23149304
+  },
+  {
+    "id": "VEN-00659",
+    "fecha": "2026-04-26",
+    "id_cliente": "CLI-030",
+    "id_producto": "PRD-012",
+    "cantidad": 6,
+    "valor_usd": 7533.87,
+    "valor_cop": 30571314
+  },
+  {
+    "id": "VEN-00660",
+    "fecha": "2026-04-26",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-009",
+    "cantidad": 18,
+    "valor_usd": 1070.33,
+    "valor_cop": 4343239
+  },
+  {
+    "id": "VEN-00661",
+    "fecha": "2026-04-26",
+    "id_cliente": "CLI-057",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 17671.44,
+    "valor_cop": 71708053
+  },
+  {
+    "id": "VEN-00662",
+    "fecha": "2026-04-26",
+    "id_cliente": "CLI-057",
+    "id_producto": "PRD-012",
+    "cantidad": 7,
+    "valor_usd": 8403.59,
+    "valor_cop": 34100508
+  },
+  {
+    "id": "VEN-00663",
+    "fecha": "2026-04-27",
+    "id_cliente": "CLI-060",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 19103.99,
+    "valor_cop": 77520171
+  },
+  {
+    "id": "VEN-00664",
+    "fecha": "2026-04-29",
+    "id_cliente": "CLI-042",
+    "id_producto": "PRD-007",
+    "cantidad": 6,
+    "valor_usd": 5316.75,
+    "valor_cop": 21475044
+  },
+  {
+    "id": "VEN-00665",
+    "fecha": "2026-04-29",
+    "id_cliente": "CLI-042",
+    "id_producto": "PRD-012",
+    "cantidad": 1,
+    "valor_usd": 1246.23,
+    "valor_cop": 5033685
+  },
+  {
+    "id": "VEN-00666",
+    "fecha": "2026-04-29",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-005",
+    "cantidad": 4,
+    "valor_usd": 9385.49,
+    "valor_cop": 37909214
+  },
+  {
+    "id": "VEN-00667",
+    "fecha": "2026-04-30",
+    "id_cliente": "CLI-015",
+    "id_producto": "PRD-004",
+    "cantidad": 40,
+    "valor_usd": 4848.26,
+    "valor_cop": 19650628
+  },
+  {
+    "id": "VEN-00668",
+    "fecha": "2026-04-30",
+    "id_cliente": "CLI-015",
+    "id_producto": "PRD-002",
+    "cantidad": 7,
+    "valor_usd": 2943.17,
+    "valor_cop": 11929051
+  },
+  {
+    "id": "VEN-00669",
+    "fecha": "2026-04-30",
+    "id_cliente": "CLI-037",
+    "id_producto": "PRD-013",
+    "cantidad": 5,
+    "valor_usd": 10929.3,
+    "valor_cop": 44297874
+  },
+  {
+    "id": "VEN-00670",
+    "fecha": "2026-04-30",
+    "id_cliente": "CLI-037",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 18359.59,
+    "valor_cop": 74413805
+  },
+  {
+    "id": "VEN-00671",
+    "fecha": "2026-04-30",
+    "id_cliente": "CLI-038",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7215.29,
+    "valor_cop": 29244508
+  },
+  {
+    "id": "VEN-00672",
+    "fecha": "2026-05-01",
+    "id_cliente": "CLI-020",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 14858.61,
+    "valor_cop": 60162660
+  },
+  {
+    "id": "VEN-00673",
+    "fecha": "2026-05-02",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-018",
+    "cantidad": 39,
+    "valor_usd": 19084.77,
+    "valor_cop": 77208773
+  },
+  {
+    "id": "VEN-00674",
+    "fecha": "2026-05-02",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-014",
+    "cantidad": 12,
+    "valor_usd": 1803.55,
+    "valor_cop": 7296388
+  },
+  {
+    "id": "VEN-00675",
+    "fecha": "2026-05-03",
+    "id_cliente": "CLI-049",
+    "id_producto": "PRD-007",
+    "cantidad": 6,
+    "valor_usd": 5217.99,
+    "valor_cop": 21096803
+  },
+  {
+    "id": "VEN-00676",
+    "fecha": "2026-05-04",
+    "id_cliente": "CLI-013",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7488.83,
+    "valor_cop": 30247534
+  },
+  {
+    "id": "VEN-00677",
+    "fecha": "2026-05-05",
+    "id_cliente": "CLI-005",
+    "id_producto": "PRD-001",
+    "cantidad": 2,
+    "valor_usd": 6572.41,
+    "valor_cop": 26486287
+  },
+  {
+    "id": "VEN-00678",
+    "fecha": "2026-05-05",
+    "id_cliente": "CLI-005",
+    "id_producto": "PRD-002",
+    "cantidad": 34,
+    "valor_usd": 15821.88,
+    "valor_cop": 63760911
+  },
+  {
+    "id": "VEN-00679",
+    "fecha": "2026-05-07",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 10807.33,
+    "valor_cop": 43544354
+  },
+  {
+    "id": "VEN-00680",
+    "fecha": "2026-05-08",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-002",
+    "cantidad": 38,
+    "valor_usd": 16406.43,
+    "valor_cop": 66192562
+  },
+  {
+    "id": "VEN-00681",
+    "fecha": "2026-05-08",
+    "id_cliente": "CLI-054",
+    "id_producto": "PRD-012",
+    "cantidad": 8,
+    "valor_usd": 10169.67,
+    "valor_cop": 41030042
+  },
+  {
+    "id": "VEN-00682",
+    "fecha": "2026-05-10",
+    "id_cliente": "CLI-011",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 14411.34,
+    "valor_cop": 57939640
+  },
+  {
+    "id": "VEN-00683",
+    "fecha": "2026-05-10",
+    "id_cliente": "CLI-023",
+    "id_producto": "PRD-019",
+    "cantidad": 2,
+    "valor_usd": 30356.15,
+    "valor_cop": 122044473
+  },
+  {
+    "id": "VEN-00684",
+    "fecha": "2026-05-10",
+    "id_cliente": "CLI-023",
+    "id_producto": "PRD-018",
+    "cantidad": 40,
+    "valor_usd": 19567.01,
+    "valor_cop": 78667598
+  },
+  {
+    "id": "VEN-00685",
+    "fecha": "2026-05-11",
+    "id_cliente": "CLI-017",
+    "id_producto": "PRD-018",
+    "cantidad": 30,
+    "valor_usd": 15052.7,
+    "valor_cop": 60711603
+  },
+  {
+    "id": "VEN-00686",
+    "fecha": "2026-05-11",
+    "id_cliente": "CLI-017",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 6032.01,
+    "valor_cop": 24328725
+  },
+  {
+    "id": "VEN-00687",
+    "fecha": "2026-05-12",
+    "id_cliente": "CLI-028",
+    "id_producto": "PRD-009",
+    "cantidad": 16,
+    "valor_usd": 973.81,
+    "valor_cop": 3944077
+  },
+  {
+    "id": "VEN-00688",
+    "fecha": "2026-05-13",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-013",
+    "cantidad": 1,
+    "valor_usd": 2109.66,
+    "valor_cop": 8538532
+  },
+  {
+    "id": "VEN-00689",
+    "fecha": "2026-05-13",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7349.75,
+    "valor_cop": 29747011
+  },
+  {
+    "id": "VEN-00690",
+    "fecha": "2026-05-14",
+    "id_cliente": "CLI-014",
+    "id_producto": "PRD-017",
+    "cantidad": 1,
+    "valor_usd": 6059.56,
+    "valor_cop": 24456202
+  },
+  {
+    "id": "VEN-00691",
+    "fecha": "2026-05-14",
+    "id_cliente": "CLI-014",
+    "id_producto": "PRD-005",
+    "cantidad": 3,
+    "valor_usd": 7060.66,
+    "valor_cop": 28496612
+  },
+  {
+    "id": "VEN-00692",
+    "fecha": "2026-05-14",
+    "id_cliente": "CLI-043",
+    "id_producto": "PRD-002",
+    "cantidad": 13,
+    "valor_usd": 5476.88,
+    "valor_cop": 22104523
+  },
+  {
+    "id": "VEN-00693",
+    "fecha": "2026-05-14",
+    "id_cliente": "CLI-043",
+    "id_producto": "PRD-005",
+    "cantidad": 2,
+    "valor_usd": 4989.66,
+    "valor_cop": 20138118
+  },
+  {
+    "id": "VEN-00694",
+    "fecha": "2026-05-15",
+    "id_cliente": "CLI-036",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 12649.02,
+    "valor_cop": 51265846
+  },
+  {
+    "id": "VEN-00695",
+    "fecha": "2026-05-15",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7678.16,
+    "valor_cop": 31119199
+  },
+  {
+    "id": "VEN-00696",
+    "fecha": "2026-05-15",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7189.65,
+    "valor_cop": 29139292
+  },
+  {
+    "id": "VEN-00697",
+    "fecha": "2026-05-16",
+    "id_cliente": "CLI-035",
+    "id_producto": "PRD-012",
+    "cantidad": 6,
+    "valor_usd": 8122.29,
+    "valor_cop": 33029780
+  },
+  {
+    "id": "VEN-00698",
+    "fecha": "2026-05-17",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7289.55,
+    "valor_cop": 29598999
+  },
+  {
+    "id": "VEN-00699",
+    "fecha": "2026-05-18",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-004",
+    "cantidad": 33,
+    "valor_usd": 3946.6,
+    "valor_cop": 16042298
+  },
+  {
+    "id": "VEN-00700",
+    "fecha": "2026-05-18",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-009",
+    "cantidad": 35,
+    "valor_usd": 2167.07,
+    "valor_cop": 8808793
+  },
+  {
+    "id": "VEN-00701",
+    "fecha": "2026-05-19",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 8984.54,
+    "valor_cop": 36513889
+  },
+  {
+    "id": "VEN-00702",
+    "fecha": "2026-05-21",
+    "id_cliente": "CLI-001",
+    "id_producto": "PRD-020",
+    "cantidad": 1,
+    "valor_usd": 3770.8,
+    "valor_cop": 15248248
+  },
+  {
+    "id": "VEN-00703",
+    "fecha": "2026-05-21",
+    "id_cliente": "CLI-027",
+    "id_producto": "PRD-007",
+    "cantidad": 3,
+    "valor_usd": 2571.41,
+    "valor_cop": 10398191
+  },
+  {
+    "id": "VEN-00704",
+    "fecha": "2026-05-21",
+    "id_cliente": "CLI-027",
+    "id_producto": "PRD-007",
+    "cantidad": 8,
+    "valor_usd": 7263.18,
+    "valor_cop": 29370629
+  },
+  {
+    "id": "VEN-00705",
+    "fecha": "2026-05-22",
+    "id_cliente": "CLI-018",
+    "id_producto": "PRD-005",
+    "cantidad": 7,
+    "valor_usd": 16318.69,
+    "valor_cop": 66118599
+  },
+  {
+    "id": "VEN-00706",
+    "fecha": "2026-05-23",
+    "id_cliente": "CLI-002",
+    "id_producto": "PRD-009",
+    "cantidad": 6,
+    "valor_usd": 359.29,
+    "valor_cop": 1459026
+  },
+  {
+    "id": "VEN-00707",
+    "fecha": "2026-05-24",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-002",
+    "cantidad": 20,
+    "valor_usd": 8879.35,
+    "valor_cop": 36128388
+  },
+  {
+    "id": "VEN-00708",
+    "fecha": "2026-05-24",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 12035.47,
+    "valor_cop": 48970041
+  },
+  {
+    "id": "VEN-00709",
+    "fecha": "2026-05-24",
+    "id_cliente": "CLI-032",
+    "id_producto": "PRD-007",
+    "cantidad": 5,
+    "valor_usd": 4275.66,
+    "valor_cop": 17396848
+  },
+  {
+    "id": "VEN-00710",
+    "fecha": "2026-05-24",
+    "id_cliente": "CLI-032",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7565.23,
+    "valor_cop": 30781483
+  },
+  {
+    "id": "VEN-00711",
+    "fecha": "2026-05-24",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 9826.12,
+    "valor_cop": 39980615
+  },
+  {
+    "id": "VEN-00712",
+    "fecha": "2026-05-25",
+    "id_cliente": "CLI-052",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 8806.9,
+    "valor_cop": 35775301
+  },
+  {
+    "id": "VEN-00713",
+    "fecha": "2026-05-26",
+    "id_cliente": "CLI-009",
+    "id_producto": "PRD-002",
+    "cantidad": 17,
+    "valor_usd": 7620.53,
+    "valor_cop": 31090467
+  },
+  {
+    "id": "VEN-00714",
+    "fecha": "2026-05-26",
+    "id_cliente": "CLI-012",
+    "id_producto": "PRD-004",
+    "cantidad": 30,
+    "valor_usd": 3385.88,
+    "valor_cop": 13813815
+  },
+  {
+    "id": "VEN-00715",
+    "fecha": "2026-05-26",
+    "id_cliente": "CLI-012",
+    "id_producto": "PRD-002",
+    "cantidad": 10,
+    "valor_usd": 4234.53,
+    "valor_cop": 17276163
+  },
+  {
+    "id": "VEN-00716",
+    "fecha": "2026-05-27",
+    "id_cliente": "CLI-004",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 10793.55,
+    "valor_cop": 43979939
+  },
+  {
+    "id": "VEN-00717",
+    "fecha": "2026-05-27",
+    "id_cliente": "CLI-004",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3334.67,
+    "valor_cop": 13587613
+  },
+  {
+    "id": "VEN-00718",
+    "fecha": "2026-05-27",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-002",
+    "cantidad": 17,
+    "valor_usd": 7671.71,
+    "valor_cop": 31259533
+  },
+  {
+    "id": "VEN-00719",
+    "fecha": "2026-05-29",
+    "id_cliente": "CLI-060",
+    "id_producto": "PRD-007",
+    "cantidad": 4,
+    "valor_usd": 3750.67,
+    "valor_cop": 15234771
+  },
+  {
+    "id": "VEN-00720",
+    "fecha": "2026-05-29",
+    "id_cliente": "CLI-060",
+    "id_producto": "PRD-005",
+    "cantidad": 8,
+    "valor_usd": 18098.82,
+    "valor_cop": 73515235
+  },
+  {
+    "id": "VEN-00721",
+    "fecha": "2026-05-30",
+    "id_cliente": "CLI-037",
+    "id_producto": "PRD-013",
+    "cantidad": 2,
+    "valor_usd": 4187.36,
+    "valor_cop": 16954537
+  },
+  {
+    "id": "VEN-00722",
+    "fecha": "2026-05-30",
+    "id_cliente": "CLI-037",
+    "id_producto": "PRD-001",
+    "cantidad": 2,
+    "valor_usd": 6585.65,
+    "valor_cop": 26665165
+  },
+  {
+    "id": "VEN-00723",
+    "fecha": "2026-05-30",
+    "id_cliente": "CLI-049",
+    "id_producto": "PRD-007",
+    "cantidad": 1,
+    "valor_usd": 906.02,
+    "valor_cop": 3668457
+  },
+  {
+    "id": "VEN-00724",
+    "fecha": "2026-05-31",
+    "id_cliente": "CLI-008",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 13606.79,
+    "valor_cop": 55132128
+  },
+  {
+    "id": "VEN-00725",
+    "fecha": "2026-05-31",
+    "id_cliente": "CLI-055",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 11650.49,
+    "valor_cop": 47205572
+  },
+  {
+    "id": "VEN-00726",
+    "fecha": "2026-06-01",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-014",
+    "cantidad": 38,
+    "valor_usd": 5558.19,
+    "valor_cop": 22515727
+  },
+  {
+    "id": "VEN-00727",
+    "fecha": "2026-06-03",
+    "id_cliente": "CLI-045",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 19311.57,
+    "valor_cop": 78642313
+  },
+  {
+    "id": "VEN-00728",
+    "fecha": "2026-06-04",
+    "id_cliente": "CLI-030",
+    "id_producto": "PRD-013",
+    "cantidad": 3,
+    "valor_usd": 6481.75,
+    "valor_cop": 26440355
+  },
+  {
+    "id": "VEN-00729",
+    "fecha": "2026-06-05",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 18521.76,
+    "valor_cop": 75415606
+  },
+  {
+    "id": "VEN-00730",
+    "fecha": "2026-06-05",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-012",
+    "cantidad": 3,
+    "valor_usd": 3723.13,
+    "valor_cop": 15159580
+  },
+  {
+    "id": "VEN-00731",
+    "fecha": "2026-06-08",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-014",
+    "cantidad": 10,
+    "valor_usd": 1519.57,
+    "valor_cop": 6151934
+  },
+  {
+    "id": "VEN-00732",
+    "fecha": "2026-06-09",
+    "id_cliente": "CLI-015",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3518.9,
+    "valor_cop": 14224309
+  },
+  {
+    "id": "VEN-00733",
+    "fecha": "2026-06-09",
+    "id_cliente": "CLI-038",
+    "id_producto": "PRD-002",
+    "cantidad": 38,
+    "valor_usd": 16024.69,
+    "valor_cop": 64775963
+  },
+  {
+    "id": "VEN-00734",
+    "fecha": "2026-06-09",
+    "id_cliente": "CLI-038",
+    "id_producto": "PRD-002",
+    "cantidad": 29,
+    "valor_usd": 12114.27,
+    "valor_cop": 48969029
+  },
+  {
+    "id": "VEN-00735",
+    "fecha": "2026-06-10",
+    "id_cliente": "CLI-042",
+    "id_producto": "PRD-010",
+    "cantidad": 1,
+    "valor_usd": 5981.98,
+    "valor_cop": 24185205
+  },
+  {
+    "id": "VEN-00736",
+    "fecha": "2026-06-10",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-016",
+    "cantidad": 3,
+    "valor_usd": 5587.76,
+    "valor_cop": 22591370
+  },
+  {
+    "id": "VEN-00737",
+    "fecha": "2026-06-11",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 13387.61,
+    "valor_cop": 54255833
+  },
+  {
+    "id": "VEN-00738",
+    "fecha": "2026-06-11",
+    "id_cliente": "CLI-054",
+    "id_producto": "PRD-012",
+    "cantidad": 8,
+    "valor_usd": 9977.38,
+    "valor_cop": 40435228
+  },
+  {
+    "id": "VEN-00739",
+    "fecha": "2026-06-11",
+    "id_cliente": "CLI-054",
+    "id_producto": "PRD-013",
+    "cantidad": 4,
+    "valor_usd": 8531.41,
+    "valor_cop": 34575160
+  },
+  {
+    "id": "VEN-00740",
+    "fecha": "2026-06-12",
+    "id_cliente": "CLI-005",
+    "id_producto": "PRD-002",
+    "cantidad": 33,
+    "valor_usd": 14054.37,
+    "valor_cop": 56752389
+  },
+  {
+    "id": "VEN-00741",
+    "fecha": "2026-06-12",
+    "id_cliente": "CLI-005",
+    "id_producto": "PRD-004",
+    "cantidad": 37,
+    "valor_usd": 4462.35,
+    "valor_cop": 18019237
+  },
+  {
+    "id": "VEN-00742",
+    "fecha": "2026-06-12",
+    "id_cliente": "CLI-011",
+    "id_producto": "PRD-005",
+    "cantidad": 1,
+    "valor_usd": 2429.08,
+    "valor_cop": 9808771
+  },
+  {
+    "id": "VEN-00743",
+    "fecha": "2026-06-12",
+    "id_cliente": "CLI-011",
+    "id_producto": "PRD-020",
+    "cantidad": 2,
+    "valor_usd": 8109.56,
+    "valor_cop": 32746890
+  },
+  {
+    "id": "VEN-00744",
+    "fecha": "2026-06-12",
+    "id_cliente": "CLI-013",
+    "id_producto": "PRD-013",
+    "cantidad": 3,
+    "valor_usd": 6202.29,
+    "valor_cop": 25045219
+  },
+  {
+    "id": "VEN-00745",
+    "fecha": "2026-06-13",
+    "id_cliente": "CLI-028",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 15516.44,
+    "valor_cop": 62657402
+  },
+  {
+    "id": "VEN-00746",
+    "fecha": "2026-06-14",
+    "id_cliente": "CLI-020",
+    "id_producto": "PRD-017",
+    "cantidad": 2,
+    "valor_usd": 12985.39,
+    "valor_cop": 52324499
+  },
+  {
+    "id": "VEN-00747",
+    "fecha": "2026-06-14",
+    "id_cliente": "CLI-023",
+    "id_producto": "PRD-019",
+    "cantidad": 2,
+    "valor_usd": 29554.8,
+    "valor_cop": 119090771
+  },
+  {
+    "id": "VEN-00748",
+    "fecha": "2026-06-14",
+    "id_cliente": "CLI-023",
+    "id_producto": "PRD-014",
+    "cantidad": 25,
+    "valor_usd": 3890.47,
+    "valor_cop": 15676610
+  },
+  {
+    "id": "VEN-00749",
+    "fecha": "2026-06-14",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 14765.92,
+    "valor_cop": 59499127
+  },
+  {
+    "id": "VEN-00750",
+    "fecha": "2026-06-15",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-004",
+    "cantidad": 39,
+    "valor_usd": 4355.92,
+    "valor_cop": 17609286
+  },
+  {
+    "id": "VEN-00751",
+    "fecha": "2026-06-15",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3763.09,
+    "valor_cop": 15212705
+  },
+  {
+    "id": "VEN-00752",
+    "fecha": "2026-06-15",
+    "id_cliente": "CLI-043",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 19879.6,
+    "valor_cop": 80365470
+  },
+  {
+    "id": "VEN-00753",
+    "fecha": "2026-06-16",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-002",
+    "cantidad": 27,
+    "valor_usd": 12507,
+    "valor_cop": 50465120
+  },
+  {
+    "id": "VEN-00754",
+    "fecha": "2026-06-17",
+    "id_cliente": "CLI-017",
+    "id_producto": "PRD-002",
+    "cantidad": 31,
+    "valor_usd": 14293.82,
+    "valor_cop": 57609383
+  },
+  {
+    "id": "VEN-00755",
+    "fecha": "2026-06-17",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-020",
+    "cantidad": 1,
+    "valor_usd": 3673.14,
+    "valor_cop": 14804113
+  },
+  {
+    "id": "VEN-00756",
+    "fecha": "2026-06-17",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-002",
+    "cantidad": 12,
+    "valor_usd": 5422.01,
+    "valor_cop": 21852706
+  },
+  {
+    "id": "VEN-00757",
+    "fecha": "2026-06-18",
+    "id_cliente": "CLI-035",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7369.5,
+    "valor_cop": 29583531
+  },
+  {
+    "id": "VEN-00758",
+    "fecha": "2026-06-18",
+    "id_cliente": "CLI-036",
+    "id_producto": "PRD-010",
+    "cantidad": 1,
+    "valor_usd": 6666.36,
+    "valor_cop": 26760902
+  },
+  {
+    "id": "VEN-00759",
+    "fecha": "2026-06-18",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 8269.17,
+    "valor_cop": 33195095
+  },
+  {
+    "id": "VEN-00760",
+    "fecha": "2026-06-19",
+    "id_cliente": "CLI-014",
+    "id_producto": "PRD-014",
+    "cantidad": 32,
+    "valor_usd": 4711.66,
+    "valor_cop": 18846263
+  },
+  {
+    "id": "VEN-00761",
+    "fecha": "2026-06-21",
+    "id_cliente": "CLI-002",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 13991.42,
+    "valor_cop": 55648914
+  },
+  {
+    "id": "VEN-00762",
+    "fecha": "2026-06-25",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-002",
+    "cantidad": 23,
+    "valor_usd": 10557.11,
+    "valor_cop": 42289671
+  },
+  {
+    "id": "VEN-00763",
+    "fecha": "2026-06-25",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-009",
+    "cantidad": 13,
+    "valor_usd": 747.56,
+    "valor_cop": 2994576
+  },
+  {
+    "id": "VEN-00764",
+    "fecha": "2026-06-26",
+    "id_cliente": "CLI-001",
+    "id_producto": "PRD-009",
+    "cantidad": 14,
+    "valor_usd": 837.35,
+    "valor_cop": 3368307
+  },
+  {
+    "id": "VEN-00765",
+    "fecha": "2026-06-28",
+    "id_cliente": "CLI-012",
+    "id_producto": "PRD-007",
+    "cantidad": 6,
+    "valor_usd": 5532.25,
+    "valor_cop": 22153065
+  },
+  {
+    "id": "VEN-00766",
+    "fecha": "2026-06-28",
+    "id_cliente": "CLI-032",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3570.23,
+    "valor_cop": 14296451
+  },
+  {
+    "id": "VEN-00767",
+    "fecha": "2026-06-28",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-013",
+    "cantidad": 4,
+    "valor_usd": 8118.16,
+    "valor_cop": 32507954
+  },
+  {
+    "id": "VEN-00768",
+    "fecha": "2026-06-29",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-020",
+    "cantidad": 1,
+    "valor_usd": 4088.05,
+    "valor_cop": 16308458
+  },
+  {
+    "id": "VEN-00769",
+    "fecha": "2026-06-29",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-019",
+    "cantidad": 1,
+    "valor_usd": 14665.02,
+    "valor_cop": 58503164
+  },
+  {
+    "id": "VEN-00770",
+    "fecha": "2026-06-29",
+    "id_cliente": "CLI-052",
+    "id_producto": "PRD-005",
+    "cantidad": 3,
+    "valor_usd": 6641.41,
+    "valor_cop": 26494577
+  },
+  {
+    "id": "VEN-00771",
+    "fecha": "2026-06-30",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3340.5,
+    "valor_cop": 13290714
+  },
+  {
+    "id": "VEN-00772",
+    "fecha": "2026-06-30",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-001",
+    "cantidad": 2,
+    "valor_usd": 6460.95,
+    "valor_cop": 25705923
+  },
+  {
+    "id": "VEN-00773",
+    "fecha": "2026-06-30",
+    "id_cliente": "CLI-037",
+    "id_producto": "PRD-013",
+    "cantidad": 6,
+    "valor_usd": 12979.73,
+    "valor_cop": 51641933
+  },
+  {
+    "id": "VEN-00774",
+    "fecha": "2026-07-01",
+    "id_cliente": "CLI-018",
+    "id_producto": "PRD-005",
+    "cantidad": 4,
+    "valor_usd": 9770.6,
+    "valor_cop": 38970136
+  },
+  {
+    "id": "VEN-00775",
+    "fecha": "2026-07-03",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 12133.47,
+    "valor_cop": 48622697
+  },
+  {
+    "id": "VEN-00776",
+    "fecha": "2026-07-04",
+    "id_cliente": "CLI-009",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 5407.82,
+    "valor_cop": 21595156
+  },
+  {
+    "id": "VEN-00777",
+    "fecha": "2026-07-04",
+    "id_cliente": "CLI-049",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 18289.04,
+    "valor_cop": 73033989
+  },
+  {
+    "id": "VEN-00778",
+    "fecha": "2026-07-05",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-004",
+    "cantidad": 21,
+    "valor_usd": 2534.92,
+    "valor_cop": 10171138
+  },
+  {
+    "id": "VEN-00779",
+    "fecha": "2026-07-07",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-014",
+    "cantidad": 21,
+    "valor_usd": 3050.95,
+    "valor_cop": 12171307
+  },
+  {
+    "id": "VEN-00780",
+    "fecha": "2026-07-10",
+    "id_cliente": "CLI-028",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 6980.6,
+    "valor_cop": 28042815
+  },
+  {
+    "id": "VEN-00781",
+    "fecha": "2026-07-10",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-012",
+    "cantidad": 3,
+    "valor_usd": 3685.94,
+    "valor_cop": 14807342
+  },
+  {
+    "id": "VEN-00782",
+    "fecha": "2026-07-10",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 8420.95,
+    "valor_cop": 33829061
+  },
+  {
+    "id": "VEN-00783",
+    "fecha": "2026-07-11",
+    "id_cliente": "CLI-027",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 9523.89,
+    "valor_cop": 38294800
+  },
+  {
+    "id": "VEN-00784",
+    "fecha": "2026-07-12",
+    "id_cliente": "CLI-060",
+    "id_producto": "PRD-009",
+    "cantidad": 40,
+    "valor_usd": 2234.5,
+    "valor_cop": 8982980
+  },
+  {
+    "id": "VEN-00785",
+    "fecha": "2026-07-13",
+    "id_cliente": "CLI-053",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 12374.64,
+    "valor_cop": 49911378
+  },
+  {
+    "id": "VEN-00786",
+    "fecha": "2026-07-14",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-005",
+    "cantidad": 7,
+    "valor_usd": 16441.12,
+    "valor_cop": 66269551
+  },
+  {
+    "id": "VEN-00787",
+    "fecha": "2026-07-14",
+    "id_cliente": "CLI-055",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 11298.18,
+    "valor_cop": 45539800
+  },
+  {
+    "id": "VEN-00788",
+    "fecha": "2026-07-14",
+    "id_cliente": "CLI-055",
+    "id_producto": "PRD-001",
+    "cantidad": 2,
+    "valor_usd": 6616.07,
+    "valor_cop": 26667526
+  },
+  {
+    "id": "VEN-00789",
+    "fecha": "2026-07-16",
+    "id_cliente": "CLI-011",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7962.98,
+    "valor_cop": 32150452
+  },
+  {
+    "id": "VEN-00790",
+    "fecha": "2026-07-16",
+    "id_cliente": "CLI-011",
+    "id_producto": "PRD-016",
+    "cantidad": 7,
+    "valor_usd": 12413.45,
+    "valor_cop": 50119180
+  },
+  {
+    "id": "VEN-00791",
+    "fecha": "2026-07-16",
+    "id_cliente": "CLI-030",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 17169.95,
+    "valor_cop": 69323501
+  },
+  {
+    "id": "VEN-00792",
+    "fecha": "2026-07-16",
+    "id_cliente": "CLI-030",
+    "id_producto": "PRD-013",
+    "cantidad": 4,
+    "valor_usd": 7791.7,
+    "valor_cop": 31458911
+  },
+  {
+    "id": "VEN-00793",
+    "fecha": "2026-07-17",
+    "id_cliente": "CLI-043",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 9507.71,
+    "valor_cop": 38524195
+  },
+  {
+    "id": "VEN-00794",
+    "fecha": "2026-07-17",
+    "id_cliente": "CLI-043",
+    "id_producto": "PRD-007",
+    "cantidad": 7,
+    "valor_usd": 6133.19,
+    "valor_cop": 24851011
+  },
+  {
+    "id": "VEN-00795",
+    "fecha": "2026-07-18",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-013",
+    "cantidad": 3,
+    "valor_usd": 6245.1,
+    "valor_cop": 25321008
+  },
+  {
+    "id": "VEN-00796",
+    "fecha": "2026-07-19",
+    "id_cliente": "CLI-036",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 9710.75,
+    "valor_cop": 39329120
+  },
+  {
+    "id": "VEN-00797",
+    "fecha": "2026-07-20",
+    "id_cliente": "CLI-002",
+    "id_producto": "PRD-009",
+    "cantidad": 26,
+    "valor_usd": 1546.74,
+    "valor_cop": 6241204
+  },
+  {
+    "id": "VEN-00798",
+    "fecha": "2026-07-20",
+    "id_cliente": "CLI-002",
+    "id_producto": "PRD-009",
+    "cantidad": 24,
+    "valor_usd": 1403.84,
+    "valor_cop": 5664593
+  },
+  {
+    "id": "VEN-00799",
+    "fecha": "2026-07-20",
+    "id_cliente": "CLI-038",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 5548.09,
+    "valor_cop": 22386932
+  },
+  {
+    "id": "VEN-00800",
+    "fecha": "2026-07-21",
+    "id_cliente": "CLI-005",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3064.77,
+    "valor_cop": 12383203
+  },
+  {
+    "id": "VEN-00801",
+    "fecha": "2026-07-21",
+    "id_cliente": "CLI-005",
+    "id_producto": "PRD-002",
+    "cantidad": 17,
+    "valor_usd": 7492.23,
+    "valor_cop": 30272355
+  },
+  {
+    "id": "VEN-00802",
+    "fecha": "2026-07-21",
+    "id_cliente": "CLI-008",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 14864.98,
+    "valor_cop": 60061952
+  },
+  {
+    "id": "VEN-00803",
+    "fecha": "2026-07-21",
+    "id_cliente": "CLI-022",
+    "id_producto": "PRD-004",
+    "cantidad": 13,
+    "valor_usd": 1455.91,
+    "valor_cop": 5882604
+  },
+  {
+    "id": "VEN-00804",
+    "fecha": "2026-07-21",
+    "id_cliente": "CLI-022",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 5424.89,
+    "valor_cop": 21919268
+  },
+  {
+    "id": "VEN-00805",
+    "fecha": "2026-07-21",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7537.73,
+    "valor_cop": 30456198
+  },
+  {
+    "id": "VEN-00806",
+    "fecha": "2026-07-22",
+    "id_cliente": "CLI-014",
+    "id_producto": "PRD-005",
+    "cantidad": 1,
+    "valor_usd": 2218.91,
+    "valor_cop": 8996881
+  },
+  {
+    "id": "VEN-00807",
+    "fecha": "2026-07-22",
+    "id_cliente": "CLI-054",
+    "id_producto": "PRD-012",
+    "cantidad": 1,
+    "valor_usd": 1289.09,
+    "valor_cop": 5226796
+  },
+  {
+    "id": "VEN-00808",
+    "fecha": "2026-07-23",
+    "id_cliente": "CLI-013",
+    "id_producto": "PRD-020",
+    "cantidad": 1,
+    "valor_usd": 3935.51,
+    "valor_cop": 15941492
+  },
+  {
+    "id": "VEN-00809",
+    "fecha": "2026-07-23",
+    "id_cliente": "CLI-013",
+    "id_producto": "PRD-005",
+    "cantidad": 8,
+    "valor_usd": 19352.99,
+    "valor_cop": 78392770
+  },
+  {
+    "id": "VEN-00810",
+    "fecha": "2026-07-23",
+    "id_cliente": "CLI-020",
+    "id_producto": "PRD-020",
+    "cantidad": 1,
+    "valor_usd": 3980.56,
+    "valor_cop": 16123975
+  },
+  {
+    "id": "VEN-00811",
+    "fecha": "2026-07-23",
+    "id_cliente": "CLI-042",
+    "id_producto": "PRD-013",
+    "cantidad": 6,
+    "valor_usd": 12054.29,
+    "valor_cop": 48828071
+  },
+  {
+    "id": "VEN-00812",
+    "fecha": "2026-07-24",
+    "id_cliente": "CLI-004",
+    "id_producto": "PRD-004",
+    "cantidad": 30,
+    "valor_usd": 3441.86,
+    "valor_cop": 13944455
+  },
+  {
+    "id": "VEN-00813",
+    "fecha": "2026-07-24",
+    "id_cliente": "CLI-004",
+    "id_producto": "PRD-004",
+    "cantidad": 28,
+    "valor_usd": 3196.26,
+    "valor_cop": 12949424
+  },
+  {
+    "id": "VEN-00814",
+    "fecha": "2026-07-24",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3064.42,
+    "valor_cop": 12415283
+  },
+  {
+    "id": "VEN-00815",
+    "fecha": "2026-07-24",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-004",
+    "cantidad": 20,
+    "valor_usd": 2252.59,
+    "valor_cop": 9126211
+  },
+  {
+    "id": "VEN-00816",
+    "fecha": "2026-07-24",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7487.49,
+    "valor_cop": 30335042
+  },
+  {
+    "id": "VEN-00817",
+    "fecha": "2026-07-24",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7477.07,
+    "valor_cop": 30292826
+  },
+  {
+    "id": "VEN-00818",
+    "fecha": "2026-07-25",
+    "id_cliente": "CLI-015",
+    "id_producto": "PRD-004",
+    "cantidad": 10,
+    "valor_usd": 1128.72,
+    "valor_cop": 4588856
+  },
+  {
+    "id": "VEN-00819",
+    "fecha": "2026-07-26",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7339.87,
+    "valor_cop": 29805891
+  },
+  {
+    "id": "VEN-00820",
+    "fecha": "2026-07-26",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-009",
+    "cantidad": 33,
+    "valor_usd": 2028.81,
+    "valor_cop": 8238632
+  },
+  {
+    "id": "VEN-00821",
+    "fecha": "2026-07-28",
+    "id_cliente": "CLI-035",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 13666.8,
+    "valor_cop": 55455638
+  },
+  {
+    "id": "VEN-00822",
+    "fecha": "2026-07-29",
+    "id_cliente": "CLI-017",
+    "id_producto": "PRD-017",
+    "cantidad": 2,
+    "valor_usd": 11891.23,
+    "valor_cop": 48198009
+  },
+  {
+    "id": "VEN-00823",
+    "fecha": "2026-07-31",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-001",
+    "cantidad": 2,
+    "valor_usd": 6379.3,
+    "valor_cop": 25661436
+  },
+  {
+    "id": "VEN-00824",
+    "fecha": "2026-08-01",
+    "id_cliente": "CLI-023",
+    "id_producto": "PRD-018",
+    "cantidad": 32,
+    "valor_usd": 14687.18,
+    "valor_cop": 59041142
+  },
+  {
+    "id": "VEN-00825",
+    "fecha": "2026-08-01",
+    "id_cliente": "CLI-023",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3137.04,
+    "valor_cop": 12610618
+  },
+  {
+    "id": "VEN-00826",
+    "fecha": "2026-08-01",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-018",
+    "cantidad": 38,
+    "valor_usd": 18185.16,
+    "valor_cop": 73102707
+  },
+  {
+    "id": "VEN-00827",
+    "fecha": "2026-08-04",
+    "id_cliente": "CLI-028",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 6910.95,
+    "valor_cop": 27657345
+  },
+  {
+    "id": "VEN-00828",
+    "fecha": "2026-08-04",
+    "id_cliente": "CLI-052",
+    "id_producto": "PRD-016",
+    "cantidad": 7,
+    "valor_usd": 12091.41,
+    "valor_cop": 48389339
+  },
+  {
+    "id": "VEN-00829",
+    "fecha": "2026-08-05",
+    "id_cliente": "CLI-009",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 2946.44,
+    "valor_cop": 11835083
+  },
+  {
+    "id": "VEN-00830",
+    "fecha": "2026-08-05",
+    "id_cliente": "CLI-012",
+    "id_producto": "PRD-002",
+    "cantidad": 6,
+    "valor_usd": 2619.14,
+    "valor_cop": 10520404
+  },
+  {
+    "id": "VEN-00831",
+    "fecha": "2026-08-06",
+    "id_cliente": "CLI-001",
+    "id_producto": "PRD-016",
+    "cantidad": 2,
+    "valor_usd": 3497.85,
+    "valor_cop": 14094412
+  },
+  {
+    "id": "VEN-00832",
+    "fecha": "2026-08-06",
+    "id_cliente": "CLI-001",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7898.02,
+    "valor_cop": 31824677
+  },
+  {
+    "id": "VEN-00833",
+    "fecha": "2026-08-06",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-009",
+    "cantidad": 12,
+    "valor_usd": 714.4,
+    "valor_cop": 2878639
+  },
+  {
+    "id": "VEN-00834",
+    "fecha": "2026-08-07",
+    "id_cliente": "CLI-049",
+    "id_producto": "PRD-005",
+    "cantidad": 2,
+    "valor_usd": 4934.83,
+    "valor_cop": 19962522
+  },
+  {
+    "id": "VEN-00835",
+    "fecha": "2026-08-08",
+    "id_cliente": "CLI-032",
+    "id_producto": "PRD-005",
+    "cantidad": 2,
+    "valor_usd": 4771.58,
+    "valor_cop": 19342506
+  },
+  {
+    "id": "VEN-00836",
+    "fecha": "2026-08-08",
+    "id_cliente": "CLI-037",
+    "id_producto": "PRD-013",
+    "cantidad": 5,
+    "valor_usd": 10935.43,
+    "valor_cop": 44328843
+  },
+  {
+    "id": "VEN-00837",
+    "fecha": "2026-08-09",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-013",
+    "cantidad": 1,
+    "valor_usd": 2196.97,
+    "valor_cop": 8890215
+  },
+  {
+    "id": "VEN-00838",
+    "fecha": "2026-08-09",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-007",
+    "cantidad": 5,
+    "valor_usd": 4687.32,
+    "valor_cop": 18967615
+  },
+  {
+    "id": "VEN-00839",
+    "fecha": "2026-08-12",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-016",
+    "cantidad": 6,
+    "valor_usd": 10015.01,
+    "valor_cop": 40600450
+  },
+  {
+    "id": "VEN-00840",
+    "fecha": "2026-08-13",
+    "id_cliente": "CLI-011",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 16478.21,
+    "valor_cop": 66974037
+  },
+  {
+    "id": "VEN-00841",
+    "fecha": "2026-08-14",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-010",
+    "cantidad": 1,
+    "valor_usd": 6100.6,
+    "valor_cop": 24755869
+  },
+  {
+    "id": "VEN-00842",
+    "fecha": "2026-08-15",
+    "id_cliente": "CLI-036",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 9921.25,
+    "valor_cop": 40415700
+  },
+  {
+    "id": "VEN-00843",
+    "fecha": "2026-08-17",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-002",
+    "cantidad": 10,
+    "valor_usd": 4417.57,
+    "valor_cop": 18019886
+  },
+  {
+    "id": "VEN-00844",
+    "fecha": "2026-08-17",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-016",
+    "cantidad": 3,
+    "valor_usd": 5036.33,
+    "valor_cop": 20543895
+  },
+  {
+    "id": "VEN-00845",
+    "fecha": "2026-08-17",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 13700.89,
+    "valor_cop": 55887848
+  },
+  {
+    "id": "VEN-00846",
+    "fecha": "2026-08-18",
+    "id_cliente": "CLI-002",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 12749.07,
+    "valor_cop": 51945193
+  },
+  {
+    "id": "VEN-00847",
+    "fecha": "2026-08-18",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-002",
+    "cantidad": 25,
+    "valor_usd": 11200.86,
+    "valor_cop": 45637120
+  },
+  {
+    "id": "VEN-00848",
+    "fecha": "2026-08-18",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3308.55,
+    "valor_cop": 13480455
+  },
+  {
+    "id": "VEN-00849",
+    "fecha": "2026-08-19",
+    "id_cliente": "CLI-018",
+    "id_producto": "PRD-005",
+    "cantidad": 6,
+    "valor_usd": 13489.44,
+    "valor_cop": 54861148
+  },
+  {
+    "id": "VEN-00850",
+    "fecha": "2026-08-19",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 10847.94,
+    "valor_cop": 44118247
+  },
+  {
+    "id": "VEN-00851",
+    "fecha": "2026-08-22",
+    "id_cliente": "CLI-005",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 11370.58,
+    "valor_cop": 46497144
+  },
+  {
+    "id": "VEN-00852",
+    "fecha": "2026-08-22",
+    "id_cliente": "CLI-005",
+    "id_producto": "PRD-001",
+    "cantidad": 2,
+    "valor_usd": 6467.06,
+    "valor_cop": 26445425
+  },
+  {
+    "id": "VEN-00853",
+    "fecha": "2026-08-23",
+    "id_cliente": "CLI-014",
+    "id_producto": "PRD-005",
+    "cantidad": 6,
+    "valor_usd": 14569.06,
+    "valor_cop": 59464493
+  },
+  {
+    "id": "VEN-00854",
+    "fecha": "2026-08-24",
+    "id_cliente": "CLI-045",
+    "id_producto": "PRD-002",
+    "cantidad": 7,
+    "valor_usd": 3045.68,
+    "valor_cop": 12384527
+  },
+  {
+    "id": "VEN-00855",
+    "fecha": "2026-08-24",
+    "id_cliente": "CLI-045",
+    "id_producto": "PRD-001",
+    "cantidad": 2,
+    "valor_usd": 6613.8,
+    "valor_cop": 26893430
+  },
+  {
+    "id": "VEN-00856",
+    "fecha": "2026-08-25",
+    "id_cliente": "CLI-043",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 12404.33,
+    "valor_cop": 50629513
+  },
+  {
+    "id": "VEN-00857",
+    "fecha": "2026-08-25",
+    "id_cliente": "CLI-043",
+    "id_producto": "PRD-020",
+    "cantidad": 1,
+    "valor_usd": 3749.2,
+    "valor_cop": 15302735
+  },
+  {
+    "id": "VEN-00858",
+    "fecha": "2026-08-26",
+    "id_cliente": "CLI-042",
+    "id_producto": "PRD-007",
+    "cantidad": 7,
+    "valor_usd": 6196.35,
+    "valor_cop": 25363705
+  },
+  {
+    "id": "VEN-00859",
+    "fecha": "2026-08-29",
+    "id_cliente": "CLI-028",
+    "id_producto": "PRD-010",
+    "cantidad": 2,
+    "valor_usd": 12573.04,
+    "valor_cop": 51104756
+  },
+  {
+    "id": "VEN-00860",
+    "fecha": "2026-08-29",
+    "id_cliente": "CLI-054",
+    "id_producto": "PRD-012",
+    "cantidad": 2,
+    "valor_usd": 2679.9,
+    "valor_cop": 10892802
+  },
+  {
+    "id": "VEN-00861",
+    "fecha": "2026-09-01",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3625.12,
+    "valor_cop": 14709323
+  },
+  {
+    "id": "VEN-00862",
+    "fecha": "2026-09-02",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-020",
+    "cantidad": 1,
+    "valor_usd": 3653.39,
+    "valor_cop": 14810770
+  },
+  {
+    "id": "VEN-00863",
+    "fecha": "2026-09-03",
+    "id_cliente": "CLI-020",
+    "id_producto": "PRD-018",
+    "cantidad": 19,
+    "valor_usd": 8917.83,
+    "valor_cop": 36127824
+  },
+  {
+    "id": "VEN-00864",
+    "fecha": "2026-09-03",
+    "id_cliente": "CLI-020",
+    "id_producto": "PRD-017",
+    "cantidad": 2,
+    "valor_usd": 12798.5,
+    "valor_cop": 51849155
+  },
+  {
+    "id": "VEN-00865",
+    "fecha": "2026-09-03",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 17270.37,
+    "valor_cop": 69965550
+  },
+  {
+    "id": "VEN-00866",
+    "fecha": "2026-09-04",
+    "id_cliente": "CLI-013",
+    "id_producto": "PRD-013",
+    "cantidad": 3,
+    "valor_usd": 6380.23,
+    "valor_cop": 25788188
+  },
+  {
+    "id": "VEN-00867",
+    "fecha": "2026-09-04",
+    "id_cliente": "CLI-013",
+    "id_producto": "PRD-012",
+    "cantidad": 3,
+    "valor_usd": 4014.11,
+    "valor_cop": 16224591
+  },
+  {
+    "id": "VEN-00868",
+    "fecha": "2026-09-05",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-014",
+    "cantidad": 36,
+    "valor_usd": 5135.82,
+    "valor_cop": 20817790
+  },
+  {
+    "id": "VEN-00869",
+    "fecha": "2026-09-05",
+    "id_cliente": "CLI-060",
+    "id_producto": "PRD-009",
+    "cantidad": 31,
+    "valor_usd": 1827.11,
+    "valor_cop": 7406099
+  },
+  {
+    "id": "VEN-00870",
+    "fecha": "2026-09-05",
+    "id_cliente": "CLI-060",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 15155.08,
+    "valor_cop": 61430359
+  },
+  {
+    "id": "VEN-00871",
+    "fecha": "2026-09-06",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-002",
+    "cantidad": 8,
+    "valor_usd": 3678.8,
+    "valor_cop": 14912936
+  },
+  {
+    "id": "VEN-00872",
+    "fecha": "2026-09-06",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-014",
+    "cantidad": 40,
+    "valor_usd": 5520.5,
+    "valor_cop": 22378727
+  },
+  {
+    "id": "VEN-00873",
+    "fecha": "2026-09-06",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-014",
+    "cantidad": 17,
+    "valor_usd": 2378.1,
+    "valor_cop": 9640223
+  },
+  {
+    "id": "VEN-00874",
+    "fecha": "2026-09-06",
+    "id_cliente": "CLI-027",
+    "id_producto": "PRD-019",
+    "cantidad": 2,
+    "valor_usd": 29426.68,
+    "valor_cop": 119288404
+  },
+  {
+    "id": "VEN-00875",
+    "fecha": "2026-09-06",
+    "id_cliente": "CLI-038",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 10691.11,
+    "valor_cop": 43339087
+  },
+  {
+    "id": "VEN-00876",
+    "fecha": "2026-09-06",
+    "id_cliente": "CLI-055",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3175.35,
+    "valor_cop": 12872075
+  },
+  {
+    "id": "VEN-00877",
+    "fecha": "2026-09-07",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-009",
+    "cantidad": 12,
+    "valor_usd": 726.78,
+    "valor_cop": 2943575
+  },
+  {
+    "id": "VEN-00878",
+    "fecha": "2026-09-07",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-007",
+    "cantidad": 8,
+    "valor_usd": 7496.22,
+    "valor_cop": 30360890
+  },
+  {
+    "id": "VEN-00879",
+    "fecha": "2026-09-09",
+    "id_cliente": "CLI-012",
+    "id_producto": "PRD-012",
+    "cantidad": 4,
+    "valor_usd": 5158.65,
+    "valor_cop": 20810252
+  },
+  {
+    "id": "VEN-00880",
+    "fecha": "2026-09-09",
+    "id_cliente": "CLI-012",
+    "id_producto": "PRD-002",
+    "cantidad": 26,
+    "valor_usd": 11289.9,
+    "valor_cop": 45544021
+  },
+  {
+    "id": "VEN-00881",
+    "fecha": "2026-09-09",
+    "id_cliente": "CLI-030",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 8342.78,
+    "valor_cop": 33655192
+  },
+  {
+    "id": "VEN-00882",
+    "fecha": "2026-09-09",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-016",
+    "cantidad": 7,
+    "valor_usd": 13024.55,
+    "valor_cop": 52541686
+  },
+  {
+    "id": "VEN-00883",
+    "fecha": "2026-09-09",
+    "id_cliente": "CLI-049",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 19586.94,
+    "valor_cop": 79014695
+  },
+  {
+    "id": "VEN-00884",
+    "fecha": "2026-09-10",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-015",
+    "cantidad": 1,
+    "valor_usd": 3877.94,
+    "valor_cop": 15662612
+  },
+  {
+    "id": "VEN-00885",
+    "fecha": "2026-09-11",
+    "id_cliente": "CLI-009",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3204.58,
+    "valor_cop": 12970089
+  },
+  {
+    "id": "VEN-00886",
+    "fecha": "2026-09-14",
+    "id_cliente": "CLI-035",
+    "id_producto": "PRD-010",
+    "cantidad": 1,
+    "valor_usd": 6248.67,
+    "valor_cop": 25494324
+  },
+  {
+    "id": "VEN-00887",
+    "fecha": "2026-09-14",
+    "id_cliente": "CLI-035",
+    "id_producto": "PRD-013",
+    "cantidad": 5,
+    "valor_usd": 10417.95,
+    "valor_cop": 42504819
+  },
+  {
+    "id": "VEN-00888",
+    "fecha": "2026-09-14",
+    "id_cliente": "CLI-036",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 8810.21,
+    "valor_cop": 35945304
+  },
+  {
+    "id": "VEN-00889",
+    "fecha": "2026-09-15",
+    "id_cliente": "CLI-052",
+    "id_producto": "PRD-014",
+    "cantidad": 14,
+    "valor_usd": 2169.29,
+    "valor_cop": 8851744
+  },
+  {
+    "id": "VEN-00890",
+    "fecha": "2026-09-15",
+    "id_cliente": "CLI-052",
+    "id_producto": "PRD-005",
+    "cantidad": 5,
+    "valor_usd": 12518.05,
+    "valor_cop": 51079653
+  },
+  {
+    "id": "VEN-00891",
+    "fecha": "2026-09-16",
+    "id_cliente": "CLI-011",
+    "id_producto": "PRD-016",
+    "cantidad": 7,
+    "valor_usd": 12403.02,
+    "valor_cop": 50446431
+  },
+  {
+    "id": "VEN-00892",
+    "fecha": "2026-09-16",
+    "id_cliente": "CLI-011",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7182.63,
+    "valor_cop": 29213696
+  },
+  {
+    "id": "VEN-00893",
+    "fecha": "2026-09-18",
+    "id_cliente": "CLI-002",
+    "id_producto": "PRD-001",
+    "cantidad": 2,
+    "valor_usd": 6698.28,
+    "valor_cop": 27185840
+  },
+  {
+    "id": "VEN-00894",
+    "fecha": "2026-09-18",
+    "id_cliente": "CLI-002",
+    "id_producto": "PRD-014",
+    "cantidad": 13,
+    "valor_usd": 1855.29,
+    "valor_cop": 7529936
+  },
+  {
+    "id": "VEN-00895",
+    "fecha": "2026-09-20",
+    "id_cliente": "CLI-037",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 11557.48,
+    "valor_cop": 46917706
+  },
+  {
+    "id": "VEN-00896",
+    "fecha": "2026-09-21",
+    "id_cliente": "CLI-005",
+    "id_producto": "PRD-002",
+    "cantidad": 21,
+    "valor_usd": 8850.7,
+    "valor_cop": 35789664
+  },
+  {
+    "id": "VEN-00897",
+    "fecha": "2026-09-23",
+    "id_cliente": "CLI-028",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 6924.53,
+    "valor_cop": 27907933
+  },
+  {
+    "id": "VEN-00898",
+    "fecha": "2026-09-24",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-014",
+    "cantidad": 12,
+    "valor_usd": 1728.29,
+    "valor_cop": 6990674
+  },
+  {
+    "id": "VEN-00899",
+    "fecha": "2026-09-24",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-012",
+    "cantidad": 2,
+    "valor_usd": 2464.35,
+    "valor_cop": 9967926
+  },
+  {
+    "id": "VEN-00900",
+    "fecha": "2026-09-25",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-004",
+    "cantidad": 39,
+    "valor_usd": 4418.26,
+    "valor_cop": 17810625
+  },
+  {
+    "id": "VEN-00901",
+    "fecha": "2026-09-25",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-012",
+    "cantidad": 5,
+    "valor_usd": 6000.95,
+    "valor_cop": 24190670
+  },
+  {
+    "id": "VEN-00902",
+    "fecha": "2026-09-26",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-006",
+    "cantidad": 2,
+    "valor_usd": 19444.07,
+    "valor_cop": 78109746
+  },
+  {
+    "id": "VEN-00903",
+    "fecha": "2026-09-26",
+    "id_cliente": "CLI-032",
+    "id_producto": "PRD-012",
+    "cantidad": 2,
+    "valor_usd": 2618.75,
+    "valor_cop": 10519912
+  },
+  {
+    "id": "VEN-00904",
+    "fecha": "2026-09-28",
+    "id_cliente": "CLI-014",
+    "id_producto": "PRD-007",
+    "cantidad": 2,
+    "valor_usd": 1684.07,
+    "valor_cop": 6805007
+  },
+  {
+    "id": "VEN-00905",
+    "fecha": "2026-09-28",
+    "id_cliente": "CLI-014",
+    "id_producto": "PRD-017",
+    "cantidad": 1,
+    "valor_usd": 6380.95,
+    "valor_cop": 25784207
+  },
+  {
+    "id": "VEN-00906",
+    "fecha": "2026-09-28",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-014",
+    "cantidad": 8,
+    "valor_usd": 1245.25,
+    "valor_cop": 5031819
+  },
+  {
+    "id": "VEN-00907",
+    "fecha": "2026-09-28",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-014",
+    "cantidad": 36,
+    "valor_usd": 5525.57,
+    "valor_cop": 22327779
+  },
+  {
+    "id": "VEN-00908",
+    "fecha": "2026-09-28",
+    "id_cliente": "CLI-018",
+    "id_producto": "PRD-007",
+    "cantidad": 7,
+    "valor_usd": 6432.09,
+    "valor_cop": 25990854
+  },
+  {
+    "id": "VEN-00909",
+    "fecha": "2026-09-28",
+    "id_cliente": "CLI-018",
+    "id_producto": "PRD-007",
+    "cantidad": 2,
+    "valor_usd": 1722.8,
+    "valor_cop": 6961507
+  },
+  {
+    "id": "VEN-00910",
+    "fecha": "2026-09-28",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-016",
+    "cantidad": 1,
+    "valor_usd": 1862.21,
+    "valor_cop": 7524837
+  },
+  {
+    "id": "VEN-00911",
+    "fecha": "2026-09-29",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-009",
+    "cantidad": 37,
+    "valor_usd": 2208.46,
+    "valor_cop": 8917077
+  },
+  {
+    "id": "VEN-00912",
+    "fecha": "2026-09-29",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-009",
+    "cantidad": 34,
+    "valor_usd": 1946.57,
+    "valor_cop": 7859646
+  },
+  {
+    "id": "VEN-00913",
+    "fecha": "2026-10-02",
+    "id_cliente": "CLI-043",
+    "id_producto": "PRD-005",
+    "cantidad": 2,
+    "valor_usd": 4978.27,
+    "valor_cop": 20172796
+  },
+  {
+    "id": "VEN-00914",
+    "fecha": "2026-10-02",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-016",
+    "cantidad": 6,
+    "valor_usd": 10824.07,
+    "valor_cop": 43860972
+  },
+  {
+    "id": "VEN-00915",
+    "fecha": "2026-10-03",
+    "id_cliente": "CLI-010",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 6895.56,
+    "valor_cop": 27936465
+  },
+  {
+    "id": "VEN-00916",
+    "fecha": "2026-10-03",
+    "id_cliente": "CLI-010",
+    "id_producto": "PRD-008",
+    "cantidad": 1,
+    "valor_usd": 7542.51,
+    "valor_cop": 30557499
+  },
+  {
+    "id": "VEN-00917",
+    "fecha": "2026-10-05",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-019",
+    "cantidad": 2,
+    "valor_usd": 29596.13,
+    "valor_cop": 117449874
+  },
+  {
+    "id": "VEN-00918",
+    "fecha": "2026-10-05",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 11706.26,
+    "valor_cop": 46455356
+  },
+  {
+    "id": "VEN-00919",
+    "fecha": "2026-10-08",
+    "id_cliente": "CLI-033",
+    "id_producto": "PRD-013",
+    "cantidad": 6,
+    "valor_usd": 12959.1,
+    "valor_cop": 51526548
+  },
+  {
+    "id": "VEN-00920",
+    "fecha": "2026-10-08",
+    "id_cliente": "CLI-049",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 9932.28,
+    "valor_cop": 39491639
+  },
+  {
+    "id": "VEN-00921",
+    "fecha": "2026-10-08",
+    "id_cliente": "CLI-049",
+    "id_producto": "PRD-005",
+    "cantidad": 7,
+    "valor_usd": 16489.44,
+    "valor_cop": 65563497
+  },
+  {
+    "id": "VEN-00922",
+    "fecha": "2026-10-08",
+    "id_cliente": "CLI-054",
+    "id_producto": "PRD-012",
+    "cantidad": 7,
+    "valor_usd": 8944.34,
+    "valor_cop": 35563501
+  },
+  {
+    "id": "VEN-00923",
+    "fecha": "2026-10-10",
+    "id_cliente": "CLI-020",
+    "id_producto": "PRD-017",
+    "cantidad": 1,
+    "valor_usd": 5839.74,
+    "valor_cop": 23305001
+  },
+  {
+    "id": "VEN-00924",
+    "fecha": "2026-10-11",
+    "id_cliente": "CLI-036",
+    "id_producto": "PRD-009",
+    "cantidad": 29,
+    "valor_usd": 1688.44,
+    "valor_cop": 6760176
+  },
+  {
+    "id": "VEN-00925",
+    "fecha": "2026-10-11",
+    "id_cliente": "CLI-042",
+    "id_producto": "PRD-006",
+    "cantidad": 1,
+    "valor_usd": 9930.11,
+    "valor_cop": 39758174
+  },
+  {
+    "id": "VEN-00926",
+    "fecha": "2026-10-12",
+    "id_cliente": "CLI-022",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3144.44,
+    "valor_cop": 12603670
+  },
+  {
+    "id": "VEN-00927",
+    "fecha": "2026-10-16",
+    "id_cliente": "CLI-053",
+    "id_producto": "PRD-008",
+    "cantidad": 2,
+    "valor_usd": 13854.66,
+    "valor_cop": 56430584
+  },
+  {
+    "id": "VEN-00928",
+    "fecha": "2026-10-17",
+    "id_cliente": "CLI-011",
+    "id_producto": "PRD-019",
+    "cantidad": 1,
+    "valor_usd": 13553.39,
+    "valor_cop": 55424826
+  },
+  {
+    "id": "VEN-00929",
+    "fecha": "2026-10-17",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-014",
+    "cantidad": 10,
+    "valor_usd": 1450.58,
+    "valor_cop": 5931958
+  },
+  {
+    "id": "VEN-00930",
+    "fecha": "2026-10-17",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-001",
+    "cantidad": 1,
+    "valor_usd": 3344.73,
+    "valor_cop": 13677839
+  },
+  {
+    "id": "VEN-00931",
+    "fecha": "2026-10-17",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-018",
+    "cantidad": 6,
+    "valor_usd": 2953.68,
+    "valor_cop": 12078690
+  },
+  {
+    "id": "VEN-00932",
+    "fecha": "2026-10-17",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-005",
+    "cantidad": 2,
+    "valor_usd": 4703.29,
+    "valor_cop": 19233493
+  },
+  {
+    "id": "VEN-00933",
+    "fecha": "2026-10-19",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-004",
+    "cantidad": 23,
+    "valor_usd": 2713.83,
+    "valor_cop": 11180708
+  },
+  {
+    "id": "VEN-00934",
+    "fecha": "2026-10-19",
+    "id_cliente": "CLI-013",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 9099.25,
+    "valor_cop": 37488000
+  },
+  {
+    "id": "VEN-00935",
+    "fecha": "2026-10-19",
+    "id_cliente": "CLI-013",
+    "id_producto": "PRD-011",
+    "cantidad": 1,
+    "valor_usd": 8518.99,
+    "valor_cop": 35097387
+  },
+  {
+    "id": "VEN-00936",
+    "fecha": "2026-10-19",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-012",
+    "cantidad": 4,
+    "valor_usd": 5068.08,
+    "valor_cop": 20879983
+  },
+  {
+    "id": "VEN-00937",
+    "fecha": "2026-10-21",
+    "id_cliente": "CLI-005",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 5380.99,
+    "valor_cop": 22177051
+  },
+  {
+    "id": "VEN-00938",
+    "fecha": "2026-10-21",
+    "id_cliente": "CLI-005",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 5760.24,
+    "valor_cop": 23740080
+  },
+  {
+    "id": "VEN-00939",
+    "fecha": "2026-10-21",
+    "id_cliente": "CLI-012",
+    "id_producto": "PRD-001",
+    "cantidad": 2,
+    "valor_usd": 6587.16,
+    "valor_cop": 27148124
+  },
+  {
+    "id": "VEN-00940",
+    "fecha": "2026-10-21",
+    "id_cliente": "CLI-028",
+    "id_producto": "PRD-010",
+    "cantidad": 1,
+    "valor_usd": 6778.93,
+    "valor_cop": 27938479
+  },
+  {
+    "id": "VEN-00941",
+    "fecha": "2026-10-22",
+    "id_cliente": "CLI-002",
+    "id_producto": "PRD-009",
+    "cantidad": 32,
+    "valor_usd": 1867.79,
+    "valor_cop": 7693053
+  },
+  {
+    "id": "VEN-00942",
+    "fecha": "2026-10-22",
+    "id_cliente": "CLI-009",
+    "id_producto": "PRD-004",
+    "cantidad": 36,
+    "valor_usd": 4066.84,
+    "valor_cop": 16750501
+  },
+  {
+    "id": "VEN-00943",
+    "fecha": "2026-10-22",
+    "id_cliente": "CLI-009",
+    "id_producto": "PRD-004",
+    "cantidad": 6,
+    "valor_usd": 723.98,
+    "valor_cop": 2981929
+  },
+  {
+    "id": "VEN-00944",
+    "fecha": "2026-10-22",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-014",
+    "cantidad": 38,
+    "valor_usd": 5262.77,
+    "valor_cop": 21676297
+  },
+  {
+    "id": "VEN-00945",
+    "fecha": "2026-10-22",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-004",
+    "cantidad": 16,
+    "valor_usd": 1865.42,
+    "valor_cop": 7683292
+  },
+  {
+    "id": "VEN-00946",
+    "fecha": "2026-10-22",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-005",
+    "cantidad": 5,
+    "valor_usd": 11141.11,
+    "valor_cop": 45888004
+  },
+  {
+    "id": "VEN-00947",
+    "fecha": "2026-10-22",
+    "id_cliente": "CLI-052",
+    "id_producto": "PRD-003",
+    "cantidad": 1,
+    "valor_usd": 6037.4,
+    "valor_cop": 24866843
+  },
+  {
+    "id": "VEN-00948",
+    "fecha": "2026-10-24",
+    "id_cliente": "CLI-044",
+    "id_producto": "PRD-009",
+    "cantidad": 7,
+    "valor_usd": 394.71,
+    "valor_cop": 1640020
+  },
+  {
+    "id": "VEN-00949",
+    "fecha": "2026-10-25",
+    "id_cliente": "CLI-050",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7176.17,
+    "valor_cop": 29842892
+  },
+  {
+    "id": "VEN-00950",
+    "fecha": "2026-10-27",
+    "id_cliente": "CLI-051",
+    "id_producto": "PRD-007",
+    "cantidad": 3,
+    "valor_usd": 2542.43,
+    "valor_cop": 10589984
+  },
+  {
+    "id": "VEN-00951",
+    "fecha": "2026-11-01",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-014",
+    "cantidad": 11,
+    "valor_usd": 1730.91,
+    "valor_cop": 7241972
+  },
+  {
+    "id": "VEN-00952",
+    "fecha": "2026-11-01",
+    "id_cliente": "CLI-039",
+    "id_producto": "PRD-016",
+    "cantidad": 4,
+    "valor_usd": 7068.97,
+    "valor_cop": 29575934
+  },
+  {
+    "id": "VEN-00953",
+    "fecha": "2026-11-05",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-015",
+    "cantidad": 2,
+    "valor_usd": 7267.9,
+    "valor_cop": 30786534
+  },
+  {
+    "id": "VEN-00954",
+    "fecha": "2026-11-05",
+    "id_cliente": "CLI-041",
+    "id_producto": "PRD-011",
+    "cantidad": 2,
+    "valor_usd": 16906.49,
+    "valor_cop": 71615215
+  },
+  {
+    "id": "VEN-00955",
+    "fecha": "2026-11-05",
+    "id_cliente": "CLI-049",
+    "id_producto": "PRD-005",
+    "cantidad": 1,
+    "valor_usd": 2380.89,
+    "valor_cop": 10085355
+  },
+  {
+    "id": "VEN-00956",
+    "fecha": "2026-11-07",
+    "id_cliente": "CLI-014",
+    "id_producto": "PRD-005",
+    "cantidad": 6,
+    "valor_usd": 14392.52,
+    "valor_cop": 61323793
+  },
+  {
+    "id": "VEN-00957",
+    "fecha": "2026-11-07",
+    "id_cliente": "CLI-043",
+    "id_producto": "PRD-002",
+    "cantidad": 13,
+    "valor_usd": 5594.24,
+    "valor_cop": 23835994
+  },
+  {
+    "id": "VEN-00958",
+    "fecha": "2026-11-07",
+    "id_cliente": "CLI-048",
+    "id_producto": "PRD-016",
+    "cantidad": 8,
+    "valor_usd": 14729.26,
+    "valor_cop": 62758578
+  },
+  {
+    "id": "VEN-00959",
+    "fecha": "2026-11-10",
+    "id_cliente": "CLI-026",
+    "id_producto": "PRD-016",
+    "cantidad": 1,
+    "valor_usd": 1875.61,
+    "valor_cop": 8058671
+  },
+  {
+    "id": "VEN-00960",
+    "fecha": "2026-11-12",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-003",
+    "cantidad": 2,
+    "valor_usd": 11921.81,
+    "valor_cop": 51473249
+  },
+  {
+    "id": "VEN-00961",
+    "fecha": "2026-11-12",
+    "id_cliente": "CLI-006",
+    "id_producto": "PRD-002",
+    "cantidad": 31,
+    "valor_usd": 13260.54,
+    "valor_cop": 57253310
+  },
+  {
+    "id": "VEN-00962",
+    "fecha": "2026-11-13",
+    "id_cliente": "CLI-046",
+    "id_producto": "PRD-012",
+    "cantidad": 4,
+    "valor_usd": 5186.05,
+    "valor_cop": 22353172
+  },
+  {
+    "id": "VEN-00963",
+    "fecha": "2026-11-14",
+    "id_cliente": "CLI-016",
+    "id_producto": "PRD-014",
+    "cantidad": 14,
+    "valor_usd": 2102.91,
+    "valor_cop": 9064404
+  },
+  {
+    "id": "VEN-00964",
+    "fecha": "2026-11-14",
+    "id_cliente": "CLI-054",
+    "id_producto": "PRD-013",
+    "cantidad": 2,
+    "valor_usd": 4132.96,
+    "valor_cop": 17814752
+  }
+]
