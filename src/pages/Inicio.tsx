@@ -3,7 +3,7 @@ import { ButtonLink, Card, EmptyState, PageHeader, StatCard, Variacion } from '.
 import GraficaVentas from '../components/GraficaVentas';
 import AlertaItem from '../components/AlertaItem';
 import { IconoFlecha, IconoReporte } from '../components/Iconos';
-import { alertas, conteoEstados, HOY, mesActual, pronostico, serie, trmHoy, trmVariacion30 } from '../lib/datos';
+import { alertas, conteoEstados, enRiesgo, HOY, mesActual, pronostico, serie, trmHoy, trmVariacion30 } from '../lib/datos';
 import { useContactados } from '../lib/contactados';
 import { etiquetaMes } from '../lib/analytics';
 import { fmtCompacto, fmtFecha, fmtTrm, fmtUsd } from '../lib/format';
@@ -47,6 +47,25 @@ export default function Inicio() {
         <StatCard titulo="En riesgo" valor={conteoEstados.riesgo} color="#F59E0B" detalle={<span><span aria-hidden="true">▲</span> se están atrasando</span>} />
         <StatCard titulo="Fríos" valor={conteoEstados.frio} color="#EF4444" detalle={<span><span aria-hidden="true">■</span> dejaron de comprar</span>} />
       </div>
+
+      <section
+        className="mt-4 flex flex-col gap-3 rounded-2xl border border-acento/40 bg-acento/10 p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5"
+        aria-label="Ventas en riesgo"
+      >
+        <div>
+          <p className="text-sm text-amber-200">Ventas en riesgo</p>
+          <p className="font-titulo text-2xl font-bold text-white sm:text-3xl">
+            {fmtCompacto(enRiesgo.riesgo)} <span className="text-base font-medium text-tenue">al año</span>
+          </p>
+          <p className="mt-1 text-sm text-slate-300">
+            Es lo que compran en un año los {conteoEstados.riesgo} clientes en riesgo. Otros {fmtCompacto(enRiesgo.friosRecuperables)} al año
+            están en clientes fríos que aún se pueden recuperar.
+          </p>
+        </div>
+        <ButtonLink to="/alertas" variante="primario" className="shrink-0">
+          Ver a quién llamar <IconoFlecha width={16} height={16} />
+        </ButtonLink>
+      </section>
 
       <div className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-5">
         <Card

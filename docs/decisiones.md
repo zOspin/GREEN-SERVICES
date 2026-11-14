@@ -40,3 +40,12 @@ Cuando algo no estaba especificado, tomamos la opción más simple. Aquí quedan
 25. **Colores de categorías**: azules, violeta, rosado, gris y dorado; no se usan verde, ámbar ni rojo para no confundir con los estados.
 26. **La página «Cargar datos» se carga aparte**, porque la librería de Excel es pesada; así el resto de la app abre más rápido.
 27. **El enlace «Ficha del cliente»** de la página El reto lleva a Cliente 30, un buen ejemplo de cliente en riesgo con recomendación de venta cruzada.
+
+## Mejoras después de la primera versión
+
+28. **Ventas en riesgo en dinero**: compra anual promedio = total comprado ÷ meses desde la primera compra × 12 (mínimo 3 meses, para no exagerar a los clientes nuevos). Se suma por separado para clientes en riesgo y fríos recuperables.
+29. **Mensaje sugerido**: plantillas según el caso (renovación, cliente frío, en riesgo o al día). Deja `[nombre del contacto]` y `[tu nombre]` para que el asesor los complete; no inventa datos de contacto. «Abrir en el correo» usa `mailto:` sin destinatario.
+30. **Columnas ordenables en Clientes**, con la columna nueva «Total comprado». El orden inicial sigue siendo por riesgo, de mayor a menor.
+31. **«Descargar lista»** en Alertas exporta lo que se ve en pantalla (con los filtros aplicados) en CSV con BOM, para que Excel muestre bien las tildes.
+32. **Sin animación en la línea de tiempo de la ficha**: si no, se reiniciaba cada vez que se pulsaba un botón y los puntos parecían desaparecer.
+

@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { CartesianGrid, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis, YAxis, ZAxis } from 'recharts';
-import { ButtonLink, Card, EmptyState, INFO_ESTADO, Panel, RiskBar, StatCard, StatusChip, Table, Td, Th, Thead, Tr } from '../components/ui';
-import { IconoAtras, IconoChispa } from '../components/Iconos';
+import { Button, ButtonLink, Card, EmptyState, INFO_ESTADO, Panel, RiskBar, StatCard, StatusChip, Table, Td, Th, Thead, Tr } from '../components/ui';
+import { IconoAtras, IconoCheck, IconoChispa } from '../components/Iconos';
+import { useContactados } from '../lib/contactados';
+import { mensajeParaCliente } from '../lib/mensaje';
 import { analisisPorId, HOY, productoPorId } from '../lib/datos';
 import { DIA } from '../lib/analytics';
 import { fmtCompacto, fmtCop, fmtFecha, fmtNum, fmtUsd } from '../lib/format';
@@ -11,6 +14,8 @@ const ejeCompacto = (v: number) => fmtCompacto(v).replace(/ /g, ' ');
 export default function FichaCliente() {
   const { id = '' } = useParams();
   const a = analisisPorId.get(id);
+  const { contactados, alternar } = useContactados();
+  const [copiado, setCopiado] = useState(false);
 
   if (!a) {
     return (
@@ -42,6 +47,17 @@ export default function FichaCliente() {
   const marcas = meses.filter((t, i) => i % paso === 0 && t <= dominio[1]);
   const vencida = a.proximaCompra && a.proximaCompra < HOY;
   const rec = a.productoRecomendado;
+  const hecho = contactados.has(c.id);
+  const mensaje = mensajeParaCliente(a);
+  const copiar = async () => {
+    try {
+      await navigator.clipboard.writeText(`${mensaje.asunto}\n\n${mensaje.cuerpo}`);
+      setCopiado(true);
+      setTimeout(() => setCopiado(false), 2500);
+    } catch {
+      setCopiado(false);
+    }
+  };
 
   // Productos que tiene el cliente (su base instalada con nosotros)
   const tenencia = [...a.ventas.reduce((m, v) => {
@@ -69,9 +85,14 @@ export default function FichaCliente() {
             <span className="rounded-full border border-azul/40 bg-azul/15 px-2.5 py-0.5 text-xs font-medium text-blue-200">Base instalada</span>
           )}
         </div>
-        <p className="mt-1 text-sm text-tenue">
-          {c.id} · <span className="capitalize">{c.sector}</span> · {c.ciudad} · cliente desde {fmtFecha(c.fecha_primera_compra)}
-        </p>
+        <div className="mt-1 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-tenue">
+            {c.id} · <span className="capitalize">{c.sector}</span> · {c.ciudad} · cliente desde {fmtFecha(c.fecha_primera_compra)}
+          </p>
+          <Button variante={hecho ? 'secundario' : 'primario'} onClick={() => alternar(c.id)} aria-pressed={hecho} className="self-start">
+            {hecho ? <><IconoCheck width={16} height={16} /> Contactado · deshacer</> : 'Marcar como contactado'}
+          </Button>
+        </div>
       </Card>
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-5">
@@ -107,6 +128,24 @@ export default function FichaCliente() {
             <p className="mt-1 text-sm text-slate-300"><span className="text-tenue">¿Por qué? </span>{rec.motivo}</p>
           </Panel>
         )}
+        <details className="mt-4 rounded-xl border border-borde/60 bg-superficie p-4 [&_summary::-webkit-details-marker]:hidden">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-2 font-medium text-white">
+            Mensaje sugerido para el cliente
+            <span className="text-sm font-normal text-azul">Ver</span>
+          </summary>
+          <p className="mt-3 text-sm text-tenue">Asunto: <span className="text-slate-200">{mensaje.asunto}</span></p>
+          <pre className="mt-2 whitespace-pre-wrap rounded-lg bg-fondo/70 p-3 font-sans text-sm text-slate-200">{mensaje.cuerpo}</pre>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <Button variante="primario" onClick={() => void copiar()}>{copiado ? 'Copiado' : 'Copiar mensaje'}</Button>
+            <a
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-borde px-3.5 py-2 text-sm font-medium text-slate-200 hover:bg-white/5"
+              href={`mailto:?subject=${encodeURIComponent(mensaje.asunto)}&body=${encodeURIComponent(mensaje.cuerpo)}`}
+            >
+              Abrir en el correo
+            </a>
+          </div>
+          <p className="mt-2 text-xs text-tenue" aria-live="polite">{copiado ? 'El mensaje quedó copiado: pégalo en tu correo o WhatsApp.' : 'Completa los datos entre corchetes antes de enviarlo.'}</p>
+        </details>
         <p className="mt-3 text-xs text-tenue">
           Generada con reglas a partir de su ciclo de compra ({Math.round(a.ciclo)} días), los días sin comprar ({a.recencia}),
           lo que tiene comprado, lo que compran clientes parecidos y la TRM.
@@ -144,9 +183,9 @@ export default function FichaCliente() {
                     );
                   }}
                 />
-                <Scatter data={puntos} fill="#3B82F6" />
+                <Scatter data={puntos} fill="#3B82F6" isAnimationActive={false} />
                 {a.proximaCompra && (
-                  <Scatter data={[{ t: a.proximaCompra.getTime(), usd: 0, producto: 'Próxima compra estimada' }]} fill="#F59E0B" shape="diamond" />
+                  <Scatter data={[{ t: a.proximaCompra.getTime(), usd: 0, producto: 'Próxima compra estimada' }]} fill="#F59E0B" shape="diamond" isAnimationActive={false} />
                 )}
               </ScatterChart>
             </ResponsiveContainer>

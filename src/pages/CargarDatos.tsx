@@ -6,6 +6,7 @@ import { IconoCandado, IconoCheck, IconoDescargar, IconoSubir } from '../compone
 import { clientes, meta, productoPorId, productos, trm, ventas } from '../lib/datos';
 import { NOMBRE_CAMPO, unirArchivos, type ResultadoUnion } from '../lib/unificar';
 import { fmtFecha, fmtNum, fmtUsd } from '../lib/format';
+import { descargarCsv } from '../lib/descargar';
 
 type Fila = Record<string, unknown>;
 interface Archivo {
@@ -37,16 +38,6 @@ async function leer(nombre: string, contenido: () => Promise<string | ArrayBuffe
   } catch (e) {
     return { nombre, filas: [], error: `No se pudo leer: ${(e as Error).message}` };
   }
-}
-
-function descargarCsv(nombre: string, datos: object[]) {
-  const blob = new Blob(['﻿' + Papa.unparse(datos)], { type: 'text/csv;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const enlace = document.createElement('a');
-  enlace.href = url;
-  enlace.download = nombre;
-  enlace.click();
-  URL.revokeObjectURL(url);
 }
 
 export default function CargarDatos() {
@@ -221,7 +212,7 @@ export default function CargarDatos() {
               titulo="4. Resultado: una sola tabla"
               className="mt-6"
               accion={
-                <Button onClick={() => descargarCsv('ventas-unificadas.csv', union.ventas)}>
+                <Button onClick={() => descargarCsv('ventas-unificadas.csv', union.ventas as unknown as Record<string, unknown>[])}>
                   <IconoDescargar width={16} height={16} /> Descargar CSV unificado
                 </Button>
               }

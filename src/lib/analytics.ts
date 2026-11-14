@@ -318,6 +318,31 @@ function cicloPromedio(diasOrdenados: string[]): number {
 }
 
 // ---------------------------------------------------------------------------
+// Valor en riesgo: cuánto dinero al año representan los clientes que se están yendo
+// ---------------------------------------------------------------------------
+
+/**
+ * Compra anual promedio de un cliente = lo que ha comprado ÷ meses como cliente × 12.
+ * Los meses se cuentan desde su primera compra hasta `hoy` (mínimo 3, para no exagerar
+ * a los clientes nuevos).
+ */
+export function valorAnual(a: AnalisisCliente, hoy: Date): number {
+  const primera = a.ventas[0] ? fecha(a.ventas[0].fecha) : hoy;
+  const meses = Math.max(3, (hoy.getTime() - primera.getTime()) / (30.44 * DIA));
+  return (a.montoUsd / meses) * 12;
+}
+
+export function valorEnRiesgo(analisis: AnalisisCliente[], hoy: Date) {
+  const sumar = (estado: Estado) =>
+    analisis.filter((a) => a.estado === estado).reduce((s, a) => s + valorAnual(a, hoy), 0);
+  // Fríos recuperables: menos de un año sin comprar.
+  const friosRecuperables = analisis
+    .filter((a) => a.estado === 'frio' && a.recencia <= 365)
+    .reduce((s, a) => s + valorAnual(a, hoy), 0);
+  return { riesgo: sumar('riesgo'), friosRecuperables, total: sumar('riesgo') + friosRecuperables };
+}
+
+// ---------------------------------------------------------------------------
 // Alertas: a quién contactar esta semana
 // ---------------------------------------------------------------------------
 

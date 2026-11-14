@@ -46,10 +46,10 @@ Abre en el navegador la dirección que aparece en la terminal (normalmente **htt
 
 | Ruta | Pantalla | Para quién |
 |---|---|---|
-| `/` | **Inicio**: ventas del mes, TRM, clientes por estado, gráfica con pronóstico y «Contactar esta semana» | Todos |
-| `/alertas` | **Alertas**: lista priorizada con motivo, producto a ofrecer y «Marcar como contactado» | Comercial |
-| `/clientes` | **Clientes**: tabla con buscador y filtros (estado, sector, base instalada) | Comercial |
-| `/clientes/:id` | **Ficha del cliente**: indicadores, línea de tiempo, productos que tiene, historial y recomendación de IA | Comercial |
+| `/` | **Inicio**: ventas del mes, TRM, clientes por estado, **ventas en riesgo (US$ al año)**, gráfica con pronóstico y «Contactar esta semana» | Todos |
+| `/alertas` | **Alertas**: lista priorizada con motivo, producto a ofrecer, «Marcar como contactado» y descarga de la lista de llamadas (CSV) | Comercial |
+| `/clientes` | **Clientes**: tabla con buscador, filtros (estado, sector, base instalada) y columnas ordenables | Comercial |
+| `/clientes/:id` | **Ficha del cliente**: indicadores, línea de tiempo, productos que tiene, historial, recomendación de IA y **mensaje sugerido** para el cliente | Comercial |
 | `/ventas` | **Ventas y TRM**: ventas por mes y categoría, y ventas contra TRM | Financiera |
 | `/predicciones` | **Predicciones**: pronóstico, % de acierto y «¿Cómo funciona la IA?» | Todos |
 | `/datos` | **Cargar datos**: une y limpia archivos de varias plataformas | Operaciones |
@@ -101,7 +101,9 @@ Es una IA **sencilla y explicable**: reglas y cálculos que cualquiera puede rev
    - **Lo más vendido en su sector** que aún no tiene.
 9. **Texto de recomendación** con plantillas: *«Compra cada 37 días y lleva 66 sin comprar. Su última compra fue Hardware. Llámalo esta semana y ofrécele Antivirus empresarial.»*
 10. **Pronóstico de ventas** = promedio de los últimos 3 meses + tendencia mensual.
-11. **% de acierto (backtest)**: se «viaja al pasado» 60 días, la IA marca a quién ve en riesgo con los datos de ese momento y luego se revisa si de verdad dejaron de comprar. Con los datos de la demo acierta en **8 de 9 casos (89 %)**.
+11. **Ventas en riesgo**: lo que compran en un año los clientes en riesgo (total comprado ÷ meses como cliente × 12). Hoy: unos US$ 1,1 M al año, más US$ 0,9 M en fríos recuperables.
+12. **Mensaje sugerido**: un borrador de correo o WhatsApp según el estado del cliente y el producto recomendado, listo para copiar.
+13. **% de acierto (backtest)**: se «viaja al pasado» 60 días, la IA marca a quién ve en riesgo con los datos de ese momento y luego se revisa si de verdad dejaron de comprar. Con los datos de la demo acierta en **8 de 9 casos (89 %)**.
 
 La unión de archivos está en `src/lib/unificar.ts` (reconoce sinónimos de columnas, 4 formatos de fecha, números con punto o coma, pesos o dólares) y el reporte en `src/lib/reporte.ts`.
 
@@ -115,6 +117,8 @@ src/
   lib/
     analytics.ts             La «IA»: riesgo, alertas, recomendación, pronóstico, backtest
     unificar.ts              Une y limpia archivos de varias plataformas
+    mensaje.ts               Borrador de mensaje para el cliente
+    descargar.ts             Descarga de tablas como CSV
     reporte.ts               Reporte automático del mes
     datos.ts                 Carga los datos y ejecuta los cálculos una vez
     format.ts                Formato de moneda, fechas y porcentajes (es-CO)

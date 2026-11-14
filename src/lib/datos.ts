@@ -52,3 +52,7 @@ export const correlacionVentasTrm = correlacion(
   serieVentasTrm.map((p) => p.trm),
   serieVentasTrm.map((p) => p.usd),
 );
+
+// Dinero al año que representan los clientes en riesgo y los fríos recuperables
+import { valorEnRiesgo } from './analytics';
+export const enRiesgo = valorEnRiesgo(analisis, HOY);

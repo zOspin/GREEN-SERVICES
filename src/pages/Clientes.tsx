@@ -3,11 +3,43 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Card, EmptyState, PageHeader, RiskBar, StatusChip, Table, Td, Th, Thead, Tr } from '../components/ui';
 import { IconoBuscar } from '../components/Iconos';
 import { analisis } from '../lib/datos';
-import type { Estado } from '../lib/analytics';
-import { fmtFecha } from '../lib/format';
+import type { AnalisisCliente, Estado } from '../lib/analytics';
+import { fmtCompacto, fmtFecha } from '../lib/format';
 
 const SECTORES = [...new Set(analisis.map((a) => a.cliente.sector))].sort();
 const mayuscula = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+
+/** Columnas por las que se puede ordenar la tabla. */
+type Orden = 'nombre' | 'sector' | 'ultima' | 'ciclo' | 'recencia' | 'monto' | 'puntaje';
+const ORDEN_ESTADO: Record<Estado, number> = { activo: 0, riesgo: 1, frio: 2 };
+const VALOR: Record<Orden, (a: AnalisisCliente) => number | string> = {
+  nombre: (a) => a.cliente.nombre,
+  sector: (a) => a.cliente.sector,
+  ultima: (a) => a.ultimaCompra?.getTime() ?? 0,
+  ciclo: (a) => a.ciclo,
+  recencia: (a) => a.recencia,
+  monto: (a) => a.montoUsd,
+  puntaje: (a) => a.puntaje * 10 + ORDEN_ESTADO[a.estado],
+};
+
+/** Encabezado que ordena la tabla al hacer clic (y anuncia el orden a lectores de pantalla). */
+function ThOrden({ campo, orden, desc, alCambiar, children, derecha = false, className = '' }: {
+  campo: Orden; orden: Orden; desc: boolean; alCambiar: (c: Orden) => void; children: string; derecha?: boolean; className?: string;
+}) {
+  const activo = orden === campo;
+  return (
+    <Th derecha={derecha} className={className} aria-sort={activo ? (desc ? 'descending' : 'ascending') : 'none'}>
+      <button
+        type="button"
+        onClick={() => alCambiar(campo)}
+        className={`inline-flex items-center gap-1 uppercase tracking-wider hover:text-white ${activo ? 'text-acento' : ''}`}
+      >
+        {children}
+        <span aria-hidden="true" className={activo ? '' : 'opacity-30'}>{activo && !desc ? '↑' : '↓'}</span>
+      </button>
+    </Th>
+  );
+}
 
 export default function Clientes() {
   const navegar = useNavigate();
@@ -15,6 +47,12 @@ export default function Clientes() {
   const [estado, setEstado] = useState<'' | Estado>('');
   const [sector, setSector] = useState('');
   const [base, setBase] = useState<'' | 'si' | 'no'>('');
+  const [orden, setOrden] = useState<Orden>('puntaje');
+  const [desc, setDesc] = useState(true);
+  const cambiarOrden = (c: Orden) => {
+    if (c === orden) setDesc((d) => !d);
+    else { setOrden(c); setDesc(c !== 'nombre' && c !== 'sector'); }
+  };
 
   const filas = useMemo(() => {
     const q = texto.trim().toLowerCase();
@@ -27,15 +65,19 @@ export default function Clientes() {
         if (base === 'no' && a.cliente.es_base_instalada) return false;
         return true;
       })
-      .sort((x, y) => y.puntaje - x.puntaje);
-  }, [texto, estado, sector, base]);
+      .sort((x, y) => {
+        const a = VALOR[orden](x), b = VALOR[orden](y);
+        const r = typeof a === 'string' ? a.localeCompare(b as string, 'es') : a - (b as number);
+        return desc ? -r : r;
+      });
+  }, [texto, estado, sector, base, orden, desc]);
 
   const hayFiltros = Boolean(texto || estado || sector || base);
   const limpiar = () => { setTexto(''); setEstado(''); setSector(''); setBase(''); };
 
   return (
     <>
-      <PageHeader titulo="Clientes" subtitulo="Vista completa de cada cliente, ordenada por riesgo. Haz clic en una fila para ver su ficha." />
+      <PageHeader titulo="Clientes" subtitulo="Vista completa de cada cliente. Haz clic en un encabezado para ordenar y en una fila para ver su ficha." />
 
       <Card className="mb-4">
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
@@ -78,14 +120,15 @@ export default function Clientes() {
 
       {filas.length ? (
         <Card className="!p-0">
-          <Table minWidth={820}>
+          <Table minWidth={920}>
             <Thead>
-              <Th className="pl-4">Cliente</Th>
-              <Th>Sector</Th>
-              <Th>Última compra</Th>
-              <Th derecha>Ciclo</Th>
-              <Th derecha>Días sin comprar</Th>
-              <Th>Riesgo</Th>
+              <ThOrden campo="nombre" orden={orden} desc={desc} alCambiar={cambiarOrden} className="pl-4">Cliente</ThOrden>
+              <ThOrden campo="sector" orden={orden} desc={desc} alCambiar={cambiarOrden}>Sector</ThOrden>
+              <ThOrden campo="ultima" orden={orden} desc={desc} alCambiar={cambiarOrden}>Última compra</ThOrden>
+              <ThOrden campo="ciclo" orden={orden} desc={desc} alCambiar={cambiarOrden} derecha>Ciclo</ThOrden>
+              <ThOrden campo="recencia" orden={orden} desc={desc} alCambiar={cambiarOrden} derecha>Días sin comprar</ThOrden>
+              <ThOrden campo="monto" orden={orden} desc={desc} alCambiar={cambiarOrden} derecha>Total comprado</ThOrden>
+              <ThOrden campo="puntaje" orden={orden} desc={desc} alCambiar={cambiarOrden}>Riesgo</ThOrden>
               <Th>Estado</Th>
             </Thead>
             <tbody>
@@ -114,6 +157,7 @@ export default function Clientes() {
                       {Math.round(a.ciclo)} d{a.cicloEstimado && <span title="Estimado: el cliente tiene menos de 3 compras">*</span>}
                     </Td>
                     <Td derecha>{a.recencia}</Td>
+                    <Td derecha>{fmtCompacto(a.montoUsd)}</Td>
                     <Td><RiskBar puntaje={a.puntaje} /></Td>
                     <Td><StatusChip estado={a.estado} /></Td>
                   </Tr>

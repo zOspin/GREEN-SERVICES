@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { ButtonLink, Card, PageHeader, Table, Td, Th, Thead, Tr } from '../components/ui';
 import { IconoCheck, IconoCerrar, IconoFlecha } from '../components/Iconos';
-import { conteoEstados, resultadoBacktest, alertas } from '../lib/datos';
+import { conteoEstados, enRiesgo, resultadoBacktest, alertas } from '../lib/datos';
+import { fmtCompacto } from '../lib/format';
 
 const PREGUNTAS: { pregunta: string; area: string; pantallas: { texto: string; ruta: string }[] }[] = [
   { pregunta: 'Centralizar la información de diferentes plataformas', area: 'Operaciones', pantallas: [{ texto: 'Cargar datos', ruta: '/datos' }] },
@@ -50,8 +51,8 @@ export default function Reto() {
         </p>
         <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
           <div className="rounded-xl bg-superficie p-4">
-            <p className="font-titulo text-3xl font-bold text-amber-300">{conteoEstados.riesgo + conteoEstados.frio}</p>
-            <p className="text-sm text-tenue">clientes detectados en riesgo o fríos</p>
+            <p className="font-titulo text-3xl font-bold text-amber-300">{fmtCompacto(enRiesgo.total)}</p>
+            <p className="text-sm text-tenue">al año en {conteoEstados.riesgo + conteoEstados.frio} clientes en riesgo o fríos, detectados a tiempo</p>
           </div>
           <div className="rounded-xl bg-superficie p-4">
             <p className="font-titulo text-3xl font-bold text-white">{alertas.length}</p>
