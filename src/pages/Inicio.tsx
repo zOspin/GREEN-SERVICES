@@ -2,14 +2,17 @@ import { Link } from 'react-router-dom';
 import { ButtonLink, Card, EmptyState, INFO_ESTADO, PageHeader, StatCard, Variacion } from '../components/ui';
 import GraficaVentas from '../components/GraficaVentas';
 import AlertaItem from '../components/AlertaItem';
+import Impacto from '../components/Impacto';
 import { IconoFlecha, IconoReporte } from '../components/Iconos';
-import { alertas, conteoEstados, enRiesgo, HOY, mesActual, pronostico, serie, trmHoy, trmVariacion30 } from '../lib/datos';
+import { HOY, mesActual, pronostico, serie, trmHoy, trmVariacion30 } from '../lib/datos';
+import { useDatos } from '../lib/umbrales';
 import { useContactados } from '../lib/contactados';
 import { useIdioma } from '../lib/idioma';
 import { fmtCompacto, fmtFecha, fmtMes, fmtTrm, fmtUsd } from '../lib/format';
 
 export default function Inicio() {
   const { contactados } = useContactados();
+  const { alertas, conteoEstados, enRiesgo } = useDatos();
   const { tr } = useIdioma();
   const urgentes = alertas.filter((a) => !contactados.has(a.id)).slice(0, 5);
 
@@ -67,7 +70,7 @@ export default function Inicio() {
           detalle={<span><span aria-hidden="true">▲</span> {tr('se están atrasando', 'falling behind')}</span>}
         />
         <StatCard
-          titulo={tr('Fríos', 'Cold')}
+          titulo={tr('Inactivos', 'Inactive')}
           valor={conteoEstados.frio}
           color={INFO_ESTADO.frio.color}
           detalle={<span><span aria-hidden="true">■</span> {tr('dejaron de comprar', 'stopped buying')}</span>}
@@ -85,8 +88,8 @@ export default function Inicio() {
           </p>
           <p className="mt-1 text-sm text-slate-300">
             {tr(
-              `Es lo que compran en un año los ${conteoEstados.riesgo} clientes en riesgo. Otros ${fmtCompacto(enRiesgo.friosRecuperables)} al año están en clientes fríos que aún se pueden recuperar.`,
-              `That's what the ${conteoEstados.riesgo} at-risk clients buy in a year. Another ${fmtCompacto(enRiesgo.friosRecuperables)} per year sits with cold clients who can still be won back.`,
+              `Es lo que compran en un año los ${conteoEstados.riesgo} clientes en riesgo. Otros ${fmtCompacto(enRiesgo.friosRecuperables)} al año están en clientes inactivos que aún se pueden recuperar.`,
+              `That's what the ${conteoEstados.riesgo} at-risk clients buy in a year. Another ${fmtCompacto(enRiesgo.friosRecuperables)} per year sits with inactive clients who can still be won back.`,
             )}
           </p>
         </div>
@@ -94,6 +97,8 @@ export default function Inicio() {
           {tr('Ver a quién llamar', 'See who to call')} <IconoFlecha width={16} height={16} />
         </ButtonLink>
       </section>
+
+      <Impacto className="mt-4" />
 
       <div className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-5">
         <Card

@@ -16,6 +16,7 @@ export default {
         borde: v('c-borde'),
         acento: v('c-acento'),
         azul: v('c-azul'),
+        turquesa: v('c-turquesa'),
         ok: v('c-ok'),
         riesgo: v('c-riesgo'),
         frio: v('c-frio'),

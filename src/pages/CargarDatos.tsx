@@ -1,9 +1,11 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
+import Impacto from '../components/Impacto';
 import Papa from 'papaparse';
 import * as XLSX from 'xlsx';
 import { Button, Card, EmptyState, PageHeader, Panel, StatCard, Table, Td, Th, Thead, Tr, INFO_ESTADO } from '../components/ui';
 import { IconoCandado, IconoCheck, IconoDescargar, IconoSubir } from '../components/Iconos';
-import { clientes, meta, productoPorId, productos, trm, ventas } from '../lib/datos';
+import { clientes, meta, productoPorId, productos, trm, ventas, CLIENTE_DEMO } from '../lib/datos';
 import { NOMBRE_CAMPO, unirArchivos, type ResultadoUnion } from '../lib/unificar';
 import { producto } from '../lib/catalogo';
 import { useIdioma, type Bi } from '../lib/idioma';
@@ -74,6 +76,8 @@ export default function CargarDatos() {
   const [arrastrando, setArrastrando] = useState(false);
   const [leyendo, setLeyendo] = useState(false);
   const entrada = useRef<HTMLInputElement>(null);
+  const [params] = useSearchParams();
+  const clienteSeguido = params.get('cliente') ?? CLIENTE_DEMO;
 
   const agregar = (nuevos: Archivo[]) =>
     setArchivos((prev) => [...prev.filter((p) => !nuevos.some((n) => n.nombre === p.nombre)), ...nuevos]);
@@ -102,6 +106,13 @@ export default function CargarDatos() {
     setLeyendo(false);
   };
 
+  // Modo presentación (/datos?demo=1): carga sola los 3 archivos de ejemplo.
+  const demo = params.get('demo') === '1';
+  useEffect(() => {
+    if (demo) void cargarEjemplos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [demo]);
+
   const legibles = archivos.filter((a) => !a.error);
   const union: ResultadoUnion | null = legibles.length
     ? unirArchivos(legibles.map((a) => ({ nombre: a.nombre, filas: a.filas })), { clientes, productos, trm, ventasBase: ventas })
@@ -112,7 +123,7 @@ export default function CargarDatos() {
   return (
     <>
       <PageHeader
-        titulo={tr('Cargar datos', 'Load data')}
+        titulo={tr('Centro de datos', 'Data hub')}
         subtitulo={tr(
           'Une la información que hoy está regada en varias plataformas. Órbita Pulse reconoce las columnas, traduce formatos, quita duplicados y avisa lo que no pudo leer.',
           "Bring together data that is scattered across several platforms. Órbita Pulse recognizes columns, converts formats, removes duplicates and flags what it couldn't read.",
@@ -127,6 +138,8 @@ export default function CargarDatos() {
           </strong>
         </p>
       </div>
+
+      <Impacto className="mb-6" />
 
       <Card titulo={tr('Datos actuales', 'Current data')}>
         <p className="text-slate-200" role="status">
@@ -319,6 +332,70 @@ export default function CargarDatos() {
               )}
             </p>
           </Card>
+
+          {union.trazas.some((t) => t.id_cliente === clienteSeguido) && (
+            <Card
+              id="seguimiento-cliente"
+              titulo={tr(
+                `Así llegó el ${clientes.find((c) => c.id === clienteSeguido)?.nombre}: regado y repetido`,
+                `How ${clientes.find((c) => c.id === clienteSeguido)?.nombre} arrived: scattered and repeated`,
+              )}
+              className="mt-6 border-acento/50"
+              accion={
+                <Link to={`/clientes/${clienteSeguido}`} className="text-sm text-azul hover:underline">
+                  {tr('Ver su ficha', 'Open profile')}
+                </Link>
+              }
+            >
+              <p className="-mt-2 mb-3 text-sm text-slate-300">
+                {tr(
+                  'El mismo cliente venía escrito distinto en cada plataforma y una compra estaba dos veces. Órbita Pulse lo reconoce como un solo cliente y deja cada compra una sola vez.',
+                  'The same client was written differently on each platform and one purchase appeared twice. Órbita Pulse recognizes it as one client and keeps each purchase once.',
+                )}
+              </p>
+              <Table minWidth={720}>
+                <Thead>
+                  <Th>{tr('Archivo', 'File')}</Th>
+                  <Th>{tr('Cómo venía escrito', 'How it was written')}</Th>
+                  <Th>{tr('Fecha', 'Date')}</Th>
+                  <Th>{tr('Producto', 'Product')}</Th>
+                  <Th derecha>{tr('Valor USD', 'USD amount')}</Th>
+                  <Th>{tr('Resultado', 'Result')}</Th>
+                </Thead>
+                <tbody>
+                  {union.trazas
+                    .filter((t) => t.id_cliente === clienteSeguido)
+                    .sort((x, y) => x.fecha.localeCompare(y.fecha) || Number(x.duplicado) - Number(y.duplicado))
+                    .map((t) => (
+                      <Tr key={`${t.origen}-${t.fila}`} className="fila-resaltada">
+                        <Td className="text-xs">
+                          {t.origen} · {tr('fila', 'row')} {t.fila}
+                        </Td>
+                        <Td>
+                          <code className="rounded bg-fondo/70 px-1.5 py-0.5 text-slate-100">{t.textoCliente}</code> → {t.id_cliente}
+                        </Td>
+                        <Td className="whitespace-nowrap">{fmtFecha(t.fecha)}</Td>
+                        <Td>{producto(productoPorId.get(t.id_producto)?.nombre ?? t.id_producto, idioma)}</Td>
+                        <Td derecha>{fmtUsd(t.valor_usd)}</Td>
+                        <Td>
+                          {t.duplicado ? (
+                            <span className="text-red-300">
+                              <span aria-hidden="true">✕ </span>
+                              {tr('Duplicado, se quita', 'Duplicate, removed')}
+                            </span>
+                          ) : (
+                            <span className="text-green-300">
+                              <span aria-hidden="true">✓ </span>
+                              {tr('Se une', 'Merged')}
+                            </span>
+                          )}
+                        </Td>
+                      </Tr>
+                    ))}
+                </tbody>
+              </Table>
+            </Card>
+          )}
 
           {union.ventas.length > 0 && (
             <Card

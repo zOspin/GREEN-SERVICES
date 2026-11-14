@@ -4,6 +4,7 @@
  */
 import { analizarClientes, generarAlertas, sumarMeses, ventasPorMes, DIA, type AnalisisCliente } from './analytics';
 import { clientes, productos, trm, ventas, HOY } from './datos';
+import { UMBRALES, type Umbrales } from '../config/umbrales';
 
 
 /** Último día del mes (a medianoche UTC). */
@@ -40,7 +41,7 @@ export function mesesDisponibles(n = 6): string[] {
   return Array.from({ length: n }, (_, i) => sumarMeses(actual, -(i + 1)));
 }
 
-export function generarReporte(clave: string): ReporteMes {
+export function generarReporte(clave: string, u: Umbrales = UMBRALES): ReporteMes {
   const fin = finDeMes(clave);
   const finAnterior = finDeMes(sumarMeses(clave, -1));
   const porMes = ventasPorMes(ventas);
@@ -48,8 +49,8 @@ export function generarReporte(clave: string): ReporteMes {
   const anterior = porMes.get(sumarMeses(clave, -1)) ?? { usd: 0, cop: 0 };
   const delMes = ventas.filter((v) => v.fecha.startsWith(clave));
 
-  const antes = new Map(analizarClientes(clientes, ventas, productos, trm, finAnterior).map((a) => [a.cliente.id, a]));
-  const ahora = analizarClientes(clientes, ventas, productos, trm, fin);
+  const antes = new Map(analizarClientes(clientes, ventas, productos, trm, finAnterior, u).map((a) => [a.cliente.id, a]));
+  const ahora = analizarClientes(clientes, ventas, productos, trm, fin, u);
   const cambio = (de: string, a: string) => ahora.filter((x) => x.estado === a && antes.get(x.cliente.id)?.estado === de);
 
   const porCliente = new Map<string, number>();

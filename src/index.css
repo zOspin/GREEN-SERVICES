@@ -6,63 +6,65 @@
 @layer base {
   :root {
     color-scheme: dark;
+    /* Misma paleta que las diapositivas (presentacion/deck.css) */
     --c-fondo: 11 16 32;        /* #0B1020 */
-    --c-tarjeta: 18 26 51;      /* #121A33 */
-    --c-superficie: 26 36 68;   /* #1A2444 */
-    --c-borde: 34 48 90;        /* #22305A */
-    --c-tenue: 148 163 196;     /* #94A3C4 */
-    --c-acento: 245 158 11;     /* #F59E0B */
-    --c-azul: 59 130 246;       /* #3B82F6 */
+    --c-tarjeta: 20 28 54;      /* #141C36 */
+    --c-superficie: 28 39 72;   /* #1C2748 */
+    --c-borde: 42 55 96;        /* #2A3760 */
+    --c-tenue: 185 195 218;     /* #B9C3DA */
+    --c-acento: 245 165 36;     /* #F5A524 dorado (Comercial) */
+    --c-azul: 91 155 255;       /* #5B9BFF azul (Operaciones) */
+    --c-turquesa: 45 212 191;   /* #2DD4BF turquesa (Financiera) */
     --c-ok: 34 197 94;          /* #22C55E */
-    --c-riesgo: 245 158 11;     /* #F59E0B */
+    --c-riesgo: 245 165 36;     /* #F5A524 */
     --c-frio: 239 68 68;        /* #EF4444 */
-    --t-fuerte: 255 255 255;
-    --t-100: 241 245 249;
-    --t-200: 226 232 240;
-    --t-300: 203 213 225;
+    --t-fuerte: 244 241 234;    /* #F4F1EA */
+    --t-100: 241 238 231;
+    --t-200: 226 230 239;
+    --t-300: 203 211 228;
     --t-verde: 134 239 172;
     --t-ambar-suave: 253 230 138;
-    --t-ambar: 252 211 77;
+    --t-ambar: 248 199 102;
     --t-rojo-suave: 254 202 202;
     --t-rojo: 252 165 165;
     --t-azul-suave: 219 234 254;
     --t-azul: 191 219 254;
-    --t-violeta: 221 214 254;
-    /* Números grandes de estado (activo / en riesgo / frío) */
+    --t-violeta: 153 246 228;   /* chips del área Financiera (turquesa claro) */
     --texto-ok: 34 197 94;
-    --texto-riesgo: 245 158 11;
+    --texto-riesgo: 245 165 36;
     --texto-frio: 239 68 68;
     --logo-punto: #FDE68A;
   }
-  /* Modo claro: fondos claros y tonos más oscuros para que el texto tenga buen contraste. */
+  /* Modo claro: el «fondo claro alterno» de las diapositivas (#F4F1EA), con tonos oscuros legibles. */
   :root[data-theme='light'] {
     color-scheme: light;
-    --c-fondo: 244 246 251;     /* #F4F6FB */
-    --c-tarjeta: 255 255 255;
-    --c-superficie: 238 242 249;
-    --c-borde: 214 221 235;
-    --c-tenue: 84 96 125;       /* #54607D */
-    --c-acento: 180 83 9;       /* #B45309, dorado oscuro legible sobre blanco */
-    --c-azul: 29 78 216;        /* #1D4ED8 */
+    --c-fondo: 244 241 234;     /* #F4F1EA */
+    --c-tarjeta: 255 253 248;   /* #FFFDF8 */
+    --c-superficie: 239 234 222;
+    --c-borde: 226 220 205;     /* #E2DCCD */
+    --c-tenue: 74 85 104;       /* #4A5568 */
+    --c-acento: 161 92 0;       /* #A15C00 */
+    --c-azul: 31 95 204;        /* #1F5FCC */
+    --c-turquesa: 15 122 108;   /* #0F7A6C */
     --c-ok: 22 163 74;
-    --c-riesgo: 217 119 6;
+    --c-riesgo: 199 119 0;
     --c-frio: 220 38 38;
-    --t-fuerte: 11 16 32;
-    --t-100: 17 24 39;
-    --t-200: 31 41 55;
+    --t-fuerte: 19 26 46;       /* #131A2E */
+    --t-100: 19 26 46;
+    --t-200: 35 43 64;
     --t-300: 55 65 81;
     --t-verde: 21 128 61;
-    --t-ambar-suave: 146 64 14;
-    --t-ambar: 180 83 9;
+    --t-ambar-suave: 133 77 14;
+    --t-ambar: 161 92 0;
     --t-rojo-suave: 153 27 27;
     --t-rojo: 185 28 28;
     --t-azul-suave: 30 58 138;
-    --t-azul: 30 64 175;
-    --t-violeta: 91 33 182;
+    --t-azul: 31 95 204;
+    --t-violeta: 15 122 108;
     --texto-ok: 21 128 61;
-    --texto-riesgo: 180 83 9;
+    --texto-riesgo: 161 92 0;
     --texto-frio: 185 28 28;
-    --logo-punto: #F59E0B;
+    --logo-punto: #F5A524;
   }
   body {
     @apply bg-fondo text-slate-100 font-sans antialiased;
@@ -127,6 +129,26 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .logo-punto { animation: none; }
+}
+
+/* Radar de clientes: barrido suave y pulso del cliente destacado */
+@keyframes radar-giro { to { transform: rotate(360deg); } }
+@keyframes radar-onda {
+  0% { transform: scale(1); opacity: 0.9; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+@keyframes radar-latido {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+.radar-barrido { animation: radar-giro 12s linear infinite; }
+.radar-pulso { animation: radar-onda 1.8s ease-out infinite; }
+.radar-latido { animation: radar-latido 1.8s ease-in-out infinite; }
+/* Resaltado de filas en la demo (Centro de datos) */
+@keyframes resaltar { from { background-color: rgb(var(--c-acento) / 0.35); } to { background-color: rgb(var(--c-acento) / 0.12); } }
+.fila-resaltada { animation: resaltar 1.6s ease-out both; }
+@media (prefers-reduced-motion: reduce) {
+  .radar-barrido, .radar-pulso, .radar-latido, .fila-resaltada { animation: none; }
 }
 
 /* Impresión (Reporte del mes → PDF): fondo blanco, texto oscuro, sin menú ni botones. */

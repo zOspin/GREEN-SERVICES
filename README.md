@@ -55,15 +55,31 @@ Abre en el navegador la dirección que aparece en la terminal (normalmente **htt
 
 | Ruta | Pantalla | Para quién |
 |---|---|---|
-| `/` | **Inicio**: ventas del mes, TRM, clientes por estado, **ventas en riesgo (US$ al año)**, gráfica con pronóstico y «Contactar esta semana» | Todos |
+| `/` | **Inicio**: ventas del mes, TRM, clientes por estado, **ventas en riesgo (US$ al año)**, tiempo de consolidación, gráfica con pronóstico y «Contactar esta semana» | Todos |
+| `/datos` | **Centro de datos**: une y limpia archivos de varias plataformas y muestra cómo llegó cada cliente (`?demo=1` carga los ejemplos solos) | Operaciones |
+| `/radar` | **Radar de clientes**: cada cliente en un anillo (activo, en riesgo, inactivo); `?destacar=CLI-023` hace parpadear a uno | Comercial |
 | `/alertas` | **Alertas**: lista priorizada con motivo, producto a ofrecer, «Marcar como contactado» y descarga de la lista de llamadas (CSV) | Comercial |
 | `/clientes` | **Clientes**: tabla con buscador, filtros (estado, sector, base instalada) y columnas ordenables | Comercial |
-| `/clientes/:id` | **Ficha del cliente**: indicadores, línea de tiempo, productos que tiene, historial, recomendación de IA y **mensaje sugerido** para el cliente | Comercial |
-| `/ventas` | **Ventas y TRM**: ventas por mes y categoría, y ventas contra TRM | Financiera |
+| `/clientes/:id` | **Ficha del cliente**: **«¿Por qué está en riesgo?»** (barra de ritmo y confianza), indicadores, recomendación de IA con valor en USD, **mensaje sugerido**, línea de tiempo e historial | Comercial |
+| `/ventas` | **Panel financiero**: «Recuperar a un cliente» (valor y efecto de la TRM), ventas por mes y categoría, y ventas contra TRM | Financiera |
 | `/predicciones` | **Predicciones**: pronóstico, % de acierto y «¿Cómo funciona la IA?» | Todos |
-| `/datos` | **Cargar datos**: une y limpia archivos de varias plataformas | Operaciones |
 | `/reporte` | **Reporte del mes**: resumen automático, imprimible | Operaciones y Gerencia |
-| `/reto` | **El reto**: pregunta principal, las 10 preguntas y el antes y el ahora | Presentación |
+| `/reto` | **El reto**: pregunta principal, las 10 preguntas, el antes y el ahora, y el botón de la demo en vivo | Presentación |
+| `/configuracion` | **Configuración**: umbrales de riesgo e inactividad con controles deslizantes y efecto en vivo | Todos |
+| `/privacidad` | **Privacidad y confianza**: cómo se cuidan los datos (enlazada en el pie de página) | Todos |
+| `/cierre` | **Cierre** de la demo: «Llamar hoy al Cliente 23 = US$ X recuperados» | Presentación |
+
+### Modo presentación (demo en vivo)
+
+Continúa donde termina la diapositiva 16. Se inicia con **«Iniciar demo en vivo»** (menú o página El reto) y cuenta la historia del **Cliente 23** en 5 pasos: Centro de datos → Radar → Ficha → Panel financiero → Cierre. Se avanza con el botón **Siguiente** o las flechas ← →; **Esc** sale. El guion completo está en `docs/guion-demo.md`.
+
+### Capturas para las diapositivas
+
+```bash
+npm run capturas
+```
+
+Levanta la web por su cuenta y guarda en `presentacion/capturas/` (1920×1080, modo oscuro): `centro-datos.png` (diapositiva 10), `radar-clientes.png` y `ficha-cliente-23.png` (diapositiva 11) y `panel-financiero.png` (diapositiva 12). La primera vez en un computador nuevo hay que descargar el navegador con `npx playwright install chromium`.
 
 ## Datos inventados
 
@@ -71,7 +87,7 @@ Abre en el navegador la dirección que aparece en la terminal (normalmente **htt
 
 - `clientes.json`: 60 clientes, con sector, ciudad, fecha de primera compra y si son base instalada.
 - `productos.json`: 20 productos en 6 categorías, cada uno de tipo «producto» o «servicio recurrente» (licencias, soporte, suscripciones).
-- `ventas.json`: 964 ventas en 18 meses, en USD y en COP según la TRM del día.
+- `ventas.json`: 965 ventas en 18 meses, en USD y en COP según la TRM del día.
 - `trm.json`: TRM diaria entre 3.800 y 4.400 COP.
 - `meta.json`: el «hoy» de la demo (14 de noviembre de 2026) y la semilla.
 
@@ -83,7 +99,9 @@ Además crea en `public/ejemplos/` **tres CSV con formatos distintos** para demo
 | `plataforma-b-internacional.csv` | Sistema de las sedes internacionales | columnas en inglés, fecha con hora, códigos |
 | `excel-operaciones.csv` | Excel digitado a mano | MAYÚSCULAS, fechas `3-oct-2026`, valores en pesos con TRM, duplicados, una fila vacía y un cliente sin código |
 
-Los datos cuentan una historia: **25 clientes frecuentes** (compran cada 20 a 45 días), **15 que se frenaron** (9 hace poco y 6 hace 3 o 4 meses), **10 fríos** (más de 6 meses sin comprar) y **10 ocasionales**. En el último mes el dólar sube un 6 %.
+Los datos cuentan una historia: **25 clientes frecuentes** (compran cada 20 a 45 días), **15 que se frenaron** (9 hace poco y 6 hace 3 o 4 meses), **10 inactivos** (más de 6 meses sin comprar) y **10 ocasionales**. En el último mes el dólar sube un 6 %.
+
+**El Cliente 23** es el protagonista de la demo y se escribe a mano en el generador: es de base instalada, compraba una suscripción de nube cada ~30 días (US$ 4.800 cada vez) y lleva 50 días sin comprar, así que está **en riesgo** con la renovación vencida. En los 3 archivos de ejemplo aparece escrito distinto («Cliente 23», «CLI-23» y «CLIENTE 023») y con un registro duplicado.
 
 Para mover el «hoy» de la demo:
 
@@ -102,7 +120,8 @@ Es una IA **sencilla y explicable**: reglas y cálculos que cualquiera puede rev
 3. **Próxima compra estimada** = última compra + ciclo.
 4. **Ratio de atraso** = días sin comprar ÷ ciclo. Si compra cada 30 días y lleva 60, el atraso es 2.
 5. **Puntaje de riesgo (0–100)** a partir del atraso. Si el dólar subió más de 5 % en 30 días, se suman 5 puntos a quienes ya están cerca de su fecha de compra.
-6. **Estado**: 🟢 **activo** (atraso ≤ 1,2) · 🟡 **en riesgo** (entre 1,2 y 2) · 🔴 **frío** (más de 2, o más de 180 días sin comprar).
+6. **Estado**: 🟢 **activo** (atraso ≤ 1,2) · 🟡 **en riesgo** (entre 1,2 y 2) · 🔴 **inactivo** (más de 2, o más de 180 días sin comprar). Estos umbrales están en `src/config/umbrales.ts`, se validan con la empresa y se pueden mover en vivo en `/configuracion`.
+   - **Explicación**: cada ficha muestra «¿Por qué este cliente está en riesgo?» con sus números, una barra de ritmo y un **nivel de confianza** (baja con menos de 4 compras, media de 4 a 7, alta con 8 o más).
 7. **Prioridad de alerta** = riesgo × valor del cliente: los clientes grandes en riesgo van primero.
 8. **Recomendación de producto**, con tres reglas en orden:
    - **Renovación**: tiene un servicio recurrente que ya compró al menos 2 veces y ya le tocaba renovarlo.
@@ -110,9 +129,9 @@ Es una IA **sencilla y explicable**: reglas y cálculos que cualquiera puede rev
    - **Lo más vendido en su sector** que aún no tiene.
 9. **Texto de recomendación** con plantillas: *«Compra cada 37 días y lleva 66 sin comprar. Su última compra fue Hardware. Llámalo esta semana y ofrécele Antivirus empresarial.»*
 10. **Pronóstico de ventas** = promedio de los últimos 3 meses + tendencia mensual.
-11. **Ventas en riesgo**: lo que compran en un año los clientes en riesgo (total comprado ÷ meses como cliente × 12). Hoy: unos US$ 1,1 M al año, más US$ 0,9 M en fríos recuperables.
+11. **Ventas en riesgo**: lo que compran en un año los clientes en riesgo (total comprado ÷ meses como cliente × 12). Hoy: unos US$ 1,2 M al año, más US$ 755 mil en inactivos recuperables.
 12. **Mensaje sugerido**: un borrador de correo o WhatsApp según el estado del cliente y el producto recomendado, listo para copiar.
-13. **% de acierto (backtest)**: se «viaja al pasado» 60 días, la IA marca a quién ve en riesgo con los datos de ese momento y luego se revisa si de verdad dejaron de comprar. Con los datos de la demo acierta en **8 de 9 casos (89 %)**.
+13. **% de acierto (backtest)**: se «viaja al pasado» 60 días, la IA marca a quién ve en riesgo con los datos de ese momento y luego se revisa si de verdad dejaron de comprar. Con los datos de la demo acierta en **7 de 8 casos (88 %)**.
 
 La unión de archivos está en `src/lib/unificar.ts` (reconoce sinónimos de columnas, 4 formatos de fecha, números con punto o coma, pesos o dólares) y el reporte en `src/lib/reporte.ts`.
 
@@ -120,7 +139,7 @@ La unión de archivos está en `src/lib/unificar.ts` (reconoce sinónimos de col
 
 ```
 scripts/generate-data.ts     Generador de datos inventados y CSV de ejemplo
-public/ejemplos/             3 CSV «regados» para la demo de Cargar datos
+public/ejemplos/             3 CSV «regados» para la demo del Centro de datos
 src/
   data/                      JSON generados
   lib/
@@ -139,8 +158,14 @@ src/
                              Button, Table, PageHeader, EmptyState
     Layout.tsx, Logo.tsx…    Menú, logo, gráfica de ventas, tarjeta de alerta
   pages/                     Una página por pantalla
+src/config/
+  umbrales.ts                Umbrales de riesgo e inactividad (validar con la empresa)
+  impacto.ts                 Horas de consolidación manual (null = por confirmar)
+scripts/capturas.ts          Capturas 1920×1080 para las diapositivas (npm run capturas)
+presentacion/                README y estilos de las diapositivas; capturas/ con las imágenes
 docs/
-  guion-demo.md              Recorrido de 3 minutos para presentar
+  guion-demo.md              Demo en vivo con la historia del Cliente 23
+  preguntas-jurado.md        Respuestas cortas a las preguntas del jurado y pendientes
   decisiones.md              Decisiones tomadas durante el desarrollo
 ```
 

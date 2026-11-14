@@ -112,12 +112,25 @@ export interface ResultadoArchivo {
   vacias: number;
 }
 
+/** Rastro de una fila válida: de dónde vino, cómo estaba escrito el cliente y si era un duplicado. */
+export interface Traza {
+  origen: string;
+  fila: number;
+  textoCliente: string;
+  id_cliente: string;
+  fecha: string;
+  id_producto: string;
+  valor_usd: number;
+  duplicado: boolean;
+}
+
 export interface ResultadoUnion {
   archivos: ResultadoArchivo[];
   ventas: VentaUnificada[];
   duplicados: number;
   problemas: Problema[];
   coincidenConBase: number;
+  trazas: Traza[];
 }
 
 interface Contexto {
@@ -136,6 +149,14 @@ export function unirArchivos(entradas: { nombre: string; filas: Record<string, u
     clientePorClave.set(normalizar(c.nombre), c.id);
     clientePorClave.set(String(Number(c.id.slice(4))), c.id); // "7" → CLI-007
   }
+  // Variantes como «CLI-23», «cliente 023» o «Customer 7»: se reconoce el número.
+  const resolverCliente = (texto: string) => {
+    const n = normalizar(texto);
+    const directo = clientePorClave.get(n);
+    if (directo) return directo;
+    const m = n.match(/^(?:cli|cliente|client|customer)\s*0*(\d{1,4})$/);
+    return m ? clientePorClave.get(String(Number(m[1]))) : undefined;
+  };
   const productoPorClave = new Map<string, string>();
   for (const p of ctx.productos) {
     productoPorClave.set(normalizar(p.id), p.id);
@@ -149,6 +170,7 @@ export function unirArchivos(entradas: { nombre: string; filas: Record<string, u
 
   const archivos: ResultadoArchivo[] = [];
   const problemas: Problema[] = [];
+  const trazas: Traza[] = [];
   const vistas = new Map<string, VentaUnificada[]>();
   let duplicados = 0;
 
@@ -169,7 +191,8 @@ export function unirArchivos(entradas: { nombre: string; filas: Record<string, u
         return;
       }
       const fecha = leerFecha(f[colDe('fecha')!]);
-      const id_cliente = clientePorClave.get(normalizar(String(f[colDe('cliente')!] ?? '')));
+      const textoCliente = String(f[colDe('cliente')!] ?? '');
+      const id_cliente = resolverCliente(textoCliente);
       const id_producto = productoPorClave.get(normalizar(String(f[colDe('producto')!] ?? '')));
       const cantidad = colDe('cantidad') ? (leerNumero(f[colDe('cantidad')!]) ?? 1) : 1;
       const v = (campo: CampoComun) => String(f[colDe(campo)!] ?? '');
@@ -191,8 +214,10 @@ export function unirArchivos(entradas: { nombre: string; filas: Record<string, u
       // Duplicado: misma fecha, cliente, producto y cantidad, y valor casi igual (±1 %),
       // aunque venga de otra plataforma (el valor en pesos convertido puede variar unos centavos).
       const iguales = vistas.get(clave(venta)) ?? [];
-      if (iguales.some((o) => Math.abs(o.valor_usd - venta.valor_usd) <= o.valor_usd * 0.01)) duplicados++;
+      const duplicado = iguales.some((o) => Math.abs(o.valor_usd - venta.valor_usd) <= o.valor_usd * 0.01);
+      if (duplicado) duplicados++;
       else vistas.set(clave(venta), [...iguales, venta]);
+      trazas.push({ origen: nombre, fila, textoCliente, id_cliente, fecha, id_producto, valor_usd, duplicado });
     });
   }
 
@@ -202,6 +227,7 @@ export function unirArchivos(entradas: { nombre: string; filas: Record<string, u
     ventas,
     duplicados,
     problemas,
+    trazas,
     coincidenConBase: ventas.filter((v) => base.has(`${clave(v)}|${Math.round(v.valor_usd)}`)).length,
   };
 }

@@ -8,6 +8,7 @@ import { categoria } from '../lib/catalogo';
 import { useIdioma } from '../lib/idioma';
 import { fmtCompacto, fmtDec, fmtFecha, fmtMesLargo, fmtPct, fmtTrm, fmtUsd } from '../lib/format';
 import { HOY } from '../lib/datos';
+import { useDatos } from '../lib/umbrales';
 
 const MESES = mesesDisponibles(6);
 const mayuscula = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
@@ -38,7 +39,8 @@ function ListaClientes({ titulo, clientes, vacio }: { titulo: string; clientes: 
 export default function Reporte() {
   const { idioma, tr } = useIdioma();
   const [mes, setMes] = useState(MESES[0]);
-  const r = useMemo(() => generarReporte(mes), [mes]);
+  const { umbrales } = useDatos();
+  const r = useMemo(() => generarReporte(mes, umbrales), [mes, umbrales]);
   const es = idioma === 'es';
   const nombreMes = fmtMesLargo(r.clave); // «octubre de 2026» / «October 2026»
   const soloMes = es ? nombreMes.split(' de ')[0] : nombreMes.split(' ')[0];
@@ -56,13 +58,13 @@ export default function Reporte() {
   const parrafos = es
     ? [
         `En ${soloMes} se vendieron ${fmtUsd(r.usd)} (${fmtPct(r.variacion)} frente al mes anterior), equivalentes a ${fmtCompacto(r.cop, 'COP')}, en ${r.numVentas} ventas a ${r.clientesCompradores} clientes.`,
-        `${nR} ${nR === 1 ? 'cliente pasó' : 'clientes pasaron'} de activo a en riesgo y ${nF} ${nF === 1 ? 'pasó' : 'pasaron'} a frío. ${nRec ? `Se ${nRec === 1 ? 'recuperó' : 'recuperaron'} ${nRec}.` : 'No hubo clientes recuperados.'} Al cierre del mes hay ${r.estados.activo} activos, ${r.estados.riesgo} en riesgo y ${r.estados.frio} fríos.`,
+        `${nR} ${nR === 1 ? 'cliente pasó' : 'clientes pasaron'} de activo a en riesgo y ${nF} ${nF === 1 ? 'pasó' : 'pasaron'} a inactivo. ${nRec ? `Se ${nRec === 1 ? 'recuperó' : 'recuperaron'} ${nRec}.` : 'No hubo clientes recuperados.'} Al cierre del mes hay ${r.estados.activo} activos, ${r.estados.riesgo} en riesgo y ${r.estados.frio} inactivos.`,
         `La TRM ${subeTrm ? 'subió' : 'bajó'} ${pctTrm} en el mes: pasó de ${fmtTrm(r.trmInicio)} a ${fmtTrm(r.trmFin)}.${r.variacionTrm > 0.03 ? ' Un dólar más caro puede hacer que los clientes aplacen compras en USD.' : ''}`,
         `La categoría que más vendió fue ${topCat?.categoria ?? '—'} (${fmtUsd(topCat?.usd ?? 0)}).`,
       ]
     : [
         `In ${soloMes} we sold ${fmtUsd(r.usd)} (${fmtPct(r.variacion)} vs. the previous month), equal to ${fmtCompacto(r.cop, 'COP')}, across ${r.numVentas} sales to ${r.clientesCompradores} clients.`,
-        `${nR} ${nR === 1 ? 'client' : 'clients'} moved from active to at risk and ${nF} became cold. ${nRec ? `${nRec} ${nRec === 1 ? 'was' : 'were'} won back.` : 'No clients were won back.'} At month end there are ${r.estados.activo} active, ${r.estados.riesgo} at risk and ${r.estados.frio} cold.`,
+        `${nR} ${nR === 1 ? 'client' : 'clients'} moved from active to at risk and ${nF} became inactive. ${nRec ? `${nRec} ${nRec === 1 ? 'was' : 'were'} won back.` : 'No clients were won back.'} At month end there are ${r.estados.activo} active, ${r.estados.riesgo} at risk and ${r.estados.frio} inactive.`,
         `The exchange rate (TRM) ${subeTrm ? 'rose' : 'fell'} ${pctTrm} during the month, from ${fmtTrm(r.trmInicio)} to ${fmtTrm(r.trmFin)}.${r.variacionTrm > 0.03 ? ' A pricier dollar may lead clients to postpone USD purchases.' : ''}`,
         `The top-selling category was ${topCat ? categoria(topCat.categoria, 'en') : '—'} (${fmtUsd(topCat?.usd ?? 0)}).`,
       ];
@@ -131,7 +133,7 @@ export default function Reporte() {
             detalle={tr(`${r.numVentas} ventas`, `${r.numVentas} sales`)}
           />
           <StatCard
-            titulo={tr('Pasaron a riesgo o frío', 'Moved to at risk or cold')}
+            titulo={tr('Pasaron a riesgo o inactivo', 'Moved to at risk or inactive')}
             valor={nR + nF}
             color={INFO_ESTADO.riesgo.color}
             detalle={tr(`${nRec} recuperados`, `${nRec} won back`)}
@@ -146,7 +148,7 @@ export default function Reporte() {
         <Card titulo={tr('Movimientos de clientes', 'Client changes')}>
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
             <ListaClientes titulo={tr('Pasaron a riesgo', 'Moved to at risk')} clientes={r.pasaronARiesgo} vacio={tr('Ninguno este mes.', 'None this month.')} />
-            <ListaClientes titulo={tr('Pasaron a frío', 'Became cold')} clientes={r.pasaronAFrio} vacio={tr('Ninguno este mes.', 'None this month.')} />
+            <ListaClientes titulo={tr('Pasaron a inactivo', 'Became inactive')} clientes={r.pasaronAFrio} vacio={tr('Ninguno este mes.', 'None this month.')} />
             <ListaClientes titulo={tr('Recuperados', 'Won back')} clientes={r.recuperados} vacio={tr('Ninguno este mes.', 'None this month.')} />
           </div>
         </Card>

@@ -180,8 +180,8 @@
     "nombre": "Cliente 23",
     "sector": "educación",
     "ciudad": "Medellín",
-    "fecha_primera_compra": "2025-06-04",
-    "es_base_instalada": false
+    "fecha_primera_compra": "2025-06-30",
+    "es_base_instalada": true
   },
   {
     "id": "CLI-024",

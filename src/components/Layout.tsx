@@ -1,23 +1,46 @@
 import { useEffect, useState } from 'react';
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
+import ModoPresentacion from './ModoPresentacion';
+import { usePresentacion } from '../lib/presentacion';
 import Logo from './Logo';
 import Preferencias from './Preferencias';
-import { IconoAlerta, IconoCerrar, IconoClientes, IconoDatos, IconoInicio, IconoMenu, IconoPrediccion, IconoReporte, IconoReto, IconoVentas } from './Iconos';
-import { alertas, meta } from '../lib/datos';
+import { IconoAjustes, IconoAlerta, IconoCerrar, IconoClientes, IconoDatos, IconoInicio, IconoMenu, IconoPlay, IconoPrediccion, IconoRadar, IconoReporte, IconoReto, IconoVentas } from './Iconos';
+import { meta } from '../lib/datos';
+import { useDatos } from '../lib/umbrales';
 import { useContactados } from '../lib/contactados';
 import { useIdioma } from '../lib/idioma';
 import { fmtFecha } from '../lib/format';
 
 const ENLACES = [
   { a: '/', es: 'Inicio', en: 'Home', Icono: IconoInicio },
+  { a: '/datos', es: 'Centro de datos', en: 'Data hub', Icono: IconoDatos },
+  { a: '/radar', es: 'Radar de clientes', en: 'Client radar', Icono: IconoRadar },
   { a: '/alertas', es: 'Alertas', en: 'Alerts', Icono: IconoAlerta },
   { a: '/clientes', es: 'Clientes', en: 'Clients', Icono: IconoClientes },
-  { a: '/ventas', es: 'Ventas y TRM', en: 'Sales & exchange rate', Icono: IconoVentas },
+  { a: '/ventas', es: 'Panel financiero', en: 'Finance dashboard', Icono: IconoVentas },
   { a: '/predicciones', es: 'Predicciones', en: 'Predictions', Icono: IconoPrediccion },
-  { a: '/datos', es: 'Cargar datos', en: 'Load data', Icono: IconoDatos },
   { a: '/reporte', es: 'Reporte del mes', en: 'Monthly report', Icono: IconoReporte },
   { a: '/reto', es: 'El reto', en: 'The challenge', Icono: IconoReto },
+  { a: '/configuracion', es: 'Configuración', en: 'Settings', Icono: IconoAjustes },
 ];
+
+/** Botón para iniciar la demo guiada (continúa después de la diapositiva 16). */
+function BotonDemo({ alPulsar }: { alPulsar?: () => void }) {
+  const { iniciar, activo } = usePresentacion();
+  const { tr } = useIdioma();
+  return (
+    <button
+      type="button"
+      onClick={() => {
+        iniciar();
+        alPulsar?.();
+      }}
+      className="flex w-full items-center justify-center gap-2 rounded-lg border border-acento/60 bg-acento/10 px-3 py-2 text-sm font-semibold text-acento hover:bg-acento/20"
+    >
+      <IconoPlay width={16} height={16} /> {activo ? tr('Reiniciar demo en vivo', 'Restart live demo') : tr('Iniciar demo en vivo', 'Start live demo')}
+    </button>
+  );
+}
 
 function Marca() {
   const { tr } = useIdioma();
@@ -37,6 +60,7 @@ function Marca() {
 function Navegacion({ alNavegar }: { alNavegar?: () => void }) {
   const { contactados } = useContactados();
   const { tr } = useIdioma();
+  const { alertas } = useDatos();
   const pendientes = alertas.filter((a) => !contactados.has(a.id)).length;
   return (
     <nav aria-label={tr('Navegación principal', 'Main navigation')}>
@@ -83,12 +107,22 @@ export default function Layout() {
   const [abierto, setAbierto] = useState(false);
   const { pathname } = useLocation();
   const { tr } = useIdioma();
+  const { activo: presentando } = usePresentacion();
   useEffect(() => {
     setAbierto(false);
     window.scrollTo(0, 0);
   }, [pathname]);
 
   return (
+    <>
+    {/* Banda discreta en toda la web */}
+    <div className="border-b border-borde bg-superficie px-4 py-1 text-center text-xs text-tenue print:hidden" role="note">
+      <span aria-hidden="true">● </span>
+      {tr('Demo con datos de prueba', 'Demo with test data')} ·{' '}
+      <Link to="/privacidad" className="underline-offset-2 hover:text-white hover:underline">
+        {tr('Privacidad', 'Privacy')}
+      </Link>
+    </div>
     <div className="min-h-screen lg:flex">
       {/* Menú lateral (computador) */}
       <aside className="hidden w-64 shrink-0 border-r border-borde bg-tarjeta/60 print:!hidden lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:gap-6 lg:px-4 lg:py-6">
@@ -96,6 +130,7 @@ export default function Layout() {
         <div className="flex-1 overflow-y-auto">
           <Navegacion />
         </div>
+        <BotonDemo />
         <Preferencias />
         <PieDemo />
       </aside>
@@ -118,18 +153,35 @@ export default function Layout() {
         {abierto && (
           <div id="menu-movil" className="border-t border-borde px-4 pb-4 pt-2">
             <Navegacion alNavegar={() => setAbierto(false)} />
-            <div className="mt-3 border-t border-borde pt-3">
+            <div className="mt-3 space-y-3 border-t border-borde pt-3">
+              <BotonDemo alPulsar={() => setAbierto(false)} />
               <Preferencias />
             </div>
           </div>
         )}
       </header>
 
-      <main className="min-w-0 flex-1 px-4 py-6 print:p-0 sm:px-6 lg:px-10 lg:py-8">
+      <main className={`min-w-0 flex-1 px-4 py-6 print:p-0 sm:px-6 lg:px-10 lg:py-8 ${presentando ? 'pb-48 lg:pb-36' : ''}`}>
         <div className="mx-auto max-w-7xl">
           <Outlet />
         </div>
+        <footer className="mx-auto mt-12 flex max-w-7xl flex-wrap items-center justify-between gap-2 border-t border-borde pt-4 text-xs text-tenue print:hidden">
+          <p>
+            Órbita Pulse · {tr('Equipo Órbita · Hackatón Estud-IA, Alcaldía de Medellín', 'Team Órbita · Estud-IA Hackathon, Medellín City Hall')}
+          </p>
+          <nav aria-label={tr('Pie de página', 'Footer')} className="flex gap-4">
+            <Link to="/privacidad" className="hover:text-white hover:underline">
+              {tr('Privacidad', 'Privacy')}
+            </Link>
+            <Link to="/configuracion" className="hover:text-white hover:underline">
+              {tr('Configuración', 'Settings')}
+            </Link>
+            <span>{tr('Demo con datos de prueba', 'Demo with test data')}</span>
+          </nav>
+        </footer>
       </main>
     </div>
+    <ModoPresentacion />
+    </>
   );
 }

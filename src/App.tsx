@@ -9,6 +9,10 @@ import Predicciones from './pages/Predicciones';
 import Ventas from './pages/Ventas';
 import Reporte from './pages/Reporte';
 import Reto from './pages/Reto';
+import Radar from './pages/Radar';
+import Configuracion from './pages/Configuracion';
+import Privacidad from './pages/Privacidad';
+import Cierre from './pages/Cierre';
 import { ButtonLink, EmptyState } from './components/ui';
 import { useIdioma } from './lib/idioma';
 // Carga diferida: la lectura de Excel (SheetJS) solo se descarga al entrar a /datos.
@@ -42,6 +46,10 @@ export default function App() {
         <Route path="predicciones" element={<Predicciones />} />
         <Route path="reporte" element={<Reporte />} />
         <Route path="reto" element={<Reto />} />
+        <Route path="radar" element={<Radar />} />
+        <Route path="configuracion" element={<Configuracion />} />
+        <Route path="privacidad" element={<Privacidad />} />
+        <Route path="cierre" element={<Cierre />} />
         <Route path="datos" element={<Suspense fallback={<Cargando />}><CargarDatos /></Suspense>} />
         <Route path="*" element={<NoEncontrada />} />
       </Route>

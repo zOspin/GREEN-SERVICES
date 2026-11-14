@@ -3,7 +3,9 @@ import { Link, useParams } from 'react-router-dom';
 import { CartesianGrid, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis, YAxis, ZAxis } from 'recharts';
 import { Button, ButtonLink, Card, EmptyState, INFO_ESTADO, Panel, RiskBar, StatCard, StatusChip, Table, Td, Th, Thead, Tr } from '../components/ui';
 import { IconoAtras, IconoCheck, IconoChispa } from '../components/Iconos';
-import { analisisPorId, HOY, productoPorId } from '../lib/datos';
+import ExplicacionRiesgo from '../components/ExplicacionRiesgo';
+import { HOY, productoPorId } from '../lib/datos';
+import { useDatos } from '../lib/umbrales';
 import { DIA } from '../lib/analytics';
 import { useContactados } from '../lib/contactados';
 import { useIdioma } from '../lib/idioma';
@@ -16,6 +18,7 @@ const ejeCompacto = (v: number) => fmtCompacto(v).replace(/ /g, ' ');
 
 export default function FichaCliente() {
   const { id = '' } = useParams();
+  const { analisisPorId } = useDatos();
   const a = analisisPorId.get(id);
   const { contactados, alternar } = useContactados();
   const { idioma, tr, b } = useIdioma();
@@ -152,6 +155,10 @@ export default function FichaCliente() {
         </div>
       </div>
 
+      <section className="mt-6" aria-label={tr('Explicación del estado', 'Status explanation')} id="por-que">
+        <ExplicacionRiesgo a={a} />
+      </section>
+
       <section className="mt-6 rounded-2xl border border-acento/40 bg-acento/5 p-5" aria-labelledby="titulo-recomendacion">
         <h2 id="titulo-recomendacion" className="flex items-center gap-2 text-lg font-semibold text-acento">
           <IconoChispa /> {tr('Recomendación de IA', 'AI recommendation')}
@@ -170,6 +177,18 @@ export default function FichaCliente() {
             <p className="mt-1 text-sm text-slate-300">
               <span className="text-tenue">{tr('¿Por qué? ', 'Why? ')}</span>
               {b(rec.motivo)}
+            </p>
+            <p className="mt-2 text-sm">
+              <span className="text-tenue">
+                {rec.tipo === 'renovacion' ? tr('Valor de la renovación', 'Renewal value') : tr('Valor estimado de la oportunidad', 'Estimated opportunity value')}:{' '}
+              </span>
+              <strong className="font-titulo text-lg text-acento">{fmtUsd(rec.valorEstimado)}</strong>
+              <span className="text-xs text-tenue">
+                {' '}
+                {rec.tipo === 'renovacion'
+                  ? tr('(lo que este cliente suele pagar por él)', '(what this client usually pays for it)')
+                  : tr('(lo que se paga en promedio por él)', '(average price paid for it)')}
+              </span>
             </p>
           </Panel>
         )}

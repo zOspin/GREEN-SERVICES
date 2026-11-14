@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
-import { ButtonLink, Card, PageHeader, Table, Td, Th, Thead, Tr } from '../components/ui';
-import { IconoCheck, IconoCerrar, IconoFlecha } from '../components/Iconos';
-import { conteoEstados, enRiesgo, resultadoBacktest, alertas } from '../lib/datos';
+import { Button, ButtonLink, Card, PageHeader, Table, Td, Th, Thead, Tr } from '../components/ui';
+import { IconoCheck, IconoCerrar, IconoFlecha, IconoPlay } from '../components/Iconos';
+import { usePresentacion } from '../lib/presentacion';
+import { useDatos } from '../lib/umbrales';
 import { useIdioma, type Bi } from '../lib/idioma';
 import { fmtCompacto } from '../lib/format';
 
@@ -9,18 +10,19 @@ type Area = 'ops' | 'com' | 'fin';
 const AREA: Record<Area, Bi & { clase: string }> = {
   ops: { es: 'Operaciones', en: 'Operations', clase: 'bg-azul/15 text-blue-200 border-azul/40' },
   com: { es: 'Comercial', en: 'Sales', clase: 'bg-acento/15 text-amber-200 border-acento/40' },
-  fin: { es: 'Financiera', en: 'Finance', clase: 'bg-violet-400/15 text-violet-200 border-violet-400/40' },
+  fin: { es: 'Financiera', en: 'Finance', clase: 'bg-turquesa/15 text-violet-200 border-turquesa/40' },
 };
 
 const P = {
-  datos: { es: 'Cargar datos', en: 'Load data', ruta: '/datos' },
+  datos: { es: 'Centro de datos', en: 'Data hub', ruta: '/datos' },
   reporte: { es: 'Reporte del mes', en: 'Monthly report', ruta: '/reporte' },
   ia: { es: '¿Cómo funciona la IA?', en: 'How the AI works', ruta: '/predicciones' },
-  ficha: { es: 'Ficha del cliente', en: 'Client profile', ruta: '/clientes/CLI-030' },
-  recomendacion: { es: 'Recomendación de IA', en: 'AI recommendation', ruta: '/clientes/CLI-030' },
+  ficha: { es: 'Ficha del cliente', en: 'Client profile', ruta: '/clientes/CLI-023' },
+  recomendacion: { es: 'Recomendación de IA', en: 'AI recommendation', ruta: '/clientes/CLI-023' },
   alertas: { es: 'Alertas', en: 'Alerts', ruta: '/alertas' },
+  radar: { es: 'Radar de clientes', en: 'Client radar', ruta: '/radar' },
   clientes: { es: 'Clientes', en: 'Clients', ruta: '/clientes' },
-  ventas: { es: 'Ventas y TRM', en: 'Sales & exchange rate', ruta: '/ventas' },
+  ventas: { es: 'Panel financiero', en: 'Finance dashboard', ruta: '/ventas' },
   inicio: { es: 'Inicio', en: 'Home', ruta: '/' },
   predicciones: { es: 'Predicciones', en: 'Predictions', ruta: '/predicciones' },
 };
@@ -30,7 +32,7 @@ const PREGUNTAS: { pregunta: Bi; area: Area; pantallas: (Bi & { ruta: string })[
   { pregunta: { es: 'Reducir tareas manuales con IA', en: 'Reduce manual work with AI' }, area: 'ops', pantallas: [P.datos, P.reporte] },
   { pregunta: { es: 'Identificar patrones de compra para anticipar necesidades', en: 'Identify purchase patterns to anticipate needs' }, area: 'ops', pantallas: [P.ia, P.ficha] },
   { pregunta: { es: 'Generar reportes automáticos para decidir', en: 'Generate automatic reports for decision-making' }, area: 'ops', pantallas: [P.reporte] },
-  { pregunta: { es: 'Identificar clientes que dejaron de comprar', en: 'Identify clients who stopped buying' }, area: 'com', pantallas: [P.alertas, P.clientes] },
+  { pregunta: { es: 'Identificar clientes que dejaron de comprar', en: 'Identify clients who stopped buying' }, area: 'com', pantallas: [P.radar, P.alertas, P.clientes] },
   { pregunta: { es: 'Predecir la próxima compra de un cliente', en: "Predict a client's next purchase" }, area: 'com', pantallas: [P.ficha] },
   { pregunta: { es: 'Conocer el historial de cada cliente para ofrecerle lo que necesita', en: "Know each client's history to offer what they need" }, area: 'com', pantallas: [P.ficha] },
   { pregunta: { es: 'Recomendar qué producto ofrecer a cada cliente', en: 'Recommend which product to offer each client' }, area: 'com', pantallas: [P.recomendacion, P.alertas] },
@@ -55,6 +57,8 @@ const AHORA: Bi[] = [
 
 export default function Reto() {
   const { tr, b } = useIdioma();
+  const { conteoEstados, enRiesgo, resultadoBacktest, alertas } = useDatos();
+  const { iniciar } = usePresentacion();
   return (
     <>
       <PageHeader
@@ -79,8 +83,8 @@ export default function Reto() {
             <p className="font-titulo text-3xl font-bold text-amber-300">{fmtCompacto(enRiesgo.total)}</p>
             <p className="text-sm text-tenue">
               {tr(
-                `al año en ${conteoEstados.riesgo + conteoEstados.frio} clientes en riesgo o fríos, detectados a tiempo`,
-                `per year across ${conteoEstados.riesgo + conteoEstados.frio} at-risk or cold clients, detected in time`,
+                `al año en ${conteoEstados.riesgo + conteoEstados.frio} clientes en riesgo o inactivos, detectados a tiempo`,
+                `per year across ${conteoEstados.riesgo + conteoEstados.frio} at-risk or inactive clients, detected in time`,
               )}
             </p>
           </div>
@@ -160,8 +164,11 @@ export default function Reto() {
       </Card>
 
       <div className="mt-6 flex flex-wrap gap-3">
-        <ButtonLink to="/" variante="primario">
-          {tr('Empezar el recorrido', 'Start the tour')} <IconoFlecha width={16} height={16} />
+        <Button variante="primario" onClick={iniciar}>
+          <IconoPlay width={16} height={16} /> {tr('Iniciar demo en vivo (Cliente 23)', 'Start live demo (Client 23)')}
+        </Button>
+        <ButtonLink to="/">
+          {tr('Empezar el recorrido libre', 'Start a free tour')} <IconoFlecha width={16} height={16} />
         </ButtonLink>
         <ButtonLink to="/predicciones">{tr('Ver cómo funciona la IA', 'See how the AI works')}</ButtonLink>
       </div>

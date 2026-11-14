@@ -1,13 +1,17 @@
 import { Link } from 'react-router-dom';
 import { Card, PageHeader, Panel, StatusChip, Table, Td, Th, Thead, Tr } from '../components/ui';
 import GraficaVentas from '../components/GraficaVentas';
-import { pronostico, resultadoBacktest as bt, serie, trmVariacion30, HOY } from '../lib/datos';
-import { UMBRAL_ACTIVO, UMBRAL_FRIO, DIAS_FRIO } from '../lib/analytics';
+import { pronostico, serie, trmVariacion30, HOY } from '../lib/datos';
+import { useDatos } from '../lib/umbrales';
 import { useIdioma } from '../lib/idioma';
 import { fmtDec, fmtFecha, fmtMes, fmtUsd } from '../lib/format';
 
 export default function Predicciones() {
   const { tr } = useIdioma();
+  const { resultadoBacktest: bt, umbrales: u } = useDatos();
+  const UMBRAL_ACTIVO = u.riesgo;
+  const UMBRAL_FRIO = fmtDec(u.inactivo);
+  const DIAS_FRIO = u.diasMaximosSinComprar;
   const pct = Math.round(bt.porcentaje * 100);
   const sube = pronostico.tendencia >= 0;
   const umbralActivo = fmtDec(UMBRAL_ACTIVO);

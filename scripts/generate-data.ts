@@ -214,6 +214,39 @@ const clientes = perfiles.map((perfil, i) => {
   };
 });
 
+// ---------- Historia de la demo: Cliente 23 ----------
+// Cliente de base instalada que compraba una suscripción de nube cada ~30 días y lleva ~50 días
+// sin comprar (≈1,7× su ritmo → «en riesgo»), con la renovación vencida.
+// Se escribe con un patrón fijo (sin el generador aleatorio) para no alterar al resto de clientes.
+const DEMO = 'CLI-023';
+const DIAS_SIN_COMPRAR_DEMO = 50;
+{
+  for (let k = ventasSinId.length - 1; k >= 0; k--) if (ventasSinId[k].id_cliente === DEMO) ventasSinId.splice(k, 1);
+  const porNombre = (n: string) => productos.find((p) => p.nombre === n)!;
+  const nube = porNombre('Suscripción nube privada (mes)');
+  const extras = ['Soporte y mesa de ayuda (mes)', 'Firewall de nueva generación', 'Respaldo en la nube (TB/año)', 'Licencia ofimática (usuario/año)'].map(porNombre);
+  const desvio = [0, 2, -1, 1, -2, 3, -1, 0, 2, -3, 1, -1]; // pequeñas variaciones fijas alrededor de 30 días
+  const fechasDemo: number[] = [];
+  let t = hoy - DIAS_SIN_COMPRAR_DEMO * DIA;
+  for (let k = 0; t >= inicio + 20 * DIA; k++) {
+    fechasDemo.unshift(t);
+    t -= (30 + desvio[k % desvio.length]) * DIA;
+  }
+  fechasDemo.forEach((f, k) => {
+    const lineas: [typeof nube, number][] = [[nube, 2]]; // 2 suscripciones = USD 4.800 por compra
+    const esUltima = k === fechasDemo.length - 1;
+    if (!esUltima && k % 3 === 1) lineas.push([extras[k % extras.length], extras[k % extras.length].precio_usd < 500 ? 12 : 1]);
+    for (const [p, cantidad] of lineas) {
+      const valor_usd = Math.round(p.precio_usd * cantidad * 100) / 100;
+      ventasSinId.push({ fecha: iso(f), id_cliente: DEMO, id_producto: p.id, cantidad, valor_usd, valor_cop: Math.round(valor_usd * trmDe(f)) });
+    }
+  });
+  const c = clientes.find((x) => x.id === DEMO)!;
+  c.es_base_instalada = true;
+  c.ciudad = 'Medellín';
+  c.fecha_primera_compra = iso(fechasDemo[0]);
+}
+
 const ventas: Venta[] = ventasSinId
   .sort((a, b) => a.fecha.localeCompare(b.fecha) || a.id_cliente.localeCompare(b.id_cliente))
   .map((v, i) => ({ id: `VEN-${String(i + 1).padStart(5, '0')}`, ...v }));
@@ -256,7 +289,11 @@ const MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'o
 const clientePorId = new Map(clientes.map((c) => [c.id, c]));
 const productoPorId = new Map(productos.map((p) => [p.id, p]));
 const internacional = new Set(['Quito', 'Miami', 'San Juan']);
-const recientes = ventas.filter((v) => v.fecha > iso(hoy - 60 * DIA));
+// El Cliente 23 se ubica a mano más abajo, para contar su historia en la demo.
+const recientes = ventas.filter((v) => v.fecha > iso(hoy - 60 * DIA) && v.id_cliente !== DEMO);
+const comprasDemo = [...new Set(ventas.filter((v) => v.id_cliente === DEMO).map((v) => v.fecha))].sort();
+const ultimaDemo = ventas.find((v) => v.id_cliente === DEMO && v.fecha === comprasDemo[comprasDemo.length - 1])!;
+const penultimaDemo = ventas.find((v) => v.id_cliente === DEMO && v.fecha === comprasDemo[comprasDemo.length - 2])!;
 
 const filasA: Venta[] = [];
 const filasB: Venta[] = [];
@@ -269,6 +306,15 @@ for (const v of recientes) {
   if (azar() < 0.35) filasExcel.push(v);
 }
 
+// Cliente 23 «regado»: su última compra está en el ERP (A) y también digitada a mano en el Excel
+// (duplicado); la compra anterior la registró la sede internacional (B). Su nombre se escribe distinto
+// en cada fuente: «Cliente 23» (A), «CLI-23» (B) y «CLIENTE 023» (Excel).
+filasA.push(ultimaDemo);
+filasA.sort((x, y) => x.fecha.localeCompare(y.fecha));
+filasB.unshift(penultimaDemo);
+const nombreEn = (v: Venta, fuente: 'A' | 'B' | 'X') =>
+  v.id_cliente === DEMO ? { A: 'Cliente 23', B: 'CLI-23', X: 'CLIENTE 023' }[fuente] : fuente === 'A' ? clientePorId.get(v.id_cliente)!.nombre : v.id_cliente;
+
 // Plataforma A: separador ";", fechas dd/mm/aaaa, nombres en vez de códigos, coma decimal.
 writeFileSync(
   join(ejemplos, 'plataforma-a-erp-colombia.csv'),
@@ -277,7 +323,7 @@ writeFileSync(
       ['Fecha', 'Cliente', 'Producto', 'Cant.', 'Valor USD'],
       ...filasA.map((v) => {
         const [a, m, d] = v.fecha.split('-');
-        return [`${d}/${m}/${a}`, clientePorId.get(v.id_cliente)!.nombre, productoPorId.get(v.id_producto)!.nombre, v.cantidad, v.valor_usd.toFixed(2).replace('.', ',')];
+        return [`${d}/${m}/${a}`, nombreEn(v, 'A'), productoPorId.get(v.id_producto)!.nombre, v.cantidad, v.valor_usd.toFixed(2).replace('.', ',')];
       }),
     ],
     ';',
@@ -289,17 +335,18 @@ writeFileSync(
   join(ejemplos, 'plataforma-b-internacional.csv'),
   csv([
     ['date', 'customer_id', 'sku', 'qty', 'amount_usd'],
-    ...filasB.map((v) => [`${v.fecha} ${String(entero(8, 17)).padStart(2, '0')}:${String(entero(0, 59)).padStart(2, '0')}`, v.id_cliente, v.id_producto, v.cantidad, v.valor_usd.toFixed(2)]),
+    ...filasB.map((v) => [`${v.fecha} ${String(entero(8, 17)).padStart(2, '0')}:${String(entero(0, 59)).padStart(2, '0')}`, nombreEn(v, 'B'), v.id_producto, v.cantidad, v.valor_usd.toFixed(2)]),
   ]),
 );
 
 // Excel de Operaciones: mayúsculas, fecha "3-oct-2026", valor en pesos con TRM,
 // más suciedad típica: una fila repetida, una fila vacía y un cliente sin código.
+filasExcel.unshift(ultimaDemo);
 const filasOps: (string | number)[][] = filasExcel.map((v) => {
   const [a, m, d] = v.fecha.split('-');
   return [
     `${Number(d)}-${MESES[Number(m) - 1]}-${a}`,
-    v.id_cliente,
+    nombreEn(v, 'X'),
     productoPorId.get(v.id_producto)!.nombre.toUpperCase(),
     v.cantidad,
     `$ ${v.valor_cop.toLocaleString('es-CO')}`,

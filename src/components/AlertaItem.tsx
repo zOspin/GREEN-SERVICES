@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import type { Alerta } from '../lib/analytics';
 import { Button, StatusChip } from './ui';
 import { IconoCheck } from './Iconos';
+import ExplicacionRiesgo from './ExplicacionRiesgo';
 import { useContactados } from '../lib/contactados';
 import { useIdioma } from '../lib/idioma';
 import { producto, sector } from '../lib/catalogo';
@@ -9,7 +10,7 @@ import { fmtUsd } from '../lib/format';
 
 const TIPO = {
   riesgo: { es: 'Riesgo de abandono', en: 'Churn risk' },
-  frio: { es: 'Reactivar cliente frío', en: 'Win back cold client' },
+  frio: { es: 'Reactivar cliente inactivo', en: 'Win back inactive client' },
   recompra: { es: 'Recompra próxima', en: 'Repurchase coming up' },
 };
 
@@ -56,6 +57,20 @@ export default function AlertaItem({ alerta, compacta = false }: { alerta: Alert
           </p>
         )}
         {!compacta && <p className="mt-2 text-sm text-tenue">{b(a.recomendacion)}</p>}
+        {!compacta && (
+          <details className="mt-2 rounded-lg border border-borde/60 bg-fondo/40 px-3 py-2 [&_summary::-webkit-details-marker]:hidden">
+            <summary className="cursor-pointer list-none text-sm font-medium text-azul">
+              {a.estado === 'riesgo'
+                ? tr('¿Por qué este cliente está en riesgo?', 'Why is this client at risk?')
+                : a.estado === 'frio'
+                  ? tr('¿Por qué este cliente está inactivo?', 'Why is this client inactive?')
+                  : tr('¿Por qué aparece en la lista?', 'Why is this client on the list?')}
+            </summary>
+            <div className="mt-2">
+              <ExplicacionRiesgo a={a} compacta />
+            </div>
+          </details>
+        )}
         <p className="mt-1 text-xs text-tenue">
           <span className="capitalize">{sector(a.cliente.sector, idioma)}</span> · {a.cliente.ciudad} · {tr('Total histórico', 'Lifetime total')} {fmtUsd(a.montoUsd)}
           {a.cliente.es_base_instalada ? ` · ${tr('Base instalada', 'Installed base')}` : ''}

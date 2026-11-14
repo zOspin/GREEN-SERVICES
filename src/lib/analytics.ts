@@ -8,6 +8,7 @@
  */
 import type { Cliente, Producto, Venta, Trm } from './types';
 import { categoria as cat, producto as prod, sector as sec } from './catalogo';
+import { UMBRALES, type Umbrales } from '../config/umbrales';
 
 /** Texto en los dos idiomas de la interfaz. */
 export interface Bi {
@@ -18,10 +19,8 @@ const dec = (n: number, i: 'es' | 'en') => (i === 'es' ? n.toFixed(1).replace('.
 
 export const DIA = 86_400_000;
 
-// Umbrales de estado (ratio = días sin comprar / ciclo normal del cliente)
-export const UMBRAL_ACTIVO = 1.2;
-export const UMBRAL_FRIO = 2;
-export const DIAS_FRIO = 180;
+// Los umbrales de estado (1,2× / 2× / 180 días) viven en src/config/umbrales.ts y se pueden
+// cambiar en vivo desde la pantalla Configuración; por eso las funciones los reciben como parámetro.
 // Compras mínimas para calcular el ciclo propio del cliente.
 export const MIN_COMPRAS_CICLO = 3;
 // Si el dólar sube más de esto en 30 días, los clientes tienden a aplazar compras en USD.
@@ -66,19 +65,19 @@ export function variacionTrm30(trm: Trm[], hoy: Date): number {
 
 /**
  * Convierte el ratio (recencia / ciclo) en un puntaje de 0 a 100.
- *  - ratio 0 → 1   : 0 a 30 puntos (va al día)
- *  - ratio 1 → 2   : 30 a 80 puntos (se está atrasando)
- *  - ratio > 2     : 80 a 100 puntos (muy atrasado)
+ *  - ratio 0 → 1          : 0 a 30 puntos (va al día)
+ *  - ratio 1 → inactivo   : 30 a 80 puntos (se está atrasando)
+ *  - ratio > inactivo     : 80 a 100 puntos (muy atrasado)
  */
-function puntajeDesdeRatio(ratio: number): number {
+function puntajeDesdeRatio(ratio: number, u: Umbrales): number {
   if (ratio <= 1) return ratio * 30;
-  if (ratio <= 2) return 30 + (ratio - 1) * 50;
-  return Math.min(100, 80 + (ratio - 2) * 10);
+  if (ratio <= u.inactivo) return 30 + ((ratio - 1) / Math.max(0.01, u.inactivo - 1)) * 50;
+  return Math.min(100, 80 + (ratio - u.inactivo) * 10);
 }
 
-export function estadoDesde(ratio: number, recencia: number): Estado {
-  if (ratio > UMBRAL_FRIO || recencia > DIAS_FRIO) return 'frio';
-  if (ratio > UMBRAL_ACTIVO) return 'riesgo';
+export function estadoDesde(ratio: number, recencia: number, u: Umbrales = UMBRALES): Estado {
+  if (ratio > u.inactivo || recencia > u.diasMaximosSinComprar) return 'frio';
+  if (ratio > u.riesgo) return 'riesgo';
   return 'activo';
 }
 
@@ -90,6 +89,9 @@ export interface RecomendacionProducto {
   producto: Producto;
   tipo: 'renovacion' | 'venta-cruzada' | 'popular';
   motivo: Bi; // explicación en lenguaje simple de por qué se recomienda
+  /** Valor estimado de la oportunidad en USD: lo que este cliente suele pagar por ese producto
+   *  (renovación) o lo que se paga en promedio por él (venta cruzada). */
+  valorEstimado: number;
 }
 
 /**
@@ -99,11 +101,11 @@ export interface RecomendacionProducto {
  *  2. Venta cruzada: "clientes del mismo sector que compraron X también compraron Y".
  *  3. Lo más vendido en su sector, si no hay suficiente información.
  */
-export function recomendarProducto(
+function elegirProducto(
   a: Parcial,
   todos: Parcial[],
   productoPorId: Map<string, Producto>,
-): RecomendacionProducto | null {
+): Omit<RecomendacionProducto, 'valorEstimado'> | null {
   if (!a.ventas.length) return null;
   const hoyCliente = a.ultimaCompra ? a.ultimaCompra.getTime() + a.recencia * DIA : Date.now();
 
@@ -193,6 +195,26 @@ export function recomendarProducto(
   };
 }
 
+export function recomendarProducto(
+  a: Parcial,
+  todos: Parcial[],
+  productoPorId: Map<string, Producto>,
+): RecomendacionProducto | null {
+  const rec = elegirProducto(a, todos, productoPorId);
+  if (!rec) return null;
+  // Valor de una compra de ese producto (sumando las líneas del mismo día).
+  const promedioPorCompra = (ventas: Venta[]) => {
+    const porDia = new Map<string, number>();
+    for (const v of ventas) if (v.id_producto === rec.producto.id) porDia.set(`${v.id_cliente}|${v.fecha}`, (porDia.get(`${v.id_cliente}|${v.fecha}`) ?? 0) + v.valor_usd);
+    const valores = [...porDia.values()];
+    return valores.length ? valores.reduce((s, x) => s + x, 0) / valores.length : 0;
+  };
+  const propio = promedioPorCompra(a.ventas);
+  const general = promedioPorCompra(todos.flatMap((o) => o.ventas));
+  const valorEstimado = Math.round(rec.tipo === 'renovacion' && propio ? propio : general || rec.producto.precio_usd);
+  return { ...rec, valorEstimado };
+}
+
 const diaMes = (d: Date, i: 'es' | 'en') =>
   d.toLocaleDateString(i === 'es' ? 'es-CO' : 'en-US', { day: 'numeric', month: 'long', timeZone: 'UTC' });
 
@@ -268,6 +290,7 @@ export function analizarClientes(
   productos: Producto[],
   trm: Trm[],
   hoy: Date,
+  u: Umbrales = UMBRALES,
 ): AnalisisCliente[] {
   const catDe = new Map(productos.map((p) => [p.id, p.categoria]));
   const subidaTrm = variacionTrm30(trm, hoy);
@@ -311,14 +334,14 @@ export function analizarClientes(
 
     // Riesgo: qué tanto supera la recencia al ciclo normal del cliente.
     const ratio = recencia / ciclo;
-    let puntaje = puntajeDesdeRatio(ratio);
+    let puntaje = puntajeDesdeRatio(ratio, u);
     // Ajuste por TRM: si el dólar subió fuerte, los clientes que ya se están
     // acercando a su fecha de compra tienen más probabilidad de aplazarla.
     if (subidaTrm > UMBRAL_SUBIDA_TRM && ratio > 0.8) puntaje += 5;
-    if (recencia > DIAS_FRIO) puntaje = Math.max(puntaje, 90);
+    if (recencia > u.diasMaximosSinComprar) puntaje = Math.max(puntaje, 90);
     puntaje = Math.round(Math.min(100, Math.max(0, puntaje)));
 
-    const estado = ultimaCompra ? estadoDesde(ratio, recencia) : 'frio';
+    const estado = ultimaCompra ? estadoDesde(ratio, recencia, u) : 'frio';
 
     const ultimaCategoria = lista.length ? (catDe.get(lista[lista.length - 1].id_producto) ?? null) : null;
     const conteoCat = new Map<string, number>();
@@ -381,7 +404,7 @@ export function valorAnual(a: AnalisisCliente, hoy: Date): number {
 export function valorEnRiesgo(analisis: AnalisisCliente[], hoy: Date) {
   const sumar = (estado: Estado) =>
     analisis.filter((a) => a.estado === estado).reduce((s, a) => s + valorAnual(a, hoy), 0);
-  // Fríos recuperables: menos de un año sin comprar.
+  // Inactivos recuperables: menos de un año sin comprar.
   const friosRecuperables = analisis
     .filter((a) => a.estado === 'frio' && a.recencia <= 365)
     .reduce((s, a) => s + valorAnual(a, hoy), 0);
@@ -427,7 +450,7 @@ export function generarAlertas(analisis: AnalisisCliente[], hoy: Date): Alerta[]
         },
       });
     } else if (a.estado === 'frio' && a.recencia <= 365) {
-      // Fríos recuperables: dejaron de comprar hace menos de un año.
+      // Inactivos recuperables: dejaron de comprar hace menos de un año.
       alertas.push({
         id: a.cliente.id,
         analisis: a,
@@ -593,7 +616,7 @@ export interface ResultadoBacktest {
  * Backtest: "viajamos al pasado".
  * 1. Cortamos la historia 60 días antes de hoy (la IA no ve nada posterior).
  * 2. Vemos qué clientes la IA habría marcado en riesgo ese día
- *    (estado "en riesgo" o "frío", sin contar los perdidos hace más de 180 días).
+ *    (estado "en riesgo" o "inactivo", sin contar los perdidos hace más de 180 días).
  * 3. Revisamos los 60 días siguientes: si de verdad no compraron, la IA acertó.
  */
 export function backtest(
@@ -603,10 +626,11 @@ export function backtest(
   trm: Trm[],
   hoy: Date,
   ventanaDias = 60,
+  u: Umbrales = UMBRALES,
 ): ResultadoBacktest {
   const fechaCorte = new Date(hoy.getTime() - ventanaDias * DIA);
-  const pasado = analizarClientes(clientes, ventas, productos, trm, fechaCorte);
-  const marcados = pasado.filter((a) => a.ultimaCompra && a.estado !== 'activo' && a.recencia <= DIAS_FRIO);
+  const pasado = analizarClientes(clientes, ventas, productos, trm, fechaCorte, u);
+  const marcados = pasado.filter((a) => a.ultimaCompra && a.estado !== 'activo' && a.recencia <= u.diasMaximosSinComprar);
 
   const compraronDespues = new Set(
     ventas.filter((v) => fecha(v.fecha) > fechaCorte && fecha(v.fecha) <= hoy).map((v) => v.id_cliente),

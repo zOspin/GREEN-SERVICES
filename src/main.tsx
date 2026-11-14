@@ -5,6 +5,8 @@ import App from './App';
 import { ContactadosProvider } from './lib/contactados';
 import { IdiomaProvider, useIdioma } from './lib/idioma';
 import { TemaProvider } from './lib/tema';
+import { UmbralesProvider } from './lib/umbrales';
+import { PresentacionProvider } from './lib/presentacion';
 import './index.css';
 
 /** Al cambiar de idioma se vuelven a pintar todas las pantallas con los textos y formatos nuevos. */
@@ -18,9 +20,13 @@ createRoot(document.getElementById('root')!).render(
     <IdiomaProvider>
       <TemaProvider>
         <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-          <ContactadosProvider>
-            <AppConIdioma />
-          </ContactadosProvider>
+          <UmbralesProvider>
+            <ContactadosProvider>
+              <PresentacionProvider>
+                <AppConIdioma />
+              </PresentacionProvider>
+            </ContactadosProvider>
+          </UmbralesProvider>
         </BrowserRouter>
       </TemaProvider>
     </IdiomaProvider>

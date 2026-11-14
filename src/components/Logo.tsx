@@ -9,10 +9,10 @@ export default function Logo({ size = 40 }: { size?: number }) {
       <defs>
         <radialGradient id="op-nucleo" cx="40%" cy="35%" r="70%">
           <stop offset="0%" stopColor="#FCD34D" />
-          <stop offset="100%" stopColor="#F59E0B" />
+          <stop offset="100%" stopColor="#F5A524" />
         </radialGradient>
       </defs>
-      <ellipse cx="32" cy="32" rx="27" ry="11" fill="none" stroke="#3B82F6" strokeWidth="2.5" opacity="0.9" transform="rotate(-25 32 32)" />
+      <ellipse cx="32" cy="32" rx="27" ry="11" fill="none" stroke="#5B9BFF" strokeWidth="2.5" opacity="0.9" transform="rotate(-25 32 32)" />
       <circle cx="32" cy="32" r="10" fill="url(#op-nucleo)" />
       <g className="logo-punto">
         <circle r="7" style={{ fill: 'var(--logo-punto)' }} opacity="0.25" />

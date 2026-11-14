@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button, EmptyState, PageHeader } from '../components/ui';
 import AlertaItem from '../components/AlertaItem';
 import { IconoDescargar } from '../components/Iconos';
-import { alertas } from '../lib/datos';
+import { useDatos } from '../lib/umbrales';
 import { useContactados } from '../lib/contactados';
 import { useIdioma } from '../lib/idioma';
 import { INFO_ESTADO } from '../components/ui';
@@ -14,12 +14,13 @@ import type { TipoAlerta } from '../lib/analytics';
 const FILTROS: { valor: '' | TipoAlerta; es: string; en: string }[] = [
   { valor: '', es: 'Todas', en: 'All' },
   { valor: 'riesgo', es: 'En riesgo', en: 'At risk' },
-  { valor: 'frio', es: 'Fríos recuperables', en: 'Recoverable cold' },
+  { valor: 'frio', es: 'Inactivos recuperables', en: 'Recoverable inactive' },
   { valor: 'recompra', es: 'Recompra próxima', en: 'Repurchase coming up' },
 ];
 
 export default function Alertas() {
   const { contactados } = useContactados();
+  const { alertas } = useDatos();
   const { idioma, tr, b } = useIdioma();
   const [tipo, setTipo] = useState<'' | TipoAlerta>('');
   const [ocultarHechas, setOcultarHechas] = useState(false);

@@ -2,13 +2,14 @@ import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Card, EmptyState, PageHeader, RiskBar, StatusChip, Table, Td, Th, Thead, Tr } from '../components/ui';
 import { IconoBuscar } from '../components/Iconos';
-import { analisis } from '../lib/datos';
+import { clientes } from '../lib/datos';
+import { useDatos } from '../lib/umbrales';
 import type { AnalisisCliente, Estado } from '../lib/analytics';
 import { fmtCompacto, fmtFecha } from '../lib/format';
 import { useIdioma } from '../lib/idioma';
 import { sector as nombreSector } from '../lib/catalogo';
 
-const SECTORES = [...new Set(analisis.map((a) => a.cliente.sector))].sort();
+const SECTORES = [...new Set(clientes.map((c) => c.sector))].sort();
 const mayuscula = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /** Columnas por las que se puede ordenar la tabla. */
@@ -46,6 +47,7 @@ function ThOrden({ campo, orden, desc, alCambiar, children, derecha = false, cla
 export default function Clientes() {
   const navegar = useNavigate();
   const { idioma, tr } = useIdioma();
+  const { analisis } = useDatos();
   const [texto, setTexto] = useState('');
   const [estado, setEstado] = useState<'' | Estado>('');
   const [sector, setSector] = useState('');
@@ -73,7 +75,7 @@ export default function Clientes() {
         const r = typeof a === 'string' ? a.localeCompare(b as string, 'es') : a - (b as number);
         return desc ? -r : r;
       });
-  }, [texto, estado, sector, base, orden, desc]);
+  }, [analisis, texto, estado, sector, base, orden, desc]);
 
   const hayFiltros = Boolean(texto || estado || sector || base);
   const limpiar = () => { setTexto(''); setEstado(''); setSector(''); setBase(''); };
@@ -95,7 +97,7 @@ export default function Clientes() {
               <option value="">{tr('Todos los estados', 'All statuses')}</option>
               <option value="activo">{tr('Activo', 'Active')}</option>
               <option value="riesgo">{tr('En riesgo', 'At risk')}</option>
-              <option value="frio">{tr('Frío', 'Cold')}</option>
+              <option value="frio">{tr('Inactivo', 'Inactive')}</option>
             </select>
           </label>
           <label>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 type Variante = 'primario' | 'secundario' | 'fantasma';
 
 const CLASES: Record<Variante, string> = {
-  primario: 'bg-[#F59E0B] text-[#1A1306] hover:bg-[#FBBF24]',
+  primario: 'bg-[#F5A524] text-[#1A1306] hover:bg-[#F7B84B]',
   secundario: 'border border-borde text-slate-200 hover:bg-white/5',
   fantasma: 'text-azul hover:bg-azul/10',
 };

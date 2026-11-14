@@ -1,14 +1,19 @@
+import { Link, useSearchParams } from 'react-router-dom';
 import { Bar, BarChart, CartesianGrid, ComposedChart, Legend, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { Card, PageHeader, Panel, StatCard, Table, Td, Th, Thead, Tr, Variacion } from '../components/ui';
-import { categoriasMes, correlacionVentasTrm, serieVentasTrm } from '../lib/datos';
+import { categoriasMes, correlacionVentasTrm, serieVentasTrm, HOY, trmHoy, trmHace30 } from '../lib/datos';
+import { valorAnual } from '../lib/analytics';
+import { useDatos } from '../lib/umbrales';
+import { producto as nombreProducto } from '../lib/catalogo';
+import { StatusChip } from '../components/ui';
 import { categoria } from '../lib/catalogo';
 import { useIdioma } from '../lib/idioma';
 import { useTema } from '../lib/tema';
-import { fmtCompacto, fmtCop, fmtDec, fmtMes, fmtNum, fmtTrm, fmtUsd } from '../lib/format';
+import { fmtCompacto, fmtCop, fmtDec, fmtMes, fmtNum, fmtPct, fmtTrm, fmtUsd } from '../lib/format';
 
 /** Colores por categoría (no se usan verde/ámbar/rojo para no confundir con los estados). */
 const COLOR_CATEGORIA: Record<string, string> = {
-  Redes: '#3B82F6',
+  Redes: '#5B9BFF',
   Nube: '#38BDF8',
   Ciberseguridad: '#A78BFA',
   Hardware: '#F59E0B',
@@ -38,6 +43,82 @@ function describirRelacion(r: number, tr: (es: string, en: string) => string): s
       );
 }
 
+/** «Recuperar a un cliente»: cuánto vale y cómo lo afecta la TRM. */
+function RecuperarCliente() {
+  const { idioma, tr } = useIdioma();
+  const { alertas, analisisPorId, analisis } = useDatos();
+  const [params, setParams] = useSearchParams();
+  const id = params.get('cliente') ?? alertas[0]?.analisis.cliente.id ?? '';
+  const a = analisisPorId.get(id);
+  if (!a) return null;
+  const anual = valorAnual(a, HOY);
+  const rec = a.productoRecomendado;
+  const oportunidad = rec?.valorEstimado ?? 0;
+  const copHoy = oportunidad * trmHoy.valor;
+  const copAntes = oportunidad * trmHace30.valor;
+  const variacion = (trmHoy.valor - trmHace30.valor) / trmHace30.valor;
+  const candidatos = analisis.filter((x) => x.estado !== 'activo' || x.cliente.id === id).sort((x, y) => x.cliente.nombre.localeCompare(y.cliente.nombre));
+
+  return (
+    <Card
+      titulo={tr('Recuperar a un cliente: lo que está en juego', 'Winning back a client: what is at stake')}
+      className="mt-6 border-turquesa/40"
+      accion={
+        <label className="flex items-center gap-2 text-sm text-tenue">
+          {tr('Cliente', 'Client')}
+          <select className="campo w-auto" value={id} onChange={(e) => setParams({ cliente: e.target.value })}>
+            {candidatos.map((x) => (
+              <option key={x.cliente.id} value={x.cliente.id}>
+                {x.cliente.nombre}
+              </option>
+            ))}
+          </select>
+        </label>
+      }
+    >
+      <div className="-mt-2 mb-4 flex flex-wrap items-center gap-2 text-sm text-tenue">
+        <Link to={`/clientes/${a.cliente.id}`} className="font-semibold text-white hover:text-acento hover:underline">
+          {a.cliente.nombre}
+        </Link>
+        <StatusChip estado={a.estado} />
+        <span>{tr(`${a.recencia} días sin comprar`, `${a.recencia} days without buying`)}</span>
+      </div>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <Panel>
+          <p className="text-sm text-tenue">{tr('Compra al año (promedio)', 'Buys per year (average)')}</p>
+          <p className="mt-1 font-titulo text-3xl font-bold text-turquesa">{fmtUsd(anual)}</p>
+          <p className="text-xs text-tenue">{tr(`≈ ${fmtCompacto(anual * trmHoy.valor, 'COP')} con la TRM de hoy`, `≈ ${fmtCompacto(anual * trmHoy.valor, 'COP')} at today's TRM`)}</p>
+        </Panel>
+        <Panel>
+          <p className="text-sm text-tenue">
+            {rec?.tipo === 'renovacion' ? tr('Oportunidad inmediata: renovación', 'Immediate opportunity: renewal') : tr('Oportunidad inmediata', 'Immediate opportunity')}
+          </p>
+          <p className="mt-1 font-titulo text-3xl font-bold text-acento">{fmtUsd(oportunidad)}</p>
+          <p className="text-xs text-tenue">{rec ? nombreProducto(rec.producto.nombre, idioma) : '—'}</p>
+        </Panel>
+        <Panel>
+          <p className="text-sm text-tenue">{tr('Efecto de la TRM en esa compra', 'Exchange-rate effect on that purchase')}</p>
+          <p className="mt-1 font-titulo text-3xl font-bold text-white">{fmtCompacto(copHoy, 'COP')}</p>
+          <p className="text-xs text-tenue">
+            {tr(
+              `Hace 30 días costaba ${fmtCompacto(copAntes, 'COP')}: ${fmtCompacto(Math.abs(copHoy - copAntes), 'COP')} ${variacion >= 0 ? 'más' : 'menos'} (${fmtPct(variacion)} en la TRM).`,
+              `30 days ago it cost ${fmtCompacto(copAntes, 'COP')}: ${fmtCompacto(Math.abs(copHoy - copAntes), 'COP')} ${variacion >= 0 ? 'more' : 'less'} (${fmtPct(variacion)} in the TRM).`,
+            )}
+          </p>
+        </Panel>
+      </div>
+      <p className="mt-4 text-sm text-slate-300">
+        {variacion > 0.03
+          ? tr(
+              `Con el dólar ${fmtDec(variacion * 100)} % más caro, al cliente la misma compra le cuesta más pesos y puede aplazarla. Ofrecer precio fijo en pesos o pago diferido ayuda a cerrarla. Recuperarlo protege ${fmtUsd(anual)} al año.`,
+              `With the dollar ${fmtDec(variacion * 100)}% pricier, the same purchase costs the client more pesos and they may postpone it. Offering a fixed peso price or deferred payment helps close it. Winning them back protects ${fmtUsd(anual)} per year.`,
+            )
+          : tr(`Recuperarlo protege ${fmtUsd(anual)} al año.`, `Winning them back protects ${fmtUsd(anual)} per year.`)}
+      </p>
+    </Card>
+  );
+}
+
 export default function Ventas() {
   const { idioma, tr } = useIdioma();
   const { colores: c } = useTema();
@@ -58,7 +139,7 @@ export default function Ventas() {
   return (
     <>
       <PageHeader
-        titulo={tr('Ventas y TRM', 'Sales & exchange rate')}
+        titulo={tr('Panel financiero', 'Finance dashboard')}
         subtitulo={tr(
           'Tendencias de ventas por mes y por categoría, y cómo se mueven frente al precio del dólar. Para Gerencia Financiera.',
           'Sales trends by month and category, and how they move against the US dollar price (TRM). For the Finance team.',
@@ -83,6 +164,8 @@ export default function Ventas() {
           detalle={`${fmtMes(primero.clave)} → ${fmtMes(ultimo.clave)}`}
         />
       </div>
+
+      <RecuperarCliente />
 
       <Card titulo={tr('Ventas (USD) contra TRM', 'Sales (USD) vs. TRM')} className="mt-6">
         <div

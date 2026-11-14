@@ -60,3 +60,21 @@ Cuando algo no estaba especificado, tomamos la opción más simple. Aquí quedan
 39. **El botón principal mantiene el dorado de la marca** en ambos temas, con texto oscuro.
 40. **La preferencia se guarda en el navegador** (`localStorage`), y un pequeño script en `index.html` la aplica antes de pintar para evitar un parpadeo. Si el navegador no permite guardar, la app funciona igual y solo olvida la elección al cerrar.
 
+## Mejoras finales para el jurado
+
+41. **Identidad igual a las diapositivas** (`presentacion/deck.css`): dorado #F5A524, azul #5B9BFF, turquesa #2DD4BF, superficies #141C36/#1C2748, bordes #2A3760 y texto #F4F1EA. El modo claro usa el «fondo claro alterno» #F4F1EA. El verde y el rojo de los estados se mantienen porque las diapositivas no los definen.
+42. **Nombres de módulos como en las diapositivas**: «Cargar datos» pasa a **Centro de datos**, «Ventas y TRM» a **Panel financiero** y se crea el **Radar de clientes** (`/radar`). Las rutas (`/datos`, `/ventas`) no cambian, para no romper enlaces.
+43. **«Frío» pasa a «Inactivo»** en la interfaz, como en la diapositiva 9. En el código el estado interno sigue llamándose `frio`.
+44. **El modo presentación no existía**: se creó desde cero como una barra inferior con 5 pasos (Centro de datos → Radar → Ficha → Panel financiero → Cierre), con teclado (← → Esc) y notas del comunicador ocultas por defecto.
+45. **Umbrales en vivo, sin guardar**: lo que se mueve en Configuración se aplica en toda la web (alertas, radar, fichas, reporte y backtest) pero se pierde al recargar. Así la demo siempre arranca con los valores del archivo `src/config/umbrales.ts`.
+46. **El puntaje de riesgo usa el umbral de inactivo**: de 30 a 80 puntos entre 1× y el umbral de inactivo (antes estaba fijo en 2×).
+47. **Nivel de confianza**: baja con menos de 4 compras, media de 4 a 7 y alta con 8 o más. Es una regla simple, basada en cuánta historia tiene el cliente.
+48. **Valor de la oportunidad**: en una renovación es lo que ese cliente suele pagar por ese producto; en una venta cruzada, lo que se paga en promedio por él.
+49. **Cliente 23 escrito a mano en el generador**, sin usar el generador aleatorio, para no cambiar a los demás clientes. Igual cambiaron un poco los totales: ahora hay 10 en riesgo y 20 inactivos, y el backtest acierta 7 de 8 (88 %). El perfil aleatorio que tenía ese cliente se reemplaza, así que los grupos quedan en 25/15/10/10 en el generador pero el Cliente 23 cuenta su propia historia.
+50. **Cliente 23 en los 3 archivos**: su última compra está en el ERP (A) y repetida en el Excel; su compra anterior, en la sede internacional (B). Para reconocer «CLI-23» y «CLIENTE 023», la unión de datos ahora entiende variantes del tipo «cli/cliente + número».
+51. **«USD X recuperados» del cierre** es lo que el Cliente 23 compra en un año en promedio (total ÷ meses como cliente × 12), no solo la renovación pendiente.
+52. **Impacto sin inventar datos**: `horasConsolidacionManual = null` muestra «[por confirmar con Green Services]»; con un número, muestra la comparación y cuántas veces más rápido es.
+53. **Banda «Demo con datos de prueba»** arriba en todas las páginas (se oculta al imprimir) y pie de página con enlaces a Privacidad y Configuración.
+54. **Capturas** con Playwright en 1920×1080, modo oscuro y en español, con las animaciones detenidas para que siempre salgan iguales. Se agregó `playwright` como dependencia de desarrollo.
+55. **Las diapositivas (`slides.html`) no están en el repositorio**, solo su README y `deck.css`; se usaron esos dos archivos como referencia.
+

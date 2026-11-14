@@ -1,20 +1,36 @@
-# Guion de la demo (3 minutos)
+# Guion de la demo: la historia del Cliente 23 (3 minutos)
 
-**Antes de empezar:** `npm run dev`, abre http://localhost:5173/reto en pantalla completa. Si el proyector se ve lavado, usa el botón **Claro** del menú. Si el jurado no habla español, pulsa **EN**: toda la demo cambia a inglés. Si presentas desde el celular, también funciona.
+La demo en vivo empieza justo después de la **diapositiva 16** («¡Gracias!» → demo en vivo) y cuenta la historia de **un solo cliente**, el **Cliente 23**, de principio a fin.
 
-| Tiempo | Pantalla | Qué hacer | Qué decir |
-|---|---|---|---|
-| 0:00 – 0:25 | **El reto** (`/reto`) | Muestra la pregunta principal y el bloque «Antes / Ahora». | «Green Services tiene sus datos de ventas, TRM y clientes regados en varias plataformas. Cada mes alguien los une a mano en Excel, y cuando se dan cuenta de que un cliente dejó de comprar ya es tarde. Nuestra pregunta: ¿cómo ayudamos a Comercial a anticipar quién está por dejar de comprar y cuándo debería volver?» |
-| 0:25 – 0:55 | **Cargar datos** (`/datos`) | Clic en **«Cargar los 3 archivos de ejemplo»**. Señala las columnas reconocidas y las tarjetas de limpieza. | «Estos son tres archivos de plataformas distintas: uno con punto y coma, otro en inglés, otro digitado a mano en pesos. Órbita Pulse reconoce las columnas, convierte los pesos a dólares, quita 35 duplicados y nos avisa del cliente sin código. 111 filas regadas se convierten en 74 ventas limpias en segundos.» |
-| 0:55 – 1:20 | **Inicio** (`/`) | Recorre las tarjetas y el bloque «Contactar esta semana». | «Con los datos unidos, todo queda en una sola vista: ventas del mes en dólares y pesos, la TRM, y lo más importante: 9 clientes en riesgo que compran **US$ 1,1 millones al año**. Esa plata se puede perder si nadie los llama. Aquí está la lista de a quién llamar esta semana.» |
-| 1:20 – 1:55 | **Alertas** → **Ficha del cliente** (`/alertas`, luego clic en **Cliente 30**) | Muestra el motivo y el producto a ofrecer. Entra a la ficha: próxima compra estimada, productos que tiene y la caja «Recomendación de IA». | «Cliente 30 compra cada 37 días y lleva 66 sin comprar. La IA estimó que debía comprar el 16 de octubre y no lo hizo. Además nos dice qué ofrecerle y por qué: 5 de 14 clientes que compraron estaciones de trabajo también compraron antivirus, y él aún no lo tiene.» Abre **«Mensaje sugerido para el cliente»** y pulsa **«Copiar mensaje»**; luego **«Marcar como contactado»**. «Y el asesor ya tiene el mensaje listo para enviar.» |
-| 1:55 – 2:15 | **Ventas y TRM** (`/ventas`) | Señala la gráfica de barras con la línea de TRM. | «Para Gerencia Financiera: ventas por mes y por categoría frente al dólar. Si el dólar sube más de 5 %, la IA sube un poco el riesgo, porque los clientes tienden a aplazar compras en dólares.» |
-| 2:15 – 2:30 | **Reporte del mes** (`/reporte`) | Muestra el texto automático; clic en «Imprimir o guardar PDF» (y cancela). | «Y el informe que antes tomaba días se escribe solo: cuánto se vendió, quién pasó a riesgo, cómo se movió la TRM y a quién priorizar. Listo para imprimir.» |
-| 2:30 – 3:00 | **Predicciones** (`/predicciones`) | Lee el ejemplo de la panadería y termina en el círculo del **% de acierto**. | «¿Cómo funciona? Como la dueña de la panadería: si un vecino compra pan cada 3 días y lleva 10 sin aparecer, ella nota que algo pasó. ¿Y funciona? Viajamos 60 días al pasado, dejamos que la IA eligiera, y de 9 clientes que marcó en riesgo, 8 de verdad dejaron de comprar: **89 % de acierto**. Órbita Pulse: inteligencia que gira a tu alrededor.» |
+## Antes de empezar
 
-## Si preguntan…
+1. Abre la terminal en la carpeta del proyecto y corre `npm run dev`.
+2. Abre http://localhost:5173/reto en el navegador, en pantalla completa (F11).
+3. Revisa que el menú diga **ES** y el tema que prefieras: si el proyector se ve lavado, pulsa **Claro**.
+4. Pulsa **«Iniciar demo en vivo (Cliente 23)»** (también está en el menú). Aparece una barra abajo con los 5 pasos.
+5. Para avanzar: botón **Siguiente** o flecha **→** del teclado. Para volver: **←**. Para salir: **Esc**.
+6. El botón **«Notas del comunicador»** muestra en la barra lo que dice Mateo en cada paso. Ábrelo solo si lo necesitas: el público también lo ve.
 
-- **«¿Los datos son reales?»** No: son inventados porque los reales son confidenciales. El generador cuenta una historia realista (clientes frecuentes, frenados, fríos y ocasionales) y con datos reales la lógica funciona igual.
-- **«¿Por qué bajan las ventas en 2026?»** Es parte de la historia de los datos: son los clientes que se enfriaron. Justo lo que la herramienta ayuda a evitar.
-- **«¿Es IA de verdad?»** Es IA explicable: reglas y estadística (RFM, ciclos, correlación, backtest). Se puede auditar línea por línea y es el primer paso antes de un modelo de aprendizaje automático, que necesitaría los datos reales.
-- **«¿Qué sigue?»** Conectar las plataformas reales de forma automática, guardar el historial de contactos y entrenar un modelo con los datos reales usando este backtest como punto de comparación.
+## Los 5 pasos
+
+| Paso | Tiempo | Pantalla | Qué se ve | Qué dice el comunicador |
+|---|---|---|---|---|
+| 1 | 0:00 – 0:40 | **Centro de datos** | Se cargan solos los 3 archivos (ERP, sede internacional y Excel de Operaciones). Abajo aparece **«Así llegó el Cliente 23: regado y repetido»**. | «Estos son tres archivos como llegan hoy: el ERP, la sede internacional y el Excel que Operaciones llena a mano. Miren al Cliente 23: en uno se llama "Cliente 23", en otro "CLI-23" y en el Excel "CLIENTE 023", y su última compra estaba dos veces. Órbita Pulse lo reconoce como un solo cliente y quita el duplicado. Esto hoy se hace a mano en Excel cada mes.» |
+| 2 | 0:40 – 1:10 | **Radar de clientes** | Cada punto es un cliente. El del **Cliente 23 parpadea** en el anillo **«en riesgo»**; a la derecha se ve por qué. | «Con los datos unidos, la IA ubica a cada cliente. Cerca del centro compran a su ritmo; hacia afuera se van atrasando. El punto que parpadea es el Cliente 23, en el anillo "en riesgo". Nadie tuvo que buscarlo: la IA lo marcó sola.» |
+| 3 | 1:10 – 2:00 | **Ficha del Cliente 23** | El bloque **«¿Por qué este cliente está en riesgo?»** con la barra de ritmo y la confianza, y debajo la **Recomendación de IA**: renovación de su suscripción de nube por **US$ 4.800**. | «La pregunta que siempre nos hacen: ¿cómo sabe eso la IA? Aquí está: compra cada 30 días y lleva 50 sin comprar, 1,7 veces su ritmo normal. La barra lo muestra, y la confianza es alta porque tiene 16 compras. Y nos dice qué ofrecerle: su renovación de nube está vencida, son US$ 4.800, y ya hay un mensaje listo para enviar. La IA sugiere; la persona decide.» |
+| 4 | 2:00 – 2:30 | **Panel financiero** | La tarjeta **«Recuperar a un cliente: lo que está en juego»**: lo que compra al año (**US$ 69.927**), la oportunidad inmediata (**US$ 4.800**) y el **efecto de la TRM**. | «Para Gerencia Financiera: el Cliente 23 compra cerca de 70 mil dólares al año. Y miren la TRM: con el dólar 6 % más caro, la misma renovación le cuesta más pesos que hace un mes. Por eso la IA sugiere ofrecer precio fijo en pesos o pago diferido.» |
+| 5 | 2:30 – 3:00 | **Cierre** | **«Llamar hoy al Cliente 23 = US$ 69.927 recuperados al año»**, con el % de acierto. | «Y así con cada cliente, todas las semanas, sin esperar el Excel del mes. Llamar hoy al Cliente 23 es recuperar lo que compra en un año. En la prueba de 60 días, la IA acertó en 7 de 8 clientes que marcó en riesgo. Esto es Órbita Pulse: inteligencia que gira a tu alrededor.» |
+
+> Los valores (US$ 4.800, US$ 69.927, 50 días, 7 de 8) salen de los **datos inventados** de la demo. Si se regeneran los datos, revisa que coincidan en pantalla antes de presentar.
+
+## Si sobra tiempo o el jurado pide más
+
+- **Configuración** (`/configuracion`): mueve el control «En riesgo desde» y muestra cómo cambian los estados en vivo. Frase: «Estos valores se ajustan con la empresa.»
+- **Reporte del mes** (`/reporte`): el informe que antes tomaba días se escribe solo.
+- **Privacidad** (`/privacidad`): enlazada en el pie de página.
+- Para preguntas difíciles, ver `docs/preguntas-jurado.md`.
+
+## Plan B (si algo falla)
+
+- Si no funciona el modo presentación, recorre a mano: `/datos?demo=1` → `/radar?destacar=CLI-023` → `/clientes/CLI-023` → `/ventas?cliente=CLI-023` → `/cierre`.
+- Si no funciona la web, usa las capturas de `presentacion/capturas/` (se generan con `npm run capturas`).
