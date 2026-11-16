@@ -78,3 +78,4 @@ Cuando algo no estaba especificado, tomamos la opción más simple. Aquí quedan
 54. **Capturas** con Playwright en 1920×1080, modo oscuro y en español, con las animaciones detenidas para que siempre salgan iguales. Se agregó `playwright` como dependencia de desarrollo.
 55. **Las diapositivas (`slides.html`) no están en el repositorio**, solo su README y `deck.css`; se usaron esos dos archivos como referencia.
 
+56. **Puerto propio 5180** en `vite.config.ts` (con `strictPort` y apertura automática del navegador): en el computador del equipo había otro proyecto con Vite en el 5173 y el navegador abría ese en lugar de Órbita Pulse.

@@ -42,7 +42,7 @@ npm install
 npm run dev
 ```
 
-Abre en el navegador la dirección que aparece en la terminal (normalmente **http://localhost:5173**).
+Abre en el navegador la dirección que aparece en la terminal (**http://localhost:5180**; Órbita Pulse usa su propio puerto para no chocar con otros proyectos).
 
 | Comando | Qué hace |
 |---|---|
