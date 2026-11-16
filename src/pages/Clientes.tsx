@@ -152,7 +152,7 @@ export default function Clientes() {
                     <Td className="pl-4">
                       <p className="font-medium text-white">{a.cliente.nombre}</p>
                       <p className="text-xs text-tenue">
-                        {a.cliente.id} · {a.cliente.ciudad}
+                        {a.cliente.id}{a.cliente.ciudad && ` · ${a.cliente.ciudad}`}
                         {a.cliente.es_base_instalada && <span className="ml-1 rounded bg-azul/15 px-1.5 py-0.5 text-[0.65rem] text-blue-200">{tr('Base instalada', 'Installed base')}</span>}
                       </p>
                     </Td>

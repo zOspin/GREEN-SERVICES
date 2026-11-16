@@ -3,6 +3,6 @@
   "fecha_inicio": "2025-05-15",
   "semilla": 2026,
   "meses_historia": 18,
-  "generado_por": "scripts/generate-data.ts",
+  "generado_por": "src/lib/generador.ts",
   "nota": "Datos 100 % sintéticos. No corresponden a clientes reales."
 }

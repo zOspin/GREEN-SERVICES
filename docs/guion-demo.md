@@ -25,6 +25,8 @@ La demo en vivo empieza justo después de la **diapositiva 16** («¡Gracias!» 
 
 ## Si sobra tiempo o el jurado pide más
 
+- **Demo al azar**: en el menú, «🎲 Generar otra demo al azar». Frase: «No es una pantalla preparada: estos son otros clientes inventados y la IA los analiza igual.» Para volver, «volver a la original» (o pulsa «Iniciar demo en vivo», que siempre usa la original).
+- **Modo Real**: selector «Datos → Real». Todo queda en cero; en el Centro de datos se ve qué columnas necesita la página y la plantilla. Frase: «El día que Green Services nos dé su exportación, la sube aquí y listo.»
 - **Configuración** (`/configuracion`): mueve el control «En riesgo desde» y muestra cómo cambian los estados en vivo. Frase: «Estos valores se ajustan con la empresa.»
 - **Reporte del mes** (`/reporte`): el informe que antes tomaba días se escribe solo.
 - **Privacidad** (`/privacidad`): enlazada en el pie de página.

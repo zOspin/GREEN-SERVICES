@@ -20,6 +20,10 @@ const COLOR_CATEGORIA: Record<string, string> = {
   Software: '#F472B6',
   Almacenamiento: '#94A3B8',
 };
+// Categorías que no son de la demo (datos reales): toman un color de esta lista, en orden.
+const COLORES_EXTRA = ['#2DD4BF', '#FB923C', '#4ADE80', '#E879F9', '#FACC15', '#60A5FA', '#F87171', '#A3E635'];
+const colorCategoria = (cat: string) =>
+  COLOR_CATEGORIA[cat] ?? (COLOR_CATEGORIA[cat] = COLORES_EXTRA[(Object.keys(COLOR_CATEGORIA).length - 6) % COLORES_EXTRA.length]);
 const eje = (v: number) => fmtCompacto(v).replace(/ /g, ' ');
 
 /** Traduce la correlación a palabras sencillas. */
@@ -260,7 +264,7 @@ export default function Ventas() {
                     dataKey={cat}
                     name={categoria(cat, idioma)}
                     stackId="cat"
-                    fill={COLOR_CATEGORIA[cat]}
+                    fill={colorCategoria(cat)}
                     stroke={c.tarjeta}
                     strokeWidth={1}
                     radius={i === categoriasMes.categorias.length - 1 ? [4, 4, 0, 0] : 0}
@@ -279,13 +283,13 @@ export default function Ventas() {
                 <div className="flex items-center justify-between text-sm">
                   <span className="flex items-center gap-2 text-slate-200">
                     <span className="w-4 text-tenue">{i + 1}.</span>
-                    <span className="h-2.5 w-2.5 rounded-sm" style={{ background: COLOR_CATEGORIA[r.categoria] }} aria-hidden="true" />
+                    <span className="h-2.5 w-2.5 rounded-sm" style={{ background: colorCategoria(r.categoria) }} aria-hidden="true" />
                     {categoria(r.categoria, idioma)}
                   </span>
                   <span className="tabular-nums text-slate-300">{fmtCompacto(r.usd)}</span>
                 </div>
                 <div className="mt-1 h-1.5 rounded-full bg-white/5">
-                  <div className="h-full rounded-full" style={{ width: `${(r.usd / categoriasMes.ranking[0].usd) * 100}%`, background: COLOR_CATEGORIA[r.categoria] }} />
+                  <div className="h-full rounded-full" style={{ width: `${(r.usd / categoriasMes.ranking[0].usd) * 100}%`, background: colorCategoria(r.categoria) }} />
                 </div>
               </li>
             ))}

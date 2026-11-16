@@ -72,7 +72,7 @@ export default function AlertaItem({ alerta, compacta = false }: { alerta: Alert
           </details>
         )}
         <p className="mt-1 text-xs text-tenue">
-          <span className="capitalize">{sector(a.cliente.sector, idioma)}</span> · {a.cliente.ciudad} · {tr('Total histórico', 'Lifetime total')} {fmtUsd(a.montoUsd)}
+          <span className="capitalize">{sector(a.cliente.sector, idioma)}</span> · {a.cliente.ciudad && <>{a.cliente.ciudad} · </>}{tr('Total histórico', 'Lifetime total')} {fmtUsd(a.montoUsd)}
           {a.cliente.es_base_instalada ? ` · ${tr('Base instalada', 'Installed base')}` : ''}
         </p>
       </div>

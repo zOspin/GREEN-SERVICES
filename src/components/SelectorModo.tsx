@@ -1,5 +1,5 @@
 import { useIdioma } from '../lib/idioma';
-import { MODO, cambiarModo, type Modo } from '../lib/modo';
+import { MODO, SEMILLA, cambiarModo, esDemoOriginal, nuevaDemoAlAzar, volverADemoOriginal, type Modo } from '../lib/modo';
 
 /** Selector de modo de datos: Demo (datos inventados) o Real (datos de Green Services). */
 export default function SelectorModo() {
@@ -31,6 +31,26 @@ export default function SelectorModo() {
           </button>
         ))}
       </div>
+      {MODO === 'demo' && (
+        <div className="mt-2 space-y-1">
+          <button
+            type="button"
+            onClick={nuevaDemoAlAzar}
+            title={tr('Crea clientes y compras nuevos al azar (el Cliente 23 se mantiene)', 'Creates new random clients and purchases (Client 23 stays)')}
+            className="flex w-full items-center justify-center gap-2 rounded-lg border border-borde px-3 py-1.5 text-xs font-medium text-slate-200 hover:bg-white/5"
+          >
+            <span aria-hidden="true">🎲</span> {tr('Generar otra demo al azar', 'Generate another random demo')}
+          </button>
+          {!esDemoOriginal && (
+            <p className="text-center text-[0.7rem] text-tenue">
+              {tr(`Demo al azar n.º ${SEMILLA}`, `Random demo #${SEMILLA}`)} ·{' '}
+              <button type="button" onClick={volverADemoOriginal} className="text-azul hover:underline">
+                {tr('volver a la original', 'back to the original')}
+              </button>
+            </p>
+          )}
+        </div>
+      )}
     </div>
   );
 }

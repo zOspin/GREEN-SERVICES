@@ -14,3 +14,13 @@ export function descargarCsv(nombre: string, filas: Record<string, unknown>[]) {
   enlace.click();
   URL.revokeObjectURL(url);
 }
+
+/** Descarga un CSV vacío, solo con los encabezados (la plantilla para los datos reales). */
+export function descargarEncabezados(nombre: string, columnas: readonly string[]) {
+  const url = URL.createObjectURL(new Blob(['﻿' + columnas.join(',') + '\n'], { type: 'text/csv;charset=utf-8' }));
+  const enlace = document.createElement('a');
+  enlace.href = url;
+  enlace.download = nombre;
+  enlace.click();
+  URL.revokeObjectURL(url);
+}

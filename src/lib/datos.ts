@@ -6,17 +6,18 @@
  *   las pantallas lo leen con el hook `useDatos()` (src/lib/umbrales.tsx), así se actualiza
  *   en vivo cuando se cambian los umbrales en la pantalla Configuración.
  */
-import clientesDemo from '../data/clientes.json';
-import productosDemo from '../data/productos.json';
-import ventasDemo from '../data/ventas.json';
-import trmDemo from '../data/trm.json';
-import metaDemo from '../data/meta.json';
+import clientesOriginal from '../data/clientes.json';
+import productosOriginal from '../data/productos.json';
+import ventasOriginal from '../data/ventas.json';
+import trmOriginal from '../data/trm.json';
+import metaOriginal from '../data/meta.json';
 import clientesReal from '../data/real/clientes.json';
 import productosReal from '../data/real/productos.json';
 import ventasReal from '../data/real/ventas.json';
 import trmReal from '../data/real/trm.json';
 import metaReal from '../data/real/meta.json';
-import { MODO } from './modo';
+import { esDemoOriginal, leerDatosReales, MODO, SEMILLA } from './modo';
+import { generarDatos } from './generador';
 import type { Cliente, Producto, Venta, Trm } from './types';
 import type { Umbrales } from '../config/umbrales';
 import {
@@ -33,17 +34,45 @@ import {
   variacionTrm30,
 } from './analytics';
 
-export { MODO };
+export { MODO, SEMILLA, esDemoOriginal };
 const real = MODO === 'real';
 
-export const clientes = (real ? clientesReal : clientesDemo) as Cliente[];
-export const productos = (real ? productosReal : productosDemo) as Producto[];
-export const ventas = (real ? ventasReal : ventasDemo) as Venta[];
-export const trm = (real ? trmReal : trmDemo) as Trm[];
+type Meta = { fecha_corte: string | null; fecha_inicio: string | null; meses_historia: number };
+interface Conjunto {
+  clientes: Cliente[];
+  productos: Producto[];
+  ventas: Venta[];
+  trm: Trm[];
+  meta: Meta;
+}
+
+/**
+ * Qué datos usa la web:
+ * - Demo original: los archivos de src/data/ (los del guion).
+ * - Demo al azar: se generan en el navegador con otra semilla (mismo generador).
+ * - Real: lo que se subió en el Centro de datos (guardado en este navegador) o, si no hay, src/data/real/ (vacío).
+ */
+function elegirConjunto(): Conjunto {
+  if (real) {
+    const guardados = leerDatosReales();
+    if (guardados) return guardados;
+    return { clientes: clientesReal, productos: productosReal, ventas: ventasReal, trm: trmReal, meta: metaReal } as Conjunto;
+  }
+  if (esDemoOriginal) {
+    return { clientes: clientesOriginal, productos: productosOriginal, ventas: ventasOriginal, trm: trmOriginal, meta: metaOriginal } as Conjunto;
+  }
+  return generarDatos(SEMILLA) as Conjunto;
+}
+const conjunto = elegirConjunto();
+
+export const clientes = conjunto.clientes;
+export const productos = conjunto.productos;
+export const ventas = conjunto.ventas;
+export const trm = conjunto.trm;
 
 /** Fecha de hoy (UTC, sin hora) en formato AAAA-MM-DD. */
 const hoyIso = new Date().toISOString().slice(0, 10);
-const metaBase = (real ? metaReal : metaDemo) as { fecha_corte: string | null; fecha_inicio: string | null; meses_historia: number };
+const metaBase = conjunto.meta;
 export const meta = {
   ...metaBase,
   // En modo Real sin fecha de corte, «hoy» es la fecha actual.

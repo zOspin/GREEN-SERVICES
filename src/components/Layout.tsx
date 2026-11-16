@@ -8,7 +8,7 @@ import SelectorModo from './SelectorModo';
 import AvisoSinDatos from './AvisoSinDatos';
 import { cambiarModo } from '../lib/modo';
 import { IconoAjustes, IconoAlerta, IconoCerrar, IconoClientes, IconoDatos, IconoInicio, IconoMenu, IconoPlay, IconoPrediccion, IconoRadar, IconoReporte, IconoReto, IconoVentas } from './Iconos';
-import { hayDatos, meta, MODO } from '../lib/datos';
+import { esDemoOriginal, hayDatos, meta, MODO, SEMILLA } from '../lib/datos';
 import { useDatos } from '../lib/umbrales';
 import { useContactados } from '../lib/contactados';
 import { useIdioma } from '../lib/idioma';
@@ -101,7 +101,8 @@ function Navegacion({ alNavegar }: { alNavegar?: () => void }) {
 /** Texto corto del modo actual (banda superior y pie de página). */
 function useTextoModo() {
   const { tr } = useIdioma();
-  if (MODO === 'demo') return tr('Demo con datos de prueba', 'Demo with test data');
+  if (MODO === 'demo')
+    return esDemoOriginal ? tr('Demo con datos de prueba', 'Demo with test data') : tr(`Demo con datos al azar (n.º ${SEMILLA})`, `Demo with random data (#${SEMILLA})`);
   return hayDatos ? tr('Modo real · datos de Green Services', 'Real mode · Green Services data') : tr('Modo real · sin datos todavía', 'Real mode · no data yet');
 }
 

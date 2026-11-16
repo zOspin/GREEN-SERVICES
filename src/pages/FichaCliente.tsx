@@ -97,7 +97,7 @@ export default function FichaCliente() {
         </div>
         <div className="mt-1 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-tenue">
-            {c.id} · <span className="capitalize">{sector(c.sector, idioma)}</span> · {c.ciudad} · {tr('cliente desde', 'client since')} {fmtFecha(c.fecha_primera_compra)}
+            {c.id} · <span className="capitalize">{sector(c.sector, idioma)}</span> · {c.ciudad && <>{c.ciudad} · </>}{tr('cliente desde', 'client since')} {fmtFecha(c.fecha_primera_compra)}
           </p>
           <Button variante={hecho ? 'secundario' : 'primario'} onClick={() => alternar(c.id)} aria-pressed={hecho} className="self-start">
             {hecho ? (

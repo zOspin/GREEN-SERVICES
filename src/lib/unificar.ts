@@ -7,7 +7,7 @@
  */
 import type { Cliente, Producto, Trm } from './types';
 
-export type CampoComun = 'fecha' | 'cliente' | 'producto' | 'cantidad' | 'valor_usd' | 'valor_cop' | 'trm';
+export type CampoComun = 'fecha' | 'cliente' | 'producto' | 'cantidad' | 'valor_usd' | 'valor_cop' | 'trm' | 'categoria' | 'tipo' | 'sector' | 'ciudad';
 
 /** Sinónimos conocidos para cada campo (sin tildes, en minúscula). */
 const SINONIMOS: Record<CampoComun, string[]> = {
@@ -18,6 +18,11 @@ const SINONIMOS: Record<CampoComun, string[]> = {
   valor_usd: ['valor usd', 'valor_usd', 'amount usd', 'amount_usd', 'total usd', 'usd'],
   valor_cop: ['valor cop', 'valor_cop', 'total cop', 'cop', 'valor pesos'],
   trm: ['trm', 'trm del dia', 'tasa', 'tasa de cambio'],
+  // Opcionales: describen al cliente o al producto cuando se cargan datos reales nuevos.
+  categoria: ['categoria', 'categoria producto', 'linea', 'familia', 'category'],
+  tipo: ['tipo', 'tipo producto', 'tipo de venta', 'type'],
+  sector: ['sector', 'industria', 'segmento', 'industry'],
+  ciudad: ['ciudad', 'city', 'sede'],
 };
 
 export const NOMBRE_CAMPO: Record<CampoComun, { es: string; en: string }> = {
@@ -28,6 +33,10 @@ export const NOMBRE_CAMPO: Record<CampoComun, { es: string; en: string }> = {
   valor_usd: { es: 'Valor USD', en: 'USD amount' },
   valor_cop: { es: 'Valor COP', en: 'COP amount' },
   trm: { es: 'TRM', en: 'Exchange rate' },
+  categoria: { es: 'Categoría', en: 'Category' },
+  tipo: { es: 'Tipo', en: 'Type' },
+  sector: { es: 'Sector', en: 'Sector' },
+  ciudad: { es: 'Ciudad', en: 'City' },
 };
 
 const normalizar = (s: string) =>
@@ -94,6 +103,8 @@ export interface VentaUnificada {
   id_producto: string;
   cantidad: number;
   valor_usd: number;
+  /** Valor en pesos: el del archivo o, si no viene, convertido con la TRM (0 si no hay TRM). */
+  valor_cop: number;
   origen: string;
 }
 
@@ -131,6 +142,11 @@ export interface ResultadoUnion {
   problemas: Problema[];
   coincidenConBase: number;
   trazas: Traza[];
+  /** Solo con `crearNuevos`: clientes y productos que no existían y se crearon desde los archivos. */
+  clientesNuevos: Cliente[];
+  productosNuevos: Producto[];
+  /** TRM encontrada en los archivos (columna TRM, o pesos ÷ dólares), una por fecha. */
+  trmLeida: Trm[];
 }
 
 interface Contexto {
@@ -138,6 +154,11 @@ interface Contexto {
   productos: Producto[];
   trm: Trm[];
   ventasBase: { fecha: string; id_cliente: string; id_producto: string; cantidad: number; valor_usd: number }[];
+  /**
+   * Modo Real: si un cliente o producto no existe, se crea con el texto del archivo
+   * (en vez de marcar la fila como problema). En la demo queda apagado.
+   */
+  crearNuevos?: boolean;
 }
 
 /** Une varios archivos de ventas en una sola tabla limpia. */
@@ -163,6 +184,46 @@ export function unirArchivos(entradas: { nombre: string; filas: Record<string, u
     productoPorClave.set(normalizar(p.nombre), p.id);
   }
   const trmPorFecha = new Map(ctx.trm.map((t) => [t.fecha, t.valor]));
+
+  // Clientes y productos nuevos (solo con crearNuevos), por su texto normalizado.
+  const clientesNuevos = new Map<string, Cliente>();
+  const productosNuevos = new Map<string, Producto>();
+  const trmLeida = new Map<string, number>();
+  const dato = (f: Record<string, unknown>, col: string | undefined) => (col ? String(f[col] ?? '').trim() : '');
+  const crearCliente = (texto: string, sector: string, ciudad: string, fecha: string) => {
+    const k = normalizar(texto);
+    let c = clientesNuevos.get(k);
+    if (!c) {
+      c = {
+        id: `CR-${String(clientesNuevos.size + 1).padStart(4, '0')}`,
+        nombre: texto.trim(),
+        sector: sector || 'sin sector',
+        ciudad,
+        fecha_primera_compra: fecha,
+        es_base_instalada: false,
+      };
+      clientesNuevos.set(k, c);
+    }
+    if (fecha < c.fecha_primera_compra) c.fecha_primera_compra = fecha;
+    if (c.sector === 'sin sector' && sector) c.sector = sector;
+    if (!c.ciudad && ciudad) c.ciudad = ciudad;
+    return c.id;
+  };
+  const crearProducto = (texto: string, categoria: string, tipo: string) => {
+    const k = normalizar(texto);
+    let p = productosNuevos.get(k);
+    if (!p) {
+      p = {
+        id: `PR-${String(productosNuevos.size + 1).padStart(4, '0')}`,
+        nombre: texto.trim(),
+        categoria: categoria || 'Sin categoría',
+        precio_usd: 0,
+        tipo: /recurr|servic|suscrip|licen|soporte|renov/i.test(tipo) ? 'servicio recurrente' : 'producto',
+      };
+      productosNuevos.set(k, p);
+    }
+    return p.id;
+  };
 
   const clave = (v: { fecha: string; id_cliente: string; id_producto: string; cantidad: number }) =>
     `${v.fecha}|${v.id_cliente}|${v.id_producto}|${v.cantidad}`;
@@ -192,8 +253,13 @@ export function unirArchivos(entradas: { nombre: string; filas: Record<string, u
       }
       const fecha = leerFecha(f[colDe('fecha')!]);
       const textoCliente = String(f[colDe('cliente')!] ?? '');
-      const id_cliente = resolverCliente(textoCliente);
-      const id_producto = productoPorClave.get(normalizar(String(f[colDe('producto')!] ?? '')));
+      const textoProducto = String(f[colDe('producto')!] ?? '');
+      let id_cliente = resolverCliente(textoCliente);
+      let id_producto = productoPorClave.get(normalizar(textoProducto));
+      if (ctx.crearNuevos && fecha) {
+        if (!id_cliente && textoCliente.trim()) id_cliente = crearCliente(textoCliente, dato(f, colDe('sector')), dato(f, colDe('ciudad')), fecha);
+        if (!id_producto && textoProducto.trim()) id_producto = crearProducto(textoProducto, dato(f, colDe('categoria')), dato(f, colDe('tipo')));
+      }
       const cantidad = colDe('cantidad') ? (leerNumero(f[colDe('cantidad')!]) ?? 1) : 1;
       const v = (campo: CampoComun) => String(f[colDe(campo)!] ?? '');
       if (!fecha) return problemas.push({ origen: nombre, fila, motivo: { es: `Fecha no reconocida: «${v('fecha')}»`, en: `Unrecognized date: "${v('fecha')}"` } });
@@ -202,14 +268,19 @@ export function unirArchivos(entradas: { nombre: string; filas: Record<string, u
 
       // Valor en USD: directo, o convertido desde pesos con la TRM de la fila (o la del día).
       let valor_usd = colDe('valor_usd') ? leerNumero(f[colDe('valor_usd')!]) : null;
-      if (valor_usd === null && colDe('valor_cop')) {
-        const cop = leerNumero(f[colDe('valor_cop')!]);
-        const tasa = (colDe('trm') ? leerNumero(f[colDe('trm')!]) : null) ?? trmPorFecha.get(fecha) ?? null;
-        if (cop !== null && tasa) valor_usd = Math.round((cop / tasa) * 100) / 100;
-      }
+      const cop = colDe('valor_cop') ? leerNumero(f[colDe('valor_cop')!]) : null;
+      const tasaFila = colDe('trm') ? leerNumero(f[colDe('trm')!]) : null;
+      const tasa = tasaFila || trmPorFecha.get(fecha) || trmLeida.get(fecha) || null;
+      if (valor_usd === null && cop !== null && tasa) valor_usd = Math.round((cop / tasa) * 100) / 100;
       if (valor_usd === null) return problemas.push({ origen: nombre, fila, motivo: { es: 'Sin valor de venta', en: 'Missing sale amount' } });
+      // TRM del día: la de la fila o, si vienen pesos y dólares, la que resulta de dividirlos.
+      const tasaDia = tasaFila || (cop && valor_usd ? cop / valor_usd : null);
+      if (tasaDia && tasaDia > 100 && !trmLeida.has(fecha)) trmLeida.set(fecha, Math.round(tasaDia * 100) / 100);
+      const valor_cop = cop ?? (tasa ? Math.round(valor_usd * tasa) : 0);
+      const nuevo = [...productosNuevos.values()].find((p) => p.id === id_producto);
+      if (nuevo && !nuevo.precio_usd && cantidad > 0) nuevo.precio_usd = Math.round((valor_usd / cantidad) * 100) / 100;
 
-      const venta: VentaUnificada = { fecha, id_cliente, id_producto, cantidad, valor_usd, origen: nombre };
+      const venta: VentaUnificada = { fecha, id_cliente, id_producto, cantidad, valor_usd, valor_cop, origen: nombre };
       resumen.validas++;
       // Duplicado: misma fecha, cliente, producto y cantidad, y valor casi igual (±1 %),
       // aunque venga de otra plataforma (el valor en pesos convertido puede variar unos centavos).
@@ -229,5 +300,9 @@ export function unirArchivos(entradas: { nombre: string; filas: Record<string, u
     problemas,
     trazas,
     coincidenConBase: ventas.filter((v) => base.has(`${clave(v)}|${Math.round(v.valor_usd)}`)).length,
+    // Solo los que quedaron con al menos una venta válida.
+    clientesNuevos: [...clientesNuevos.values()].filter((c) => ventas.some((v) => v.id_cliente === c.id)),
+    productosNuevos: [...productosNuevos.values()].filter((p) => ventas.some((v) => v.id_producto === p.id)),
+    trmLeida: [...trmLeida.entries()].map(([fecha, valor]) => ({ fecha, valor })).sort((a, b) => a.fecha.localeCompare(b.fecha)),
   };
 }

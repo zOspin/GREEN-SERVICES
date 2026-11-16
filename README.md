@@ -57,9 +57,10 @@ Abre en el navegador la dirección que aparece en la terminal (**http://localhos
 En el menú, el selector **Datos** cambia entre:
 
 - **Demo**: datos inventados (60 clientes, 18 meses) con la historia del Cliente 23. Es el modo para presentar.
-- **Real**: datos reales anonimizados de Green Services, en `src/data/real/`. Hoy está vacío, así que todo aparece en cero. Cómo llenarlo: `src/data/real/LEEME.md`.
+  El botón **🎲 Generar otra demo al azar** crea clientes y compras nuevos (el Cliente 23 se mantiene); «volver a la original» regresa a la del guion.
+- **Real**: datos reales anonimizados de Green Services. Sin datos, todo aparece en cero (no se inventa nada). Para llenarlo: **Centro de datos → Descargar plantilla**, llenarla con la exportación (o subir los archivos tal como salen de cada sistema) y pulsar **«Usar estos datos en modo Real»**. Se guardan solo en ese navegador. Más detalle: `src/data/real/LEEME.md`.
 
-La demo en vivo siempre usa el modo Demo.
+La demo en vivo siempre usa la demo original.
 
 ## Pantallas
 

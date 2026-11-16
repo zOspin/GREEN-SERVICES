@@ -233,7 +233,7 @@ export default function Radar() {
               }
             >
               <p className="-mt-2 mb-3 text-sm text-tenue">
-                <span className="capitalize">{nombreSector(seleccionado.cliente.sector, idioma)}</span> · {seleccionado.cliente.ciudad} ·{' '}
+                <span className="capitalize">{nombreSector(seleccionado.cliente.sector, idioma)}</span> · {seleccionado.cliente.ciudad && <>{seleccionado.cliente.ciudad} · </>}
                 {tr(`compra ${fmtCompacto(valorAnual(seleccionado, HOY))} al año`, `buys ${fmtCompacto(valorAnual(seleccionado, HOY))} per year`)}
               </p>
               <ExplicacionRiesgo a={seleccionado} compacta />

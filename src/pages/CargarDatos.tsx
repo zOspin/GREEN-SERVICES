@@ -10,7 +10,9 @@ import { NOMBRE_CAMPO, unirArchivos, type ResultadoUnion } from '../lib/unificar
 import { producto } from '../lib/catalogo';
 import { useIdioma, type Bi } from '../lib/idioma';
 import { fmtFecha, fmtNum, fmtUsd } from '../lib/format';
-import { descargarCsv } from '../lib/descargar';
+import { descargarCsv, descargarEncabezados } from '../lib/descargar';
+import { armarDatosReales, COLUMNAS_PLANTILLA } from '../lib/datosReales';
+import { borrarDatosReales, guardarDatosReales, leerDatosReales } from '../lib/modo';
 
 type Fila = Record<string, unknown>;
 interface Archivo {
@@ -78,6 +80,9 @@ export default function CargarDatos() {
   const entrada = useRef<HTMLInputElement>(null);
   const [params] = useSearchParams();
   const clienteSeguido = params.get('cliente') ?? CLIENTE_DEMO;
+  const real = MODO === 'real';
+  const [sinEspacio, setSinEspacio] = useState(false);
+  const guardados = real ? leerDatosReales() : null;
 
   const agregar = (nuevos: Archivo[]) =>
     setArchivos((prev) => [...prev.filter((p) => !nuevos.some((n) => n.nombre === p.nombre)), ...nuevos]);
@@ -107,7 +112,7 @@ export default function CargarDatos() {
   };
 
   // Modo presentación (/datos?demo=1): carga sola los 3 archivos de ejemplo.
-  const demo = params.get('demo') === '1';
+  const demo = params.get('demo') === '1' && !real;
   useEffect(() => {
     if (demo) void cargarEjemplos();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -115,8 +120,18 @@ export default function CargarDatos() {
 
   const legibles = archivos.filter((a) => !a.error);
   const union: ResultadoUnion | null = legibles.length
-    ? unirArchivos(legibles.map((a) => ({ nombre: a.nombre, filas: a.filas })), { clientes, productos, trm, ventasBase: ventas })
+    ? unirArchivos(
+        legibles.map((a) => ({ nombre: a.nombre, filas: a.filas })),
+        // Modo Real: se parte de cero y se crean los clientes y productos que traigan los archivos.
+        real ? { clientes: [], productos: [], trm: [], ventasBase: [], crearNuevos: true } : { clientes, productos, trm, ventasBase: ventas },
+      )
     : null;
+  // Nombres de productos: los del catálogo y los nuevos que vinieron en los archivos.
+  const nombreProducto = (id: string) => productoPorId.get(id)?.nombre ?? union?.productosNuevos.find((p) => p.id === id)?.nombre ?? id;
+  const usarEnModoReal = () => {
+    if (!union) return;
+    if (!guardarDatosReales(armarDatosReales(union, legibles.map((a) => a.nombre)))) setSinEspacio(true);
+  };
   const totalLeidas = union?.archivos.reduce((s, a) => s + a.filasLeidas, 0) ?? 0;
   const totalVacias = union?.archivos.reduce((s, a) => s + a.vacias, 0) ?? 0;
 
@@ -147,8 +162,8 @@ export default function CargarDatos() {
         {!hayDatos ? (
           <p className="text-slate-200" role="status">
             {tr(
-              'Todavía no hay datos reales cargados. Los archivos de ejemplo de abajo sirven para ver cómo Órbita Pulse une la información.',
-              'No real data loaded yet. The sample files below show how Órbita Pulse merges the information.',
+              'Todavía no hay datos reales. Descarga la plantilla, llénala con la exportación de Green Services (o sube los archivos tal como salen de cada sistema) y pulsa «Usar estos datos en modo Real».',
+              "No real data yet. Download the template, fill it with Green Services' export (or upload the files as each system exports them) and press \"Use this data in Real mode\".",
             )}
           </p>
         ) : (
@@ -168,9 +183,49 @@ export default function CargarDatos() {
           </span>
         </p>
         )}
+        {guardados && (
+          <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-tenue">
+            <span>
+              {tr('Guardados solo en este navegador desde', 'Saved only in this browser since')} {fmtFecha(guardados.meta.guardado.slice(0, 10))} ·{' '}
+              {guardados.meta.archivos.join(', ')}
+            </span>
+            <Button variante="fantasma" onClick={() => window.confirm(tr('¿Borrar los datos reales de este navegador? El modo Real volverá a quedar en cero.', 'Delete the real data from this browser? Real mode will go back to zero.')) && borrarDatosReales()}>
+              {tr('Borrar datos reales', 'Delete real data')}
+            </Button>
+          </div>
+        )}
       </Card>
 
       <Card titulo={tr('1. Trae los archivos de cada plataforma', '1. Bring the files from each platform')} className="mt-6">
+        {real ? (
+          <Panel>
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div className="min-w-0 flex-1">
+                <p className="font-semibold text-white">{tr('Lo que necesita la página', 'What the page needs')}</p>
+                <p className="mt-1 text-sm text-tenue">
+                  {tr(
+                    'Una fila por venta. Los nombres de las columnas pueden variar: Órbita Pulse reconoce sinónimos (por ejemplo «date», «SKU», «Valor COP»).',
+                    'One row per sale. Column names can vary: Órbita Pulse recognizes synonyms (for example "date", "SKU", "Valor COP").',
+                  )}
+                </p>
+              </div>
+              <Button onClick={() => descargarEncabezados('plantilla-orbita-pulse.csv', COLUMNAS_PLANTILLA.map((c) => c.columna))}>
+                <IconoDescargar width={16} height={16} /> {tr('Descargar plantilla', 'Download template')}
+              </Button>
+            </div>
+            <ul className="mt-3 grid grid-cols-1 gap-x-6 gap-y-1 text-sm md:grid-cols-2">
+              {COLUMNAS_PLANTILLA.map((c) => (
+                <li key={c.columna}>
+                  <code className="text-acento">{c.columna}</code>{' '}
+                  <span className={c.obligatoria ? 'text-xs font-semibold text-red-300' : 'text-xs text-tenue'}>
+                    ({c.obligatoria ? tr('obligatoria', 'required') : tr('opcional', 'optional')})
+                  </span>{' '}
+                  <span className="text-slate-300">— {tr(c.es, c.en)}</span>
+                </li>
+              ))}
+            </ul>
+          </Panel>
+        ) : (
         <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
           {EJEMPLOS.map((e) => (
             <Panel key={e.archivo}>
@@ -182,6 +237,7 @@ export default function CargarDatos() {
             </Panel>
           ))}
         </div>
+        )}
 
         <div
           className={`mt-4 flex flex-col items-center justify-center rounded-2xl border-2 border-dashed p-8 text-center transition-colors ${
@@ -202,10 +258,14 @@ export default function CargarDatos() {
           <p className="mt-3 font-medium text-white">{tr('Arrastra aquí tus archivos CSV o Excel', 'Drag your CSV or Excel files here')}</p>
           <p className="mt-1 text-sm text-tenue">{tr('Se leen en tu navegador; nada se envía a internet.', 'They are read in your browser; nothing is sent to the internet.')}</p>
           <div className="mt-4 flex flex-wrap justify-center gap-2">
-            <Button variante="primario" onClick={() => void cargarEjemplos()}>
-              {tr('Cargar los 3 archivos de ejemplo', 'Load the 3 sample files')}
+            {!real && (
+              <Button variante="primario" onClick={() => void cargarEjemplos()}>
+                {tr('Cargar los 3 archivos de ejemplo', 'Load the 3 sample files')}
+              </Button>
+            )}
+            <Button variante={real ? 'primario' : undefined} onClick={() => entrada.current?.click()}>
+              {tr('Elegir archivos', 'Choose files')}
             </Button>
-            <Button onClick={() => entrada.current?.click()}>{tr('Elegir archivos', 'Choose files')}</Button>
             {archivos.length > 0 && (
               <Button variante="fantasma" onClick={() => setArchivos([])}>
                 {tr('Quitar todos', 'Remove all')}
@@ -236,10 +296,14 @@ export default function CargarDatos() {
         <div className="mt-6">
           <EmptyState
             titulo={tr('Aún no hay archivos cargados', 'No files loaded yet')}
-            descripcion={tr(
-              'Usa «Cargar los 3 archivos de ejemplo» para ver cómo Órbita Pulse une datos regados.',
-              'Use "Load the 3 sample files" to see how Órbita Pulse brings scattered data together.',
-            )}
+            descripcion={
+              real
+                ? tr('Sube los archivos reales de Green Services (CSV o Excel).', "Upload Green Services' real files (CSV or Excel).")
+                : tr(
+                    'Usa «Cargar los 3 archivos de ejemplo» para ver cómo Órbita Pulse une datos regados.',
+                    'Use "Load the 3 sample files" to see how Órbita Pulse brings scattered data together.',
+                  )
+            }
           />
         </div>
       )}
@@ -344,6 +408,34 @@ export default function CargarDatos() {
             </p>
           </Card>
 
+          {real && (
+            <Card titulo={tr('4. Usar estos datos en modo Real', '4. Use this data in Real mode')} className="mt-6">
+              <p className="text-sm text-slate-300">
+                {tr(
+                  `Se crearán ${union.clientesNuevos.length} clientes, ${union.productosNuevos.length} productos y ${fmtNum(union.ventas.length)} ventas, con ${union.trmLeida.length ? `TRM de ${fmtNum(union.trmLeida.length)} días` : 'sin TRM (los valores en pesos quedarán en 0 si no vienen en el archivo)'}. Todas las pantallas se recalculan con estos datos.`,
+                  `This creates ${union.clientesNuevos.length} clients, ${union.productosNuevos.length} products and ${fmtNum(union.ventas.length)} sales, with ${union.trmLeida.length ? `exchange rates for ${fmtNum(union.trmLeida.length)} days` : 'no exchange rate (peso amounts stay at 0 unless the file has them)'}. Every screen is recalculated with this data.`,
+                )}
+              </p>
+              <p className="mt-2 text-sm text-tenue">
+                {tr(
+                  'Se guardan solo en este navegador: no se suben a internet ni a GitHub. Si quedan filas «con problemas», corrígelas en el archivo y vuelve a subirlo.',
+                  'They are saved only in this browser: nothing is uploaded to the internet or GitHub. If some rows have issues, fix them in the file and upload it again.',
+                )}
+              </p>
+              <div className="mt-4 flex flex-wrap items-center gap-3">
+                <Button variante="primario" onClick={usarEnModoReal} disabled={!union.ventas.length}>
+                  {tr('Usar estos datos en modo Real', 'Use this data in Real mode')}
+                </Button>
+                {guardados && <span className="text-sm text-tenue">{tr('Reemplaza los datos reales guardados.', 'Replaces the saved real data.')}</span>}
+              </div>
+              {sinEspacio && (
+                <p className="mt-3 text-sm text-red-300" role="alert">
+                  {tr('El navegador no tiene espacio para guardar tantos datos.', 'The browser has no room to store this much data.')}
+                </p>
+              )}
+            </Card>
+          )}
+
           {union.trazas.some((t) => t.id_cliente === clienteSeguido) && (
             <Card
               id="seguimiento-cliente"
@@ -386,7 +478,7 @@ export default function CargarDatos() {
                           <code className="rounded bg-fondo/70 px-1.5 py-0.5 text-slate-100">{t.textoCliente}</code> → {t.id_cliente}
                         </Td>
                         <Td className="whitespace-nowrap">{fmtFecha(t.fecha)}</Td>
-                        <Td>{producto(productoPorId.get(t.id_producto)?.nombre ?? t.id_producto, idioma)}</Td>
+                        <Td>{producto(nombreProducto(t.id_producto), idioma)}</Td>
                         <Td derecha>{fmtUsd(t.valor_usd)}</Td>
                         <Td>
                           {t.duplicado ? (
@@ -438,7 +530,7 @@ export default function CargarDatos() {
                     <Tr key={i}>
                       <Td className="whitespace-nowrap">{fmtFecha(v.fecha)}</Td>
                       <Td>{v.id_cliente}</Td>
-                      <Td className="text-slate-200">{producto(productoPorId.get(v.id_producto)?.nombre ?? v.id_producto, idioma)}</Td>
+                      <Td className="text-slate-200">{producto(nombreProducto(v.id_producto), idioma)}</Td>
                       <Td derecha>{v.cantidad}</Td>
                       <Td derecha>{fmtUsd(v.valor_usd)}</Td>
                       <Td className="text-xs text-tenue">{v.origen}</Td>
