@@ -79,3 +79,4 @@ Cuando algo no estaba especificado, tomamos la opción más simple. Aquí quedan
 55. **Las diapositivas (`slides.html`) no están en el repositorio**, solo su README y `deck.css`; se usaron esos dos archivos como referencia.
 
 56. **Puerto propio 5180** en `vite.config.ts` (con `strictPort` y apertura automática del navegador): en el computador del equipo había otro proyecto con Vite en el 5173 y el navegador abría ese en lugar de Órbita Pulse.
+57. **Puerto cambiado a 5190** y sin `strictPort`: si el puerto está ocupado, Vite usa el siguiente libre y abre el navegador en esa dirección, en lugar de fallar.

@@ -5,7 +5,7 @@ La demo en vivo empieza justo después de la **diapositiva 16** («¡Gracias!» 
 ## Antes de empezar
 
 1. Abre la terminal en la carpeta del proyecto y corre `npm run dev`.
-2. Abre http://localhost:5180/reto en el navegador, en pantalla completa (F11).
+2. Abre http://localhost:5190/reto en el navegador, en pantalla completa (F11).
 3. Revisa que el menú diga **ES** y el tema que prefieras: si el proyector se ve lavado, pulsa **Claro**.
 4. Pulsa **«Iniciar demo en vivo (Cliente 23)»** (también está en el menú). Aparece una barra abajo con los 5 pasos.
 5. Para avanzar: botón **Siguiente** o flecha **→** del teclado. Para volver: **←**. Para salir: **Esc**.
