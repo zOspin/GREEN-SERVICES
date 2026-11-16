@@ -4,7 +4,7 @@ import GraficaVentas from '../components/GraficaVentas';
 import AlertaItem from '../components/AlertaItem';
 import Impacto from '../components/Impacto';
 import { IconoFlecha, IconoReporte } from '../components/Iconos';
-import { HOY, mesActual, pronostico, serie, trmHoy, trmVariacion30 } from '../lib/datos';
+import { hayDatos, HOY, mesActual, pronostico, serie, trmHoy, trmVariacion30 } from '../lib/datos';
 import { useDatos } from '../lib/umbrales';
 import { useContactados } from '../lib/contactados';
 import { useIdioma } from '../lib/idioma';
@@ -131,7 +131,11 @@ export default function Inicio() {
           ) : (
             <EmptyState
               titulo={tr('No hay alertas pendientes', 'No pending alerts')}
-              descripcion={tr('Ya contactaste a todos los clientes priorizados. ¡Buen trabajo!', "You've contacted every prioritized client. Great job!")}
+              descripcion={
+                hayDatos
+                  ? tr('Ya contactaste a todos los clientes priorizados. ¡Buen trabajo!', "You've contacted every prioritized client. Great job!")
+                  : tr('Las alertas aparecen cuando haya datos de ventas.', 'Alerts appear once there is sales data.')
+              }
             />
           )}
         </Card>

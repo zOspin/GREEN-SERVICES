@@ -5,7 +5,7 @@ import Papa from 'papaparse';
 import * as XLSX from 'xlsx';
 import { Button, Card, EmptyState, PageHeader, Panel, StatCard, Table, Td, Th, Thead, Tr, INFO_ESTADO } from '../components/ui';
 import { IconoCandado, IconoCheck, IconoDescargar, IconoSubir } from '../components/Iconos';
-import { clientes, meta, productoPorId, productos, trm, ventas, CLIENTE_DEMO } from '../lib/datos';
+import { clientes, hayDatos, meta, MODO, productoPorId, productos, trm, ventas, CLIENTE_DEMO } from '../lib/datos';
 import { NOMBRE_CAMPO, unirArchivos, type ResultadoUnion } from '../lib/unificar';
 import { producto } from '../lib/catalogo';
 import { useIdioma, type Bi } from '../lib/idioma';
@@ -134,7 +134,9 @@ export default function CargarDatos() {
         <IconoCandado className="mt-0.5 shrink-0" />
         <p>
           <strong>
-            {tr('Los datos reales son confidenciales; esta demo usa datos inventados.', 'Real company data is confidential; this demo uses synthetic data.')}
+            {MODO === 'demo'
+              ? tr('Los datos reales son confidenciales; esta demo usa datos inventados.', 'Real company data is confidential; this demo uses synthetic data.')
+              : tr('Modo Real: los datos de Green Services llegan anonimizados y no salen de la empresa.', "Real mode: Green Services' data arrives anonymized and stays within the company.")}
           </strong>
         </p>
       </div>
@@ -142,11 +144,19 @@ export default function CargarDatos() {
       <Impacto className="mb-6" />
 
       <Card titulo={tr('Datos actuales', 'Current data')}>
+        {!hayDatos ? (
+          <p className="text-slate-200" role="status">
+            {tr(
+              'Todavía no hay datos reales cargados. Los archivos de ejemplo de abajo sirven para ver cómo Órbita Pulse une la información.',
+              'No real data loaded yet. The sample files below show how Órbita Pulse merges the information.',
+            )}
+          </p>
+        ) : (
         <p className="text-slate-200" role="status">
           <IconoCheck width={18} height={18} className="mr-1 inline text-green-300" />
           {tr(
-            `Datos sintéticos cargados: ${clientes.length} clientes, ${fmtNum(ventas.length)} ventas, ${meta.meses_historia} meses`,
-            `Synthetic data loaded: ${clientes.length} clients, ${fmtNum(ventas.length)} sales, ${meta.meses_historia} months`,
+            `${MODO === 'demo' ? 'Datos sintéticos cargados' : 'Datos reales cargados'}: ${clientes.length} clientes, ${fmtNum(ventas.length)} ventas, ${meta.meses_historia} meses`,
+            `${MODO === 'demo' ? 'Synthetic data loaded' : 'Real data loaded'}: ${clientes.length} clients, ${fmtNum(ventas.length)} sales, ${meta.meses_historia} months`,
           )}
           <span className="text-tenue">
             {' '}
@@ -157,6 +167,7 @@ export default function CargarDatos() {
             )}
           </span>
         </p>
+        )}
       </Card>
 
       <Card titulo={tr('1. Trae los archivos de cada plataforma', '1. Bring the files from each platform')} className="mt-6">

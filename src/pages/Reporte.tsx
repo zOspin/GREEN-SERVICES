@@ -7,7 +7,7 @@ import type { AnalisisCliente } from '../lib/analytics';
 import { categoria } from '../lib/catalogo';
 import { useIdioma } from '../lib/idioma';
 import { fmtCompacto, fmtDec, fmtFecha, fmtMesLargo, fmtPct, fmtTrm, fmtUsd } from '../lib/format';
-import { HOY } from '../lib/datos';
+import { HOY, MODO } from '../lib/datos';
 import { useDatos } from '../lib/umbrales';
 
 const MESES = mesesDisponibles(6);
@@ -195,8 +195,8 @@ export default function Reporte() {
         </div>
         <p className="text-xs text-tenue">
           {tr(
-            'Estados calculados con los datos disponibles al último día del mes. Los datos reales son confidenciales; este reporte usa datos inventados.',
-            'Statuses calculated with the data available on the last day of the month. Real data is confidential; this report uses synthetic data.',
+            `Estados calculados con los datos disponibles al último día del mes.${MODO === 'demo' ? ' Los datos reales son confidenciales; este reporte usa datos inventados.' : ''}`,
+            `Statuses calculated with the data available on the last day of the month.${MODO === 'demo' ? ' Real data is confidential; this report uses synthetic data.' : ''}`,
           )}
         </p>
       </article>

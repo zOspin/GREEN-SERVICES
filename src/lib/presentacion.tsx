@@ -6,6 +6,7 @@
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CLIENTE_DEMO } from './datos';
+import { tomarPresentacionPendiente } from './modo';
 import type { Bi } from './idioma';
 
 export interface Paso {
@@ -119,6 +120,12 @@ export function PresentacionProvider({ children }: { children: ReactNode }) {
     },
     [navegar],
   );
+
+  // Si se pidió la demo desde el modo Real, la página se recargó en modo Demo: se inicia aquí.
+  useEffect(() => {
+    if (tomarPresentacionPendiente()) ir(0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (!activo) return;

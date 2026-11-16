@@ -80,3 +80,7 @@ Cuando algo no estaba especificado, tomamos la opción más simple. Aquí quedan
 
 56. **Puerto propio 5180** en `vite.config.ts` (con `strictPort` y apertura automática del navegador): en el computador del equipo había otro proyecto con Vite en el 5173 y el navegador abría ese en lugar de Órbita Pulse.
 57. **Puerto cambiado a 5190** y sin `strictPort`: si el puerto está ocupado, Vite usa el siguiente libre y abre el navegador en esa dirección, en lugar de fallar.
+58. **Dos modos de datos: Demo y Real** (selector «Datos» en el menú, guardado en el navegador con la clave `orbita-modo`; también `?modo=demo` o `?modo=real` en la dirección). Demo usa los datos inventados de `src/data/` (sin cambios, con la historia del Cliente 23). Real usa `src/data/real/`, que hoy está vacío a propósito: todo aparece en cero hasta recibir los datos de Green Services (ver `src/data/real/LEEME.md`).
+59. **Cambiar de modo recarga la página**: los datos se leen una sola vez al cargar; recargar fue lo más simple y no obligó a reescribir las pantallas.
+60. **La demo en vivo siempre usa el modo Demo**: si se pulsa «Iniciar demo en vivo» estando en Real, la web cambia a Demo y arranca la presentación sola.
+61. En modo Real sin datos, «hoy» es la fecha actual, la TRM se muestra en 0 y un aviso arriba explica por qué todo está en cero. Los datos de demo no se volvieron «más al azar»: ya son aleatorios (con semilla fija) y así los números del guion no cambian entre ensayos.

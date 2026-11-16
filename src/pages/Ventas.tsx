@@ -56,7 +56,7 @@ function RecuperarCliente() {
   const oportunidad = rec?.valorEstimado ?? 0;
   const copHoy = oportunidad * trmHoy.valor;
   const copAntes = oportunidad * trmHace30.valor;
-  const variacion = (trmHoy.valor - trmHace30.valor) / trmHace30.valor;
+  const variacion = trmHace30.valor ? (trmHoy.valor - trmHace30.valor) / trmHace30.valor : 0;
   const candidatos = analisis.filter((x) => x.estado !== 'activo' || x.cliente.id === id).sort((x, y) => x.cliente.nombre.localeCompare(y.cliente.nombre));
 
   return (
@@ -127,8 +127,9 @@ export default function Ventas() {
   const trmMax = Math.max(...serieVentasTrm.map((p) => p.trm));
   const primero = serieVentasTrm[0];
   const ultimo = serieVentasTrm[serieVentasTrm.length - 1];
-  const variacionTrm = (ultimo.trm - primero.trm) / primero.trm;
-  const top = categoriasMes.ranking[0];
+  const variacionTrm = primero.trm ? (ultimo.trm - primero.trm) / primero.trm : 0;
+  // Sin ventas (modo Real vacío) no hay categoría líder: se muestra un guion.
+  const top = categoriasMes.ranking[0] as (typeof categoriasMes.ranking)[number] | undefined;
   const tooltip = {
     contentStyle: { background: c.tooltipFondo, border: `1px solid ${c.tooltipBorde}`, borderRadius: 10, color: c.tooltipTexto },
     labelStyle: { color: c.tooltipTexto, fontWeight: 600 },
@@ -150,8 +151,8 @@ export default function Ventas() {
         <StatCard titulo={tr('Ventas últimos 12 meses', 'Sales, last 12 months')} valor={fmtCompacto(total.usd)} detalle={fmtCompacto(total.cop, 'COP')} />
         <StatCard
           titulo={tr('Categoría que más vende', 'Top-selling category')}
-          valor={categoria(top.categoria, idioma)}
-          detalle={tr(`${fmtCompacto(top.usd)} en 12 meses`, `${fmtCompacto(top.usd)} in 12 months`)}
+          valor={top ? categoria(top.categoria, idioma) : '—'}
+          detalle={tr(`${fmtCompacto(top?.usd ?? 0)} en 12 meses`, `${fmtCompacto(top?.usd ?? 0)} in 12 months`)}
         />
         <StatCard
           titulo={tr('TRM promedio mensual', 'Monthly average TRM')}

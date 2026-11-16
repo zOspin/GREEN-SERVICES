@@ -1,4 +1,4 @@
-import { ButtonLink } from '../components/ui';
+import { ButtonLink, EmptyState } from '../components/ui';
 import Logo from '../components/Logo';
 import { CLIENTE_DEMO, HOY } from '../lib/datos';
 import { valorAnual } from '../lib/analytics';
@@ -12,7 +12,14 @@ export default function Cierre() {
   const { idioma, tr } = useIdioma();
   const { analisisPorId, resultadoBacktest } = useDatos();
   const a = analisisPorId.get(CLIENTE_DEMO);
-  if (!a) return null;
+  // El cierre cuenta la historia del Cliente 23, que solo existe en los datos de demo.
+  if (!a)
+    return (
+      <EmptyState
+        titulo={tr('Esta pantalla es parte de la demo', 'This screen is part of the demo')}
+        descripcion={tr('Cuenta la historia del Cliente 23, que solo existe en el modo Demo.', 'It tells the story of Client 23, which only exists in Demo mode.')}
+      />
+    );
   const anual = valorAnual(a, HOY);
   const rec = a.productoRecomendado;
   return (

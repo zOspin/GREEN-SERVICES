@@ -51,6 +51,16 @@ Abre en el navegador la dirección que aparece en la terminal (**http://localhos
 | `npm run preview` | Sirve la versión final para probarla |
 | `npm run generate-data` | Regenera los datos inventados y los CSV de ejemplo |
 
+
+## Modo Demo y modo Real
+
+En el menú, el selector **Datos** cambia entre:
+
+- **Demo**: datos inventados (60 clientes, 18 meses) con la historia del Cliente 23. Es el modo para presentar.
+- **Real**: datos reales anonimizados de Green Services, en `src/data/real/`. Hoy está vacío, así que todo aparece en cero. Cómo llenarlo: `src/data/real/LEEME.md`.
+
+La demo en vivo siempre usa el modo Demo.
+
 ## Pantallas
 
 | Ruta | Pantalla | Para quién |

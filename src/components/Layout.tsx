@@ -4,8 +4,11 @@ import ModoPresentacion from './ModoPresentacion';
 import { usePresentacion } from '../lib/presentacion';
 import Logo from './Logo';
 import Preferencias from './Preferencias';
+import SelectorModo from './SelectorModo';
+import AvisoSinDatos from './AvisoSinDatos';
+import { cambiarModo } from '../lib/modo';
 import { IconoAjustes, IconoAlerta, IconoCerrar, IconoClientes, IconoDatos, IconoInicio, IconoMenu, IconoPlay, IconoPrediccion, IconoRadar, IconoReporte, IconoReto, IconoVentas } from './Iconos';
-import { meta } from '../lib/datos';
+import { hayDatos, meta, MODO } from '../lib/datos';
 import { useDatos } from '../lib/umbrales';
 import { useContactados } from '../lib/contactados';
 import { useIdioma } from '../lib/idioma';
@@ -32,9 +35,12 @@ function BotonDemo({ alPulsar }: { alPulsar?: () => void }) {
     <button
       type="button"
       onClick={() => {
+        // La historia del Cliente 23 vive en los datos de demo: en modo Real, primero se cambia a Demo.
+        if (MODO === 'real') return cambiarModo('demo', { presentar: true });
         iniciar();
         alPulsar?.();
       }}
+      title={MODO === 'real' ? tr('Cambia a modo Demo e inicia la presentación', 'Switches to Demo mode and starts the presentation') : undefined}
       className="flex w-full items-center justify-center gap-2 rounded-lg border border-acento/60 bg-acento/10 px-3 py-2 text-sm font-semibold text-acento hover:bg-acento/20"
     >
       <IconoPlay width={16} height={16} /> {activo ? tr('Reiniciar demo en vivo', 'Restart live demo') : tr('Iniciar demo en vivo', 'Start live demo')}
@@ -92,12 +98,21 @@ function Navegacion({ alNavegar }: { alNavegar?: () => void }) {
   );
 }
 
+/** Texto corto del modo actual (banda superior y pie de página). */
+function useTextoModo() {
+  const { tr } = useIdioma();
+  if (MODO === 'demo') return tr('Demo con datos de prueba', 'Demo with test data');
+  return hayDatos ? tr('Modo real · datos de Green Services', 'Real mode · Green Services data') : tr('Modo real · sin datos todavía', 'Real mode · no data yet');
+}
+
 function PieDemo() {
   const { tr } = useIdioma();
   return (
     <div className="rounded-xl border border-borde bg-fondo/60 p-3 text-xs text-tenue">
-      <p className="font-medium text-slate-300">{tr('Demo con datos sintéticos', 'Demo with synthetic data')}</p>
-      <p className="mt-1">{tr('Corte', 'Data as of')}: {fmtFecha(meta.fecha_corte)}</p>
+      <p className="font-medium text-slate-300">
+        {MODO === 'demo' ? tr('Demo con datos sintéticos', 'Demo with synthetic data') : tr('Modo real', 'Real mode')}
+      </p>
+      <p className="mt-1">{hayDatos ? <>{tr('Corte', 'Data as of')}: {fmtFecha(meta.fecha_corte)}</> : tr('Sin datos cargados', 'No data loaded')}</p>
       <p className="mt-1">{tr('Equipo Órbita · Estud-IA Medellín', 'Team Órbita · Estud-IA Medellín')}</p>
     </div>
   );
@@ -108,6 +123,7 @@ export default function Layout() {
   const { pathname } = useLocation();
   const { tr } = useIdioma();
   const { activo: presentando } = usePresentacion();
+  const textoModo = useTextoModo();
   useEffect(() => {
     setAbierto(false);
     window.scrollTo(0, 0);
@@ -117,8 +133,8 @@ export default function Layout() {
     <>
     {/* Banda discreta en toda la web */}
     <div className="border-b border-borde bg-superficie px-4 py-1 text-center text-xs text-tenue print:hidden" role="note">
-      <span aria-hidden="true">● </span>
-      {tr('Demo con datos de prueba', 'Demo with test data')} ·{' '}
+      <span aria-hidden="true" className={MODO === 'real' ? 'text-turquesa' : 'text-acento'}>● </span>
+      {textoModo} ·{' '}
       <Link to="/privacidad" className="underline-offset-2 hover:text-white hover:underline">
         {tr('Privacidad', 'Privacy')}
       </Link>
@@ -131,6 +147,7 @@ export default function Layout() {
           <Navegacion />
         </div>
         <BotonDemo />
+        <SelectorModo />
         <Preferencias />
         <PieDemo />
       </aside>
@@ -155,6 +172,7 @@ export default function Layout() {
             <Navegacion alNavegar={() => setAbierto(false)} />
             <div className="mt-3 space-y-3 border-t border-borde pt-3">
               <BotonDemo alPulsar={() => setAbierto(false)} />
+              <SelectorModo />
               <Preferencias />
             </div>
           </div>
@@ -163,6 +181,7 @@ export default function Layout() {
 
       <main className={`min-w-0 flex-1 px-4 py-6 print:p-0 sm:px-6 lg:px-10 lg:py-8 ${presentando ? 'pb-48 lg:pb-36' : ''}`}>
         <div className="mx-auto max-w-7xl">
+          <AvisoSinDatos />
           <Outlet />
         </div>
         <footer className="mx-auto mt-12 flex max-w-7xl flex-wrap items-center justify-between gap-2 border-t border-borde pt-4 text-xs text-tenue print:hidden">
@@ -176,7 +195,7 @@ export default function Layout() {
             <Link to="/configuracion" className="hover:text-white hover:underline">
               {tr('Configuración', 'Settings')}
             </Link>
-            <span>{tr('Demo con datos de prueba', 'Demo with test data')}</span>
+            <span>{textoModo}</span>
           </nav>
         </footer>
       </main>
