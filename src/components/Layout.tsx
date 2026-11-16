@@ -109,7 +109,7 @@ function useTextoModo() {
 function PieDemo() {
   const { tr } = useIdioma();
   return (
-    <div className="rounded-xl border border-borde bg-fondo/60 p-3 text-xs text-tenue">
+    <div className="rounded-xl border border-borde bg-fondo/60 p-3 text-xs text-tenue [@media(max-height:960px)]:hidden">
       <p className="font-medium text-slate-300">
         {MODO === 'demo' ? tr('Demo con datos sintéticos', 'Demo with synthetic data') : tr('Modo real', 'Real mode')}
       </p>
