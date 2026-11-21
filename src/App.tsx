@@ -1,22 +1,23 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, type ReactNode } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
 import Inicio from './pages/Inicio';
-import Clientes from './pages/Clientes';
-import FichaCliente from './pages/FichaCliente';
-import Alertas from './pages/Alertas';
-import Predicciones from './pages/Predicciones';
-import Ventas from './pages/Ventas';
-import Reporte from './pages/Reporte';
-import Reto from './pages/Reto';
-import Radar from './pages/Radar';
-import Configuracion from './pages/Configuracion';
-import Privacidad from './pages/Privacidad';
-import Cierre from './pages/Cierre';
-import Modelo from './pages/Modelo';
 import { ButtonLink, EmptyState } from './components/ui';
 import { useIdioma } from './lib/idioma';
-// Carga diferida: la lectura de Excel (SheetJS) solo se descarga al entrar a /datos.
+// Carga diferida: cada pantalla (salvo el Resumen general) se descarga solo cuando se abre.
+// Así la primera carga es más liviana, sobre todo en celulares.
+const Clientes = lazy(() => import('./pages/Clientes'));
+const FichaCliente = lazy(() => import('./pages/FichaCliente'));
+const Alertas = lazy(() => import('./pages/Alertas'));
+const Predicciones = lazy(() => import('./pages/Predicciones'));
+const Ventas = lazy(() => import('./pages/Ventas'));
+const Reporte = lazy(() => import('./pages/Reporte'));
+const Reto = lazy(() => import('./pages/Reto'));
+const Radar = lazy(() => import('./pages/Radar'));
+const Configuracion = lazy(() => import('./pages/Configuracion'));
+const Privacidad = lazy(() => import('./pages/Privacidad'));
+const Cierre = lazy(() => import('./pages/Cierre'));
+const Modelo = lazy(() => import('./pages/Modelo'));
 const CargarDatos = lazy(() => import('./pages/CargarDatos'));
 
 function NoEncontrada() {
@@ -35,24 +36,27 @@ function Cargando() {
   return <p className="text-tenue">{tr('Cargando…', 'Loading…')}</p>;
 }
 
+/** Muestra «Cargando…» mientras se descarga una pantalla. */
+const Diferida = ({ children }: { children: ReactNode }) => <Suspense fallback={<Cargando />}>{children}</Suspense>;
+
 export default function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Inicio />} />
-        <Route path="clientes" element={<Clientes />} />
-        <Route path="clientes/:id" element={<FichaCliente />} />
-        <Route path="alertas" element={<Alertas />} />
-        <Route path="ventas" element={<Ventas />} />
-        <Route path="predicciones" element={<Predicciones />} />
-        <Route path="reporte" element={<Reporte />} />
-        <Route path="reto" element={<Reto />} />
-        <Route path="radar" element={<Radar />} />
-        <Route path="configuracion" element={<Configuracion />} />
-        <Route path="privacidad" element={<Privacidad />} />
-        <Route path="cierre" element={<Cierre />} />
-        <Route path="modelo" element={<Modelo />} />
-        <Route path="datos" element={<Suspense fallback={<Cargando />}><CargarDatos /></Suspense>} />
+        <Route path="clientes" element={<Diferida><Clientes /></Diferida>} />
+        <Route path="clientes/:id" element={<Diferida><FichaCliente /></Diferida>} />
+        <Route path="alertas" element={<Diferida><Alertas /></Diferida>} />
+        <Route path="ventas" element={<Diferida><Ventas /></Diferida>} />
+        <Route path="predicciones" element={<Diferida><Predicciones /></Diferida>} />
+        <Route path="reporte" element={<Diferida><Reporte /></Diferida>} />
+        <Route path="reto" element={<Diferida><Reto /></Diferida>} />
+        <Route path="radar" element={<Diferida><Radar /></Diferida>} />
+        <Route path="configuracion" element={<Diferida><Configuracion /></Diferida>} />
+        <Route path="privacidad" element={<Diferida><Privacidad /></Diferida>} />
+        <Route path="cierre" element={<Diferida><Cierre /></Diferida>} />
+        <Route path="modelo" element={<Diferida><Modelo /></Diferida>} />
+        <Route path="datos" element={<Diferida><CargarDatos /></Diferida>} />
         <Route path="*" element={<NoEncontrada />} />
       </Route>
     </Routes>

@@ -7,12 +7,12 @@
  */
 import type { Cliente, Producto, Trm } from './types';
 
-export type CampoComun = 'fecha' | 'cliente' | 'producto' | 'cantidad' | 'valor_usd' | 'valor_cop' | 'trm' | 'categoria' | 'tipo' | 'sector' | 'ciudad';
+export type CampoComun = 'fecha' | 'cliente' | 'producto' | 'cantidad' | 'valor_usd' | 'valor_cop' | 'trm' | 'categoria' | 'tipo' | 'sector' | 'ciudad' | 'base' | 'estado';
 
 /** Sinónimos conocidos para cada campo (sin tildes, en minúscula). */
 const SINONIMOS: Record<CampoComun, string[]> = {
   fecha: ['fecha', 'date', 'fecha de venta', 'fecha venta', 'fecha factura', 'dia'],
-  cliente: ['cliente', 'id cliente', 'id_cliente', 'cod cliente', 'codigo cliente', 'customer', 'customer id', 'customer_id', 'nit'],
+  cliente: ['cliente', 'id cliente', 'id_cliente', 'cod cliente', 'codigo cliente', 'codigo del cliente', 'customer', 'customer id', 'customer_id', 'nit', 'razon social'],
   producto: ['producto', 'id producto', 'id_producto', 'sku', 'referencia', 'item', 'product'],
   cantidad: ['cantidad', 'cant', 'qty', 'quantity', 'unidades'],
   valor_usd: ['valor usd', 'valor_usd', 'amount usd', 'amount_usd', 'total usd', 'usd'],
@@ -23,6 +23,8 @@ const SINONIMOS: Record<CampoComun, string[]> = {
   tipo: ['tipo', 'tipo producto', 'tipo de venta', 'type'],
   sector: ['sector', 'industria', 'segmento', 'industry'],
   ciudad: ['ciudad', 'city', 'sede'],
+  base: ['base instalada', 'es base instalada', 'installed base', 'base'],
+  estado: ['estado', 'estado venta', 'estado de la venta', 'status', 'estado factura'],
 };
 
 export const NOMBRE_CAMPO: Record<CampoComun, { es: string; en: string }> = {
@@ -37,7 +39,16 @@ export const NOMBRE_CAMPO: Record<CampoComun, { es: string; en: string }> = {
   tipo: { es: 'Tipo', en: 'Type' },
   sector: { es: 'Sector', en: 'Sector' },
   ciudad: { es: 'Ciudad', en: 'City' },
+  base: { es: 'Base instalada', en: 'Installed base' },
+  estado: { es: 'Estado de la venta', en: 'Sale status' },
 };
+
+/** Ventas con estos estados no cuentan (no son ventas confirmadas). */
+const ESTADO_NO_VALIDO = /anulad|cancelad|rechazad|devuel|devolu|void|cancel|reject|return/i;
+/** «Sí», «x», «true», «1»… → verdadero. */
+const esSi = (v: string) => /^(s[ií]|si|x|true|1|yes|y)$/i.test(v.trim());
+
+export type TipoArchivo = 'ventas' | 'clientes' | 'trm' | null;
 
 const normalizar = (s: string) =>
   s
@@ -119,8 +130,12 @@ export interface ResultadoArchivo {
   filasLeidas: number;
   columnas: Record<string, CampoComun | null>;
   esVentas: boolean;
+  /** Qué tipo de archivo es: ventas, lista de clientes, TRM o ninguno reconocido. */
+  tipo: TipoArchivo;
   validas: number;
   vacias: number;
+  /** Ventas descartadas por su estado (anuladas, canceladas, devueltas…). */
+  excluidas: number;
 }
 
 /** Rastro de una fila válida: de dónde vino, cómo estaba escrito el cliente y si era un duplicado. */
@@ -189,6 +204,8 @@ export function unirArchivos(entradas: { nombre: string; filas: Record<string, u
   const clientesNuevos = new Map<string, Cliente>();
   const productosNuevos = new Map<string, Producto>();
   const trmLeida = new Map<string, number>();
+  /** Clientes que vinieron en una lista de clientes (se conservan aunque no tengan ventas). */
+  const enLista = new Set<string>();
   const dato = (f: Record<string, unknown>, col: string | undefined) => (col ? String(f[col] ?? '').trim() : '');
   const crearCliente = (texto: string, sector: string, ciudad: string, fecha: string) => {
     const k = normalizar(texto);
@@ -204,7 +221,7 @@ export function unirArchivos(entradas: { nombre: string; filas: Record<string, u
       };
       clientesNuevos.set(k, c);
     }
-    if (fecha < c.fecha_primera_compra) c.fecha_primera_compra = fecha;
+    if (fecha && (!c.fecha_primera_compra || fecha < c.fecha_primera_compra)) c.fecha_primera_compra = fecha;
     if (c.sector === 'sin sector' && sector) c.sector = sector;
     if (!c.ciudad && ciudad) c.ciudad = ciudad;
     return c.id;
@@ -241,8 +258,43 @@ export function unirArchivos(entradas: { nombre: string; filas: Record<string, u
     const colDe = (campo: CampoComun) => Object.keys(columnas).find((k) => columnas[k] === campo);
     const campos = new Set(Object.values(columnas));
     const esVentas = campos.has('fecha') && campos.has('cliente') && campos.has('producto') && (campos.has('valor_usd') || campos.has('valor_cop'));
-    const resumen: ResultadoArchivo = { nombre, filasLeidas: filas.length, columnas, esVentas, validas: 0, vacias: 0 };
+    // Lista de clientes: tiene cliente y algún dato del cliente, pero no producto ni valor.
+    const esClientes = !esVentas && campos.has('cliente') && !campos.has('producto') && (campos.has('sector') || campos.has('ciudad') || campos.has('base'));
+    // Archivo de TRM: fecha y TRM, sin clientes.
+    const esTrm = !esVentas && !campos.has('cliente') && campos.has('fecha') && campos.has('trm');
+    const tipo: TipoArchivo = esVentas ? 'ventas' : esClientes ? 'clientes' : esTrm ? 'trm' : null;
+    const resumen: ResultadoArchivo = { nombre, filasLeidas: filas.length, columnas, esVentas, tipo, validas: 0, vacias: 0, excluidas: 0 };
     archivos.push(resumen);
+
+    if (esTrm) {
+      filas.forEach((f) => {
+        const fecha = leerFecha(f[colDe('fecha')!]);
+        const t = leerNumero(f[colDe('trm')!]);
+        if (fecha && t && t > 100) {
+          trmLeida.set(fecha, t);
+          resumen.validas++;
+        } else if (Object.values(f).every((x) => !String(x ?? '').trim())) resumen.vacias++;
+      });
+      continue;
+    }
+    if (esClientes) {
+      // En la demo los clientes ya existen; la lista solo se usa al cargar datos reales.
+      if (!ctx.crearNuevos) continue;
+      filas.forEach((f, i) => {
+        const texto = dato(f, colDe('cliente'));
+        if (!texto) {
+          if (Object.values(f).every((x) => !String(x ?? '').trim())) resumen.vacias++;
+          else problemas.push({ origen: nombre, fila: i + 2, motivo: { es: 'Cliente sin código ni nombre', en: 'Client without code or name' } });
+          return;
+        }
+        const id = crearCliente(texto, dato(f, colDe('sector')), dato(f, colDe('ciudad')), '');
+        const c = [...clientesNuevos.values()].find((x) => x.id === id)!;
+        if (colDe('base')) c.es_base_instalada = esSi(dato(f, colDe('base')));
+        enLista.add(id);
+        resumen.validas++;
+      });
+      continue;
+    }
     if (!esVentas) continue;
 
     filas.forEach((f, i) => {
@@ -250,6 +302,11 @@ export function unirArchivos(entradas: { nombre: string; filas: Record<string, u
       const valores = Object.values(f).map((x) => String(x ?? '').trim());
       if (valores.every((x) => !x)) {
         resumen.vacias++;
+        return;
+      }
+      // Ventas anuladas, canceladas o devueltas no cuentan.
+      if (colDe('estado') && ESTADO_NO_VALIDO.test(dato(f, colDe('estado')))) {
+        resumen.excluidas++;
         return;
       }
       const fecha = leerFecha(f[colDe('fecha')!]);
@@ -302,7 +359,7 @@ export function unirArchivos(entradas: { nombre: string; filas: Record<string, u
     trazas,
     coincidenConBase: ventas.filter((v) => base.has(`${clave(v)}|${Math.round(v.valor_usd)}`)).length,
     // Solo los que quedaron con al menos una venta válida.
-    clientesNuevos: [...clientesNuevos.values()].filter((c) => ventas.some((v) => v.id_cliente === c.id)),
+    clientesNuevos: [...clientesNuevos.values()].filter((c) => enLista.has(c.id) || ventas.some((v) => v.id_cliente === c.id)),
     productosNuevos: [...productosNuevos.values()].filter((p) => ventas.some((v) => v.id_producto === p.id)),
     trmLeida: [...trmLeida.entries()].map(([fecha, valor]) => ({ fecha, valor })).sort((a, b) => a.fecha.localeCompare(b.fecha)),
   };

@@ -1,19 +1,27 @@
 import { Link } from 'react-router-dom';
-import type { ReactNode } from 'react';
-import { Area, AreaChart, CartesianGrid, Cell, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import { ButtonLink, Card, ChipPrioridad, EmptyState, INFO_ESTADO, Table, Td, Th, Thead, Tr } from '../components/ui';
-import GraficaVentas from '../components/GraficaVentas';
+import { lazy, Suspense, type ReactNode } from 'react';
+import { ButtonLink, Card, ChipPrioridad, EmptyState, INFO_ESTADO, StatCard, Table, Td, Th, Thead, Tr, Variacion } from '../components/ui';
 import AlertaItem from '../components/AlertaItem';
 import Impacto from '../components/Impacto';
-import DesempenoModelo from '../components/DesempenoModelo';
 import { IconoCalendario, IconoCarrito, IconoClientes, IconoCopo, IconoDatos, IconoFlecha, IconoInfo, IconoModelo } from '../components/Iconos';
-import { clientes, hayDatos, HOY, modelo, MODO, pronostico, serie, ventas } from '../lib/datos';
+import { clientes, hayDatos, HOY, mesActual, modelo, MODO, pronostico, serie, trmHoy, trmVariacion30, ventas } from '../lib/datos';
 import { ventasPorMes, type Estado } from '../lib/analytics';
 import { useDatos } from '../lib/umbrales';
 import { useContactados } from '../lib/contactados';
 import { useIdioma } from '../lib/idioma';
 import { useTema } from '../lib/tema';
-import { fmtCompacto, fmtDec, fmtFecha, fmtMes, fmtNum, fmtUsd } from '../lib/format';
+import { fmtCompacto, fmtDec, fmtFecha, fmtMes, fmtNum, fmtTrm, fmtUsd } from '../lib/format';
+
+// Las gráficas (Recharts) se descargan después de mostrar los números: la página aparece antes.
+const AreaIngresos = lazy(() => import('../components/GraficasInicio').then((m) => ({ default: m.AreaIngresos })));
+const Dona = lazy(() => import('../components/GraficasInicio').then((m) => ({ default: m.Dona })));
+const GraficaVentas = lazy(() => import('../components/GraficaVentas'));
+const DesempenoModelo = lazy(() => import('../components/DesempenoModelo'));
+
+/** Espacio reservado (del mismo alto) mientras llega una gráfica, para que la página no salte. */
+function Diferido({ alto, children }: { alto: string; children: ReactNode }) {
+  return <Suspense fallback={<div className={`${alto} w-full animate-pulse rounded-xl bg-superficie`} aria-hidden="true" />}>{children}</Suspense>;
+}
 
 /** Ingresos en pesos de todos los meses con ventas (para la gráfica de área). */
 // Se omite el mes en curso (aún incompleto) para no mostrar una caída falsa.
@@ -84,7 +92,7 @@ export default function Inicio() {
           <span className="inline-flex items-center gap-2 font-titulo text-base font-semibold text-white">
             <IconoInfo width={20} height={20} className="text-turquesa" /> {tr('Datos de prueba', 'Test data')}
           </span>
-          <span className="hidden text-tenue sm:inline" aria-hidden="true">|</span>
+          <span className="hidden text-tenue xl:inline" aria-hidden="true">|</span>
           {tr(
             'Los datos y resultados corresponden a un ejercicio de prueba. No representan información real de la empresa.',
             'Data and results come from a test exercise. They do not represent real company information.',
@@ -99,6 +107,37 @@ export default function Inicio() {
         <Indicador icono={<IconoCopo width={24} height={24} />} valor={fmtNum(conteoEstados.frio)} etiqueta={tr('Clientes inactivos (fríos)', 'Inactive (cold) clients')} />
       </div>
 
+      {/* Indicadores del mes: ventas (USD y COP) con variación, TRM de hoy y clientes por estado */}
+      <div className="mt-4 grid grid-cols-2 gap-4 xl:grid-cols-4">
+        <div className="col-span-2 sm:col-span-1">
+          <StatCard
+            titulo={tr(`Ventas del mes (1 al ${mesActual.dia})`, `Month-to-date sales (1–${mesActual.dia})`)}
+            valor={fmtUsd(mesActual.usd)}
+            detalle={
+              <div className="flex flex-col gap-0.5">
+                <span>{fmtCompacto(mesActual.cop, 'COP')}</span>
+                <Variacion valor={mesActual.variacionUsd} texto={tr('vs. mismos días del mes anterior', 'vs. same days last month')} />
+              </div>
+            }
+          />
+        </div>
+        <div className="col-span-2 sm:col-span-1">
+          <StatCard titulo={tr('TRM de hoy', "Today's exchange rate (TRM)")} valor={fmtTrm(trmHoy.valor)} detalle={<Variacion valor={trmVariacion30} texto={tr('en 30 días', 'in 30 days')} />} />
+        </div>
+        <StatCard
+          titulo={tr('Clientes activos', 'Active clients')}
+          valor={conteoEstados.activo}
+          color={INFO_ESTADO.activo.color}
+          detalle={<span><span aria-hidden="true">●</span> {tr('compran a su ritmo', 'buying on schedule')}</span>}
+        />
+        <StatCard
+          titulo={tr('En riesgo', 'At risk')}
+          valor={conteoEstados.riesgo}
+          color={INFO_ESTADO.riesgo.color}
+          detalle={<span><span aria-hidden="true">▲</span> {tr('se están atrasando', 'falling behind')}</span>}
+        />
+      </div>
+
       <div className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-5">
         <Card titulo={tr('Ingresos mensuales (COP)', 'Monthly revenue (COP)')} className="xl:col-span-3">
           <div
@@ -106,40 +145,18 @@ export default function Inicio() {
             role="img"
             aria-label={tr('Gráfica de área con los ingresos mensuales en pesos de todo el historial', 'Area chart of monthly revenue in pesos over the whole history')}
           >
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={ingresosMensuales} margin={{ top: 8, right: 12, left: 0, bottom: 0 }}>
-                <defs>
-                  <linearGradient id="relleno-ingresos" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor={c.turquesa} stopOpacity={0.35} />
-                    <stop offset="100%" stopColor={c.turquesa} stopOpacity={0.02} />
-                  </linearGradient>
-                </defs>
-                <CartesianGrid stroke={c.rejilla} strokeDasharray="3 3" vertical={false} />
-                <XAxis dataKey="clave" tickFormatter={(k: string) => fmtMes(k)} tick={{ fill: c.eje, fontSize: 11 }} axisLine={{ stroke: c.rejilla }} tickLine={false} interval="preserveStartEnd" minTickGap={24} />
-                <YAxis tickFormatter={(v: number) => fmtCompacto(v, 'COP')} tick={{ fill: c.eje, fontSize: 11 }} axisLine={false} tickLine={false} width={84} />
-                <Tooltip
-                  contentStyle={{ background: c.tooltipFondo, border: `1px solid ${c.tooltipBorde}`, borderRadius: 10, color: c.tooltipTexto }}
-                  labelFormatter={(k: string) => fmtMes(k)}
-                  formatter={(v: number) => [fmtCompacto(v, 'COP'), tr('Ingresos', 'Revenue')]}
-                />
-                <Area type="monotone" dataKey="cop" stroke={c.turquesa} strokeWidth={2.5} fill="url(#relleno-ingresos)" dot={{ r: 2.5, fill: c.turquesa }} isAnimationActive={false} />
-              </AreaChart>
-            </ResponsiveContainer>
+            <Diferido alto="h-64">
+              <AreaIngresos datos={ingresosMensuales} />
+            </Diferido>
           </div>
         </Card>
 
         <Card titulo={tr('Clientes por situación', 'Clients by status')} className="xl:col-span-2">
           <div className="flex flex-col items-center gap-4 sm:flex-row">
             <div className="relative h-48 w-48 shrink-0" role="img" aria-label={situacion.map((s2) => `${b(INFO_ESTADO[s2.estado])}: ${s2.n}`).join(', ')}>
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie data={situacion} dataKey="n" nameKey="estado" innerRadius="62%" outerRadius="100%" stroke="none" isAnimationActive={false}>
-                    {situacion.map((s2) => (
-                      <Cell key={s2.estado} fill={s2.color} />
-                    ))}
-                  </Pie>
-                </PieChart>
-              </ResponsiveContainer>
+              <Diferido alto="h-48">
+                <Dona situacion={situacion} />
+              </Diferido>
               <div className="pointer-events-none absolute inset-0 grid place-items-center text-center">
                 <div>
                   <p className="font-titulo text-3xl font-bold text-white">{clientes.length}</p>
@@ -225,7 +242,9 @@ export default function Inicio() {
           }
         >
           {modelo.validacion ? (
-            <DesempenoModelo modelo={modelo.validacion.modelo} regla={modelo.validacion.regla} />
+            <Diferido alto="h-72">
+              <DesempenoModelo modelo={modelo.validacion.modelo} regla={modelo.validacion.regla} />
+            </Diferido>
           ) : (
             <EmptyState titulo={tr('Aún no hay validación', 'No validation yet')} descripcion={modelo.motivo ? b(modelo.motivo) : undefined} />
           )}
@@ -261,7 +280,9 @@ export default function Inicio() {
           className="xl:col-span-3"
           accion={<Link to="/predicciones" className="text-sm text-azul hover:underline">{tr('Ver pronóstico', 'See forecast')}</Link>}
         >
-          <GraficaVentas datos={serie} alto={340} />
+          <Diferido alto="h-[340px]">
+            <GraficaVentas datos={serie} alto={340} />
+          </Diferido>
           <p className="mt-3 text-xs text-tenue">
             {tr(
               `Últimos 12 meses cerrados. La línea punteada es el pronóstico para ${fmtMes(pronostico.mes)}* (${fmtUsd(pronostico.valor)}).`,

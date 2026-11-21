@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Impacto from '../components/Impacto';
 import Papa from 'papaparse';
-import * as XLSX from 'xlsx';
 import { Button, Card, EmptyState, PageHeader, Panel, StatCard, Table, Td, Th, Thead, Tr, INFO_ESTADO } from '../components/ui';
 import { IconoCandado, IconoCheck, IconoDescargar, IconoSubir } from '../components/Iconos';
 import { clientes, hayDatos, meta, MODO, productoPorId, productos, trm, ventas, CLIENTE_DEMO } from '../lib/datos';
@@ -57,6 +56,8 @@ async function leer(nombre: string, contenido: () => Promise<string | ArrayBuffe
       return { nombre, filas: r.data };
     }
     if (ext === 'xlsx' || ext === 'xls') {
+      // El lector de Excel (SheetJS) es pesado: se descarga solo cuando llega un archivo Excel.
+      const XLSX = await import('xlsx');
       const libro = XLSX.read(await contenido(), { type: 'array', cellDates: true });
       const filas = XLSX.utils.sheet_to_json<Fila>(libro.Sheets[libro.SheetNames[0]], { defval: '', blankrows: true });
       return { nombre, filas };
@@ -208,6 +209,12 @@ export default function CargarDatos() {
                     'One row per sale. Column names can vary: Órbita recognizes synonyms (for example "date", "SKU", "Valor COP").',
                   )}
                 </p>
+                <p className="mt-1 text-sm text-tenue">
+                  {tr(
+                    'También puedes subir, junto con las ventas, una lista de clientes (cliente, sector, ciudad, base instalada) para que cuenten todos, aunque no hayan comprado, y un archivo de TRM (fecha, trm).',
+                    'Along with sales you can also upload a client list (client, sector, city, installed base) so every client counts, even without purchases, and an exchange-rate file (date, trm).',
+                  )}
+                </p>
               </div>
               <Button onClick={() => descargarEncabezados('plantilla-orbita-pulse.csv', COLUMNAS_PLANTILLA.map((c) => c.columna))}>
                 <IconoDescargar width={16} height={16} /> {tr('Descargar plantilla', 'Download template')}
@@ -331,9 +338,16 @@ export default function CargarDatos() {
                   <p className="font-semibold text-white">{a.nombre}</p>
                   <p className="text-xs text-tenue">
                     {tr(`${a.filasLeidas} filas · `, `${a.filasLeidas} rows · `)}
-                    {a.esVentas
-                      ? tr(`${a.validas} ventas válidas`, `${a.validas} valid sales`)
-                      : tr('no parece un archivo de ventas: solo vista previa', "doesn't look like a sales file: preview only")}
+                    {a.tipo === 'ventas'
+                      ? tr(`${a.validas} ventas válidas`, `${a.validas} valid sales`) +
+                        (a.excluidas ? tr(` · ${a.excluidas} anuladas o canceladas (no cuentan)`, ` · ${a.excluidas} void or cancelled (not counted)`) : '')
+                      : a.tipo === 'clientes'
+                        ? real
+                          ? tr(`lista de clientes: ${a.validas} clientes`, `client list: ${a.validas} clients`)
+                          : tr('lista de clientes (se usa al cargar datos reales)', 'client list (used when loading real data)')
+                        : a.tipo === 'trm'
+                          ? tr(`TRM: ${a.validas} días`, `exchange rate: ${a.validas} days`)
+                          : tr('no se reconoce como ventas, clientes ni TRM: solo vista previa', 'not recognized as sales, clients or exchange rate: preview only')}
                   </p>
                   <ul className="mt-3 space-y-1 text-sm">
                     {Object.entries(a.columnas).map(([col, campo]) => (
@@ -542,7 +556,7 @@ export default function CargarDatos() {
           )}
 
           {legibles
-            .filter((a) => !union.archivos.find((r) => r.nombre === a.nombre)?.esVentas)
+            .filter((a) => !union.archivos.find((r) => r.nombre === a.nombre)?.tipo)
             .map((a) => (
               <Card key={a.nombre} titulo={tr(`Vista previa: ${a.nombre}`, `Preview: ${a.nombre}`)} className="mt-6">
                 <Table minWidth={480}>

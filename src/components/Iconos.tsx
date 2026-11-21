@@ -109,3 +109,7 @@ export const IconoInfo = (p: SVGProps<SVGSVGElement>) => (
 export const IconoCalendario = (p: SVGProps<SVGSVGElement>) => (
   <svg {...base(p)}><rect x="3.5" y="5" width="17" height="15" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg>
 );
+/** Dado: generar otra demo al azar. */
+export const IconoDado = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}><rect x="4" y="4" width="16" height="16" rx="3" /><circle cx="9" cy="9" r="1" fill="currentColor" /><circle cx="15" cy="15" r="1" fill="currentColor" /><circle cx="15" cy="9" r="1" fill="currentColor" /><circle cx="9" cy="15" r="1" fill="currentColor" /></svg>
+);

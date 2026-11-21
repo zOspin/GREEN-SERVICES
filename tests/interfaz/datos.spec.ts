@@ -33,11 +33,23 @@ test('modo Real: subir un archivo, usarlo y borrarlo', async ({ page }) => {
   }
   await page.goto('/?modo=real');
   await page.goto('/datos');
-  await page.setInputFiles('input[type=file]', { name: 'ventas-prueba.csv', mimeType: 'text/csv', buffer: Buffer.from(filas.join('\n')) });
-  await expect(page.getByText(/Se crearán 60 clientes/)).toBeVisible();
+  // Lista de clientes: los 60 de las ventas y uno más que nunca ha comprado.
+  const lista = ['Cliente;Sector;Ciudad;Base instalada', ...d.clientes.map((c) => `Empresa ${c.id.slice(4)};${c.sector};${c.ciudad};${c.es_base_instalada ? 'Sí' : 'No'}`), 'Empresa 999;salud;Medellín;No'];
+  await page.setInputFiles('input[type=file]', [
+    { name: 'ventas-prueba.csv', mimeType: 'text/csv', buffer: Buffer.from(filas.join('\n')) },
+    { name: 'clientes-prueba.csv', mimeType: 'text/csv', buffer: Buffer.from(lista.join('\n')) },
+  ]);
+  await expect(page.getByText(/Se crearán 61 clientes/)).toBeVisible();
+  await expect(page.getByText('lista de clientes: 61 clientes')).toBeVisible();
   await page.getByRole('button', { name: 'Usar estos datos en modo Real' }).click();
   await page.waitForLoadState('networkidle');
   await expect(page.locator('[role=note]').first()).toContainText('datos de Green Services');
+  // Todas las pantallas funcionan con los datos subidos (incluido un cliente sin compras).
+  for (const ruta of RUTAS.filter((r) => !r.includes('CLI-023') && r !== '/cierre')) await abrirSinTextosRotos(page, ruta);
+  await page.goto('/clientes');
+  await page.getByPlaceholder(/Buscar/).fill('Empresa 999');
+  await page.getByRole('link', { name: /Empresa 999/ }).click();
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Empresa 999');
   await page.goto('/modelo');
   await expect(page.getByText(/Predicción vs. realidad/)).toBeVisible();
   await page.goto('/datos');

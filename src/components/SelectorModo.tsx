@@ -1,4 +1,5 @@
 import { useIdioma } from '../lib/idioma';
+import { IconoDado } from './Iconos';
 import { MODO, SEMILLA, cambiarModo, esDemoOriginal, nuevaDemoAlAzar, volverADemoOriginal, type Modo } from '../lib/modo';
 
 /** Selector de modo de datos: Demo (datos inventados) o Real (datos de Green Services). */
@@ -39,7 +40,7 @@ export default function SelectorModo() {
             title={tr('Crea clientes y compras nuevos al azar (el Cliente 23 se mantiene)', 'Creates new random clients and purchases (Client 23 stays)')}
             className="flex w-full items-center justify-center gap-2 rounded-lg border border-borde px-3 py-1.5 text-xs font-medium text-slate-200 hover:bg-white/5"
           >
-            <span aria-hidden="true">🎲</span> {tr('Generar otra demo al azar', 'Generate another random demo')}
+            <IconoDado width={15} height={15} /> {tr('Generar otra demo al azar', 'Generate another random demo')}
           </button>
           {!esDemoOriginal && (
             <p className="text-center text-[0.7rem] text-tenue">

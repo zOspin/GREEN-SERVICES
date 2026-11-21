@@ -99,3 +99,43 @@ describe('unirArchivos (modo Real: crea clientes y productos)', () => {
     expect(r.ventas.find((x) => x.fecha === '2026-02-11')!.valor_cop).toBe(0);
   });
 });
+
+describe('unirArchivos (modo Real: listas de clientes, TRM y estado de la venta)', () => {
+  const ctx = { clientes: [], productos: [], trm: [], ventasBase: [], crearNuevos: true };
+  const r = unirArchivos(
+    [
+      {
+        nombre: 'clientes.xlsx',
+        filas: [
+          { 'Código cliente': 'C-001', Sector: 'salud', Ciudad: 'Medellín', 'Base instalada': 'Sí' },
+          { 'Código cliente': 'C-002', Sector: 'retail', Ciudad: 'Cali', 'Base instalada': 'No' },
+          { 'Código cliente': 'C-003', Sector: 'gobierno', Ciudad: 'Bogotá', 'Base instalada': 'x' },
+        ],
+      },
+      { nombre: 'trm.csv', filas: [{ Fecha: '2026-01-10', TRM: '4.010,50' }, { Fecha: '2026-01-11', TRM: '4.020' }] },
+      {
+        nombre: 'ventas.csv',
+        filas: [
+          { Fecha: '2026-01-10', 'Código cliente': 'C-001', Producto: 'Licencia', 'Valor COP': '4.010.500', Estado: 'Confirmada' },
+          { Fecha: '2026-01-11', 'Código cliente': 'C-002', Producto: 'Licencia', 'Valor COP': '8.040.000', Estado: 'Anulada' },
+        ],
+      },
+    ],
+    ctx,
+  );
+
+  it('reconoce el tipo de cada archivo', () => expect(r.archivos.map((a) => a.tipo)).toEqual(['clientes', 'trm', 'ventas']));
+  it('cuenta a todos los clientes de la lista, aunque no tengan ventas', () => {
+    expect(r.clientesNuevos).toHaveLength(3);
+    expect(r.clientesNuevos.map((c) => c.es_base_instalada)).toEqual([true, false, true]);
+    expect(r.clientesNuevos[0].sector).toBe('salud');
+  });
+  it('descarta las ventas anuladas', () => {
+    expect(r.ventas).toHaveLength(1);
+    expect(r.archivos[2].excluidas).toBe(1);
+  });
+  it('usa la TRM del archivo de TRM para convertir pesos a dólares', () => {
+    expect(r.ventas[0].valor_usd).toBeCloseTo(1000);
+    expect(r.trmLeida.map((t) => t.fecha)).toEqual(['2026-01-10', '2026-01-11']);
+  });
+});

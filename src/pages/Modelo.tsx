@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BarraProbabilidad, Button, Card, EmptyState, PageHeader, Panel, StatCard, Table, Td, Th, Thead, Tr } from '../components/ui';
-import DesempenoModelo from '../components/DesempenoModelo';
 import { clientePorId, modelo } from '../lib/datos';
 import { VARIABLES, VENTANA_DIAS, type Metricas } from '../lib/modelo';
 import { useIdioma } from '../lib/idioma';
 import { fmtDec, fmtFecha, fmtNum } from '../lib/format';
+
+// La gráfica (Recharts) llega después del texto y los números.
+const DesempenoModelo = lazy(() => import('../components/DesempenoModelo'));
 
 const pct = (v: number) => `${fmtDec(v * 100)} %`;
 
@@ -85,7 +87,9 @@ export default function Modelo() {
 
           <div className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-5">
             <Card titulo={tr('Desempeño del modelo de IA', 'AI model performance')} className="xl:col-span-3">
-              <DesempenoModelo modelo={v.modelo} regla={v.regla} alto={280} />
+              <Suspense fallback={<div className="h-[340px] animate-pulse rounded-xl bg-superficie" aria-hidden="true" />}>
+                <DesempenoModelo modelo={v.modelo} regla={v.regla} alto={280} />
+              </Suspense>
             </Card>
             <Card titulo={tr('¿En qué acertó y en qué no?', 'Where was it right and wrong?')} className="xl:col-span-2">
               <Matriz m={v.modelo} />

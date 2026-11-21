@@ -70,7 +70,7 @@ Abre en el navegador la dirección que aparece en la terminal (**http://localhos
 En el menú, el selector **Datos** cambia entre:
 
 - **Demo**: datos inventados (60 clientes, 18 meses) con la historia del Cliente 23. Es el modo para presentar.
-  El botón **🎲 Generar otra demo al azar** crea clientes y compras nuevos (el Cliente 23 se mantiene); «volver a la original» regresa a la del guion.
+  El botón **Generar otra demo al azar** (ícono de dado) crea clientes y compras nuevos (el Cliente 23 se mantiene); «volver a la original» regresa a la del guion.
 - **Real**: datos reales anonimizados de Green Services. Sin datos, todo aparece en cero (no se inventa nada). Para llenarlo: **Centro de datos → Descargar plantilla**, llenarla con la exportación (o subir los archivos tal como salen de cada sistema) y pulsar **«Usar estos datos en modo Real»**. Se guardan solo en ese navegador. Más detalle: `src/data/real/LEEME.md`.
 
 La demo en vivo siempre usa la demo original.
@@ -104,7 +104,7 @@ Continúa donde termina la diapositiva 16. Se inicia con **«Iniciar demo en viv
 npm run capturas
 ```
 
-Levanta la web por su cuenta y guarda en `presentacion/capturas/` (1920×1080, tema claro): `resumen-general.png`, `evaluacion-modelo.png`, `centro-datos.png` (diapositiva 10), `radar-clientes.png` y `ficha-cliente-23.png` (diapositiva 11) y `panel-financiero.png` (diapositiva 12). La primera vez en un computador nuevo hay que descargar el navegador con `npx playwright install chromium`.
+Levanta la web por su cuenta y guarda en `presentacion/capturas/` (1920×1080, modo oscuro) y en `presentacion/capturas/claro/` (modo claro): `resumen-general.png`, `evaluacion-modelo.png`, `centro-datos.png` (diapositiva 10), `radar-clientes.png` y `ficha-cliente-23.png` (diapositiva 11) y `panel-financiero.png` (diapositiva 12). La primera vez en un computador nuevo hay que descargar el navegador con `npx playwright install chromium`.
 
 ## Datos inventados
 

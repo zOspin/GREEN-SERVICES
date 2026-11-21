@@ -49,7 +49,7 @@ export default function DesempenoModelo({ modelo, regla, alto = 220 }: { modelo:
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={datos} margin={{ top: 20, right: 8, left: -8, bottom: 0 }} barGap={6}>
             <CartesianGrid stroke={c.rejilla} strokeDasharray="3 3" vertical={false} />
-            <XAxis dataKey="nombre" tick={{ fill: c.eje, fontSize: 12 }} axisLine={{ stroke: c.rejilla }} tickLine={false} />
+            <XAxis dataKey="nombre" interval={0} tick={{ fill: c.eje, fontSize: 11 }} axisLine={{ stroke: c.rejilla }} tickLine={false} />
             <YAxis domain={[0, 1]} ticks={[0, 0.2, 0.4, 0.6, 0.8, 1]} tickFormatter={(v: number) => `${Math.round(v * 100)}%`} tick={{ fill: c.eje, fontSize: 11 }} axisLine={false} tickLine={false} width={44} />
             <Tooltip
               cursor={{ fill: c.rejilla, opacity: 0.4 }}

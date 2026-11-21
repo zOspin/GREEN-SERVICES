@@ -2,7 +2,7 @@
  * Capturas de Órbita para las diapositivas 10, 11 y 12.
  *
  * Uso:  npm run capturas
- * Resultado: presentacion/capturas/ (1920×1080, tema claro con el estilo del reto, en español)
+ * Resultado (1920×1080, en español): presentacion/capturas/ en modo oscuro y presentacion/capturas/claro/ en modo claro
  *   - resumen-general.png   → vista general (indicadores, prioritarios y desempeño del modelo)
  *   - evaluacion-modelo.png → validación del modelo predictivo
  *   - centro-datos.png      → diapositiva 10 (Centro de datos)
@@ -30,43 +30,49 @@ const servidor = await createServer({ root: raiz, logLevel: 'error', server: { p
 await servidor.listen();
 const base = servidor.resolvedUrls?.local[0]?.replace(/\/$/, '') ?? 'http://localhost:5199';
 
-// 2. Abrir un navegador invisible en 1920×1080, tema claro y español
+// 2. Abrir un navegador invisible en 1920×1080 y español, una vez por tema:
+//    oscuro → presentacion/capturas/ (lo que piden las diapositivas) · claro → presentacion/capturas/claro/
 const navegador = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
-const contexto = await navegador.newContext({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1, colorScheme: 'light' });
-await contexto.addInitScript(() => {
-  localStorage.setItem('orbita-tema', 'light');
-  localStorage.setItem('orbita-modo', 'demo');
-  localStorage.removeItem('orbita-semilla');
-  localStorage.setItem('orbita-idioma', 'es');
-});
-const pagina = await contexto.newPage();
 const errores: string[] = [];
-pagina.on('pageerror', (e) => errores.push(e.message));
 
-async function capturar(nombre: string, ruta: string, preparar?: (p: Page) => Promise<void>) {
-  await pagina.goto(base + ruta, { waitUntil: 'networkidle' });
-  await pagina.evaluate(() => document.fonts.ready);
-  if (preparar) await preparar(pagina);
-  await pagina.waitForTimeout(1200); // deja terminar las animaciones de las gráficas
-  const archivo = join(salida, nombre);
-  await pagina.screenshot({ path: archivo, animations: 'disabled' });
-  console.log(`  ✓ ${nombre}`);
-}
+for (const tema of ['dark', 'light'] as const) {
+  const carpeta = tema === 'dark' ? salida : join(salida, 'claro');
+  mkdirSync(carpeta, { recursive: true });
+  const contexto = await navegador.newContext({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1, colorScheme: tema });
+  await contexto.addInitScript((t) => {
+    localStorage.setItem('orbita-tema', t);
+    localStorage.setItem('orbita-modo', 'demo');
+    localStorage.removeItem('orbita-semilla');
+    localStorage.setItem('orbita-idioma', 'es');
+  }, tema);
+  const pagina = await contexto.newPage();
+  pagina.on('pageerror', (e) => errores.push(e.message));
 
-console.log(`Guardando capturas en ${salida}`);
-await capturar('resumen-general.png', '/');
-await capturar('evaluacion-modelo.png', '/modelo');
-await capturar('centro-datos.png', '/datos?demo=1&cliente=CLI-023', async (p) => {
-  // Mostrar la unión y limpieza y, debajo, cómo llegó el Cliente 23
-  await p.locator('#seguimiento-cliente').waitFor();
-  await p.getByRole('heading', { name: /3\. Unión y limpieza/ }).evaluate((h) => {
-    const y = h.getBoundingClientRect().top + window.scrollY - 24;
-    window.scrollTo(0, y);
+  const capturar = async (nombre: string, ruta: string, preparar?: (p: Page) => Promise<void>) => {
+    await pagina.goto(base + ruta, { waitUntil: 'networkidle' });
+    await pagina.evaluate(() => document.fonts.ready);
+    if (preparar) await preparar(pagina);
+    await pagina.waitForTimeout(1200); // deja terminar las animaciones de las gráficas
+    await pagina.screenshot({ path: join(carpeta, nombre), animations: 'disabled' });
+    console.log(`  ✓ ${tema === 'dark' ? 'oscuro' : 'claro'}/${nombre}`);
+  };
+
+  console.log(`Guardando capturas (${tema === 'dark' ? 'modo oscuro' : 'modo claro'}) en ${carpeta}`);
+  await capturar('resumen-general.png', '/');
+  await capturar('evaluacion-modelo.png', '/modelo');
+  await capturar('centro-datos.png', '/datos?demo=1&cliente=CLI-023', async (p) => {
+    // Mostrar la unión y limpieza y, debajo, cómo llegó el Cliente 23
+    await p.locator('#seguimiento-cliente').waitFor();
+    await p.getByRole('heading', { name: /3\. Unión y limpieza/ }).evaluate((h) => {
+      const y = h.getBoundingClientRect().top + window.scrollY - 24;
+      window.scrollTo(0, y);
+    });
   });
-});
-await capturar('radar-clientes.png', '/radar?destacar=CLI-023');
-await capturar('ficha-cliente-23.png', '/clientes/CLI-023');
-await capturar('panel-financiero.png', '/ventas?cliente=CLI-023');
+  await capturar('radar-clientes.png', '/radar?destacar=CLI-023');
+  await capturar('ficha-cliente-23.png', '/clientes/CLI-023');
+  await capturar('panel-financiero.png', '/ventas?cliente=CLI-023');
+  await contexto.close();
+}
 
 await navegador.close();
 await servidor.close();

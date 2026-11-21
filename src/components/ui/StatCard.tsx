@@ -16,7 +16,7 @@ export default function StatCard({
   return (
     <div className="h-full rounded-2xl border border-borde bg-tarjeta shadow-tarjeta p-4 sm:p-5">
       <p className="text-sm text-tenue">{titulo}</p>
-      <p className="mt-2 font-titulo text-2xl font-semibold tabular-nums" style={color ? { color } : undefined}>
+      <p className="mt-2 whitespace-nowrap font-titulo text-2xl font-semibold tabular-nums" style={color ? { color } : undefined}>
         {valor}
       </p>
       {detalle && <div className="mt-1 text-xs text-tenue">{detalle}</div>}

@@ -25,7 +25,7 @@ function Interruptor<T extends string>({
           aria-pressed={valor === o.valor}
           aria-label={o.nombre}
           title={o.nombre}
-          className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-semibold transition-colors ${
+          className={`inline-flex min-h-[30px] min-w-[32px] items-center justify-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-semibold transition-colors ${
             valor === o.valor ? 'bg-acento text-sobre-acento' : 'text-tenue hover:text-acento'
           }`}
         >

@@ -23,6 +23,8 @@ export const COLUMNAS_PLANTILLA = [
   { columna: 'tipo', obligatoria: false, es: '«producto» o «servicio recurrente» (licencias, suscripciones)', en: '"producto" or "servicio recurrente" (licenses, subscriptions)' },
   { columna: 'sector', obligatoria: false, es: 'Sector del cliente (salud, educación…)', en: 'Client sector (healthcare, education…)' },
   { columna: 'ciudad', obligatoria: false, es: 'Ciudad del cliente', en: 'Client city' },
+  { columna: 'base_instalada', obligatoria: false, es: '«Sí» o «No»: si es cliente de base instalada', en: '"Sí" or "No": installed-base client' },
+  { columna: 'estado', obligatoria: false, es: 'Estado de la venta: las «anuladas», «canceladas» o «devueltas» no cuentan', en: 'Sale status: "void", "cancelled" or "returned" are not counted' },
 ] as const;
 
 /** TRM diaria continua: rellena los días sin dato con el último valor conocido. */

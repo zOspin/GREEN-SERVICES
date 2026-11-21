@@ -8,4 +8,15 @@ export default defineConfig({
   // En las pruebas automáticas (ORBITA_PRUEBAS=1) no se abre el navegador.
   server: { port: 5190, strictPort: false, open: !process.env.ORBITA_PRUEBAS },
   preview: { port: 5190 },
+  build: {
+    rollupOptions: {
+      output: {
+        // Librerías en archivos propios: el navegador las guarda y no las vuelve a descargar con cada cambio.
+        manualChunks: {
+          react: ['react', 'react-dom', 'react-router-dom'],
+          graficas: ['recharts'],
+        },
+      },
+    },
+  },
 });
