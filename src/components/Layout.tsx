@@ -81,7 +81,7 @@ function Marca({ grande = false }: { grande?: boolean }) {
     return (
       <div className="flex items-center gap-3">
         <Logo size={40} />
-        <div className="leading-tight">
+        <div className="hidden leading-tight min-[380px]:block">
           <p className="whitespace-nowrap font-titulo text-lg font-bold tracking-tight text-white">
             Órbita <span className="text-acento">Pulse</span>
           </p>
