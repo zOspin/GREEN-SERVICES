@@ -133,13 +133,13 @@ export default function Radar() {
             })}
             {/* Etiquetas de los anillos: abajo, sobre la división entre sectores (donde casi no hay puntos) */}
             <g aria-hidden="true" className="text-[12px] font-semibold" textAnchor="middle" style={{ paintOrder: 'stroke' }} stroke="rgb(var(--c-tarjeta))" strokeWidth={4}>
-              <text x={C} y={C + R_RIESGO - 10} className="fill-green-300">
+              <text x={C} y={C + R_RIESGO - 10} className="fill-estado-ok">
                 {b(INFO_ESTADO.activo)}
               </text>
-              <text x={C} y={C + R_INACTIVO - 10} className="fill-amber-300">
+              <text x={C} y={C + R_INACTIVO - 10} className="fill-estado-riesgo">
                 {b(INFO_ESTADO.riesgo)}
               </text>
-              <text x={C} y={C + R - 10} className="fill-red-300">
+              <text x={C} y={C + R - 10} className="fill-estado-frio">
                 {b(INFO_ESTADO.frio)}
               </text>
             </g>

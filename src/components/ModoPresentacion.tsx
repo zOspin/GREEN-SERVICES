@@ -27,7 +27,7 @@ export default function ModoPresentacion() {
               aria-label={`${i + 1}. ${b(x.titulo)}`}
               title={b(x.titulo)}
               className={`grid h-7 w-7 place-items-center rounded-full text-xs font-bold transition-colors ${
-                i === paso ? 'bg-[#F5A524] text-[#1A1306]' : i < paso ? 'bg-acento/25 text-acento' : 'border border-borde text-tenue hover:text-white'
+                i === paso ? 'bg-acento text-sobre-acento' : i < paso ? 'bg-acento/25 text-acento' : 'border border-borde text-tenue hover:text-white'
               }`}
             >
               {i + 1}
@@ -57,7 +57,7 @@ export default function ModoPresentacion() {
           <button
             type="button"
             onClick={() => (paso === total - 1 ? salir() : ir(paso + 1))}
-            className="inline-flex items-center gap-2 rounded-lg bg-[#F5A524] px-3.5 py-2 text-sm font-semibold text-[#1A1306] hover:bg-[#F7B84B]"
+            className="inline-flex items-center gap-2 rounded-xl bg-acento px-3.5 py-2 text-sm font-semibold text-sobre-acento hover:bg-acento/90"
           >
             {paso === total - 1 ? tr('Terminar', 'Finish') : tr('Siguiente', 'Next')} <IconoFlecha width={16} height={16} />
           </button>

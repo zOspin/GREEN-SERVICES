@@ -13,6 +13,7 @@ import Radar from './pages/Radar';
 import Configuracion from './pages/Configuracion';
 import Privacidad from './pages/Privacidad';
 import Cierre from './pages/Cierre';
+import Modelo from './pages/Modelo';
 import { ButtonLink, EmptyState } from './components/ui';
 import { useIdioma } from './lib/idioma';
 // Carga diferida: la lectura de Excel (SheetJS) solo se descarga al entrar a /datos.
@@ -50,6 +51,7 @@ export default function App() {
         <Route path="configuracion" element={<Configuracion />} />
         <Route path="privacidad" element={<Privacidad />} />
         <Route path="cierre" element={<Cierre />} />
+        <Route path="modelo" element={<Modelo />} />
         <Route path="datos" element={<Suspense fallback={<Cargando />}><CargarDatos /></Suspense>} />
         <Route path="*" element={<NoEncontrada />} />
       </Route>

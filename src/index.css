@@ -2,73 +2,96 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Paleta de la marca Órbita. Oscuro por defecto; claro con <html data-theme="light">. */
+/* Paleta inspirada en el tablero de referencia del reto (lila, morado y turquesa).
+   Claro por defecto; oscuro con <html data-theme="dark">. Formato «R G B». */
 @layer base {
   :root {
-    color-scheme: dark;
-    /* Misma paleta que las diapositivas (presentacion/deck.css) */
-    --c-fondo: 11 16 32;        /* #0B1020 */
-    --c-tarjeta: 20 28 54;      /* #141C36 */
-    --c-superficie: 28 39 72;   /* #1C2748 */
-    --c-borde: 42 55 96;        /* #2A3760 */
-    --c-tenue: 185 195 218;     /* #B9C3DA */
-    --c-acento: 245 165 36;     /* #F5A524 dorado (Comercial) */
-    --c-azul: 91 155 255;       /* #5B9BFF azul (Operaciones) */
-    --c-turquesa: 45 212 191;   /* #2DD4BF turquesa (Financiera) */
-    --c-ok: 34 197 94;          /* #22C55E */
-    --c-riesgo: 245 165 36;     /* #F5A524 */
-    --c-frio: 239 68 68;        /* #EF4444 */
-    --t-fuerte: 244 241 234;    /* #F4F1EA */
-    --t-100: 241 238 231;
-    --t-200: 226 230 239;
-    --t-300: 203 211 228;
-    --t-verde: 134 239 172;
-    --t-ambar-suave: 253 230 138;
-    --t-ambar: 248 199 102;
-    --t-rojo-suave: 254 202 202;
-    --t-rojo: 252 165 165;
-    --t-azul-suave: 219 234 254;
-    --t-azul: 191 219 254;
-    --t-violeta: 153 246 228;   /* chips del área Financiera (turquesa claro) */
-    --texto-ok: 34 197 94;
-    --texto-riesgo: 245 165 36;
-    --texto-frio: 239 68 68;
-    --logo-punto: #FDE68A;
-  }
-  /* Modo claro: el «fondo claro alterno» de las diapositivas (#F4F1EA), con tonos oscuros legibles. */
-  :root[data-theme='light'] {
     color-scheme: light;
-    --c-fondo: 244 241 234;     /* #F4F1EA */
-    --c-tarjeta: 255 253 248;   /* #FFFDF8 */
-    --c-superficie: 239 234 222;
-    --c-borde: 226 220 205;     /* #E2DCCD */
-    --c-tenue: 74 85 104;       /* #4A5568 */
-    --c-acento: 161 92 0;       /* #A15C00 */
-    --c-azul: 31 95 204;        /* #1F5FCC */
-    --c-turquesa: 15 122 108;   /* #0F7A6C */
-    --c-ok: 22 163 74;
-    --c-riesgo: 199 119 0;
-    --c-frio: 220 38 38;
-    --t-fuerte: 19 26 46;       /* #131A2E */
-    --t-100: 19 26 46;
-    --t-200: 35 43 64;
-    --t-300: 55 65 81;
-    --t-verde: 21 128 61;
-    --t-ambar-suave: 133 77 14;
-    --t-ambar: 161 92 0;
+    --c-fondo: 245 243 255;     /* #F5F3FF lila muy claro */
+    --c-tarjeta: 255 255 255;   /* tarjetas blancas */
+    --c-superficie: 243 240 255;/* #F3F0FF */
+    --c-borde: 228 223 247;     /* #E4DFF7 */
+    --c-tenue: 98 96 133;       /* #626085 */
+    --c-acento: 109 74 255;     /* #6D4AFF morado principal */
+    --c-sobre-acento: 255 255 255;
+    --c-azul: 84 70 214;        /* #5446D6 enlaces */
+    --c-turquesa: 8 170 196;    /* #08AAC4 turquesa */
+    --c-violeta: 124 58 237;    /* #7C3AED */
+    --c-ok: 8 170 196;          /* activo = turquesa */
+    --c-riesgo: 124 58 237;     /* en riesgo = morado */
+    --c-frio: 167 155 234;      /* inactivo = lavanda */
+    --c-sombra: 91 63 191;
+    --t-fuerte: 30 27 75;       /* #1E1B4B azul noche */
+    --t-100: 30 27 75;
+    --t-200: 49 46 98;
+    --t-300: 72 70 120;
+    --t-verde: 4 120 87;
+    --t-ambar-suave: 91 33 182;
+    --t-ambar: 109 40 217;
     --t-rojo-suave: 153 27 27;
     --t-rojo: 185 28 28;
-    --t-azul-suave: 30 58 138;
-    --t-azul: 31 95 204;
-    --t-violeta: 15 122 108;
-    --texto-ok: 21 128 61;
-    --texto-riesgo: 161 92 0;
-    --texto-frio: 185 28 28;
-    --logo-punto: #F5A524;
+    --t-azul-suave: 55 48 163;
+    --t-azul: 67 56 202;
+    --t-violeta: 8 125 145;
+    --texto-ok: 6 128 148;      /* #068094 */
+    --texto-riesgo: 109 40 217; /* #6D28D9 */
+    --texto-frio: 104 88 190;   /* #6858BE */
+    --logo-nucleo-a: #A78BFA;
+    --logo-nucleo-b: #6D4AFF;
+    --logo-orbita: #08AAC4;
+    --logo-punto: #22D3EE;
+    --onda-a: 109 74 255;
+    --onda-b: 34 211 238;
+  }
+  /* Modo oscuro: morado nocturno, con los mismos acentos más luminosos. */
+  :root[data-theme='dark'] {
+    color-scheme: dark;
+    --c-fondo: 14 11 36;        /* #0E0B24 */
+    --c-tarjeta: 24 20 56;      /* #181438 */
+    --c-superficie: 34 29 74;   /* #221D4A */
+    --c-borde: 55 48 108;       /* #37306C */
+    --c-tenue: 186 182 222;
+    --c-acento: 167 139 250;    /* #A78BFA */
+    --c-sobre-acento: 20 12 50;
+    --c-azul: 165 180 252;
+    --c-turquesa: 34 211 238;   /* #22D3EE */
+    --c-violeta: 192 132 252;
+    --c-ok: 34 211 238;
+    --c-riesgo: 192 132 252;
+    --c-frio: 148 160 214;
+    --c-sombra: 0 0 0;
+    --t-fuerte: 243 241 255;
+    --t-100: 238 236 252;
+    --t-200: 222 219 245;
+    --t-300: 200 196 232;
+    --t-verde: 110 231 183;
+    --t-ambar-suave: 233 213 255;
+    --t-ambar: 216 180 254;
+    --t-rojo-suave: 254 202 202;
+    --t-rojo: 252 165 165;
+    --t-azul-suave: 224 231 255;
+    --t-azul: 199 210 254;
+    --t-violeta: 165 243 252;
+    --texto-ok: 34 211 238;
+    --texto-riesgo: 216 180 254;
+    --texto-frio: 165 176 224;
+    --logo-nucleo-a: #C4B5FD;
+    --logo-nucleo-b: #8B5CF6;
+    --logo-orbita: #22D3EE;
+    --logo-punto: #A5F3FC;
+    --onda-a: 139 92 246;
+    --onda-b: 34 211 238;
   }
   body {
     @apply bg-fondo text-slate-100 font-sans antialiased;
     transition: background-color 0.2s ease;
+    /* Ondas de color suaves, como en el tablero de referencia */
+    background-image:
+      radial-gradient(55rem 26rem at 105% -8%, rgb(var(--onda-a) / 0.16), transparent 62%),
+      radial-gradient(40rem 22rem at 85% 0%, rgb(var(--onda-b) / 0.12), transparent 60%),
+      radial-gradient(48rem 28rem at -12% 108%, rgb(var(--onda-b) / 0.14), transparent 62%),
+      radial-gradient(36rem 20rem at 8% 100%, rgb(var(--onda-a) / 0.12), transparent 60%);
+    background-attachment: fixed;
   }
   h1, h2, h3 { @apply font-titulo; }
   :focus-visible { @apply outline-none ring-2 ring-acento ring-offset-2 ring-offset-fondo; }
@@ -76,7 +99,7 @@
 
 @layer components {
   .campo {
-    @apply w-full rounded-lg bg-fondo border border-borde px-3 py-2 text-sm text-slate-100 placeholder:text-tenue
+    @apply w-full rounded-lg bg-tarjeta border border-borde px-3 py-2 text-sm text-slate-100 placeholder:text-tenue
       focus:border-acento focus:outline-none;
   }
   .etiqueta-seccion { @apply text-xs font-semibold uppercase tracking-wider text-tenue; }

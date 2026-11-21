@@ -1,5 +1,6 @@
 /**
  * Los colores vienen de variables CSS (ver src/index.css), así cambian con el tema claro/oscuro.
+ * Estilo: lila, morado y turquesa, como el tablero de referencia del reto.
  * Formato "R G B" para que funcionen las transparencias de Tailwind (por ejemplo bg-acento/10).
  */
 const v = (nombre) => `rgb(var(--${nombre}) / <alpha-value>)`;
@@ -17,6 +18,11 @@ export default {
         acento: v('c-acento'),
         azul: v('c-azul'),
         turquesa: v('c-turquesa'),
+        violeta: v('c-violeta'),
+        'sobre-acento': v('c-sobre-acento'),
+        'estado-ok': v('texto-ok'),
+        'estado-riesgo': v('texto-riesgo'),
+        'estado-frio': v('texto-frio'),
         ok: v('c-ok'),
         riesgo: v('c-riesgo'),
         frio: v('c-frio'),
@@ -32,7 +38,10 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        titulo: ['"Space Grotesk"', 'Inter', 'sans-serif'],
+        titulo: ['Poppins', 'Inter', 'sans-serif'],
+      },
+      boxShadow: {
+        tarjeta: '0 10px 30px -14px rgb(var(--c-sombra) / 0.28), 0 1px 2px rgb(var(--c-sombra) / 0.06)',
       },
     },
   },

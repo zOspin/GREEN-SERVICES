@@ -23,13 +23,26 @@ Un tablero web que:
 3. **Detecta quién está por dejar de comprar** y genera **alertas** de a quién contactar esta semana, **por qué** y **qué ofrecerle**.
 4. Muestra **tendencias de ventas y TRM**, **pronostica** las ventas y dice **qué tan acertada ha sido la IA**.
 5. Escribe solo el **reporte del mes**, listo para imprimir o guardar en PDF.
+6. **Entrena un modelo predictivo** (regresión logística) que da a cada cliente su **probabilidad de compra en los próximos 30 días** y una prioridad (Alta / Media / Baja), y **valida sus predicciones** contra una regla simple.
+
+### Cómo cubre el reto
+
+| Lo que pide el reto | Dónde está |
+|---|---|
+| Cargar los datos de los clientes | **Centro de datos** (`/datos`): CSV o Excel, plantilla, modo Demo y modo Real |
+| Integrar el historial de ventas | **Centro de datos**: une varias plataformas, quita duplicados y reconoce clientes escritos distinto |
+| Calcular indicadores comerciales | **Resumen general**, **Clientes** y **Panel financiero**: RFM, ciclo de compra, ventas en riesgo, TRM |
+| Entrenar un modelo predictivo | `src/lib/modelo.ts`: regresión logística entrenada en el navegador con el historial |
+| Identificar clientes con probabilidad de compra | **Resumen general** (clientes prioritarios), columna «Prob. compra (30 días)» en **Clientes** y en cada **ficha** |
+| Mostrar los resultados | Todas las pantallas, con el estilo del tablero del reto |
+| Validar las predicciones | **Evaluación del modelo** (`/modelo`): precisión, exhaustividad, F1, matriz de aciertos y comparación con la regla base |
 
 ## Idioma y tema
 
 En el menú (abajo a la izquierda en computador; dentro del botón ☰ en celular) hay dos controles:
 
 - **ES / EN**: cambia toda la interfaz entre español e inglés, incluidos los textos que genera la IA (recomendaciones, motivos de alerta, mensaje al cliente y reporte del mes) y el formato de fechas y números (14 nov 2026 · 1.234,5 ↔ Nov 14, 2026 · 1,234.5).
-- **Claro / Oscuro**: cambia entre el tema oscuro de la marca y un tema claro, por ejemplo para proyectar en salas iluminadas o imprimir.
+- **Claro / Oscuro**: el tema **claro** (predeterminado) sigue el estilo del tablero del reto: fondo lila, tarjetas blancas, morado y turquesa. El **oscuro** es la misma paleta en versión nocturna.
 
 La elección se guarda en el navegador: al volver a abrir la web sigue como la dejaste.
 
@@ -66,7 +79,8 @@ La demo en vivo siempre usa la demo original.
 
 | Ruta | Pantalla | Para quién |
 |---|---|---|
-| `/` | **Inicio**: ventas del mes, TRM, clientes por estado, **ventas en riesgo (US$ al año)**, tiempo de consolidación, gráfica con pronóstico y «Contactar esta semana» | Todos |
+| `/` | **Resumen general**: clientes, ventas confirmadas, ingresos COP, clientes fríos, ingresos mensuales, clientes por situación, **clientes prioritarios con su probabilidad de compra**, **desempeño del modelo**, ventas en riesgo y «Contactar esta semana» | Todos |
+| `/modelo` | **Evaluación del modelo**: precisión, exhaustividad, F1 y exactitud contra la regla base, matriz de aciertos, cómo se entrenó, qué señales pesan más y predicción vs. realidad cliente por cliente | Todos |
 | `/datos` | **Centro de datos**: une y limpia archivos de varias plataformas y muestra cómo llegó cada cliente (`?demo=1` carga los ejemplos solos) | Operaciones |
 | `/radar` | **Radar de clientes**: cada cliente en un anillo (activo, en riesgo, inactivo); `?destacar=CLI-023` hace parpadear a uno | Comercial |
 | `/alertas` | **Alertas**: lista priorizada con motivo, producto a ofrecer, «Marcar como contactado» y descarga de la lista de llamadas (CSV) | Comercial |
@@ -90,7 +104,7 @@ Continúa donde termina la diapositiva 16. Se inicia con **«Iniciar demo en viv
 npm run capturas
 ```
 
-Levanta la web por su cuenta y guarda en `presentacion/capturas/` (1920×1080, modo oscuro): `centro-datos.png` (diapositiva 10), `radar-clientes.png` y `ficha-cliente-23.png` (diapositiva 11) y `panel-financiero.png` (diapositiva 12). La primera vez en un computador nuevo hay que descargar el navegador con `npx playwright install chromium`.
+Levanta la web por su cuenta y guarda en `presentacion/capturas/` (1920×1080, tema claro): `resumen-general.png`, `evaluacion-modelo.png`, `centro-datos.png` (diapositiva 10), `radar-clientes.png` y `ficha-cliente-23.png` (diapositiva 11) y `panel-financiero.png` (diapositiva 12). La primera vez en un computador nuevo hay que descargar el navegador con `npx playwright install chromium`.
 
 ## Datos inventados
 
@@ -144,7 +158,34 @@ Es una IA **sencilla y explicable**: reglas y cálculos que cualquiera puede rev
 12. **Mensaje sugerido**: un borrador de correo o WhatsApp según el estado del cliente y el producto recomendado, listo para copiar.
 13. **% de acierto (backtest)**: se «viaja al pasado» 60 días, la IA marca a quién ve en riesgo con los datos de ese momento y luego se revisa si de verdad dejaron de comprar. Con los datos de la demo acierta en **7 de 8 casos (88 %)**.
 
+### El modelo predictivo (regresión logística)
+
+Además de las reglas de arriba, Órbita Pulse **entrena un modelo** con el historial (`src/lib/modelo.ts`):
+
+1. **Fotos del pasado**: cada 15 días (12 fotos) se mira cómo estaba cada cliente (atraso frente a su ritmo, número de compras, total comprado, compras en los últimos 90 días, ciclo corto, base instalada, servicios recurrentes) y si **compró en los 30 días siguientes**.
+2. **Entrenamiento**: una regresión logística aprende cuánto pesa cada señal. Corre en el navegador, en menos de un segundo, y siempre da el mismo resultado con los mismos datos.
+3. **Predicción**: probabilidad de compra en los próximos 30 días para cada cliente. Prioridad **Alta** desde 0,6 y **Media** desde 0,35.
+4. **Validación sin trampa**: un modelo entrenado solo con datos anteriores a hace 30 días predice quién compraría, y se compara con lo que pasó. También se compara con una **regla base** («comprará si compró en los últimos 30 días»).
+
+Con la demo original: el modelo detecta al **91 %** de los clientes que compraron (exhaustividad), contra 74 % de la regla, pero con más falsas alarmas (precisión 54 % contra 63 %). Por eso **requiere revisión humana**: la IA sugiere, la persona decide.
+
 La unión de archivos está en `src/lib/unificar.ts` (reconoce sinónimos de columnas, 4 formatos de fecha, números con punto o coma, pesos o dólares) y el reporte en `src/lib/reporte.ts`.
+
+## Pruebas automáticas
+
+```bash
+npm test
+```
+
+**Pruebas unitarias** (`tests/unidad/`, con Vitest): revisan la lógica sin abrir la web. Cubren la lectura de fechas y números, el reconocimiento de columnas, la unión de archivos y el modo Real, los estados de los clientes, el backtest, el modelo predictivo y sus métricas, y que la demo original no cambie.
+
+```bash
+npm run test:e2e
+```
+
+**Pruebas de interfaz** (`tests/interfaz/`, con Playwright): abren la web en un navegador y la recorren como una persona. Revisan que todas las pantallas abran sin errores ni textos rotos, los temas y el idioma, el menú, la evaluación del modelo, el orden por probabilidad, el Centro de datos, el modo Real (subir, usar y borrar datos), la demo al azar, la demo en vivo de 5 pasos y que todo quepa en un celular. La primera vez en un computador nuevo: `npx playwright install chromium`.
+
+`npm run test:todo` corre las dos.
 
 ## Estructura del proyecto
 

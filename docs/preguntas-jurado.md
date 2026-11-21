@@ -11,6 +11,7 @@ Aprende el ritmo de compra de **cada** cliente: cada cuántos días compra. Lueg
 Puede equivocarse, y por eso:
 - **No actúa sola**: solo sugiere a quién llamar. La persona decide; nada se envía al cliente automáticamente.
 - **Dice qué tan segura está**: con menos de 4 compras, la confianza es baja y lo muestra.
+- **La validamos**: el modelo predictivo se entrena solo con el pasado y se compara con lo que de verdad pasó y con una regla simple (página **Evaluación del modelo**). En la demo detecta al 91 % de los que compraron, con más falsas alarmas que la regla.
 - **La medimos**: «viajamos al pasado» 60 días y revisamos si los clientes que marcó de verdad dejaron de comprar. Con los datos de prueba acertó en 7 de 8 (88 %). Con datos reales hay que repetir esta medición en el piloto [por confirmar].
 - **Una falsa alarma cuesta poco**: una llamada a un cliente que sí iba a comprar no le hace daño a nadie.
 

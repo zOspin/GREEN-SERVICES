@@ -6,3 +6,4 @@ export { default as Button, ButtonLink } from './Button';
 export { default as Table, Thead, Th, Tr, Td } from './Table';
 export { default as PageHeader } from './PageHeader';
 export { default as EmptyState } from './EmptyState';
+export { ChipPrioridad, BarraProbabilidad } from './Probabilidad';

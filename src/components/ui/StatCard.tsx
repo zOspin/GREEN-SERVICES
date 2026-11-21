@@ -14,7 +14,7 @@ export default function StatCard({
   color?: string;
 }) {
   return (
-    <div className="h-full rounded-2xl border border-borde bg-tarjeta p-4 sm:p-5">
+    <div className="h-full rounded-2xl border border-borde bg-tarjeta shadow-tarjeta p-4 sm:p-5">
       <p className="text-sm text-tenue">{titulo}</p>
       <p className="mt-2 font-titulo text-2xl font-semibold tabular-nums" style={color ? { color } : undefined}>
         {valor}

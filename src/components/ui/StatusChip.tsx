@@ -3,9 +3,9 @@ import { useIdioma } from '../../lib/idioma';
 
 /** Texto, color (variable de tema) y forma de cada estado. */
 export const INFO_ESTADO: Record<Estado, { es: string; en: string; color: string; clase: string; simbolo: string }> = {
-  activo: { es: 'Activo', en: 'Active', color: 'rgb(var(--texto-ok))', clase: 'bg-ok/15 text-green-300 border-ok/40', simbolo: '●' },
-  riesgo: { es: 'En riesgo', en: 'At risk', color: 'rgb(var(--texto-riesgo))', clase: 'bg-riesgo/15 text-amber-300 border-riesgo/40', simbolo: '▲' },
-  frio: { es: 'Inactivo', en: 'Inactive', color: 'rgb(var(--texto-frio))', clase: 'bg-frio/15 text-red-300 border-frio/40', simbolo: '■' },
+  activo: { es: 'Activo', en: 'Active', color: 'rgb(var(--texto-ok))', clase: 'bg-ok/12 text-estado-ok border-ok/40', simbolo: '●' },
+  riesgo: { es: 'En riesgo', en: 'At risk', color: 'rgb(var(--texto-riesgo))', clase: 'bg-riesgo/12 text-estado-riesgo border-riesgo/40', simbolo: '▲' },
+  frio: { es: 'Inactivo', en: 'Inactive', color: 'rgb(var(--texto-frio))', clase: 'bg-frio/15 text-estado-frio border-frio/50', simbolo: '■' },
 };
 
 /** Chip de estado: color + forma + texto (nunca solo color). */

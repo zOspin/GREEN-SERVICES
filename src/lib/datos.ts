@@ -18,6 +18,7 @@ import trmReal from '../data/real/trm.json';
 import metaReal from '../data/real/meta.json';
 import { esDemoOriginal, leerDatosReales, MODO, SEMILLA } from './modo';
 import { generarDatos } from './generador';
+import { entrenarModelo } from './modelo';
 import type { Cliente, Producto, Venta, Trm } from './types';
 import type { Umbrales } from '../config/umbrales';
 import {
@@ -87,6 +88,7 @@ export const hayDatos = ventas.length > 0;
 export const HOY = new Date(`${meta.fecha_corte}T00:00:00Z`);
 
 export const productoPorId = new Map(productos.map((p) => [p.id, p]));
+export const clientePorId = new Map(clientes.map((c) => [c.id, c]));
 export const pronostico = pronosticarVentas(ventas, HOY);
 export const serie = serieMensual(ventas, HOY);
 export const mesActual = ventasMesActual(ventas, HOY);
@@ -104,6 +106,12 @@ export const correlacionVentasTrm = correlacion(
   serieVentasTrm.map((p) => p.trm),
   serieVentasTrm.map((p) => p.usd),
 );
+
+/**
+ * Modelo predictivo (regresión logística) entrenado con el historial: probabilidad de compra
+ * en los próximos 30 días por cliente, y su validación. No depende de los umbrales.
+ */
+export const modelo = entrenarModelo(clientes, ventas, productos, HOY);
 
 /** Cliente protagonista de la historia de la demo. */
 export const CLIENTE_DEMO = 'CLI-023';

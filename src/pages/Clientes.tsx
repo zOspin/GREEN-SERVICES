@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Card, EmptyState, PageHeader, RiskBar, StatusChip, Table, Td, Th, Thead, Tr } from '../components/ui';
+import { BarraProbabilidad, Button, Card, ChipPrioridad, EmptyState, PageHeader, RiskBar, StatusChip, Table, Td, Th, Thead, Tr } from '../components/ui';
 import { IconoBuscar } from '../components/Iconos';
-import { clientes } from '../lib/datos';
+import { clientes, modelo } from '../lib/datos';
 import { useDatos } from '../lib/umbrales';
 import type { AnalisisCliente, Estado } from '../lib/analytics';
 import { fmtCompacto, fmtFecha } from '../lib/format';
@@ -13,7 +13,7 @@ const SECTORES = [...new Set(clientes.map((c) => c.sector))].sort();
 const mayuscula = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /** Columnas por las que se puede ordenar la tabla. */
-type Orden = 'nombre' | 'sector' | 'ultima' | 'ciclo' | 'recencia' | 'monto' | 'puntaje';
+type Orden = 'nombre' | 'sector' | 'ultima' | 'ciclo' | 'recencia' | 'monto' | 'puntaje' | 'prob';
 const ORDEN_ESTADO: Record<Estado, number> = { activo: 0, riesgo: 1, frio: 2 };
 const VALOR: Record<Orden, (a: AnalisisCliente) => number | string> = {
   nombre: (a) => a.cliente.nombre,
@@ -23,6 +23,7 @@ const VALOR: Record<Orden, (a: AnalisisCliente) => number | string> = {
   recencia: (a) => a.recencia,
   monto: (a) => a.montoUsd,
   puntaje: (a) => a.puntaje * 10 + ORDEN_ESTADO[a.estado],
+  prob: (a) => modelo.predicciones.get(a.cliente.id)?.probabilidad ?? -1,
 };
 
 /** Encabezado que ordena la tabla al hacer clic (y anuncia el orden a lectores de pantalla). */
@@ -133,6 +134,7 @@ export default function Clientes() {
               <ThOrden campo="ciclo" orden={orden} desc={desc} alCambiar={cambiarOrden} derecha>{tr('Ciclo', 'Cycle')}</ThOrden>
               <ThOrden campo="recencia" orden={orden} desc={desc} alCambiar={cambiarOrden} derecha>{tr('Días sin comprar', 'Days since purchase')}</ThOrden>
               <ThOrden campo="monto" orden={orden} desc={desc} alCambiar={cambiarOrden} derecha>{tr('Total comprado', 'Total purchased')}</ThOrden>
+              <ThOrden campo="prob" orden={orden} desc={desc} alCambiar={cambiarOrden}>{tr('Prob. compra (30 días)', 'Purchase prob. (30 days)')}</ThOrden>
               <ThOrden campo="puntaje" orden={orden} desc={desc} alCambiar={cambiarOrden}>{tr('Riesgo', 'Risk')}</ThOrden>
               <Th>{tr('Estado', 'Status')}</Th>
             </Thead>
@@ -163,6 +165,16 @@ export default function Clientes() {
                     </Td>
                     <Td derecha>{a.recencia}</Td>
                     <Td derecha>{fmtCompacto(a.montoUsd)}</Td>
+                    <Td>
+                      {modelo.predicciones.get(a.cliente.id) ? (
+                        <span className="inline-flex items-center gap-2">
+                          <BarraProbabilidad p={modelo.predicciones.get(a.cliente.id)!.probabilidad} />
+                          <ChipPrioridad prioridad={modelo.predicciones.get(a.cliente.id)!.prioridad} />
+                        </span>
+                      ) : (
+                        <span className="text-tenue">—</span>
+                      )}
+                    </Td>
                     <Td><RiskBar puntaje={a.puntaje} /></Td>
                     <Td><StatusChip estado={a.estado} /></Td>
                   </Tr>

@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 type Variante = 'primario' | 'secundario' | 'fantasma';
 
 const CLASES: Record<Variante, string> = {
-  primario: 'bg-[#F5A524] text-[#1A1306] hover:bg-[#F7B84B]',
-  secundario: 'border border-borde text-slate-200 hover:bg-white/5',
-  fantasma: 'text-azul hover:bg-azul/10',
+  primario: 'bg-acento text-sobre-acento shadow-tarjeta hover:bg-acento/90',
+  secundario: 'border border-borde bg-tarjeta text-slate-200 hover:border-acento/50 hover:text-acento',
+  fantasma: 'text-azul hover:bg-acento/10',
 };
-const base = 'inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition-colors disabled:opacity-50 print:hidden';
+const base = 'inline-flex items-center justify-center gap-2 rounded-xl px-3.5 py-2 text-sm font-medium transition-colors disabled:opacity-50 print:hidden';
 
 /** Botón real (<button>). Si solo tiene ícono, pasa `aria-label`. */
 export default function Button({

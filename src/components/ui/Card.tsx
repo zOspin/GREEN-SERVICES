@@ -15,7 +15,7 @@ export default function Card({
   id?: string;
 }) {
   return (
-    <section id={id} className={`rounded-2xl border border-borde bg-tarjeta p-4 sm:p-5 print:border-slate-300 print:bg-white ${className}`}>
+    <section id={id} className={`rounded-2xl border border-borde bg-tarjeta shadow-tarjeta p-4 sm:p-5 print:border-slate-300 print:bg-white ${className}`}>
       {(titulo || accion) && (
         <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
           {titulo && <h2 className="text-lg font-semibold">{titulo}</h2>}

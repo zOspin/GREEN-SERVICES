@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { CartesianGrid, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis, YAxis, ZAxis } from 'recharts';
-import { Button, ButtonLink, Card, EmptyState, INFO_ESTADO, Panel, RiskBar, StatCard, StatusChip, Table, Td, Th, Thead, Tr } from '../components/ui';
+import { BarraProbabilidad, Button, ButtonLink, Card, ChipPrioridad, EmptyState, INFO_ESTADO, Panel, RiskBar, StatCard, StatusChip, Table, Td, Th, Thead, Tr } from '../components/ui';
 import { IconoAtras, IconoCheck, IconoChispa } from '../components/Iconos';
 import ExplicacionRiesgo from '../components/ExplicacionRiesgo';
-import { HOY, productoPorId } from '../lib/datos';
+import { HOY, modelo, productoPorId } from '../lib/datos';
+import { VARIABLES, VENTANA_DIAS } from '../lib/modelo';
 import { useDatos } from '../lib/umbrales';
 import { DIA } from '../lib/analytics';
 import { useContactados } from '../lib/contactados';
@@ -157,6 +158,29 @@ export default function FichaCliente() {
 
       <section className="mt-6" aria-label={tr('Explicación del estado', 'Status explanation')} id="por-que">
         <ExplicacionRiesgo a={a} />
+        {modelo.predicciones.get(a.cliente.id) && (() => {
+          const pr = modelo.predicciones.get(a.cliente.id)!;
+          const top = [...pr.aportes].sort((x, y) => Math.abs(y.valor) - Math.abs(x.valor)).slice(0, 3);
+          return (
+            <div className="mt-4 rounded-xl border border-acento/25 bg-acento/5 p-4">
+              <div className="flex flex-wrap items-center gap-3">
+                <p className="font-semibold text-white">{tr(`Probabilidad de compra en los próximos ${VENTANA_DIAS} días`, `Purchase probability in the next ${VENTANA_DIAS} days`)}</p>
+                <BarraProbabilidad p={pr.probabilidad} />
+                <ChipPrioridad prioridad={pr.prioridad} />
+                <Link to="/modelo" className="ml-auto text-sm text-acento hover:underline">{tr('¿Qué tan confiable es el modelo?', 'How reliable is the model?')}</Link>
+              </div>
+              <p className="mt-2 text-sm text-slate-300">
+                {tr('Lo que más pesó en esta predicción:', 'What weighed most in this prediction:')}{' '}
+                {top.map((t, i) => (
+                  <span key={t.id}>
+                    {i > 0 && ' · '}
+                    <span className={t.valor >= 0 ? 'text-estado-ok' : 'text-acento'}>{t.valor >= 0 ? '▲' : '▼'}</span> {b(VARIABLES.find((v) => v.id === t.id)!)}
+                  </span>
+                ))}
+              </p>
+            </div>
+          );
+        })()}
       </section>
 
       <section className="mt-6 rounded-2xl border border-acento/40 bg-acento/5 p-5" aria-labelledby="titulo-recomendacion">

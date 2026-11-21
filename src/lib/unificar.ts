@@ -236,7 +236,8 @@ export function unirArchivos(entradas: { nombre: string; filas: Record<string, u
   let duplicados = 0;
 
   for (const { nombre, filas } of entradas) {
-    const columnas = reconocerColumnas(filas.length ? Object.keys(filas[0]) : []);
+    // Columnas de todas las filas (no solo la primera): un Excel desordenado puede traer columnas extra más abajo.
+    const columnas = reconocerColumnas([...new Set(filas.flatMap((f) => Object.keys(f)))]);
     const colDe = (campo: CampoComun) => Object.keys(columnas).find((k) => columnas[k] === campo);
     const campos = new Set(Object.values(columnas));
     const esVentas = campos.has('fecha') && campos.has('cliente') && campos.has('producto') && (campos.has('valor_usd') || campos.has('valor_cop'));

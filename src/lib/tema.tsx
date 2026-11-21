@@ -10,28 +10,30 @@ export type Tema = 'dark' | 'light';
 
 const COLORES = {
   dark: {
-    eje: '#B9C3DA',
-    rejilla: '#2A3760',
-    tooltipFondo: '#0B1020',
-    tooltipBorde: '#2A3760',
-    tooltipTexto: '#F4F1EA',
-    tarjeta: '#141C36',
-    azul: '#5B9BFF',
-    acento: '#F5A524',
-    acentoTexto: '#F8C766',
-    turquesa: '#2DD4BF',
+    eje: '#BAB6DE',
+    rejilla: '#37306C',
+    tooltipFondo: '#181438',
+    tooltipBorde: '#37306C',
+    tooltipTexto: '#F3F1FF',
+    tarjeta: '#181438',
+    azul: '#22D3EE',
+    acento: '#A78BFA',
+    acentoTexto: '#D8B4FE',
+    turquesa: '#22D3EE',
+    violeta: '#C084FC',
   },
   light: {
-    eje: '#4A5568',
-    rejilla: '#E2DCCD',
-    tooltipFondo: '#FFFDF8',
-    tooltipBorde: '#E2DCCD',
-    tooltipTexto: '#131A2E',
-    tarjeta: '#FFFDF8',
-    azul: '#1F5FCC',
-    acento: '#C77700',
-    acentoTexto: '#A15C00',
-    turquesa: '#0F7A6C',
+    eje: '#626085',
+    rejilla: '#E4DFF7',
+    tooltipFondo: '#FFFFFF',
+    tooltipBorde: '#E4DFF7',
+    tooltipTexto: '#1E1B4B',
+    tarjeta: '#FFFFFF',
+    azul: '#08AAC4',
+    acento: '#6D4AFF',
+    acentoTexto: '#6D28D9',
+    turquesa: '#08AAC4',
+    violeta: '#7C3AED',
   },
 } as const;
 
@@ -43,10 +45,11 @@ interface Ctx {
 const TemaContext = createContext<Ctx | null>(null);
 
 export function TemaProvider({ children }: { children: ReactNode }) {
-  const [tema, setTema] = useState<Tema>(() => leerPreferencia('orbita-tema', ['dark', 'light'] as const, 'dark'));
+  const [tema, setTema] = useState<Tema>(() => leerPreferencia('orbita-tema', ['dark', 'light'] as const, 'light'));
   useEffect(() => {
     const raiz = document.documentElement;
-    if (tema === 'light') raiz.dataset.theme = 'light';
+    // Claro por defecto (estilo del reto); oscuro con data-theme="dark".
+    if (tema === 'dark') raiz.dataset.theme = 'dark';
     else delete raiz.dataset.theme;
     guardarPreferencia('orbita-tema', tema);
   }, [tema]);

@@ -13,12 +13,12 @@ import { fmtCompacto, fmtCop, fmtDec, fmtMes, fmtNum, fmtPct, fmtTrm, fmtUsd } f
 
 /** Colores por categoría (no se usan verde/ámbar/rojo para no confundir con los estados). */
 const COLOR_CATEGORIA: Record<string, string> = {
-  Redes: '#5B9BFF',
-  Nube: '#38BDF8',
+  Redes: '#6D4AFF',
+  Nube: '#08AAC4',
   Ciberseguridad: '#A78BFA',
-  Hardware: '#F59E0B',
-  Software: '#F472B6',
-  Almacenamiento: '#94A3B8',
+  Hardware: '#38BDF8',
+  Software: '#D946EF',
+  Almacenamiento: '#8B93C9',
 };
 // Categorías que no son de la demo (datos reales): toman un color de esta lista, en orden.
 const COLORES_EXTRA = ['#2DD4BF', '#FB923C', '#4ADE80', '#E879F9', '#FACC15', '#60A5FA', '#F87171', '#A3E635'];
