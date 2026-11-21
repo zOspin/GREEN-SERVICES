@@ -15,7 +15,7 @@ test.describe('todas las pantallas (demo)', () => {
 test('el tema claro es el predeterminado y el oscuro se recuerda', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('html')).not.toHaveAttribute('data-theme', 'dark');
-  await page.locator('aside').getByRole('button', { name: /modo oscuro/i }).click();
+  await page.getByRole('button', { name: 'Modo oscuro' }).click();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
   await page.reload();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
@@ -23,9 +23,9 @@ test('el tema claro es el predeterminado y el oscuro se recuerda', async ({ page
 
 test('cambia a inglés y vuelve a español', async ({ page }) => {
   await page.goto('/');
-  await page.locator('aside').getByRole('button', { name: 'English' }).click();
+  await page.getByRole('button', { name: 'English' }).click();
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Artificial Intelligence');
-  await page.locator('aside').getByRole('button', { name: 'Español' }).click();
+  await page.getByRole('button', { name: 'Español' }).click();
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Inteligencia Artificial');
 });
 
@@ -34,5 +34,14 @@ test('el menú lleva a cada sección', async ({ page }) => {
   for (const [texto, ruta] of [['Centro de datos', '/datos'], ['Clientes', '/clientes'], ['Evaluación del modelo', '/modelo'], ['Resumen general', '/']] as const) {
     await page.locator('aside').getByRole('link', { name: texto, exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`${ruta}$`));
+  }
+});
+
+test('idioma y tema se ven arriba sin desplazarse, incluso en un portátil pequeño', async ({ page }) => {
+  await page.setViewportSize({ width: 1366, height: 768 });
+  await page.goto('/');
+  for (const nombre of ['English', 'Español', 'Modo claro', 'Modo oscuro']) {
+    const caja = await page.getByRole('button', { name: nombre }).boundingBox();
+    expect(caja && caja.y + caja.height <= 768, nombre).toBe(true);
   }
 });

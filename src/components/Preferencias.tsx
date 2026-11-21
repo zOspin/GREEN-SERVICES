@@ -1,46 +1,65 @@
 import { useIdioma, type Idioma } from '../lib/idioma';
-import { useTema } from '../lib/tema';
+import { useTema, type Tema } from '../lib/tema';
 import { IconoLuna, IconoSol } from './Iconos';
 
-/** Selector de idioma (ES / EN) y botón de tema claro / oscuro. */
+/** Interruptor de dos opciones (mismo estilo para idioma y tema). */
+function Interruptor<T extends string>({
+  etiqueta,
+  valor,
+  opciones,
+  alElegir,
+}: {
+  etiqueta: string;
+  valor: T;
+  opciones: { valor: T; texto: React.ReactNode; nombre: string; lang?: string }[];
+  alElegir: (v: T) => void;
+}) {
+  return (
+    <div className="flex rounded-xl border border-borde bg-tarjeta p-0.5 shadow-tarjeta" role="group" aria-label={etiqueta}>
+      {opciones.map((o) => (
+        <button
+          key={o.valor}
+          type="button"
+          lang={o.lang}
+          onClick={() => alElegir(o.valor)}
+          aria-pressed={valor === o.valor}
+          aria-label={o.nombre}
+          title={o.nombre}
+          className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-semibold transition-colors ${
+            valor === o.valor ? 'bg-acento text-sobre-acento' : 'text-tenue hover:text-acento'
+          }`}
+        >
+          {o.texto}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+/** Selector de idioma (ES / EN) y de tema (Claro / Oscuro), siempre visibles arriba a la derecha. */
 export default function Preferencias({ compacto = false }: { compacto?: boolean }) {
   const { idioma, cambiar, tr } = useIdioma();
   const { tema, alternar } = useTema();
-  const opciones: { valor: Idioma; texto: string; nombre: string }[] = [
-    { valor: 'es', texto: 'ES', nombre: 'Español' },
-    { valor: 'en', texto: 'EN', nombre: 'English' },
-  ];
-  const claro = tema === 'light';
   return (
-    <div className="flex items-center gap-2">
-      <div className="flex rounded-lg border border-borde p-0.5" role="group" aria-label={tr('Idioma', 'Language')}>
-        {opciones.map((o) => (
-          <button
-            key={o.valor}
-            type="button"
-            lang={o.valor}
-            onClick={() => cambiar(o.valor)}
-            aria-pressed={idioma === o.valor}
-            aria-label={o.nombre}
-            title={o.nombre}
-            className={`rounded-md px-2.5 py-1 text-xs font-semibold transition-colors ${
-              idioma === o.valor ? 'bg-acento/15 text-acento' : 'text-tenue hover:text-white'
-            }`}
-          >
-            {o.texto}
-          </button>
-        ))}
-      </div>
-      <button
-        type="button"
-        onClick={alternar}
-        aria-label={claro ? tr('Cambiar a modo oscuro', 'Switch to dark mode') : tr('Cambiar a modo claro', 'Switch to light mode')}
-        title={claro ? tr('Modo oscuro', 'Dark mode') : tr('Modo claro', 'Light mode')}
-        className="inline-flex items-center gap-2 rounded-lg border border-borde px-2.5 py-1.5 text-xs font-medium text-slate-200 hover:bg-white/5"
-      >
-        {claro ? <IconoLuna width={16} height={16} /> : <IconoSol width={16} height={16} />}
-        {!compacto && <span>{claro ? tr('Oscuro', 'Dark') : tr('Claro', 'Light')}</span>}
-      </button>
+    <div className="flex items-center gap-2 print:hidden">
+      <Interruptor<Idioma>
+        etiqueta={tr('Idioma', 'Language')}
+        valor={idioma}
+        alElegir={cambiar}
+        opciones={[
+          { valor: 'es', texto: 'ES', nombre: 'Español', lang: 'es' },
+          { valor: 'en', texto: 'EN', nombre: 'English', lang: 'en' },
+        ]}
+      />
+      <Interruptor<Tema>
+        etiqueta={tr('Tema', 'Theme')}
+        valor={tema}
+        alElegir={(t) => t !== tema && alternar()}
+        opciones={[
+          { valor: 'light', texto: <><IconoSol width={14} height={14} />{!compacto && tr('Claro', 'Light')}</>, nombre: tr('Modo claro', 'Light mode') },
+          { valor: 'dark', texto: <><IconoLuna width={14} height={14} />{!compacto && tr('Oscuro', 'Dark')}</>, nombre: tr('Modo oscuro', 'Dark mode') },
+        ]}
+      />
     </div>
   );
 }

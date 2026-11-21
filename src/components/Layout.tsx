@@ -82,10 +82,10 @@ function Marca({ grande = false }: { grande?: boolean }) {
       <div className="flex items-center gap-3">
         <Logo size={40} />
         <div className="leading-tight">
-          <p className="font-titulo text-lg font-bold tracking-tight text-white">
+          <p className="whitespace-nowrap font-titulo text-lg font-bold tracking-tight text-white">
             Órbita <span className="text-acento">Pulse</span>
           </p>
-          <p className="text-[0.7rem] text-tenue">{tr('para Green Services', 'for Green Services')}</p>
+          <p className="hidden text-[0.7rem] text-tenue min-[400px]:block">{tr('para Green Services', 'for Green Services')}</p>
         </div>
       </div>
     );
@@ -194,7 +194,6 @@ export default function Layout() {
         </div>
         <BotonDemo />
         <SelectorModo />
-        <Preferencias />
         <PieDemo />
       </aside>
 
@@ -202,6 +201,9 @@ export default function Layout() {
       <header className="sticky top-0 z-30 border-b border-borde bg-fondo/95 backdrop-blur print:hidden lg:hidden">
         <div className="flex items-center justify-between gap-2 px-4 py-3">
           <Marca />
+          <div className="ml-auto">
+            <Preferencias compacto />
+          </div>
           <button
             type="button"
             className="rounded-lg p-2 text-slate-200 hover:bg-white/5"
@@ -219,7 +221,6 @@ export default function Layout() {
             <div className="mt-3 space-y-3 border-t border-borde pt-3">
               <BotonDemo alPulsar={() => setAbierto(false)} />
               <SelectorModo />
-              <Preferencias />
             </div>
           </div>
         )}
@@ -227,6 +228,10 @@ export default function Layout() {
 
       <main className={`min-w-0 flex-1 px-4 py-6 print:p-0 sm:px-6 lg:px-10 lg:py-8 ${presentando ? 'pb-48 lg:pb-36' : ''}`}>
         <div className="mx-auto max-w-7xl">
+          {/* Idioma y tema: siempre visibles arriba a la derecha (en celular van en el encabezado) */}
+          <div className="mb-4 hidden justify-end print:hidden lg:flex">
+            <Preferencias />
+          </div>
           <AvisoSinDatos />
           <Outlet />
         </div>

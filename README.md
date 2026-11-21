@@ -39,7 +39,7 @@ Un tablero web que:
 
 ## Idioma y tema
 
-En el menú (abajo a la izquierda en computador; dentro del botón ☰ en celular) hay dos controles:
+Arriba a la derecha de cada página (en celular, en el encabezado) hay dos interruptores siempre visibles:
 
 - **ES / EN**: cambia toda la interfaz entre español e inglés, incluidos los textos que genera la IA (recomendaciones, motivos de alerta, mensaje al cliente y reporte del mes) y el formato de fechas y números (14 nov 2026 · 1.234,5 ↔ Nov 14, 2026 · 1,234.5).
 - **Claro / Oscuro**: el tema **claro** (predeterminado) sigue el estilo del tablero del reto: fondo lila, tarjetas blancas, morado y turquesa. El **oscuro** es la misma paleta en versión nocturna.

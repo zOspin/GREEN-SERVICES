@@ -98,3 +98,4 @@ Cuando algo no estaba especificado, tomamos la opción más simple. Aquí quedan
 73. **Pruebas**: Vitest para la lógica y Playwright para la interfaz. Las pruebas encontraron un error real que se corrigió: el Centro de datos solo leía los nombres de columna de la primera fila.
 74. Las capturas de `npm run capturas` pasaron a tema claro, para que coincidan con el estilo nuevo.
 75. Cada logo tiene su propio id de degradado: con dos logos en la página (menú oculto en celular) el núcleo desaparecía.
+76. **Idioma y tema arriba a la derecha**, como interruptores de dos opciones (ES | EN y ☀ Claro | ☾ Oscuro): en el menú lateral quedaban por debajo del borde en pantallas de portátil (768 px y 900 px de alto). En celular van en el encabezado, junto al botón ☰.

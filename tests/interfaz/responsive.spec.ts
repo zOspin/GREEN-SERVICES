@@ -17,3 +17,11 @@ test('el menú del celular se abre y navega', async ({ page }) => {
   await page.locator('#menu-movil').getByRole('link', { name: 'Evaluación del modelo' }).click();
   await expect(page).toHaveURL(/\/modelo$/);
 });
+
+test('el idioma y el tema se cambian desde el encabezado del celular', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'English' }).click();
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Artificial Intelligence');
+  await page.getByRole('button', { name: 'Dark mode' }).click();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+});
