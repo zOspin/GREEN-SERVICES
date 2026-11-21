@@ -1,6 +1,6 @@
 /** Pruebas del modelo predictivo (regresión logística) y de su validación. */
 import { describe, expect, it } from 'vitest';
-import { entrenarLogistica, entrenarModelo, metricas, prioridadDesde } from '../../src/lib/modelo';
+import { entrenarLogistica, entrenarModelo, metricas, prioridadDesde, validarVariosMeses } from '../../src/lib/modelo';
 import { generarDatos } from '../../src/lib/generador';
 import { clientes, HOY, productos, ventas } from './demo';
 
@@ -71,5 +71,22 @@ describe('entrenarModelo (otros casos)', () => {
     const r = entrenarModelo([], [], [], HOY);
     expect(r.entrenado).toBe(false);
     expect(r.motivo?.es).toMatch(/más datos/);
+  });
+});
+
+describe('validarVariosMeses (validación en 6 meses)', () => {
+  const vm = validarVariosMeses(clientes, ventas, productos, HOY, 6)!;
+  it('valida en 6 meses distintos, uno cada 30 días', () => {
+    expect(vm.ventanas).toHaveLength(6);
+    expect(vm.ventanas[0].fecha).toBe('2026-10-15');
+    expect(vm.ventanas[1].fecha).toBe('2026-09-15');
+  });
+  it('en promedio el modelo supera a la regla base (F1) en la demo', () => {
+    expect(vm.promedio.modelo.f1).toBeGreaterThan(vm.promedio.regla.f1);
+    expect(vm.ganaModelo).toBeGreaterThanOrEqual(4);
+  });
+  it('la primera ventana coincide con la validación del último mes', () => {
+    const r = entrenarModelo(clientes, ventas, productos, HOY);
+    expect(vm.ventanas[0].modelo.f1).toBeCloseTo(r.validacion!.modelo.f1);
   });
 });

@@ -12,6 +12,7 @@ export function AreaIngresos({ datos }: { datos: { clave: string; cop: number }[
   const { colores: c } = useTema();
   const ingresosMensuales = datos;
   return (
+    <div aria-hidden="true" className="h-full w-full">
     <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={ingresosMensuales} margin={{ top: 8, right: 12, left: 0, bottom: 0 }}>
                 <defs>
@@ -31,19 +32,22 @@ export function AreaIngresos({ datos }: { datos: { clave: string; cop: number }[
                 <Area type="monotone" dataKey="cop" stroke={c.turquesa} strokeWidth={2.5} fill="url(#relleno-ingresos)" dot={{ r: 2.5, fill: c.turquesa }} isAnimationActive={false} />
               </AreaChart>
             </ResponsiveContainer>
+    </div>
   );
 }
 
 export function Dona({ situacion }: { situacion: { estado: Estado; n: number; color: string }[] }) {
   return (
-              <ResponsiveContainer width="100%" height="100%">
+              <div aria-hidden="true" className="h-full w-full">
+    <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
-                  <Pie data={situacion} dataKey="n" nameKey="estado" innerRadius="62%" outerRadius="100%" stroke="none" isAnimationActive={false}>
+                  <Pie rootTabIndex={-1} data={situacion} dataKey="n" nameKey="estado" innerRadius="62%" outerRadius="100%" stroke="none" isAnimationActive={false}>
                     {situacion.map((s2) => (
                       <Cell key={s2.estado} fill={s2.color} />
                     ))}
                   </Pie>
                 </PieChart>
               </ResponsiveContainer>
+    </div>
   );
 }

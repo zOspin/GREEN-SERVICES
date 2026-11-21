@@ -198,7 +198,7 @@ export default function Radar() {
               `Anillos: activo hasta ${fmtDec(u.riesgo)}× su ritmo, en riesgo hasta ${fmtDec(u.inactivo)}×, inactivo más allá o con más de ${u.diasMaximosSinComprar} días sin comprar.`,
               `Rings: active up to ${fmtDec(u.riesgo)}× their pace, at risk up to ${fmtDec(u.inactivo)}×, inactive beyond that or after ${u.diasMaximosSinComprar} days without buying.`,
             )}{' '}
-            <Link to="/configuracion" className="text-azul hover:underline">
+            <Link to="/configuracion" className="text-azul underline underline-offset-2">
               {tr('Ajustar umbrales', 'Adjust thresholds')}
             </Link>
           </p>

@@ -12,7 +12,7 @@
     --c-superficie: 243 240 255;/* #F3F0FF */
     --c-borde: 228 223 247;     /* #E4DFF7 */
     --c-tenue: 98 96 133;       /* #626085 */
-    --c-acento: 109 74 255;     /* #6D4AFF morado principal */
+    --c-acento: 96 58 242;      /* #603AF2 morado principal (contraste AA sobre fondos lila) */
     --c-sobre-acento: 255 255 255;
     --c-azul: 84 70 214;        /* #5446D6 enlaces */
     --c-turquesa: 8 170 196;    /* #08AAC4 turquesa */
@@ -25,15 +25,15 @@
     --t-100: 30 27 75;
     --t-200: 49 46 98;
     --t-300: 72 70 120;
-    --t-verde: 4 120 87;
+    --t-verde: 3 104 76;
     --t-ambar-suave: 91 33 182;
     --t-ambar: 109 40 217;
     --t-rojo-suave: 153 27 27;
     --t-rojo: 185 28 28;
     --t-azul-suave: 55 48 163;
     --t-azul: 67 56 202;
-    --t-violeta: 8 125 145;
-    --texto-ok: 6 128 148;      /* #068094 */
+    --t-violeta: 4 104 119;
+    --texto-ok: 4 104 119;      /* #046877 (contraste AA sobre fondos turquesa claros) */
     --texto-riesgo: 109 40 217; /* #6D28D9 */
     --texto-frio: 104 88 190;   /* #6858BE */
     --logo-nucleo-a: #A78BFA;

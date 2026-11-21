@@ -171,6 +171,14 @@ Con la demo original: el modelo detecta al **91 %** de los clientes que compraro
 
 La unión de archivos está en `src/lib/unificar.ts` (reconoce sinónimos de columnas, 4 formatos de fecha, números con punto o coma, pesos o dólares) y el reporte en `src/lib/reporte.ts`.
 
+## Publicar en internet (GitHub Pages)
+
+La configuración ya está en `.github/workflows/publicar.yml`. Una sola vez, en GitHub:
+1. **Settings → Pages → Source: «GitHub Actions»**.
+2. **Actions → «Publicar en GitHub Pages» → Run workflow** (elige la rama `orbita-pulse-prototipo`).
+
+La web queda en `https://<usuario>.github.io/<repositorio>/`. El informe de pruebas está en `docs/pruebas-y-cumplimiento.md`.
+
 ## Guía técnica
 
 Para explicar el código (arquitectura, flujo de datos, de dónde sale cada número, fórmulas exactas y el modelo): **`docs/guia-tecnica.md`**.

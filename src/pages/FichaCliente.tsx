@@ -258,6 +258,7 @@ export default function FichaCliente() {
             role="img"
             aria-label={tr(`Línea de tiempo con las ${a.ventas.length} compras de ${c.nombre}`, `Timeline of the ${a.ventas.length} purchases by ${c.nombre}`)}
           >
+            <div aria-hidden="true" className="h-full w-full">
             <ResponsiveContainer width="100%" height="100%">
               <ScatterChart margin={{ top: 8, right: 12, left: 0, bottom: 0 }}>
                 <CartesianGrid stroke={col.rejilla} strokeDasharray="3 3" />
@@ -297,6 +298,7 @@ export default function FichaCliente() {
                 )}
               </ScatterChart>
             </ResponsiveContainer>
+            </div>
           </div>
           <p className="mt-2 text-xs text-tenue">
             <span className="text-azul" aria-hidden="true">●</span> {tr('Compras reales', 'Actual purchases')} ·{' '}
@@ -305,7 +307,7 @@ export default function FichaCliente() {
         </Card>
 
         <Card titulo={tr(`Productos que tiene (${tenencia.length})`, `Products owned (${tenencia.length})`)}>
-          <div className="max-h-72 overflow-auto">
+          <div className="max-h-72 overflow-auto" tabIndex={0} role="region" aria-label={tr('Productos que tiene (lista con desplazamiento)', 'Products owned (scrollable list)')}>
             <Table minWidth={480}>
               <Thead fija>
                 <Th>{tr('Producto', 'Product')}</Th>
@@ -340,7 +342,7 @@ export default function FichaCliente() {
       </div>
 
       <Card titulo={tr(`Historial de compras (${a.ventas.length} registros)`, `Purchase history (${a.ventas.length} records)`)} className="mt-6">
-        <div className="max-h-80 overflow-auto">
+        <div className="max-h-80 overflow-auto" tabIndex={0} role="region" aria-label={tr('Historial de compras (tabla con desplazamiento)', 'Purchase history (scrollable table)')}>
           <Table minWidth={560}>
             <Thead fija>
               <Th>{tr('Fecha', 'Date')}</Th>

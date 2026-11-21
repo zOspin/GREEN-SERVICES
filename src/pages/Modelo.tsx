@@ -1,7 +1,7 @@
 import { lazy, Suspense, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BarraProbabilidad, Button, Card, EmptyState, PageHeader, Panel, StatCard, Table, Td, Th, Thead, Tr } from '../components/ui';
-import { clientePorId, modelo } from '../lib/datos';
+import { clientePorId, modelo, validacionMeses } from '../lib/datos';
 import { VARIABLES, VENTANA_DIAS, type Metricas } from '../lib/modelo';
 import { useIdioma } from '../lib/idioma';
 import { fmtDec, fmtFecha, fmtNum } from '../lib/format';
@@ -33,14 +33,14 @@ function Matriz({ m }: { m: Metricas }) {
     { n: m.vn, t: tr('Dijo «no comprará» y no compró', 'Said "won\'t buy" and did not'), ok: true },
   ];
   return (
-    <div className="grid grid-cols-2 gap-3" role="table" aria-label={tr('Matriz de confusión', 'Confusion matrix')}>
+    <ul className="grid grid-cols-2 gap-3" aria-label={tr('Matriz de confusión', 'Confusion matrix')}>
       {celdas.map((c, i) => (
-        <div key={i} role="cell" className={`rounded-xl border p-3 ${c.ok ? 'border-turquesa/40 bg-turquesa/10' : 'border-acento/30 bg-acento/5'}`}>
+        <li key={i} className={`rounded-xl border p-3 ${c.ok ? 'border-turquesa/40 bg-turquesa/10' : 'border-acento/30 bg-acento/5'}`}>
           <p className={`font-titulo text-2xl font-bold ${c.ok ? 'text-estado-ok' : 'text-acento'}`}>{c.n}</p>
           <p className="text-xs text-slate-300">{c.t}</p>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
 
@@ -65,33 +65,64 @@ export default function Modelo() {
   const maxPeso = Math.max(...modelo.pesos.map((p) => Math.abs(p.peso)), 0.01);
   const pesos = [...modelo.pesos].sort((a, b2) => Math.abs(b2.peso) - Math.abs(a.peso));
   const detalle = v ? (todos ? v.detalle : v.detalle.slice(0, 12)) : [];
+  // Validación en 6 meses: la cifra principal es el promedio (no depende de un solo mes bueno o malo).
+  const vm = validacionMeses();
+  const prom = vm?.promedio;
 
   return (
     <>
       <PageHeader
         titulo={tr('Evaluación del modelo', 'Model evaluation')}
         subtitulo={tr(
-          `Así validamos las predicciones: entrenamos el modelo solo con el pasado, le pedimos que adivinara quién compraría en los ${VENTANA_DIAS} días siguientes y comparamos con lo que de verdad pasó.`,
-          `This is how we validate the predictions: we train the model only on the past, ask it to guess who would buy in the next ${VENTANA_DIAS} days, and compare with what actually happened.`,
+          `Así validamos las predicciones: entrenamos el modelo solo con el pasado, le pedimos que adivinara quién compraría en los ${VENTANA_DIAS} días siguientes y comparamos con lo que de verdad pasó. Lo repetimos en ${vm?.ventanas.length ?? 1} meses distintos.`,
+          `This is how we validate the predictions: we train the model only on the past, ask it to guess who would buy in the next ${VENTANA_DIAS} days, and compare with what actually happened. We repeat it over ${vm?.ventanas.length ?? 1} different months.`,
         )}
       />
 
-      {v && (
+      {v && prom && vm && (
         <>
+          <p className="etiqueta-seccion mb-2">{tr(`Promedio de ${vm.ventanas.length} meses`, `${vm.ventanas.length}-month average`)}</p>
           <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-            <StatCard titulo={tr('Precisión', 'Precision')} valor={pct(v.modelo.precision)} color="rgb(var(--texto-ok))" detalle={<Diferencia m={v.modelo.precision} r={v.regla.precision} />} />
-            <StatCard titulo={tr('Exhaustividad', 'Recall')} valor={pct(v.modelo.exhaustividad)} color="rgb(var(--texto-ok))" detalle={<Diferencia m={v.modelo.exhaustividad} r={v.regla.exhaustividad} />} />
-            <StatCard titulo="F1" valor={pct(v.modelo.f1)} color="rgb(var(--texto-ok))" detalle={<Diferencia m={v.modelo.f1} r={v.regla.f1} />} />
-            <StatCard titulo={tr('Exactitud', 'Accuracy')} valor={pct(v.modelo.exactitud)} color="rgb(var(--texto-ok))" detalle={<Diferencia m={v.modelo.exactitud} r={v.regla.exactitud} />} />
+            <StatCard titulo={tr('Precisión', 'Precision')} valor={pct(prom.modelo.precision)} color="rgb(var(--texto-ok))" detalle={<Diferencia m={prom.modelo.precision} r={prom.regla.precision} />} />
+            <StatCard titulo={tr('Exhaustividad', 'Recall')} valor={pct(prom.modelo.exhaustividad)} color="rgb(var(--texto-ok))" detalle={<Diferencia m={prom.modelo.exhaustividad} r={prom.regla.exhaustividad} />} />
+            <StatCard titulo="F1" valor={pct(prom.modelo.f1)} color="rgb(var(--texto-ok))" detalle={<Diferencia m={prom.modelo.f1} r={prom.regla.f1} />} />
+            <StatCard titulo={tr('Exactitud', 'Accuracy')} valor={pct(prom.modelo.exactitud)} color="rgb(var(--texto-ok))" detalle={<Diferencia m={prom.modelo.exactitud} r={prom.regla.exactitud} />} />
           </div>
 
           <div className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-5">
-            <Card titulo={tr('Desempeño del modelo de IA', 'AI model performance')} className="xl:col-span-3">
+            <Card titulo={tr(`Desempeño del modelo de IA (promedio de ${vm.ventanas.length} meses)`, `AI model performance (${vm.ventanas.length}-month average)`)} className="xl:col-span-3">
               <Suspense fallback={<div className="h-[340px] animate-pulse rounded-xl bg-superficie" aria-hidden="true" />}>
-                <DesempenoModelo modelo={v.modelo} regla={v.regla} alto={280} />
+                <DesempenoModelo modelo={prom.modelo} regla={prom.regla} alto={280} />
               </Suspense>
             </Card>
-            <Card titulo={tr('¿En qué acertó y en qué no?', 'Where was it right and wrong?')} className="xl:col-span-2">
+            <Card titulo={tr('Mes a mes', 'Month by month')} className="xl:col-span-2">
+              <p className="-mt-2 mb-3 text-sm text-tenue">
+                {tr(
+                  `El modelo igualó o superó a la regla base en ${vm.ganaModelo} de ${vm.ventanas.length} meses (F1).`,
+                  `The model matched or beat the baseline in ${vm.ganaModelo} of ${vm.ventanas.length} months (F1).`,
+                )}
+              </p>
+              <Table minWidth={300}>
+                <Thead>
+                  <Th className="pl-3">{tr('Predicción del', 'Predicted on')}</Th>
+                  <Th derecha>{tr('F1 modelo', 'Model F1')}</Th>
+                  <Th derecha>{tr('F1 regla', 'Baseline F1')}</Th>
+                </Thead>
+                <tbody>
+                  {vm.ventanas.map((w) => (
+                    <Tr key={w.fecha}>
+                      <Td className="pl-3">{fmtFecha(w.fecha)}</Td>
+                      <Td derecha className={`font-semibold ${w.modelo.f1 >= w.regla.f1 ? 'text-estado-ok' : 'text-slate-200'}`}>{pct(w.modelo.f1)}</Td>
+                      <Td derecha className="text-tenue">{pct(w.regla.f1)}</Td>
+                    </Tr>
+                  ))}
+                </tbody>
+              </Table>
+            </Card>
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-5">
+            <Card titulo={tr(`¿En qué acertó y en qué no? (último mes, desde el ${fmtFecha(v.fecha)})`, `Where was it right and wrong? (last month, from ${fmtFecha(v.fecha)})`)} className="xl:col-span-5">
               <Matriz m={v.modelo} />
               <ul className="mt-4 space-y-1.5 text-sm text-slate-300">
                 <li>
@@ -134,6 +165,14 @@ export default function Modelo() {
                 )}
               </li>
             )}
+            {vm && vm.ventanas.length > 1 && (
+              <li>
+                {tr(
+                  `Para no depender de un solo mes, la misma prueba se repite en ${vm.ventanas.length} meses distintos y se promedian los resultados.`,
+                  `So as not to depend on a single month, the same test is repeated over ${vm.ventanas.length} different months and the results are averaged.`,
+                )}
+              </li>
+            )}
             <li>
               {tr(
                 'Se compara con una regla simple: «comprará si compró en los últimos 30 días». Si el modelo no le gana a esa regla, no vale la pena.',
@@ -167,7 +206,7 @@ export default function Modelo() {
       </div>
 
       {v && (
-        <Card titulo={tr(`Predicción vs. realidad (${v.detalle.length} clientes)`, `Prediction vs. reality (${v.detalle.length} clients)`)} className="mt-6">
+        <Card titulo={tr(`Predicción vs. realidad, último mes (${v.detalle.length} clientes)`, `Prediction vs. reality, last month (${v.detalle.length} clients)`)} className="mt-6">
           <Table minWidth={620}>
             <Thead>
               <Th className="pl-4">{tr('Cliente', 'Client')}</Th>

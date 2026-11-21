@@ -8,6 +8,7 @@ import { useIdioma } from '../lib/idioma';
 import { useTema } from '../lib/tema';
 import { fmtDec } from '../lib/format';
 import { IconoInfo } from './Iconos';
+import { modelo as modeloEntrenado, validacionMeses } from '../lib/datos';
 
 const pct = (v: number) => `${fmtDec(v * 100)} %`;
 
@@ -70,6 +71,23 @@ export default function DesempenoModelo({ modelo, regla, alto = 220 }: { modelo:
         <IconoInfo className="mt-0.5 shrink-0 text-acento" width={18} height={18} />
         {conclusionModelo(modelo, regla, tr)}
       </p>
+    </div>
+  );
+}
+
+/**
+ * Versión para el Resumen general: usa el promedio de la validación en varios meses
+ * (o el último mes si no hay más historia). Se calcula aquí, después de mostrar la página.
+ */
+export function DesempenoPromedio() {
+  const { tr } = useIdioma();
+  const vm = validacionMeses();
+  const base = vm ? vm.promedio : modeloEntrenado.validacion;
+  if (!base) return null;
+  return (
+    <div>
+      {vm && <p className="etiqueta-seccion -mt-2 mb-1">{tr(`Promedio de ${vm.ventanas.length} meses`, `${vm.ventanas.length}-month average`)}</p>}
+      <DesempenoModelo modelo={base.modelo} regla={base.regla} />
     </div>
   );
 }

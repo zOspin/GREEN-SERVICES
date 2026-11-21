@@ -16,7 +16,7 @@ import { fmtCompacto, fmtDec, fmtFecha, fmtMes, fmtNum, fmtTrm, fmtUsd } from '.
 const AreaIngresos = lazy(() => import('../components/GraficasInicio').then((m) => ({ default: m.AreaIngresos })));
 const Dona = lazy(() => import('../components/GraficasInicio').then((m) => ({ default: m.Dona })));
 const GraficaVentas = lazy(() => import('../components/GraficaVentas'));
-const DesempenoModelo = lazy(() => import('../components/DesempenoModelo'));
+const DesempenoPromedio = lazy(() => import('../components/DesempenoModelo').then((m) => ({ default: m.DesempenoPromedio })));
 
 /** Espacio reservado (del mismo alto) mientras llega una gráfica, para que la página no salte. */
 function Diferido({ alto, children }: { alto: string; children: ReactNode }) {
@@ -243,7 +243,7 @@ export default function Inicio() {
         >
           {modelo.validacion ? (
             <Diferido alto="h-72">
-              <DesempenoModelo modelo={modelo.validacion.modelo} regla={modelo.validacion.regla} />
+              <DesempenoPromedio />
             </Diferido>
           ) : (
             <EmptyState titulo={tr('Aún no hay validación', 'No validation yet')} descripcion={modelo.motivo ? b(modelo.motivo) : undefined} />

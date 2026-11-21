@@ -4,7 +4,7 @@ import { fmtDec } from '../../lib/format';
 
 const ESTILO: Record<Prioridad, string> = {
   alta: 'bg-violeta/15 text-violeta border-violeta/40',
-  media: 'bg-turquesa/15 text-turquesa border-turquesa/40',
+  media: 'bg-turquesa/15 text-estado-ok border-turquesa/40',
   baja: 'bg-tenue/10 text-tenue border-borde',
 };
 

@@ -90,7 +90,7 @@ function RecuperarCliente() {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <Panel>
           <p className="text-sm text-tenue">{tr('Compra al año (promedio)', 'Buys per year (average)')}</p>
-          <p className="mt-1 font-titulo text-3xl font-bold text-turquesa">{fmtUsd(anual)}</p>
+          <p className="mt-1 font-titulo text-3xl font-bold text-estado-ok">{fmtUsd(anual)}</p>
           <p className="text-xs text-tenue">{tr(`≈ ${fmtCompacto(anual * trmHoy.valor, 'COP')} con la TRM de hoy`, `≈ ${fmtCompacto(anual * trmHoy.valor, 'COP')} at today's TRM`)}</p>
         </Panel>
         <Panel>

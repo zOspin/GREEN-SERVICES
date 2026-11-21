@@ -24,7 +24,7 @@ export default function SelectorModo() {
               MODO === o.valor
                 ? o.valor === 'demo'
                   ? 'bg-acento/15 text-acento'
-                  : 'bg-turquesa/15 text-turquesa'
+                  : 'bg-turquesa/15 text-estado-ok'
                 : 'text-tenue hover:text-white'
             }`}
           >

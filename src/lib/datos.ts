@@ -18,7 +18,7 @@ import trmReal from '../data/real/trm.json';
 import metaReal from '../data/real/meta.json';
 import { esDemoOriginal, leerDatosReales, MODO, SEMILLA } from './modo';
 import { generarDatos } from './generador';
-import { entrenarModelo } from './modelo';
+import { entrenarModelo, validarVariosMeses, type ValidacionMeses } from './modelo';
 import type { Cliente, Producto, Venta, Trm } from './types';
 import type { Umbrales } from '../config/umbrales';
 import {
@@ -112,6 +112,13 @@ export const correlacionVentasTrm = correlacion(
  * en los próximos 30 días por cliente, y su validación. No depende de los umbrales.
  */
 export const modelo = entrenarModelo(clientes, ventas, productos, HOY);
+
+/** Validación del modelo en 6 meses: se calcula la primera vez que se pide (cuesta ~0,5 s) y se guarda. */
+let validacionMesesGuardada: ValidacionMeses | null | undefined;
+export function validacionMeses(): ValidacionMeses | null {
+  if (validacionMesesGuardada === undefined) validacionMesesGuardada = validarVariosMeses(clientes, ventas, productos, HOY, 6);
+  return validacionMesesGuardada;
+}
 
 /** Cliente protagonista de la historia de la demo. */
 export const CLIENTE_DEMO = 'CLI-023';

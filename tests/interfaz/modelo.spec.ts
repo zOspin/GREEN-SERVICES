@@ -13,9 +13,11 @@ test('el resumen muestra indicadores, clientes prioritarios y desempeño del mod
 test('la evaluación compara el modelo con la regla base', async ({ page }) => {
   await page.goto('/modelo');
   for (const t of ['Precisión', 'Exhaustividad', 'F1', 'Exactitud']) await expect(page.getByText(t, { exact: true }).first()).toBeVisible();
-  await expect(page.getByText(/Predicción vs. realidad \(60 clientes\)/)).toBeVisible();
+  await expect(page.getByText(/Predicción vs. realidad, último mes \(60 clientes\)/)).toBeVisible();
+  await expect(page.getByText(/Promedio de 6 meses/).first()).toBeVisible();
+  await expect(page.getByText(/igualó o superó a la regla base en \d de 6 meses/)).toBeVisible();
   await page.getByRole('button', { name: 'Ver los 60' }).click();
-  await expect(page.locator('tbody tr')).toHaveCount(60);
+  await expect(page.locator('section', { hasText: 'Predicción vs. realidad' }).locator('tbody tr')).toHaveCount(60);
 });
 
 test('la tabla de clientes se ordena por probabilidad de compra', async ({ page }) => {

@@ -30,7 +30,7 @@ const COLORES = {
     tooltipTexto: '#1E1B4B',
     tarjeta: '#FFFFFF',
     azul: '#08AAC4',
-    acento: '#6D4AFF',
+    acento: '#603AF2',
     acentoTexto: '#6D28D9',
     turquesa: '#08AAC4',
     violeta: '#7C3AED',

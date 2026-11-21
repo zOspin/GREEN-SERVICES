@@ -177,6 +177,10 @@ export default function Layout() {
 
   return (
     <>
+    {/* Enlace para teclado: salta el menú y va directo al contenido (visible solo al usar Tab) */}
+    <a href="#contenido" className="sr-only z-50 rounded-xl bg-acento px-4 py-2 text-sm font-semibold text-sobre-acento focus:not-sr-only focus:fixed focus:left-4 focus:top-4">
+      {tr('Saltar al contenido', 'Skip to content')}
+    </a>
     {/* Banda discreta en toda la web */}
     <div className="border-b border-turquesa/25 bg-turquesa/10 px-4 py-1 text-center text-xs text-slate-200 print:hidden" role="note">
       <span aria-hidden="true" className={MODO === 'real' ? 'text-turquesa' : 'text-acento'}>● </span>
@@ -226,7 +230,7 @@ export default function Layout() {
         )}
       </header>
 
-      <main className={`min-w-0 flex-1 px-4 py-6 print:p-0 sm:px-6 lg:px-10 lg:py-8 ${presentando ? 'pb-48 lg:pb-36' : ''}`}>
+      <main id="contenido" tabIndex={-1} className={`min-w-0 flex-1 focus:outline-none px-4 py-6 print:p-0 sm:px-6 lg:px-10 lg:py-8 ${presentando ? 'pb-48 lg:pb-36' : ''}`}>
         <div className="mx-auto max-w-7xl">
           {/* Idioma y tema: siempre visibles arriba a la derecha (en celular van en el encabezado) */}
           <div className="mb-4 hidden justify-end print:hidden lg:flex">

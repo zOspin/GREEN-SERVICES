@@ -243,47 +243,96 @@ const VACIO = (motivo: ResultadoModelo['motivo']): ResultadoModelo => ({
 const MIN_FILAS = 40;
 const MIN_CLASE = 5;
 
+const suficiente = (filas: Fila[]) => {
+  const pos = filas.filter((f) => f.y).length;
+  return filas.length >= MIN_FILAS && pos >= MIN_CLASE && filas.length - pos >= MIN_CLASE;
+};
+
+type Validacion = NonNullable<ResultadoModelo['validacion']>;
+
+/**
+ * Valida el modelo con «hoy» = T: lo entrena solo con fotos cuyo resultado se conocía antes de T − 30 días,
+ * predice en T − 30 y compara con lo que pasó entre T − 30 y T (y con la regla base).
+ */
+function validarEn(hs: Historial[], T: number): Validacion | null {
+  const tPrueba = T - VENTANA_DIAS * DIA;
+  const ent = filasEntrenamiento(hs, tPrueba);
+  if (!suficiente(ent.filas)) return null;
+  const mod = entrenarLogistica(ent.filas);
+  const c0 = cicloGeneral(hs, tPrueba);
+  const detalle: DetalleValidacion[] = [];
+  for (const h of hs) {
+    const x = variablesEn(h, tPrueba, c0);
+    if (!x) continue;
+    const { p } = predecir(mod, x);
+    detalle.push({
+      idCliente: h.cliente.id,
+      probabilidad: p,
+      predijo: p >= 0.5,
+      regla: comproEntre(h, tPrueba - VENTANA_DIAS * DIA, tPrueba),
+      compro: comproEntre(h, tPrueba, T),
+    });
+  }
+  if (!detalle.length) return null;
+  return {
+    fecha: new Date(tPrueba).toISOString().slice(0, 10),
+    modelo: metricas(detalle),
+    regla: metricas(detalle.map((d) => ({ predijo: d.regla, compro: d.compro }))),
+    detalle: detalle.sort((a, b) => b.probabilidad - a.probabilidad),
+    filasEntrenamiento: ent.filas.length,
+    tasaCompra: detalle.filter((d) => d.compro).length / detalle.length,
+  };
+}
+
+export interface VentanaValidacion {
+  /** Fecha en que se hizo la predicción (los 30 días siguientes son el resultado). */
+  fecha: string;
+  clientes: number;
+  modelo: Metricas;
+  regla: Metricas;
+}
+
+export interface ValidacionMeses {
+  ventanas: VentanaValidacion[];
+  /** Promedio de las ventanas (precisión, exhaustividad, F1 y exactitud) y suma de la matriz de aciertos. */
+  promedio: { modelo: Metricas; regla: Metricas };
+  /** En cuántas ventanas el F1 del modelo fue mayor o igual que el de la regla base. */
+  ganaModelo: number;
+}
+
+function promediar(ms: Metricas[]): Metricas {
+  const prom = (k: keyof Metricas) => ms.reduce((s, m) => s + m[k], 0) / ms.length;
+  const suma = (k: keyof Metricas) => ms.reduce((s, m) => s + m[k], 0);
+  return { precision: prom('precision'), exhaustividad: prom('exhaustividad'), f1: prom('f1'), exactitud: prom('exactitud'), vp: suma('vp'), fp: suma('fp'), fn: suma('fn'), vn: suma('vn') };
+}
+
+/**
+ * Validación en varios meses (validación «hacia atrás» o walk-forward): repite la validación con «hoy»
+ * en distintas fechas, una cada 30 días, para no depender de un solo mes bueno o malo.
+ * Es más costosa (un entrenamiento por ventana), así que se calcula solo cuando se muestra.
+ */
+export function validarVariosMeses(clientes: Cliente[], ventas: Venta[], productos: Producto[], hoy: Date, meses = 6): ValidacionMeses | null {
+  const hs = prepararHistoriales(clientes, ventas, productos);
+  const ventanas: VentanaValidacion[] = [];
+  for (let k = 0; k < meses; k++) {
+    const v = validarEn(hs, hoy.getTime() - k * VENTANA_DIAS * DIA);
+    if (v) ventanas.push({ fecha: v.fecha, clientes: v.detalle.length, modelo: v.modelo, regla: v.regla });
+  }
+  if (!ventanas.length) return null;
+  return {
+    ventanas,
+    promedio: { modelo: promediar(ventanas.map((v) => v.modelo)), regla: promediar(ventanas.map((v) => v.regla)) },
+    ganaModelo: ventanas.filter((v) => v.modelo.f1 >= v.regla.f1).length,
+  };
+}
+
 export function entrenarModelo(clientes: Cliente[], ventas: Venta[], productos: Producto[], hoy: Date): ResultadoModelo {
   const hs = prepararHistoriales(clientes, ventas, productos);
   const T = hoy.getTime();
   const pocos = { es: 'Hacen falta más datos: al menos unos meses de ventas y varios clientes.', en: 'More data is needed: at least a few months of sales and several clients.' };
 
-  const suficiente = (filas: Fila[]) => {
-    const pos = filas.filter((f) => f.y).length;
-    return filas.length >= MIN_FILAS && pos >= MIN_CLASE && filas.length - pos >= MIN_CLASE;
-  };
-
   // 1) Validación: entrenar con lo anterior a hace 30 días y probar en la foto de hace 30 días.
-  let validacion: ResultadoModelo['validacion'] = null;
-  const tPrueba = T - VENTANA_DIAS * DIA;
-  const ent = filasEntrenamiento(hs, tPrueba);
-  if (suficiente(ent.filas)) {
-    const mod = entrenarLogistica(ent.filas);
-    const c0 = cicloGeneral(hs, tPrueba);
-    const detalle: DetalleValidacion[] = [];
-    for (const h of hs) {
-      const x = variablesEn(h, tPrueba, c0);
-      if (!x) continue;
-      const { p } = predecir(mod, x);
-      detalle.push({
-        idCliente: h.cliente.id,
-        probabilidad: p,
-        predijo: p >= 0.5,
-        regla: comproEntre(h, tPrueba - VENTANA_DIAS * DIA, tPrueba),
-        compro: comproEntre(h, tPrueba, T),
-      });
-    }
-    if (detalle.length) {
-      validacion = {
-        fecha: new Date(tPrueba).toISOString().slice(0, 10),
-        modelo: metricas(detalle),
-        regla: metricas(detalle.map((d) => ({ predijo: d.regla, compro: d.compro }))),
-        detalle: detalle.sort((a, b) => b.probabilidad - a.probabilidad),
-        filasEntrenamiento: ent.filas.length,
-        tasaCompra: detalle.filter((d) => d.compro).length / detalle.length,
-      };
-    }
-  }
+  const validacion = validarEn(hs, T);
 
   // 2) Modelo final: entrenar con todo lo que ya tiene resultado y predecir hoy.
   const fin = filasEntrenamiento(hs, T);
