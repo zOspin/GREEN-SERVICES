@@ -1,5 +1,5 @@
 /**
- * Capturas de Órbita Pulse para las diapositivas 10, 11 y 12.
+ * Capturas de Órbita para las diapositivas 10, 11 y 12.
  *
  * Uso:  npm run capturas
  * Resultado: presentacion/capturas/ (1920×1080, tema claro con el estilo del reto, en español)

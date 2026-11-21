@@ -83,7 +83,7 @@ function Marca({ grande = false }: { grande?: boolean }) {
         <Logo size={40} />
         <div className="hidden leading-tight min-[380px]:block">
           <p className="whitespace-nowrap font-titulo text-lg font-bold tracking-tight text-white">
-            Órbita <span className="text-acento">Pulse</span>
+            <span className="text-acento">Órbita</span>
           </p>
           <p className="hidden text-[0.7rem] text-tenue min-[400px]:block">{tr('para Green Services', 'for Green Services')}</p>
         </div>
@@ -96,7 +96,7 @@ function Marca({ grande = false }: { grande?: boolean }) {
         <Logo size={54} />
       </div>
       <p className="mt-2 font-titulo text-lg font-bold tracking-tight text-white">
-        Órbita <span className="text-acento">Pulse</span>
+        <span className="text-acento">Órbita</span>
       </p>
       <p className="text-xs text-tenue">{tr('Inteligencia que gira a tu alrededor', 'Intelligence that revolves around you')}</p>
     </div>
@@ -237,7 +237,7 @@ export default function Layout() {
         </div>
         <footer className="mx-auto mt-12 flex max-w-7xl flex-wrap items-center justify-between gap-2 border-t border-borde pt-4 text-xs text-tenue print:hidden">
           <p>
-            Órbita Pulse · {tr('Equipo Órbita · Hackatón Estud-IA, Alcaldía de Medellín', 'Team Órbita · Estud-IA Hackathon, Medellín City Hall')}
+            Órbita · {tr('Hackatón Estud-IA, Alcaldía de Medellín', 'Estud-IA Hackathon, Medellín City Hall')}
           </p>
           <nav aria-label={tr('Pie de página', 'Footer')} className="flex gap-4">
             <Link to="/privacidad" className="hover:text-white hover:underline">

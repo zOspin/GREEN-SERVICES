@@ -1,5 +1,5 @@
 /**
- * Lógica de "IA" de Órbita Pulse.
+ * Lógica de "IA" de Órbita.
  *
  * Es deliberadamente simple y explicable: no hay cajas negras.
  * La idea es la misma de la panadería del barrio: si un vecino compra pan

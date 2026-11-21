@@ -24,7 +24,7 @@ function NoEncontrada() {
   return (
     <EmptyState
       titulo={tr('Página no encontrada', 'Page not found')}
-      descripcion={tr('La dirección no existe en Órbita Pulse.', "This address doesn't exist in Órbita Pulse.")}
+      descripcion={tr('La dirección no existe en Órbita.', "This address doesn't exist in Órbita.")}
       accion={<ButtonLink to="/" variante="primario">{tr('Ir al inicio', 'Go home')}</ButtonLink>}
     />
   );

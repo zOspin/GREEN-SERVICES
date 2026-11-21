@@ -140,8 +140,8 @@ export default function CargarDatos() {
       <PageHeader
         titulo={tr('Centro de datos', 'Data hub')}
         subtitulo={tr(
-          'Une la información que hoy está regada en varias plataformas. Órbita Pulse reconoce las columnas, traduce formatos, quita duplicados y avisa lo que no pudo leer.',
-          "Bring together data that is scattered across several platforms. Órbita Pulse recognizes columns, converts formats, removes duplicates and flags what it couldn't read.",
+          'Une la información que hoy está regada en varias plataformas. Órbita reconoce las columnas, traduce formatos, quita duplicados y avisa lo que no pudo leer.',
+          "Bring together data that is scattered across several platforms. Órbita recognizes columns, converts formats, removes duplicates and flags what it couldn't read.",
         )}
       />
 
@@ -204,8 +204,8 @@ export default function CargarDatos() {
                 <p className="font-semibold text-white">{tr('Lo que necesita la página', 'What the page needs')}</p>
                 <p className="mt-1 text-sm text-tenue">
                   {tr(
-                    'Una fila por venta. Los nombres de las columnas pueden variar: Órbita Pulse reconoce sinónimos (por ejemplo «date», «SKU», «Valor COP»).',
-                    'One row per sale. Column names can vary: Órbita Pulse recognizes synonyms (for example "date", "SKU", "Valor COP").',
+                    'Una fila por venta. Los nombres de las columnas pueden variar: Órbita reconoce sinónimos (por ejemplo «date», «SKU», «Valor COP»).',
+                    'One row per sale. Column names can vary: Órbita recognizes synonyms (for example "date", "SKU", "Valor COP").',
                   )}
                 </p>
               </div>
@@ -300,8 +300,8 @@ export default function CargarDatos() {
               real
                 ? tr('Sube los archivos reales de Green Services (CSV o Excel).', "Upload Green Services' real files (CSV or Excel).")
                 : tr(
-                    'Usa «Cargar los 3 archivos de ejemplo» para ver cómo Órbita Pulse une datos regados.',
-                    'Use "Load the 3 sample files" to see how Órbita Pulse brings scattered data together.',
+                    'Usa «Cargar los 3 archivos de ejemplo» para ver cómo Órbita une datos regados.',
+                    'Use "Load the 3 sample files" to see how Órbita brings scattered data together.',
                   )
             }
           />
@@ -452,8 +452,8 @@ export default function CargarDatos() {
             >
               <p className="-mt-2 mb-3 text-sm text-slate-300">
                 {tr(
-                  'El mismo cliente venía escrito distinto en cada plataforma y una compra estaba dos veces. Órbita Pulse lo reconoce como un solo cliente y deja cada compra una sola vez.',
-                  'The same client was written differently on each platform and one purchase appeared twice. Órbita Pulse recognizes it as one client and keeps each purchase once.',
+                  'El mismo cliente venía escrito distinto en cada plataforma y una compra estaba dos veces. Órbita lo reconoce como un solo cliente y deja cada compra una sola vez.',
+                  'The same client was written differently on each platform and one purchase appeared twice. Órbita recognizes it as one client and keeps each purchase once.',
                 )}
               </p>
               <Table minWidth={720}>

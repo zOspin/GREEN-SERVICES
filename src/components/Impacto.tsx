@@ -1,5 +1,5 @@
 /**
- * Métrica de impacto: tiempo de consolidación antes vs. con Órbita Pulse.
+ * Métrica de impacto: tiempo de consolidación antes vs. con Órbita.
  * Lee src/config/impacto.ts. Si no hay dato de la empresa, lo dice: no inventamos cifras.
  */
 import { IMPACTO } from '../config/impacto';

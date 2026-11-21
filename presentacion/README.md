@@ -1,4 +1,4 @@
-# Presentación — Órbita Pulse (Estud-IA)
+# Presentación — Órbita (Estud-IA)
 
 Presentación del equipo **Órbita** para el hackatón Estud-IA (reto 4, IA en operaciones, Green Services and Solutions SAS). Se hizo en Claude (Slides) y aquí está su código fuente para que Claude Code la analice y mantenga la web coherente con ella.
 
@@ -9,7 +9,7 @@ Presentación del equipo **Órbita** para el hackatón Estud-IA (reto 4, IA en o
 
 ## Orden de las diapositivas
 
-1. **portada**: "Órbita Pulse · Inteligencia que gira a tu alrededor", con el logo de la órbita animado.
+1. **portada**: "Órbita · Inteligencia que gira a tu alrededor", con el logo de la órbita animado.
 2. **equipo**: Daniel (coordinador), Mateo (comunicador), Emmanuel (diseñador), Juan Pablo y Manuel (investigadores) y Vanessa (documentación).
 3. **empresa**: quién es Green Services.
 4. **problema**: "Los datos existen, pero llegan tarde" (regados, a mano, reactivo).
@@ -21,7 +21,7 @@ Presentación del equipo **Órbita** para el hackatón Estud-IA (reto 4, IA en o
 10. **modulo-ops**: Centro de datos (espacio para captura de la web).
 11. **modulo-com**: Radar de clientes (dibujo del radar; reemplazar por captura).
 12. **modulo-fin**: Panel financiero (espacio para captura de la web).
-13. **antes-ahora**: Antes vs. Con Órbita Pulse.
+13. **antes-ahora**: Antes vs. Con Órbita.
 14. **evidencia**: lo que sabemos, lo que suponemos y lo que falta.
 15. **siguientes**: Hoy (prototipo) → Piloto con datos reales → Conexión directa.
 16. **cierre**: "¡Gracias!" y paso a la demo en vivo.

@@ -146,8 +146,8 @@ export default function Predicciones() {
       <Card titulo={tr('¿Cómo funciona la IA?', 'How does the AI work?')} className="mt-6">
         <blockquote className="rounded-xl border-l-4 border-acento bg-acento/10 p-4 text-lg text-slate-100">
           {tr(
-            '«Si un vecino compra pan cada 3 días y lleva 10 sin aparecer, la dueña nota que algo pasó. Órbita Pulse hace eso con cada cliente.»',
-            '"If a neighbor buys bread every 3 days and hasn\'t shown up in 10, the baker notices something happened. Órbita Pulse does that with every client."',
+            '«Si un vecino compra pan cada 3 días y lleva 10 sin aparecer, la dueña nota que algo pasó. Órbita hace eso con cada cliente.»',
+            '"If a neighbor buys bread every 3 days and hasn\'t shown up in 10, the baker notices something happened. Órbita does that with every client."',
           )}
         </blockquote>
         <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">

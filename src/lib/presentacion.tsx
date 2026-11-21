@@ -26,12 +26,12 @@ export const PASOS: Paso[] = [
     ancla: 'seguimiento-cliente',
     titulo: { es: 'Centro de datos', en: 'Data hub' },
     leyenda: {
-      es: 'Tres plataformas, tres formatos: el Cliente 23 venía regado y repetido. Órbita Pulse lo une en segundos.',
-      en: 'Three platforms, three formats: Client 23 was scattered and repeated. Órbita Pulse merges it in seconds.',
+      es: 'Tres plataformas, tres formatos: el Cliente 23 venía regado y repetido. Órbita lo une en segundos.',
+      en: 'Three platforms, three formats: Client 23 was scattered and repeated. Órbita merges it in seconds.',
     },
     notas: {
-      es: 'Estos son tres archivos reales en su forma: el ERP, la sede internacional y el Excel que Operaciones llena a mano. Miren al Cliente 23: en uno se llama «Cliente 23», en otro «CLI-23» y en el Excel «CLIENTE 023», y su última compra estaba dos veces. Órbita Pulse lo reconoce como un solo cliente y quita el duplicado. Esto hoy se hace a mano en Excel cada mes.',
-      en: 'These are three files as they really come: the ERP, the international office and the spreadsheet Operations fills by hand. Look at Client 23: it appears as "Cliente 23", "CLI-23" and "CLIENTE 023", and its last purchase was there twice. Órbita Pulse recognizes one client and removes the duplicate. Today this is done by hand in Excel every month.',
+      es: 'Estos son tres archivos reales en su forma: el ERP, la sede internacional y el Excel que Operaciones llena a mano. Miren al Cliente 23: en uno se llama «Cliente 23», en otro «CLI-23» y en el Excel «CLIENTE 023», y su última compra estaba dos veces. Órbita lo reconoce como un solo cliente y quita el duplicado. Esto hoy se hace a mano en Excel cada mes.',
+      en: 'These are three files as they really come: the ERP, the international office and the spreadsheet Operations fills by hand. Look at Client 23: it appears as "Cliente 23", "CLI-23" and "CLIENTE 023", and its last purchase was there twice. Órbita recognizes one client and removes the duplicate. Today this is done by hand in Excel every month.',
     },
   },
   {
@@ -79,8 +79,8 @@ export const PASOS: Paso[] = [
       en: 'Calling Client 23 today means winning back its yearly purchases.',
     },
     notas: {
-      es: 'Y así con cada cliente, todas las semanas, sin esperar el Excel del mes. Llamar hoy al Cliente 23 es recuperar lo que compra en un año. Esto es Órbita Pulse: inteligencia que gira a tu alrededor.',
-      en: 'And so with every client, every week, without waiting for the monthly spreadsheet. Calling Client 23 today wins back what it buys in a year. This is Órbita Pulse: intelligence that revolves around you.',
+      es: 'Y así con cada cliente, todas las semanas, sin esperar el Excel del mes. Llamar hoy al Cliente 23 es recuperar lo que compra en un año. Esto es Órbita: inteligencia que gira a tu alrededor.',
+      en: 'And so with every client, every week, without waiting for the monthly spreadsheet. Calling Client 23 today wins back what it buys in a year. This is Órbita: intelligence that revolves around you.',
     },
   },
 ];

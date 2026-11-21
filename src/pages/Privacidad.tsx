@@ -27,8 +27,8 @@ const PUNTOS: { titulo: Bi; texto: Bi }[] = [
   {
     titulo: { es: 'La IA sugiere y la persona decide', en: 'The AI suggests and people decide' },
     texto: {
-      es: 'Órbita Pulse no contacta a nadie. Propone a quién llamar, por qué y qué ofrecer; el asesor revisa, decide y envía el mensaje por su canal habitual. Nada se envía al cliente automáticamente.',
-      en: 'Órbita Pulse does not contact anyone. It proposes who to call, why and what to offer; the advisor reviews, decides and sends the message through their usual channel. Nothing is sent to clients automatically.',
+      es: 'Órbita no contacta a nadie. Propone a quién llamar, por qué y qué ofrecer; el asesor revisa, decide y envía el mensaje por su canal habitual. Nada se envía al cliente automáticamente.',
+      en: 'Órbita does not contact anyone. It proposes who to call, why and what to offer; the advisor reviews, decides and sends the message through their usual channel. Nothing is sent to clients automatically.',
     },
   },
 ];
@@ -39,7 +39,7 @@ export default function Privacidad() {
     <>
       <PageHeader
         titulo={tr('Privacidad y confianza', 'Privacy and trust')}
-        subtitulo={tr('Cómo cuida Órbita Pulse la información de la empresa y de sus clientes.', 'How Órbita Pulse protects the company’s and its clients’ information.')}
+        subtitulo={tr('Cómo cuida Órbita la información de la empresa y de sus clientes.', 'How Órbita protects the company’s and its clients’ information.')}
       />
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {PUNTOS.map((p, i) => (

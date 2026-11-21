@@ -52,7 +52,7 @@ export default function Cierre() {
         </div>
       </div>
       <p className="mt-10 font-titulo text-2xl font-semibold">
-        Órbita <span className="text-acento">Pulse</span>
+        <span className="text-acento">Órbita</span>
       </p>
       <p className="text-tenue">{tr('Inteligencia que gira a tu alrededor', 'Intelligence that revolves around you')}</p>
       <div className="mt-8 flex flex-wrap justify-center gap-3 print:hidden">

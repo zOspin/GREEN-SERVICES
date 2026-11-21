@@ -6,7 +6,7 @@ Hoy no hay datos reales: por eso el modo **Real** de la web muestra todo en cero
 
 1. Activa el modo **Real** en el menú (selector «Datos»).
 2. Ve a **Centro de datos** y pulsa **Descargar plantilla** (solo trae los encabezados).
-3. Llénala con la exportación de Green Services, o sube los archivos tal como salen de cada sistema: Órbita Pulse reconoce columnas con otros nombres.
+3. Llénala con la exportación de Green Services, o sube los archivos tal como salen de cada sistema: Órbita reconoce columnas con otros nombres.
 4. Pulsa **«Usar estos datos en modo Real»**.
 
 Los datos quedan guardados **solo en ese navegador** (no se suben a internet ni a GitHub). Para quitarlos: **Borrar datos reales**.

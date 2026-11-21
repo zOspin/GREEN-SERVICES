@@ -1,4 +1,4 @@
-# Órbita Pulse
+# Órbita
 
 **Inteligencia que gira a tu alrededor.**
 
@@ -14,7 +14,7 @@ El área de Operaciones tiene la información de compras, ventas, TRM (precio de
 
 > **¿Cómo podríamos ayudar al área Comercial a anticipar qué clientes están por dejar de comprar y cuándo deberían volver a hacerlo, para contactarlos a tiempo?**
 
-## ¿Qué es Órbita Pulse?
+## ¿Qué es Órbita?
 
 Un tablero web que:
 
@@ -55,7 +55,7 @@ npm install
 npm run dev
 ```
 
-Abre en el navegador la dirección que aparece en la terminal (**http://localhost:5190**; Órbita Pulse usa su propio puerto para no chocar con otros proyectos).
+Abre en el navegador la dirección que aparece en la terminal (**http://localhost:5190**; Órbita usa su propio puerto para no chocar con otros proyectos).
 
 | Comando | Qué hace |
 |---|---|
@@ -136,7 +136,7 @@ FECHA_CORTE=2026-12-01 npm run generate-data
 
 ## ¿Cómo funciona la «IA»?
 
-> *«Si un vecino compra pan cada 3 días y lleva 10 sin aparecer, la dueña nota que algo pasó. Órbita Pulse hace eso con cada cliente.»*
+> *«Si un vecino compra pan cada 3 días y lleva 10 sin aparecer, la dueña nota que algo pasó. Órbita hace eso con cada cliente.»*
 
 Es una IA **sencilla y explicable**: reglas y cálculos que cualquiera puede revisar en `src/lib/analytics.ts` (comentado en español).
 
@@ -160,7 +160,7 @@ Es una IA **sencilla y explicable**: reglas y cálculos que cualquiera puede rev
 
 ### El modelo predictivo (regresión logística)
 
-Además de las reglas de arriba, Órbita Pulse **entrena un modelo** con el historial (`src/lib/modelo.ts`):
+Además de las reglas de arriba, Órbita **entrena un modelo** con el historial (`src/lib/modelo.ts`):
 
 1. **Fotos del pasado**: cada 15 días (12 fotos) se mira cómo estaba cada cliente (atraso frente a su ritmo, número de compras, total comprado, compras en los últimos 90 días, ciclo corto, base instalada, servicios recurrentes) y si **compró en los 30 días siguientes**.
 2. **Entrenamiento**: una regresión logística aprende cuánto pesa cada señal. Corre en el navegador, en menos de un segundo, y siempre da el mismo resultado con los mismos datos.

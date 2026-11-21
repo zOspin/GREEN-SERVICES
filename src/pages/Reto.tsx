@@ -115,7 +115,7 @@ export default function Reto() {
           titulo={
             <span>
               {tr('Ahora, con ', 'Now, with ')}
-              <span className="text-acento">Órbita Pulse</span>
+              <span className="text-acento">Órbita</span>
             </span>
           }
           className="border-acento/40"

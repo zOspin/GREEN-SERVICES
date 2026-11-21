@@ -17,12 +17,12 @@ Puede equivocarse, y por eso:
 
 ## 3. ¿Por qué no usar Power BI o Excel?
 
-Power BI y Excel **muestran** lo que ya pasó, si alguien arma el reporte. Órbita Pulse:
+Power BI y Excel **muestran** lo que ya pasó, si alguien arma el reporte. Órbita:
 - **une** los datos regados sin hacerlo a mano;
 - **anticipa** quién está por irse según el ritmo de cada cliente;
 - **dice qué hacer**: a quién llamar esta semana, por qué y qué ofrecerle.
 
-No reemplaza esas herramientas: puede alimentarlas. Si la empresa ya usa Power BI, los resultados de Órbita Pulse se pueden ver ahí.
+No reemplaza esas herramientas: puede alimentarlas. Si la empresa ya usa Power BI, los resultados de Órbita se pueden ver ahí.
 
 ## 4. ¿Con qué sistemas se conecta?
 

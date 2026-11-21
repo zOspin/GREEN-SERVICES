@@ -1,4 +1,4 @@
-# Guía técnica de Órbita Pulse
+# Guía técnica de Órbita
 
 Para explicar el código: **de dónde sale cada dato, cómo se calcula y por qué se hizo así**.
 Las rutas son relativas a la raíz del repositorio; los números de línea son de referencia (pueden moverse un poco con cambios futuros).

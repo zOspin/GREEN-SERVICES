@@ -97,8 +97,8 @@ export default function Reporte() {
         <Card>
           <p className="etiqueta-seccion">
             {tr(
-              'Órbita Pulse · Green Services and Solutions SAS · datos de demostración',
-              'Órbita Pulse · Green Services and Solutions SAS · demo data',
+              'Órbita · Green Services and Solutions SAS · datos de demostración',
+              'Órbita · Green Services and Solutions SAS · demo data',
             )}
           </p>
           <h2 className="mt-1 font-titulo text-2xl font-bold">{tr(`Reporte de ${nombreMes}`, `${nombreMes} report`)}</h2>

@@ -1,5 +1,5 @@
 /**
- * Generador de datos sintéticos para Órbita Pulse.
+ * Generador de datos sintéticos para Órbita.
  *
  * Todo es inventado: no hay ningún dato real de clientes.
  * Usa una semilla fija, así que cada vez que se ejecuta produce exactamente
@@ -34,7 +34,7 @@ escribir('meta.json', meta);
 
 // ---------- Archivos de ejemplo "regados" (public/ejemplos) ----------
 // Las ventas de los últimos 60 días, repartidas en tres fuentes con formatos distintos,
-// para demostrar en vivo que Órbita Pulse une y limpia datos de varias plataformas.
+// para demostrar en vivo que Órbita une y limpia datos de varias plataformas.
 const ejemplos = join(salida, '..', '..', 'public', 'ejemplos');
 mkdirSync(ejemplos, { recursive: true });
 const csv = (filas: (string | number)[][], sep = ',') =>

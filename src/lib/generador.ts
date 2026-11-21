@@ -1,5 +1,5 @@
 /**
- * Generador de datos sintéticos para el modo Demo de Órbita Pulse.
+ * Generador de datos sintéticos para el modo Demo de Órbita.
  *
  * Todo es inventado: no hay ningún dato real de clientes.
  * Con la misma semilla produce siempre los mismos datos. La semilla 2026 es la demo «original»
